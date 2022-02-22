@@ -5,15 +5,15 @@ specifiers:
   '@sveltejs/kit': next
   papercss: ^1.8.3
   prettier: ^2.5.1
-  prettier-plugin-svelte: ^2.5.0
+  prettier-plugin-svelte: ^2.6.0
   sass: ^1.49.8
   spaper: ^0.4.6
   stream: ^0.0.2
-  svelte: ^3.44.0
-  svelte-check: ^2.2.6
-  svelte-preprocess: ^4.10.1
+  svelte: ^3.46.4
+  svelte-check: ^2.4.5
+  svelte-preprocess: ^4.10.3
   tslib: ^2.3.1
-  typescript: ~4.5.4
+  typescript: ~4.5.5
 
 dependencies:
   papercss: 1.8.3
@@ -889,8 +889,8 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rollup/2.67.3:
-    resolution: {integrity: sha512-G/x1vUwbGtP6O5ZM8/sWr8+p7YfZhI18pPqMRtMYMWSbHjKZ/ajHGiM+GWNTlWyOR0EHIdT8LHU+Z4ciIZ1oBw==}
+  /rollup/2.68.0:
+    resolution: {integrity: sha512-XrMKOYK7oQcTio4wyTz466mucnd8LzkiZLozZ4Rz0zQD+HeX4nUK4B8GrTX/2EvN2/vBF/i2WnaXboPxo0JylA==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -1116,7 +1116,7 @@ packages:
       esbuild: 0.14.23
       postcss: 8.4.6
       resolve: 1.22.0
-      rollup: 2.67.3
+      rollup: 2.68.0
       sass: 1.49.8
     optionalDependencies:
       fsevents: 2.3.2
