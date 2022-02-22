@@ -14,9 +14,14 @@
 	import { Badge, Card } from 'spaper';
 
 	export let project: Project;
+	export let index: number;
 </script>
 
-<Card title={project.name} image="https://picsum.photos/500" imageAlt="{project.name} screenshot">
+<Card
+	title="#{index + 1} {project.name}"
+	image="https://picsum.photos/500"
+	imageAlt="{project.name} screenshot"
+>
 	<p>
 		{project.description}
 	</p>

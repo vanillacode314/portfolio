@@ -5,7 +5,7 @@
 	import { toggleDarkMode } from '$lib/utils';
 </script>
 
-<Navbar>
+<Navbar style="overflow: hidden;">
 	<h3 slot="brand">
 		<a href="/">VanillaCode</a>
 	</h3>
