@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import AboutMe from '$lib/layouts/AboutMe.svelte';
 	import Landing from '$lib/layouts/Landing.svelte';
@@ -12,7 +16,7 @@
 
 <section class="contact" id="contact">
 	<Card header="Contact Me">
-		<Form name="contact" netlify>
+		<Form method="POST" name="contact" netlify>
 			<Input label="Name" name="name" placeholder="name" type="text" class="margin-bottom-small" />
 
 			<Input
