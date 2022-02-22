@@ -1,2 +1,19 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import AboutMe from '$lib/layouts/AboutMe.svelte';
+	import Landing from '$lib/layouts/Landing.svelte';
+	import Projects from '$lib/layouts/Projects.svelte';
+</script>
+
+<Landing />
+<div class="about" id="about">
+	<AboutMe />
+</div>
+<div class="projects" id="projects">
+	<Projects />
+</div>
+
+<!-- <style lang="scss"> -->
+<!-- 	.projects { -->
+<!-- 		padding: 1rem; -->
+<!-- 	} -->
+<!-- </style> -->
