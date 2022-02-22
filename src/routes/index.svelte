@@ -18,7 +18,14 @@
 	<Card header="Contact Me">
 		<Form method="POST" name="contact" data-netlify="true">
 			<input type="hidden" name="form-name" value="contact" />
-			<Input label="Name" name="name" placeholder="name" type="text" class="margin-bottom-small" />
+			<Input
+				label="Name"
+				name="name"
+				placeholder="name"
+				type="text"
+				class="margin-bottom-small"
+				required
+			/>
 
 			<Input
 				label="Your Email"
@@ -26,6 +33,7 @@
 				placeholder="email"
 				type="email"
 				class="margin-bottom-small"
+				required
 			/>
 			<Input
 				label="Message"
@@ -33,6 +41,7 @@
 				placeholder="message"
 				type="textarea"
 				class="margin-bottom-small"
+				required
 			/>
 
 			<Button type="secondary" class="margin-top-small">Send</Button>
