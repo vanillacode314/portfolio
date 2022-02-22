@@ -16,7 +16,8 @@
 
 <section class="contact" id="contact">
 	<Card header="Contact Me">
-		<Form method="POST" name="contact" netlify>
+		<Form method="POST" name="contact" data-netlify="true">
+			<input type="hidden" name="form-name" value="contact" />
 			<Input label="Name" name="name" placeholder="name" type="text" class="margin-bottom-small" />
 
 			<Input
