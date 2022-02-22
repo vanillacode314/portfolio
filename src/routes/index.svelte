@@ -21,7 +21,7 @@
 			<Input label="Name" name="name" placeholder="name" type="text" class="margin-bottom-small" />
 
 			<Input
-				label="Email"
+				label="Your Email"
 				name="email"
 				placeholder="email"
 				type="email"
