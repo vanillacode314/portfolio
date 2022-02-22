@@ -7,7 +7,7 @@
 		<h2 class="text-secondary">
 			I help businesses boost their online presence and compete in the digital age.
 		</h2>
-		<a href="#projects">See My Work</a>
+		<Button isLink href="#projects">See My Work</Button>
 	</section>
 	<img src="/assets/growth.svg" alt="growth" />
 </div>
@@ -20,6 +20,9 @@
 		gap: 1rem;
 		@media screen and (max-width: 850px) {
 			grid-template-columns: 1fr;
+			h2 {
+				font-size: xxx-large;
+			}
 		}
 	}
 

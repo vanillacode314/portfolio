@@ -4,8 +4,8 @@
 	import { Card } from 'spaper';
 </script>
 
-<Card header="Projects">
-	<section class="projects" id="projects">
+<Card header="Projects" id="projects">
+	<section class="projects">
 		{#each projects as project, index (project.id)}
 			<Project {project} {index} />
 		{/each}

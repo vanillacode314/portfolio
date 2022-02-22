@@ -8,7 +8,7 @@
 	<title>VanillaCode</title>
 </svelte:head>
 
-<div class="container-lg">
+<div class="container">
 	<Navbar />
 	<slot />
 </div>
