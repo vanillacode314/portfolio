@@ -19,7 +19,7 @@
 
 <Card
 	title="#{index + 1} {project.name}"
-	image="https://picsum.photos/500"
+	image={project.image && `/images/${project.id}.jpg`}
 	imageAlt="{project.name} screenshot"
 >
 	<p>
