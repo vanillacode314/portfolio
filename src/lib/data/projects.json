@@ -4,7 +4,7 @@
 		"name": "VanillaTimeTracker",
 		"description": "A Free and Open source Time Tracker for Freelancers.",
 		"image": true,
-		"tech": ["svelte", "sveltekit", "attractions ui kit"],
+		"tech": ["svelte", "sveltekit", "kahi ui"],
 		"url": "https://vanillatimetracker.netlify.app",
 		"repo_url": "https://github.com/vanillacode314/vanillatimetracker"
 	}
