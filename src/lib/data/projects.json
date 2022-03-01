@@ -13,7 +13,7 @@
 		"name": "VanillaInvoiceManager",
 		"description": "A Free and Open source Invoice Manager.",
 		"image": true,
-		"tech": ["svelte", "sveltekit", "papercss"],
+		"tech": ["svelte", "sveltekit", "kahi ui"],
 		"url": "https://vanillainvoicemanager.netlify.app",
 		"repo_url": "https://github.com/vanillacode314/vanillainvoicemanager"
 	}
