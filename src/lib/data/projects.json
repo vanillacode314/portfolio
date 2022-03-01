@@ -7,5 +7,14 @@
 		"tech": ["svelte", "sveltekit", "kahi ui"],
 		"url": "https://vanillatimetracker.netlify.app",
 		"repo_url": "https://github.com/vanillacode314/vanillatimetracker"
+	},
+	{
+		"id": "vim",
+		"name": "VanillaInvoiceManager",
+		"description": "A Free and Open source Invoice Manager.",
+		"image": true,
+		"tech": ["svelte", "sveltekit", "papercss"],
+		"url": "https://vanillainvoicemanager.netlify.app",
+		"repo_url": "https://github.com/vanillacode314/vanillainvoicemanager"
 	}
 ]
