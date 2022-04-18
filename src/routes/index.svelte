@@ -8,6 +8,7 @@
 	import Landing from '$lib/layouts/Landing.svelte';
 	import Links from '$lib/layouts/Links.svelte';
 	import Projects from '$lib/layouts/Projects.svelte';
+	import Testimonials from '$lib/layouts/Testimonials.svelte';
 	import { Card } from 'spaper';
 	import { Form, Input, Button } from 'spaper';
 </script>
@@ -15,6 +16,7 @@
 <main>
 	<Landing />
 	<AboutMe />
+	<Testimonials />
 	<Projects />
 	<Contact />
 	<Links />
