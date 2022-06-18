@@ -1,9 +1,9 @@
 export const manifest = {
 	appDir: "_app",
-	assets: new Set(["assets/growth.svg","favicon.png"]),
+	assets: new Set(["assets/growth.svg","favicon.png","images/jl.jpg","images/jl.png","images/vim.jpg","images/vim.png","images/vtt.jpg","images/vtt.png"]),
+	mimeTypes: {".svg":"image/svg+xml",".png":"image/png",".jpg":"image/jpeg"},
 	_: {
-		mime: {".svg":"image/svg+xml",".png":"image/png"},
-		entry: {"file":"start-086b2ab2.js","js":["start-086b2ab2.js","chunks/vendor-75142838.js"],"css":["assets/vendor-f06d62de.css"]},
+		entry: {"file":"start-fc830f4f.js","js":["start-fc830f4f.js","chunks/index-3ce7c348.js"],"css":[]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
@@ -12,13 +12,19 @@ export const manifest = {
 		routes: [
 			{
 				type: 'page',
+				id: "",
 				pattern: /^\/$/,
-				params: null,
+				names: [],
+				types: [],
 				path: "/",
 				shadow: null,
 				a: [0,2],
 				b: [1]
 			}
-		]
+		],
+		matchers: async () => {
+			
+			return {  };
+		}
 	}
 };

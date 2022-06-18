@@ -1,6 +1,6 @@
-import { c as create_ssr_component, a as compute_rest_props, d as spread, e as escape_object, g as escape, i as createEventDispatcher, h as add_attribute, b as compute_slots, f as escape_attribute_value, v as validate_component, j as each } from "../../chunks/index-9e29247f.js";
-import { c as computeClasses, g as getDomAttributes, B as Button } from "../../chunks/index-e53b8c0b.js";
-const css$5 = {
+import { c as create_ssr_component, a as compute_rest_props, d as spread, e as escape_object, g as escape, i as createEventDispatcher, h as add_attribute, b as compute_slots, f as escape_attribute_value, v as validate_component, j as each } from "../../chunks/index-1c9d0a29.js";
+import { c as computeClasses, g as getDomAttributes, B as Button } from "../../chunks/index-da3fab1e.js";
+const css$8 = {
   code: ".badge.rounded.svelte-lxlbcz{border-radius:30%}",
   map: null
 };
@@ -12,7 +12,7 @@ const Badge = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.type(type);
   if ($$props.rounded === void 0 && $$bindings.rounded && rounded !== void 0)
     $$bindings.rounded(rounded);
-  $$result.css.add(css$5);
+  $$result.css.add(css$8);
   return `<span${spread([
     escape_object($$restProps),
     {
@@ -23,7 +23,7 @@ const Badge = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   })}>${slots.default ? slots.default({}) : ``}
 </span>`;
 });
-const css$4 = {
+const css$7 = {
   code: "label.svelte-1g63nco{width:100%}",
   map: null
 };
@@ -52,7 +52,7 @@ const Input = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.valid(valid);
   if ($$props.noResize === void 0 && $$bindings.noResize && noResize !== void 0)
     $$bindings.noResize(noResize);
-  $$result.css.add(css$4);
+  $$result.css.add(css$7);
   {
     if (valid) {
       isValid = valid(value);
@@ -144,42 +144,125 @@ const Card = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   ${footer || $$slots.footer ? `<footer class="${"card-footer"}">${$$slots.footer ? `${slots.footer ? slots.footer({}) : ``}` : `${escape(footer)}`}</footer>` : ``}
 </div>`;
 });
-var AboutMe_svelte_svelte_type_style_lang = "";
-const css$3 = {
+var AboutMe_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "img.svelte-a74ap{width:100%}div.svelte-a74ap{gap:1rem;display:grid;grid-template-columns:auto 1fr}@media screen and (max-width: 850px){div.svelte-a74ap{grid-template-columns:1fr}}")();
+const css$6 = {
   code: "img.svelte-a74ap{width:100%}div.svelte-a74ap{gap:1rem;display:grid;grid-template-columns:auto 1fr}@media screen and (max-width: 850px){div.svelte-a74ap{grid-template-columns:1fr}}",
   map: null
 };
 const AboutMe = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$3);
-  return `<section class="${"about"}" id="${"about"}">${validate_component(Card, "Card").$$render($$result, { header: "About Me" }, {}, {
+  $$result.css.add(css$6);
+  return `${validate_component(Card, "Card").$$render($$result, { header: "About Me", id: "about" }, {}, {
     default: () => {
-      return `<div class="${"svelte-a74ap"}"><img src="${"https://picsum.photos/200"}" alt="${"profile"}" class="${"svelte-a74ap"}">
-			<span><h4>Raqueebuddin Aziz (Web Developer)</h4>
-				<p>Hi, I am Raqueebuddin Aziz, I freelance as a <strong>Web Developer</strong>.
-				</p>
-				<p>Hire me to craft an amazing online identity for your business through <strong>websites</strong>
-					and
-					<strong>mobile apps</strong> and help you succeed in the digital age :)
-				</p></span></div>`;
+      return `<div class="${"svelte-a74ap"}"><img src="${"https://picsum.photos/200"}" alt="${"profile"}" width="${"200"}" height="${"200"}" class="${"svelte-a74ap"}">
+		<span><h4>Raqueebuddin Aziz (Web Developer)</h4>
+			<p>Hi, I am Raqueebuddin Aziz, I freelance as a <strong>Web Developer</strong>.
+			</p>
+			<p>Hire me to craft an amazing online identity for your business through <strong>websites</strong>
+				and
+				<strong>mobile apps</strong> and help you succeed in the digital age :)
+			</p></span></div>`;
     }
-  })}
-</section>`;
+  })}`;
 });
-var Landing_svelte_svelte_type_style_lang = "";
-const css$2 = {
-  code: "div.svelte-jhwa6j{align-items:center;display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media screen and (max-width: 850px){div.svelte-jhwa6j{grid-template-columns:1fr}}@media screen and (max-width: 850px){img.svelte-jhwa6j{display:none}}",
+const Contact = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `${validate_component(Card, "Card").$$render($$result, { header: "Contact Me", id: "contact" }, {}, {
+    default: () => {
+      return `${validate_component(Form, "Form").$$render($$result, {
+        method: "POST",
+        name: "contact",
+        "data-netlify": "true"
+      }, {}, {
+        default: () => {
+          return `<input type="${"hidden"}" name="${"form-name"}" value="${"contact"}">
+		${validate_component(Input, "Input").$$render($$result, {
+            label: "Name",
+            name: "name",
+            placeholder: "name",
+            type: "text",
+            class: "margin-bottom-small",
+            required: true
+          }, {}, {})}
+
+		${validate_component(Input, "Input").$$render($$result, {
+            label: "Your Email",
+            name: "email",
+            placeholder: "email",
+            type: "email",
+            class: "margin-bottom-small",
+            required: true
+          }, {}, {})}
+		${validate_component(Input, "Input").$$render($$result, {
+            label: "Message",
+            name: "message",
+            placeholder: "message",
+            type: "textarea",
+            class: "margin-bottom-small",
+            required: true
+          }, {}, {})}
+
+		${validate_component(Button, "Button").$$render($$result, {
+            type: "secondary",
+            class: "margin-top-small"
+          }, {}, {
+            default: () => {
+              return `Send`;
+            }
+          })}`;
+        }
+      })}`;
+    }
+  })}`;
+});
+var Landing_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "div.svelte-1p33hh0.svelte-1p33hh0{align-items:center;display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media screen and (max-width: 850px){div.svelte-1p33hh0.svelte-1p33hh0{grid-template-columns:1fr}div.svelte-1p33hh0 h2.svelte-1p33hh0{font-size:xxx-large}}@media screen and (max-width: 850px){img.svelte-1p33hh0.svelte-1p33hh0{display:none}}")();
+const css$5 = {
+  code: "div.svelte-1p33hh0.svelte-1p33hh0{align-items:center;display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media screen and (max-width: 850px){div.svelte-1p33hh0.svelte-1p33hh0{grid-template-columns:1fr}div.svelte-1p33hh0 h2.svelte-1p33hh0{font-size:xxx-large}}@media screen and (max-width: 850px){img.svelte-1p33hh0.svelte-1p33hh0{display:none}}",
   map: null
 };
 const Landing = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$2);
-  return `<div class="${"paper svelte-jhwa6j"}"><section class="${"landing"}"><h2 class="${"text-secondary"}">I help businesses boost their online presence and compete in the digital age.
+  $$result.css.add(css$5);
+  return `<div class="${"paper svelte-1p33hh0"}"><section class="${"landing"}"><h2 class="${"text-secondary svelte-1p33hh0"}">I help businesses boost their online presence and compete in the digital age.
 		</h2>
-		<a href="${"#projects"}">See My Work</a></section>
-	<img src="${"/assets/growth.svg"}" alt="${"growth"}" class="${"svelte-jhwa6j"}">
+		${validate_component(Button, "Button").$$render($$result, { isLink: true, href: "#projects" }, {}, {
+    default: () => {
+      return `See My Work`;
+    }
+  })}</section>
+	<img src="${"/assets/growth.svg"}" alt="${"growth"}" class="${"svelte-1p33hh0"}">
 </div>`;
 });
-var Project_svelte_svelte_type_style_lang = "";
-const css$1 = {
+const Links = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  const links = [
+    {
+      url: "https://github.com/vanillacode314",
+      label: "Github (vanillacode314)"
+    },
+    {
+      url: "https://gitlab.com/vanillacode",
+      label: "Gitlab (vanillacode)"
+    },
+    {
+      url: "https://t.me/vanillacode314",
+      label: "Telegram (vanillacode314)"
+    },
+    {
+      url: "https://m.me/vanillacode314",
+      label: "Facebook (vanillacode314)"
+    }
+  ];
+  return `${validate_component(Card, "Card").$$render($$result, { header: "Links", id: "links" }, {}, {
+    default: () => {
+      return `<ul>${each(links, (link) => {
+        return `<li><a rel="${"external"}"${add_attribute("href", link.url, 0)}>${escape(link.label)}</a>
+			</li>`;
+      })}
+		<li><a rel="${"external"}" href="${"https://discord.com/app"}">Discord (Raqueebuddin Aziz#6187)</a>
+			<small><em>(This is not a link to my discord profile it will redirect you to discord you would need
+					to enter my discord tag to add me as a friend)</em></small></li></ul>`;
+    }
+  })}`;
+});
+var Project_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".badges.svelte-10u6n0r{display:flex;gap:0.5rem}")();
+const css$4 = {
   code: ".badges.svelte-10u6n0r{display:flex;gap:0.5rem}",
   map: null
 };
@@ -190,10 +273,10 @@ const Project = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.project(project);
   if ($$props.index === void 0 && $$bindings.index && index !== void 0)
     $$bindings.index(index);
-  $$result.css.add(css$1);
+  $$result.css.add(css$4);
   return `${validate_component(Card, "Card").$$render($$result, {
     title: "#" + (index + 1) + " " + project.name,
-    image: "https://picsum.photos/500",
+    image: project.image && `/images/${project.id}.jpg`,
     imageAlt: project.name + " screenshot"
   }, {}, {
     bottom: () => {
@@ -221,7 +304,7 @@ var projects = [
     tech: [
       "svelte",
       "sveltekit",
-      "attractions ui kit"
+      "kahi ui"
     ],
     url: "https://vanillatimetracker.netlify.app",
     repo_url: "https://github.com/vanillacode314/vanillatimetracker"
@@ -234,79 +317,93 @@ var projects = [
     tech: [
       "svelte",
       "sveltekit",
-      "papercss"
+      "kahi ui"
     ],
-    url: "https://vanillatimetracker.netlify.app",
-    repo_url: "https://github.com/vanillacode314/vanillatimetracker"
+    url: "https://vanillainvoicemanager.netlify.app",
+    repo_url: "https://github.com/vanillacode314/vanillainvoicemanager"
+  },
+  {
+    id: "jl",
+    name: "JustLearn",
+    description: "A Free and Open source application where students can create and give tests and share them with the world.",
+    image: true,
+    tech: [
+      "svelte",
+      "sveltekit"
+    ],
+    url: "https://justlearn.netlify.app",
+    repo_url: "https://github.com/vanillacode314/justlearn"
   }
 ];
-var Projects_svelte_svelte_type_style_lang = "";
-const css = {
+var Projects_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".projects.svelte-12tihp2{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1rem}")();
+const css$3 = {
   code: ".projects.svelte-12tihp2{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1rem}",
   map: null
 };
 const Projects = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css);
-  return `${validate_component(Card, "Card").$$render($$result, { header: "Projects" }, {}, {
+  $$result.css.add(css$3);
+  return `${validate_component(Card, "Card").$$render($$result, { header: "Projects", id: "projects" }, {}, {
     default: () => {
-      return `<section class="${"projects svelte-12tihp2"}" id="${"projects"}">${each(projects, (project, index) => {
+      return `<section class="${"projects svelte-12tihp2"}">${each(projects, (project, index) => {
         return `${validate_component(Project, "Project").$$render($$result, { project, index }, {}, {})}`;
       })}</section>`;
     }
   })}`;
 });
+var Testimonial_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".quote.svelte-1ae5ddd{display:block;font-size:xxx-large}.quote.end.svelte-1ae5ddd{float:right}")();
+const css$2 = {
+  code: ".quote.svelte-1ae5ddd{display:block;font-size:xxx-large}.quote.end.svelte-1ae5ddd{float:right}",
+  map: null
+};
+const Testimonial = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { testimonial } = $$props;
+  if ($$props.testimonial === void 0 && $$bindings.testimonial && testimonial !== void 0)
+    $$bindings.testimonial(testimonial);
+  $$result.css.add(css$2);
+  return `${validate_component(Card, "Card").$$render($$result, { title: "By " + testimonial.author }, {}, {
+    default: () => {
+      return `<p><span class="${"quote svelte-1ae5ddd"}">\u201C</span>${escape(testimonial.content)}<span class="${"quote end svelte-1ae5ddd"}">\u201D</span></p>`;
+    }
+  })}`;
+});
+var testimonials = [
+  {
+    content: "I was looking for someone to help refactor a large project. Raqueebuddin was very responsive and demonstrated clear knowledge of all of the technologies in my stack (Svelte, Svelte Kit, Tailwind CSS). We had a brief call to discuss an action plan, and after I gave the go, he started immediately, kept in communication with me, and finished the job within just a few days. I think I'll be contacting him again if I need something else cleaned up, or someone to implement a feature or fix a bug",
+    author: "Justin Golden"
+  }
+];
+var Testimonials_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".testimonials.svelte-cr23s4{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1rem}")();
+const css$1 = {
+  code: ".testimonials.svelte-cr23s4{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1rem}",
+  map: null
+};
+const Testimonials = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  $$result.css.add(css$1);
+  return `${validate_component(Card, "Card").$$render($$result, {
+    header: "Testimonials",
+    id: "testimonials"
+  }, {}, {
+    default: () => {
+      return `<section class="${"testimonials svelte-cr23s4"}">${each(testimonials, (testimonial) => {
+        return `${validate_component(Testimonial, "Testimonial").$$render($$result, { testimonial }, {}, {})}`;
+      })}</section>`;
+    }
+  })}`;
+});
+var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "main.svelte-1rtwhkt{display:flex;flex-direction:column;gap:1rem;padding:1rem 0}")();
+const css = {
+  code: "main.svelte-1rtwhkt{display:flex;flex-direction:column;gap:1rem;padding:1rem 0}",
+  map: null
+};
 const prerender = true;
 const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${validate_component(Landing, "Landing").$$render($$result, {}, {}, {})}
-${validate_component(AboutMe, "AboutMe").$$render($$result, {}, {}, {})}
-${validate_component(Projects, "Projects").$$render($$result, {}, {}, {})}
-
-<section class="${"contact"}" id="${"contact"}">${validate_component(Card, "Card").$$render($$result, { header: "Contact Me" }, {}, {
-    default: () => {
-      return `${validate_component(Form, "Form").$$render($$result, { name: "contact", netlify: true }, {}, {
-        default: () => {
-          return `${validate_component(Input, "Input").$$render($$result, {
-            label: "Name",
-            name: "name",
-            placeholder: "name",
-            type: "text",
-            class: "margin-bottom-small"
-          }, {}, {})}
-
-			${validate_component(Input, "Input").$$render($$result, {
-            label: "Email",
-            name: "email",
-            placeholder: "email",
-            type: "email",
-            class: "margin-bottom-small"
-          }, {}, {})}
-			${validate_component(Input, "Input").$$render($$result, {
-            label: "Message",
-            name: "message",
-            placeholder: "message",
-            type: "textarea",
-            class: "margin-bottom-small"
-          }, {}, {})}
-
-			${validate_component(Button, "Button").$$render($$result, {
-            type: "secondary",
-            class: "margin-top-small"
-          }, {}, {
-            default: () => {
-              return `Send`;
-            }
-          })}`;
-        }
-      })}`;
-    }
-  })}</section>
-<section class="${"links"}" id="${"links"}">${validate_component(Card, "Card").$$render($$result, { header: "Links" }, {}, {
-    default: () => {
-      return `<ul><li><a rel="${"external"}" href="${"https://github.com/vanillacode314"}">Github</a></li>
-			<li><a rel="${"external"}" href="${"https://gitlab.com/vanillacode"}">Gitlab</a></li>
-			<li><a rel="${"external"}" href="${"https://discordapp.com/users/943908202846756874/"}">Discord</a></li>
-			<li><a rel="${"external"}" href="${"https://t.me/vanillacode314"}">Telegram</a></li></ul>`;
-    }
-  })}</section>`;
+  $$result.css.add(css);
+  return `<main class="${"svelte-1rtwhkt"}">${validate_component(Landing, "Landing").$$render($$result, {}, {}, {})}
+	${validate_component(AboutMe, "AboutMe").$$render($$result, {}, {}, {})}
+	${validate_component(Testimonials, "Testimonials").$$render($$result, {}, {}, {})}
+	${validate_component(Projects, "Projects").$$render($$result, {}, {}, {})}
+	${validate_component(Contact, "Contact").$$render($$result, {}, {}, {})}
+	${validate_component(Links, "Links").$$render($$result, {}, {}, {})}
+</main>`;
 });
 export { Routes as default, prerender };

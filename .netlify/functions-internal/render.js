@@ -1,17 +1,21 @@
-import { init } from '../handler.js';
+import { init } from '../serverless.js';
 
 export const handler = init({
 	appDir: "_app",
-	assets: new Set(["assets/growth.svg","favicon.png"]),
+	assets: new Set(["assets/growth.svg","favicon.png","images/jl.jpg","images/jl.png","images/vim.jpg","images/vim.png","images/vtt.jpg","images/vtt.png"]),
+	mimeTypes: {".svg":"image/svg+xml",".png":"image/png",".jpg":"image/jpeg"},
 	_: {
-		mime: {".svg":"image/svg+xml",".png":"image/png"},
-		entry: {"file":"start-086b2ab2.js","js":["start-086b2ab2.js","chunks/vendor-75142838.js"],"css":["assets/vendor-f06d62de.css"]},
+		entry: {"file":"start-fc830f4f.js","js":["start-fc830f4f.js","chunks/index-3ce7c348.js"],"css":[]},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js')
 		],
 		routes: [
 			
-		]
+		],
+		matchers: async () => {
+			
+			return {  };
+		}
 	}
 });
