@@ -53,17 +53,19 @@
 	<ul>
 		{#each links as link (link.url)}
 			<li>
-				<svelte:component this={link.icon} style="font-size:2em;" />
-				<span>
-					<a rel="external" href={link.url}>{link.label}</a>
-				</span>
+				<a rel="external" href={link.url}>
+					<svelte:component this={link.icon} style="font-size:2em;" />
+					<span>
+						{link.label}
+					</span></a
+				>
 			</li>
 		{/each}
 		<li>
-			<IconDiscord style="font-size:2em;" />
-			<span>
-				<a rel="external" href="https://discord.com/app">Discord (Raqueebuddin Aziz#6187)</a>
-			</span>
+			<a rel="external" href="https://discord.com/app">
+				<IconDiscord style="font-size:2em;" />
+				<span> Discord (Raqueebuddin Aziz#6187) </span></a
+			>
 			<span>
 				<small>
 					<em
@@ -83,8 +85,19 @@
 		gap: 1rem;
 		margin: 0;
 		padding: 0;
-		align-items: center;
+		align-items: start;
 		li {
+			transition: 0.2s transform ease-in-out;
+			&:hover {
+				transform: scale(1.1);
+			}
+			a {
+				display: contents;
+				span {
+					text-decoration: underline;
+					text-decoration-style: wavy;
+				}
+			}
 			&::before {
 				all: unset;
 			}
