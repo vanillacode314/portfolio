@@ -53,7 +53,7 @@
 	<ul>
 		{#each links as link (link.url)}
 			<li>
-				<a rel="external" href={link.url}>
+				<a rel="external" target="_blank" href={link.url}>
 					<svelte:component this={link.icon} style="font-size:2em;" />
 					<span>
 						{link.label}
@@ -62,7 +62,7 @@
 			</li>
 		{/each}
 		<li>
-			<a rel="external" href="https://discord.com/app">
+			<a rel="external" target="_blank" href="https://discord.com/app">
 				<IconDiscord style="font-size:2em;" />
 				<span> Discord (Raqueebuddin Aziz#6187) </span></a
 			>
