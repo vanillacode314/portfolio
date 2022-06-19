@@ -7,6 +7,7 @@
 	import IconDiscord from '~icons/mdi/discord';
 	import IconFiverr from '~icons/jam/fiverr';
 	import IconUpwork from '~icons/bxl/upwork';
+	import IconLinkedin from '~icons/mdi/linkedin';
 
 	const links = [
 		{
@@ -18,6 +19,12 @@
 			icon: IconUpwork,
 			url: 'https://www.upwork.com/freelancers/~0161b549d2e53b3f8a',
 			label: 'Upwork (Raqueebuddin Aziz)'
+		},
+
+		{
+			icon: IconLinkedin,
+			url: 'https://www.linkedin.com/in/raqueebuddin-aziz-b28a12232/',
+			label: 'Linkedin (Raqueebuddin Aziz)'
 		},
 		{
 			icon: IconGithub,
