@@ -8,8 +8,14 @@
 	import IconFiverr from '~icons/jam/fiverr';
 	import IconUpwork from '~icons/bxl/upwork';
 	import IconLinkedin from '~icons/mdi/linkedin';
+	import IconEmail from '~icons/mdi/email';
 
 	const links = [
+		{
+			icon: IconEmail,
+			url: 'mailto:raqueebuddin.aziz.314@gmail.com',
+			label: 'Email (raqueebuddin.aziz.314@gmail.com)'
+		},
 		{
 			icon: IconFiverr,
 			url: 'https://www.fiverr.com/vanillacode',
