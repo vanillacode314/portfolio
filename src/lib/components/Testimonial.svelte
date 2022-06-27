@@ -18,11 +18,16 @@
 </Card>
 
 <style lang="scss">
+	p {
+		display: flex;
+		gap: 1rem;
+	}
 	.quote {
 		display: block;
 		font-size: xxx-large;
 		&.end {
-			float: right;
+			align-self: end;
+			margin-bottom: -2rem;
 		}
 	}
 </style>
