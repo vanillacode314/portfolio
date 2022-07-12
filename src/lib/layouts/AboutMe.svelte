@@ -4,7 +4,7 @@
 
 <Card header="About Me" id="about">
 	<div>
-		<img loading="lazy" src="https://picsum.photos/200" alt="profile" width="200" height="200" />
+		<img loading="lazy" src="/code.jpg" alt="profile" width="200" height="200" />
 		<span>
 			<h4>Raqueebuddin Aziz (Web Developer)</h4>
 			<p>
@@ -24,6 +24,11 @@
 <style lang="scss">
 	img {
 		width: 100%;
+		max-width: 12rem;
+		aspect-ratio: 1;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 0.2rem solid gray;
 	}
 	div {
 		gap: 1rem;
