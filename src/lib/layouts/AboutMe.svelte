@@ -4,7 +4,7 @@
 
 <Card header="About Me" id="about">
 	<div>
-		<img src="https://picsum.photos/200" alt="profile" width="200" height="200" />
+		<img loading="lazy" src="https://picsum.photos/200" alt="profile" width="200" height="200" />
 		<span>
 			<h4>Raqueebuddin Aziz (Web Developer)</h4>
 			<p>
