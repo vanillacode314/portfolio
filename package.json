@@ -2,8 +2,8 @@
 	"name": "portfolio",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
+		"dev": "vite dev",
+		"build": "vite build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -26,7 +26,8 @@
 		"svelte-preprocess": "^4.10.7",
 		"tslib": "^2.4.0",
 		"typescript": "~4.5.5",
-		"unplugin-icons": "^0.14.5"
+		"unplugin-icons": "^0.14.5",
+		"vite": "^2.9.14"
 	},
 	"type": "module",
 	"dependencies": {
