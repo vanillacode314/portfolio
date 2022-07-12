@@ -6,20 +6,6 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-T5BZTND10R"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-
-			gtag('config', 'G-T5BZTND10R', {
-				cookie_domain: window.location.hostname,
-				cookie_flags: 'SameSite=None;Secure'
-			});
-		</script>
 	</head>
 	<body>
 		<div>%sveltekit.body%</div>
