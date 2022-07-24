@@ -4,7 +4,9 @@
 
 <Card header="About Me" id="about">
 	<div>
-		<img loading="lazy" src="/code.jpg" alt="profile" width="200" height="200" />
+		<div class="img-wrapper">
+			<img loading="lazy" src="/code.jpg" alt="profile" width="200" height="200" />
+		</div>
 		<span>
 			<h4>Raqueebuddin Aziz (Web Developer)</h4>
 			<p>
@@ -22,6 +24,10 @@
 </Card>
 
 <style lang="scss">
+	.img-wrapper {
+		display: grid;
+		place-items: center;
+	}
 	img {
 		width: 100%;
 		max-width: 12rem;
