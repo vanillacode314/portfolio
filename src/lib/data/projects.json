@@ -1,21 +1,12 @@
 [
 	{
-		"id": "vtt",
-		"name": "VanillaTimeTracker",
-		"description": "A Free and Open source Time Tracker for Freelancers.",
-		"image": true,
-		"tech": ["svelte", "sveltekit", "kahi ui"],
-		"url": "https://vanillatimetracker.netlify.app",
-		"repo_url": "https://github.com/vanillacode314/vanillatimetracker"
-	},
-	{
 		"id": "vim",
-		"name": "VanillaInvoiceManager",
+		"name": "JustInvoice",
 		"description": "A Free and Open source Invoice Manager.",
 		"image": true,
-		"tech": ["svelte", "sveltekit", "kahi ui"],
-		"url": "https://vanillainvoicemanager.netlify.app",
-		"repo_url": "https://github.com/vanillacode314/vanillainvoicemanager"
+		"tech": ["svelte", "sveltekit", "tailwindcss", "daisyui"],
+		"url": "https://justinvoice.netlify.app",
+		"repo_url": "https://github.com/vanillacode314/justinvoice"
 	},
 	{
 		"id": "jl",
@@ -25,5 +16,14 @@
 		"tech": ["svelte", "sveltekit"],
 		"url": "https://justlearn.netlify.app",
 		"repo_url": "https://github.com/vanillacode314/justlearn"
+	},
+	{
+		"id": "vtt",
+		"name": "VanillaTimeTracker",
+		"description": "A Free and Open source Time Tracker for Freelancers.",
+		"image": true,
+		"tech": ["svelte", "sveltekit", "kahi ui"],
+		"url": "https://vanillatimetracker.netlify.app",
+		"repo_url": "https://github.com/vanillacode314/vanillatimetracker"
 	}
 ]
