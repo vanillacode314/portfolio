@@ -9,6 +9,6 @@
 	</p>
 
 	<div class="flex justify-end mt-4">
-		<a href="#" class="text-xl font-medium text-blue-500 dark:text-blue-300">{author}</a>
+		<span class="text-xl font-medium text-blue-500 dark:text-blue-300">{author}</span>
 	</div>
 </div>
