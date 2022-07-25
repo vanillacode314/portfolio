@@ -5,6 +5,7 @@
 	export let image: boolean;
 	export let url: string;
 	export let repo_url: string;
+	export let tech: string[];
 </script>
 
 <div class="max-w-xs overflow-hidden dark:bg-white rounded-lg shadow-lg bg-gray-800 flex flex-col">
@@ -16,8 +17,17 @@
 			{description}
 		</p>
 	</div>
-
 	<div class="grow" />
+	<div class="flex gap-1 flex-wrap py-2 px-4">
+		{#each tech as t}
+			<span
+				class="px-3 py-1 text-xs font-bold text-gray-100 transition-colors duration-200 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
+			>
+				{t}
+			</span>
+		{/each}
+	</div>
+
 	{#if image}
 		<img
 			class="object-cover w-full h-48 mt-2"
