@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconMenu from '~icons/mdi/menu';
 	let menuOpen: boolean = false;
 
 	function toggleMenu() {
@@ -13,7 +14,7 @@
 				<div>
 					<a
 						class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
-						href="#">VanillaCode</a
+						href="/">VanillaCode</a
 					>
 				</div>
 
@@ -25,11 +26,7 @@
 						aria-label="Toggle menu"
 						on:click={toggleMenu}
 					>
-						<svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-							<path
-								d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-							/>
-						</svg>
+						<IconMenu />
 					</button>
 				</div>
 			</div>
@@ -37,17 +34,22 @@
 			<!-- Mobile Menu open: "block", Menu closed: "hidden" -->
 			<div class="flex flex-col mt-2 -mx-2 lg:mt-0 lg:flex-row lg:block" class:hidden={!menuOpen}>
 				<a
-					href="#"
+					href="/"
 					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
 					>Home</a
 				>
 				<a
-					href="#"
+					href="#testimonials"
 					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
-					>About</a
+					>Testimonials</a
 				>
 				<a
-					href="#"
+					href="#projects"
+					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
+					>Projects</a
+				>
+				<a
+					href="#contact"
 					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
 					>Contact</a
 				>

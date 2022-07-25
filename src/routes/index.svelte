@@ -1,7 +1,13 @@
 <script lang="ts">
+	import ContactForm from '$components/ContactForm.svelte';
+	import Project from '$components/Project.svelte';
+
+	import Testimonial from '$components/Testimonial.svelte';
+	import projects from '$data/projects';
+	import testimonials from '$data/testimonials';
 </script>
 
-<div class="lg:flex">
+<div class="lg:flex bg-white dark:bg-gray-800">
 	<div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
 		<div class="max-w-xl">
 			<h2 class="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl">
@@ -35,4 +41,38 @@
 			<div class="w-full h-full bg-black opacity-25" />
 		</div>
 	</div>
+</div>
+<div
+	class="flex gap-5 p-5 justify-center items-center flex-wrap dark:bg-gray-100 bg-gray-800"
+	id="testimonials"
+>
+	<h2
+		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
+	>
+		<a class="underline" href="#testimonials">#</a> Testimonials
+	</h2>
+	{#each testimonials as testimonial}
+		<Testimonial {...testimonial} />
+	{/each}
+</div>
+<div class="flex gap-5 p-5 justify-center flex-wrap bg-gray-100 dark:bg-gray-800" id="projects">
+	<h2
+		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
+	>
+		<a class="underline" href="#projects">#</a> Projects
+	</h2>
+	{#each projects as project}
+		<Project {...project} />
+	{/each}
+</div>
+<div
+	class="flex gap-5 p-5 justify-center items-center flex-wrap dark:bg-gray-100 bg-gray-800"
+	id="contact"
+>
+	<h2
+		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
+	>
+		<a class="underline" href="#contact">#</a> Contact
+	</h2>
+	<ContactForm />
 </div>

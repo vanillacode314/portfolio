@@ -6,7 +6,7 @@
 </script>
 
 <Header />
-<main class="bg-white dark:bg-gray-800">
+<main>
 	<slot />
 </main>
 <Footer />
