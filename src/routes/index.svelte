@@ -25,7 +25,7 @@
 				<!-- 	>Contact ME</a -->
 				<!-- > -->
 				<a
-					href="#"
+					href="#contact"
 					class="block px-3 py-2 text-sm font-semibold text-center text-gray-700 transition-colors duration-200 transform bg-gray-200 rounded-md hover:bg-gray-300"
 					>Contact ME</a
 				>
@@ -34,10 +34,7 @@
 	</div>
 
 	<div class="w-full h-64 lg:w-1/2 lg:h-auto">
-		<div
-			class="w-full h-full bg-cover"
-			style="background-image: url(https://images.unsplash.com/photo-1508394522741-82ac9c15ba69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=748&q=80)"
-		>
+		<div class="w-full h-full bg-cover" style="background-image: url(/growth.jpg)">
 			<div class="w-full h-full bg-black opacity-25" />
 		</div>
 	</div>

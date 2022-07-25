@@ -19,7 +19,12 @@
 
 	<div class="grow" />
 	{#if image}
-		<img class="object-cover w-full h-48 mt-2" src="/assets/images/{id}.jpg" alt="NIKE AIR" />
+		<img
+			class="object-cover w-full h-48 mt-2"
+			src="/assets/images/{id}.jpg"
+			alt="NIKE AIR"
+			loading="lazy"
+		/>
 	{/if}
 
 	<div class="flex items-center justify-end gap-3 px-4 py-2 bg-gray-900">
