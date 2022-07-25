@@ -1,0 +1,57 @@
+<script lang="ts">
+	let menuOpen: boolean = false;
+
+	function toggleMenu() {
+		menuOpen = !menuOpen;
+	}
+</script>
+
+<header class="bg-white dark:bg-gray-800">
+	<nav class="px-6 py-4 shadow">
+		<div class="lg:items-center lg:justify-between lg:flex">
+			<div class="flex items-center justify-between">
+				<div>
+					<a
+						class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
+						href="#">VanillaCode</a
+					>
+				</div>
+
+				<!-- Mobile menu button -->
+				<div class="lg:hidden">
+					<button
+						type="button"
+						class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+						aria-label="Toggle menu"
+						on:click={toggleMenu}
+					>
+						<svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+							<path
+								d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+							/>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+			<div class="flex flex-col mt-2 -mx-2 lg:mt-0 lg:flex-row lg:block" class:hidden={!menuOpen}>
+				<a
+					href="#"
+					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
+					>Home</a
+				>
+				<a
+					href="#"
+					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
+					>About</a
+				>
+				<a
+					href="#"
+					class="px-2 py-2 text-sm text-gray-800 rounded-md dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 hover:font-medium lg:mx-2"
+					>Contact</a
+				>
+			</div>
+		</div>
+	</nav>
+</header>
