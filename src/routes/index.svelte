@@ -49,10 +49,7 @@
 		</div>
 	</div>
 </div>
-<div
-	class="flex gap-5 p-5 justify-center items-center flex-wrap dark:bg-gray-100 bg-gray-800"
-	id="skills"
->
+<div class="p-5 gap-5 grid dark:bg-gray-100 bg-gray-800" id="skills">
 	<h2
 		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
 	>
