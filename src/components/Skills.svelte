@@ -35,7 +35,7 @@
 		},
 		{
 			icon: IconSvelte,
-			title: 'Svelte / SvelteKit'
+			title: 'Svelte/Kit'
 		},
 		{
 			icon: IconVue,
