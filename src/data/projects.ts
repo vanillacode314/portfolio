@@ -26,5 +26,15 @@ export default [
 		tech: ['svelte', 'sveltekit', 'kahi ui'],
 		url: 'https://vanillatimetracker.netlify.app',
 		repo_url: 'https://github.com/vanillacode314/vanillatimetracker'
+	},
+	{
+		id: 'rg',
+		name: 'RemoteGamepad',
+		description:
+			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer.',
+		image: true,
+		tech: ['svelte', 'sveltekit', 'python', 'capactiorjs', 'websockets'],
+		url: 'https://github.com/vanillacode314/remotegamepad/releases',
+		repo_url: 'https://github.com/vanillacode314/remotegamepad'
 	}
 ];
