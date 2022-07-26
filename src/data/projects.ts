@@ -33,7 +33,7 @@ export default [
 		description:
 			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer.',
 		image: true,
-		tech: ['svelte', 'sveltekit', 'python', 'capactiorjs', 'websockets'],
+		tech: ['svelte', 'sveltekit', 'python', 'capacitorjs', 'websockets'],
 		url: 'https://github.com/vanillacode314/remotegamepad/releases',
 		repo_url: 'https://github.com/vanillacode314/remotegamepad'
 	}
