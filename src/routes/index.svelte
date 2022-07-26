@@ -10,6 +10,7 @@
 
 <svelte:head>
 	<title>Professional Web Developer - VanillaCode</title>
+	<meta name="description" content="Professional Web Development Services to grow your business" />
 	<meta
 		name="keywords"
 		content="professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript"
