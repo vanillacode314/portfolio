@@ -90,7 +90,7 @@
 	{#each skills as { icon, title }}
 		<div class="grid place-items-center gap-1">
 			<svelte:component this={icon} />
-			<span class="text-sm font-medium">{title}</span>
+			<span class="uppercase text-xs font-semibold">{title}</span>
 		</div>
 	{/each}
 </div>
