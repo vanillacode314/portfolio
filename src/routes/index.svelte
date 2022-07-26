@@ -7,6 +7,10 @@
 	import testimonials from '$data/testimonials';
 </script>
 
+<svelte:head>
+	<title>Professional Web Developer - VanillaCode</title>
+</svelte:head>
+
 <div class="lg:flex bg-white dark:bg-gray-800">
 	<div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
 		<div class="max-w-xl">
