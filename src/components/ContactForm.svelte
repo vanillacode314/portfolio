@@ -2,14 +2,14 @@
 	import IconEmail from '~icons/mdi/email-outline';
 </script>
 
-<section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-	<h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Get in touch</h2>
-	<p class="mt-3 text-center text-gray-600 dark:text-gray-400">Get a reply in under 24hrs</p>
+<section class="w-full max-w-2xl px-6 py-4 mx-auto dark:bg-white rounded-md shadow-md bg-gray-800">
+	<h2 class="text-3xl font-semibold text-center dark:text-gray-800 text-white">Get in touch</h2>
+	<p class="mt-3 text-center dark:text-gray-600 text-gray-400">Get a reply in under 24hrs</p>
 
 	<div class="grid grid-cols-1 gap-6 mt-6">
 		<a
 			href="mailto:raqueebuddin.aziz.314@gmail.com"
-			class="flex flex-col items-center px-4 py-3 text-gray-700 transition-colors duration-200 transform rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500"
+			class="flex flex-col items-center px-4 py-3 dark:text-gray-700 transition-colors duration-200 transform rounded-md text-gray-200 dark:hover:bg-blue-200 hover:bg-blue-500"
 		>
 			<IconEmail />
 
@@ -18,16 +18,16 @@
 	</div>
 
 	<div class="mt-6 ">
-		<form data-netlify="true" name="contact" method="POST">
+		<form data-netlify="true" name="contact" method="POST" class="flex flex-col gap-5">
 			<input type="hidden" name="form-name" value="contact" />
-			<div class="items-center -mx-2 md:flex">
-				<div class="w-full mx-2">
-					<label for="name" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+			<div class="items-center flex md:flex-row flex-col gap-5">
+				<div class="w-full">
+					<label for="name" class="block mb-2 text-sm font-medium dark:text-gray-600 text-gray-200"
 						>Name</label
 					>
 
 					<input
-						class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+						class="block w-full px-4 py-2 dark:text-gray-700 dark:bg-white border rounded-md bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 dark:focus:ring-blue-300 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						id="name"
 						name="name"
 						type="text"
@@ -35,13 +35,13 @@
 					/>
 				</div>
 
-				<div class="w-full mx-2 mt-4 md:mt-0">
-					<label for="email" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+				<div class="w-full">
+					<label for="email" class="block mb-2 text-sm font-medium dark:text-gray-600 text-gray-200"
 						>E-mail</label
 					>
 
 					<input
-						class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+						class="block w-full px-4 py-2 dark:text-gray-700 dark:bg-white border rounded-md bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 dark:focus:ring-blue-300 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						type="email"
 						id="email"
 						name="email"
@@ -51,12 +51,12 @@
 			</div>
 
 			<div class="w-full mt-4">
-				<label for="message" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+				<label class="block mb-2 text-sm font-medium dark:text-gray-600 text-gray-200" for="message"
 					>Message</label
 				>
 
 				<textarea
-					class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+					class="block w-full px-4 py-2 dark:text-gray-700 dark:bg-white border rounded-md bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-400 dark:focus:ring-blue-300 focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 					name="message"
 					id="message"
 					required

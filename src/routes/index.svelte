@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$components/ContactForm.svelte';
 	import Project from '$components/Project.svelte';
+	import Skills from '$components/Skills.svelte';
 
 	import Testimonial from '$components/Testimonial.svelte';
 	import projects from '$data/projects';
@@ -45,10 +46,21 @@
 </div>
 <div
 	class="flex gap-5 p-5 justify-center items-center flex-wrap dark:bg-gray-100 bg-gray-800"
-	id="testimonials"
+	id="skills"
 >
 	<h2
 		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
+	>
+		<a class="underline" href="#skills">#</a> Skills
+	</h2>
+	<Skills />
+</div>
+<div
+	class="flex gap-5 p-5 justify-center items-center flex-wrap bg-gray-100 dark:bg-gray-800"
+	id="testimonials"
+>
+	<h2
+		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
 	>
 		<a class="underline" href="#testimonials">#</a> Testimonials
 	</h2>
@@ -56,9 +68,9 @@
 		<Testimonial {...testimonial} />
 	{/each}
 </div>
-<div class="flex gap-5 p-5 justify-center flex-wrap bg-gray-100 dark:bg-gray-800" id="projects">
+<div class="flex gap-5 p-5 justify-center flex-wrap dark:bg-gray-100 bg-gray-800" id="projects">
 	<h2
-		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
+		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
 	>
 		<a class="underline" href="#projects">#</a> Projects
 	</h2>
@@ -67,11 +79,11 @@
 	{/each}
 </div>
 <div
-	class="flex gap-5 p-5 justify-center items-center flex-wrap dark:bg-gray-100 bg-gray-800"
+	class="flex gap-5 p-5 justify-center items-center flex-wrap bg-gray-100 dark:bg-gray-800"
 	id="contact"
 >
 	<h2
-		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
+		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
 	>
 		<a class="underline" href="#contact">#</a> Contact
 	</h2>

@@ -15,7 +15,9 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@iconify-json/logos": "^1.1.13",
 		"@iconify-json/mdi": "^1.1.29",
+		"@iconify-json/vscode-icons": "^1.1.8",
 		"@playwright/test": "^1.22.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-static": "1.0.0-next.38",
