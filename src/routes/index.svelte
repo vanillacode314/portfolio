@@ -50,7 +50,7 @@
 		</div>
 	</div>
 </div>
-<Section name="Skills">
+<Section name="Skills" fluid>
 	<Skills />
 </Section>
 <Section name="Testimonials" dark>

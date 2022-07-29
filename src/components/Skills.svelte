@@ -87,13 +87,15 @@
 </script>
 
 <div
-	class="justify-center grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 md:gap-5 gap-2 gap-y-5 sm:text-5xl text-4xl flex-wrap {dark
+	class="max-w-5xl mx-auto justify-center grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 md:gap-5 gap-2 gap-y-5 sm:text-5xl text-4xl flex-wrap {dark
 		? `dark:text-white text-gray-700`
 		: `text-white dark:text-gray-700`}"
 >
 	{#each skills as { icon, title }}
 		<div class="grid place-items-center gap-1">
-			<svelte:component this={icon} />
+			<span>
+				<svelte:component this={icon} />
+			</span>
 			<span class="uppercase text-xs font-semibold">{title}</span>
 		</div>
 	{/each}

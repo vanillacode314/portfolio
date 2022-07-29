@@ -22,7 +22,7 @@
 			{name}
 		</h2>
 	</header>
-	<div class={!fluid ? 'max-w-5xl mx-auto' : ''}>
+	<div class={!fluid ? 'max-w-5xl mx-auto' : 'contents'}>
 		<slot />
 	</div>
 </section>
