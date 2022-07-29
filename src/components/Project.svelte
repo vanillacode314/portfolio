@@ -32,7 +32,7 @@
 		<img
 			class="object-cover w-full h-48 mt-2"
 			src="/assets/images/{id}.jpg"
-			alt="NIKE AIR"
+			alt={name}
 			loading="lazy"
 		/>
 	{/if}
