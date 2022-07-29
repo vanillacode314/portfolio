@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContactForm from '$components/ContactForm.svelte';
 	import Project from '$components/Project.svelte';
+	import Section from '$components/Section.svelte';
 	import Skills from '$components/Skills.svelte';
 
 	import Testimonial from '$components/Testimonial.svelte';
@@ -49,45 +50,23 @@
 		</div>
 	</div>
 </div>
-<div class="p-5 gap-5 grid dark:bg-gray-100 bg-gray-800" id="skills">
-	<h2
-		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
-	>
-		<a class="underline" href="#skills">#</a> Skills
-	</h2>
+<Section name="Skills">
 	<Skills />
-</div>
-<div
-	class="flex gap-5 p-5 justify-center items-center flex-wrap bg-gray-100 dark:bg-gray-800"
-	id="testimonials"
->
-	<h2
-		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
-	>
-		<a class="underline" href="#testimonials">#</a> Testimonials
-	</h2>
-	{#each testimonials as testimonial}
-		<Testimonial {...testimonial} />
-	{/each}
-</div>
-<div class="flex gap-5 p-5 justify-center flex-wrap dark:bg-gray-100 bg-gray-800" id="projects">
-	<h2
-		class="text-2xl font-semibold text-white dark:text-gray-800 lg:text-3xl basis-full text-center"
-	>
-		<a class="underline" href="#projects">#</a> Projects
-	</h2>
-	{#each projects as project}
-		<Project {...project} />
-	{/each}
-</div>
-<div
-	class="flex gap-5 p-5 justify-center items-center flex-wrap bg-gray-100 dark:bg-gray-800"
-	id="contact"
->
-	<h2
-		class="text-2xl font-semibold dark:text-white text-gray-800 lg:text-3xl basis-full text-center"
-	>
-		<a class="underline" href="#contact">#</a> Contact
-	</h2>
+</Section>
+<Section name="Testimonials" dark>
+	<div class="flex flex-wrap gap-5 justify-center items-start">
+		{#each testimonials as testimonial}
+			<Testimonial {...testimonial} />
+		{/each}
+	</div>
+</Section>
+<Section name="Projects">
+	<div class="flex flex-wrap gap-5 justify-center ">
+		{#each projects as project}
+			<Project {...project} />
+		{/each}
+	</div>
+</Section>
+<Section name="Contact" dark>
 	<ContactForm />
-</div>
+</Section>
