@@ -3,7 +3,9 @@
 	export let author: string;
 </script>
 
-<div class="max-w-md px-8 py-4 dark:bg-white rounded-lg shadow-lg bg-gray-800">
+<div
+	class="max-w-md px-8 py-4 dark:bg-white rounded-lg shadow-lg bg-gray-800 snap-center md:snap-align-none"
+>
 	<p class="mt-2 dark:text-gray-600 text-gray-200 md:text-base text-sm">
 		{content}
 	</p>

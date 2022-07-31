@@ -8,7 +8,9 @@
 	export let tech: string[];
 </script>
 
-<div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex flex-col">
+<div
+	class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex flex-col snap-center md:snap-align-none"
+>
 	<div class="px-4 py-2">
 		<h1 class="text-2xl font-bold text-gray-800 uppercase dark:text-white">
 			{name}
