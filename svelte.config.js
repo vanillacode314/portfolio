@@ -12,7 +12,9 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			precompress: true
+		}),
 		alias: {
 			$components: 'src/components',
 			$stores: 'src/stores',
