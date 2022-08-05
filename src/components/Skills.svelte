@@ -15,6 +15,7 @@
 	import IconSQL from '~icons/logos/postgresql';
 	import IconGraphQL from '~icons/logos/graphql';
 	import IconFirebase from '~icons/logos/firebase';
+	import IconRust from '~icons/logos/rust';
 	import { getContext } from 'svelte';
 
 	$: dark = getContext<boolean>('dark');
@@ -30,6 +31,14 @@
 		{
 			icon: IconJS,
 			title: 'Javascript'
+		},
+		{
+			icon: IconRust,
+			title: 'Rust'
+		},
+		{
+			icon: IconPython,
+			title: 'Python'
 		},
 		{
 			icon: IconTS,
@@ -50,10 +59,6 @@
 		{
 			icon: IconTailwindCSS,
 			title: 'TailwindCSS'
-		},
-		{
-			icon: IconPython,
-			title: 'Python'
 		},
 		{
 			icon: IconNodeJS,

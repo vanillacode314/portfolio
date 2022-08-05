@@ -31,10 +31,20 @@ export default [
 		id: 'rg',
 		name: 'RemoteGamepad',
 		description:
-			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer.',
+			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the client',
 		image: true,
-		tech: ['svelte', 'sveltekit', 'python', 'capacitorjs', 'websockets'],
+		tech: ['svelte', 'sveltekit', 'capacitorjs', 'websockets'],
 		url: 'https://github.com/vanillacode314/remotegamepad/releases',
 		repo_url: 'https://github.com/vanillacode314/remotegamepad'
+	},
+	{
+		id: 'rgs',
+		name: 'RemoteGamepad\nServer',
+		description:
+			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the server',
+		image: true,
+		tech: ['rust', 'enigo', 'clap-rs', 'websockets'],
+		url: 'https://github.com/vanillacode314/remotegamepad-server/releases',
+		repo_url: 'https://github.com/vanillacode314/remotegamepad-server'
 	}
 ];
