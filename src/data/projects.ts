@@ -1,5 +1,15 @@
 export default [
 	{
+		id: 'rl',
+		name: 'RedditLattice',
+		description:
+			'A reddit viewer for image based subreddits. Lays out the images in a tight lattice.',
+		image: true,
+		tech: ['vue3', 'nuxt3', 'vuetify', 'workbox', 'service-workers'],
+		url: 'https://redditlattice.netlify.app/',
+		repo_url: 'https://github.com/vanillacode314/redditlattice'
+	},
+	{
 		id: 'ji',
 		name: 'JustInvoice',
 		description: 'A Free and Open source Invoice Manager.',
