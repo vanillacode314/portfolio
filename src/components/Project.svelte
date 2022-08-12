@@ -33,7 +33,7 @@
 	{#if image}
 		<img
 			class="object-cover w-full h-48 mt-2"
-			src="/assets/images/{id}.svg"
+			src="/assets/images/{id}.png"
 			alt={name}
 			loading="lazy"
 		/>
