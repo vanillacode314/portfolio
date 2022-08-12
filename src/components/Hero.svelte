@@ -1,5 +1,7 @@
-<div class="lg:flex bg-white dark:bg-gray-800 snap-start">
-	<div class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
+<div class="flex lg:flex-row bg-white dark:bg-gray-800 snap-start flex flex-col">
+	<div
+		class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2 lg:order-1 order-2"
+	>
 		<div class="max-w-xl">
 			<h2 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-5xl">
 				Professional <span class="text-blue-600 dark:text-blue-400">Web Developer</span>
@@ -24,9 +26,9 @@
 		</div>
 	</div>
 
-	<div class="w-full h-64 lg:w-1/2 lg:h-auto hidden lg:block">
-		<div class="w-full h-full bg-cover" style="background-image: url(/growth.jpg)">
-			<div class="w-full h-full bg-black opacity-25" />
+	<div class="w-full h-64 lg:w-1/2 lg:h-auto lg:block order-1">
+		<div class="w-full h-full p-5">
+			<img class="w-full h-full" src="/assets/images/programming.svg" />
 		</div>
 	</div>
 </div>
