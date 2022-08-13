@@ -1,3 +1,12 @@
+<script lang="ts">
+	function onContact() {
+		gtag('event', 'contact', {
+			event_category: 'click',
+			event_label: 'hero section contact me'
+		});
+	}
+</script>
+
 <div class="flex lg:flex-row bg-white dark:bg-gray-800 snap-start flex flex-col">
 	<div
 		class="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2 lg:order-1 order-2"
@@ -19,6 +28,7 @@
 				<!-- > -->
 				<a
 					href="#contact"
+					on:click={onContact}
 					class="block px-3 py-2 text-sm font-semibold text-center text-gray-700 transition-colors duration-200 transform bg-gray-200 rounded-md hover:bg-gray-300"
 					>Contact ME</a
 				>
@@ -28,7 +38,7 @@
 
 	<div class="w-full h-64 lg:w-1/2 lg:h-auto lg:block order-1">
 		<div class="w-full h-full p-5">
-			<img class="w-full h-full" src="/assets/images/programming.svg" />
+			<img class="w-full h-full" src="/assets/images/programming.svg" alt="programming" />
 		</div>
 	</div>
 </div>
