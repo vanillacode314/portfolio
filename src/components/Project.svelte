@@ -43,14 +43,14 @@
 		<a
 			class="px-2 py-1 text-xs uppercase font-semibold text-white transition-colors duration-200 transform bg-blue-600 rounded hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
 			href={url}
-			rel="external"
+			rel="external noopener"
 			target="_blank"
 		>
 			Visit
 		</a>
 		<a
 			class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none"
-			rel="external"
+			rel="external noopener"
 			target="_blank"
 			href={repo_url}
 		>

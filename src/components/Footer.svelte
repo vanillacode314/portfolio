@@ -18,6 +18,8 @@
 	<div class="flex -mx-2">
 		<a
 			href="https://instagram.com/raqueebuddin.aziz"
+			rel="external noopener"
+			target="_blank"
 			class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
 			aria-label="Reddit"
 		>
@@ -26,6 +28,8 @@
 
 		<a
 			href="https://m.me/vanillacode314"
+			rel="external noopener"
+			target="_blank"
 			class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
 			aria-label="Facebook"
 		>
@@ -34,6 +38,8 @@
 
 		<a
 			href="https://github.com/vanillacode314"
+			rel="external noopener"
+			target="_blank"
 			class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
 			aria-label="Github"
 		>
