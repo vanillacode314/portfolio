@@ -15,7 +15,7 @@
 </script>
 
 <header class="bg-white dark:bg-gray-800 snap-start">
-	<nav class="px-6 py-4 shadow">
+	<nav class="px-6 py-4 shadow max-w-5xl mx-auto">
 		<div class="lg:items-center lg:justify-between lg:flex">
 			<div class="flex items-center justify-between">
 				<div>
