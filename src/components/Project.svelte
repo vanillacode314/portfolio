@@ -33,7 +33,7 @@
 	{#if image}
 		<img
 			class="object-cover w-full h-48 mt-2"
-			src="/assets/images/{id}.png"
+			src="/assets/images/{id}.webp"
 			alt={name}
 			loading="lazy"
 		/>
