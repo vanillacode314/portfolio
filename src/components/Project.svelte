@@ -6,6 +6,20 @@
 	export let url: string;
 	export let repo_url: string;
 	export let tech: string[];
+
+	function onLinkClick() {
+		gtag('event', 'visit', {
+			event_category: 'click',
+			event_label: `visit ${name.toLowerCase()}`
+		});
+	}
+
+	function onRepoClick() {
+		gtag('event', 'visit_repo', {
+			event_category: 'click',
+			event_label: `visit ${name.toLowerCase()} repo`
+		});
+	}
 </script>
 
 <div
@@ -44,17 +58,21 @@
 			class="px-2 py-1 text-xs uppercase font-semibold text-white transition-colors duration-200 transform bg-blue-600 rounded hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
 			href={url}
 			rel="external noopener"
+			on:click={onLinkClick}
 			target="_blank"
 		>
 			Visit
 		</a>
-		<a
-			class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none"
-			rel="external noopener"
-			target="_blank"
-			href={repo_url}
-		>
-			Repo / SourceCode
-		</a>
+		{#if repo_url}
+			<a
+				class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none"
+				rel="external noopener"
+				target="_blank"
+				on:click={onRepoClick}
+				href={repo_url}
+			>
+				Repo / SourceCode
+			</a>
+		{/if}
 	</div>
 </div>
