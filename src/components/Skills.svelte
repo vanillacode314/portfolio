@@ -85,9 +85,7 @@
 >
 	{#each skills as { icon, title }}
 		<div class="flex flex-col items-center gap-1">
-			<span>
-				<div class={icon} />
-			</span>
+			<div class="{icon} text-5xl h-full" />
 			<span class="uppercase text-xs font-semibold">{title}</span>
 		</div>
 	{/each}

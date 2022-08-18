@@ -10,6 +10,7 @@ specifiers:
   '@unocss/preset-icons': ^0.45.8
   '@unocss/vite': ^0.45.8
   astro: ^1.0.6
+  astro-uno: ^0.1.6
   svelte: ^3.48.0
   unocss: ^0.45.8
 
@@ -26,6 +27,7 @@ devDependencies:
   '@unocss/preset-icons': 0.45.8
   '@unocss/vite': 0.45.8
   astro: 1.0.6
+  astro-uno: 0.1.6_astro@1.0.6+unocss@0.45.8
   unocss: 0.45.8
 
 packages:
@@ -912,6 +914,16 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       tslib: 2.4.0
+    dev: true
+
+  /astro-uno/0.1.6_astro@1.0.6+unocss@0.45.8:
+    resolution: {integrity: sha512-SAobclakRAkTQ2euFkz2GufXKUpk+rYAb8U0IL65lqGpJAk7e6t24IeAeVS9AvazoLL/fabhOLXu7hwNuyOGqw==}
+    peerDependencies:
+      astro: ^1.0.0-beta.42
+      unocss: '*'
+    dependencies:
+      astro: 1.0.6
+      unocss: 0.45.8
     dev: true
 
   /astro/1.0.6:

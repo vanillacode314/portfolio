@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "astro dev --experimental-integrations",
+    "start": "astro dev --experimental-integrations",
+    "build": "astro build --experimental-integrations",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -19,6 +19,7 @@
     "@unocss/preset-icons": "^0.45.8",
     "@unocss/vite": "^0.45.8",
     "astro": "^1.0.6",
+    "astro-uno": "^0.1.6",
     "unocss": "^0.45.8"
   },
   "dependencies": {
