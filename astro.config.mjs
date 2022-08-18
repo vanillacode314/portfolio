@@ -10,6 +10,7 @@ import presetIcons from "@unocss/preset-icons";
 export default defineConfig({
   // Enable Svelte to support Svelte components.
   integrations: [svelte(), tailwind()],
+  outDir: "build",
   vite: {
     plugins: [
       Unocss({
