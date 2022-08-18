@@ -1,0 +1,88 @@
+---
+import "uno.css";
+import Footer from "../components/Footer.svelte";
+import Header from "../components/Header.svelte";
+
+const { title } = Astro.props;
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>{title}</title>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-197W0VNG3Y", {
+				cookie_domain: window.location.hostname,
+				cookie_flags: "SameSite=None;Secure",
+			});
+		</script>
+		<style>
+			@font-face {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-Regular.ttf") format("truetype");
+			}
+
+			@font-face {
+				font-family: "Inter";
+				font-style: italic;
+				font-weight: 400;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-Italic.ttf") format("truetype");
+			}
+
+			@font-face {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 500;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-Medium.ttf") format("truetype");
+			}
+
+			@font-face {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-SemiBold.ttf") format("truetype");
+			}
+
+			@font-face {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-Bold.ttf") format("truetype");
+			}
+			@font-face {
+				font-family: "Inter";
+				font-style: italic;
+				font-weight: 700;
+				font-display: swap;
+				src: url("/assets/fonts/Inter-BoldItalic.ttf") format("truetype");
+			}
+			html,
+			body {
+				scroll-behavior: smooth;
+			}
+		</style>
+	</head>
+	<body>
+		<Header client:load />
+		<slot />
+		<Footer />
+	</body>
+</html>

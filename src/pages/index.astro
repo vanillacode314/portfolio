@@ -1,0 +1,46 @@
+---
+import Hero from "../components/Hero.svelte";
+import Section from "../components/Section.svelte";
+import Layout from "../layouts/Layout.astro";
+
+import testimonials from "../data/testimonials";
+import projects from "../data/projects";
+import Testimonial from "../components/Testimonial.svelte";
+import Project from "../components/Project.svelte";
+import Skills from "../components/Skills.svelte";
+import ContactForm from "../components/ContactForm.svelte";
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<Layout title="Professional Web Developer - VanillaCode">
+	<Hero client:load />
+	<Section name="Skills" fluid>
+		<Skills />
+	</Section>
+	<Section name="Testimonials" dark>
+		<div class="flex flex-wrap gap-5 justify-center items-start">
+			{
+				testimonials.map((testimonial) => (
+					<>
+						<Testimonial {...testimonial} />
+					</>
+				))
+			}
+		</div>
+	</Section>
+	<Section name="Projects">
+		<div class="flex flex-wrap gap-5 justify-center">
+			{
+				projects.map((project) => (
+					<>
+						<Project {...project} client:visible />
+					</>
+				))
+			}
+		</div>
+	</Section>
+	<Section name="Contact" dark>
+		<ContactForm />
+	</Section>
+</Layout>

@@ -1,0 +1,27 @@
+{
+  "name": "@example/framework-svelte",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/svelte": "^1.0.0",
+    "@astrojs/tailwind": "^1.0.0",
+    "@iconify-json/mdi": "^1.1.30",
+    "@iconify/json": "^2.1.94",
+    "@types/gtag.js": "^0.0.10",
+    "@unocss/core": "^0.45.8",
+    "@unocss/preset-icons": "^0.45.8",
+    "@unocss/vite": "^0.45.8",
+    "astro": "^1.0.6",
+    "unocss": "^0.45.8"
+  },
+  "dependencies": {
+    "svelte": "^3.48.0"
+  }
+}
