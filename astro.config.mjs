@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import uno from "astro-uno";
 import { extractorSvelte } from "@unocss/core";
 import presetIcons from "@unocss/preset-icons";
-import compress from "astro-compress";
+// import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,9 +21,9 @@ export default defineConfig({
       presets: [presetIcons()],
     }),
     sitemap(),
-    compress({
-      path: "./build",
-    }),
+    // compress({
+    //   path: "./build",
+    // }),
   ],
   outDir: "build",
 });
