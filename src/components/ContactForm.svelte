@@ -32,7 +32,7 @@
 					<label
 						for="name"
 						class="block mb-2 text-sm font-medium dark:text-gray-600 text-gray-200"
-						>Name</label
+						>Your Name</label
 					>
 
 					<input
@@ -48,7 +48,7 @@
 					<label
 						for="email"
 						class="block mb-2 text-sm font-medium dark:text-gray-600 text-gray-200"
-						>E-mail</label
+						>Your E-mail</label
 					>
 
 					<input
