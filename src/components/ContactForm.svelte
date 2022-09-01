@@ -8,7 +8,7 @@
 		Get a reply in under 24hrs
 	</p>
 
-	<div class="grid grid-cols-1 gap-6 mt-6">
+	<div class="grid grid-cols-1 gap-6 mt-6 border rounded-lg bg-gray-100">
 		<a
 			href="mailto:raqueebuddin.aziz.314@gmail.com"
 			class="flex flex-col items-center px-4 py-3 dark:text-gray-700 transition-colors duration-200 transform rounded-md text-gray-200 dark:hover:bg-blue-200 hover:bg-blue-500"
