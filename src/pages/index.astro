@@ -15,10 +15,7 @@ import ContactForm from "../components/ContactForm.svelte";
 
 <Layout title="Professional Web Developer - VanillaCode">
 	<Hero client:load />
-	<Section name="Skills" fluid>
-		<Skills />
-	</Section>
-	<Section name="Testimonials" dark>
+	<Section name="Testimonials">
 		<div class="flex flex-wrap gap-5 justify-center items-center">
 			{
 				testimonials.map((testimonial) => (
@@ -29,16 +26,13 @@ import ContactForm from "../components/ContactForm.svelte";
 			}
 		</div>
 	</Section>
-	<Section name="Projects">
+	<Section name="Projects" dark>
 		<div class="flex flex-wrap gap-5 justify-center">
-			{
-				projects.map((project) => (
-					<>
-						<Project {...project} client:visible />
-					</>
-				))
-			}
+			{projects.map((project) => <Project {...project} dark client:load />)}
 		</div>
+	</Section>
+	<Section name="Skills" fluid>
+		<Skills />
 	</Section>
 	<Section name="Contact" dark>
 		<ContactForm />

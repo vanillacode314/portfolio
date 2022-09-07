@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { getContext } from "svelte";
+
 	export let id: string;
 	export let name: string;
 	export let description: string;
@@ -6,30 +8,36 @@
 	export let url: string;
 	export let repo_url: string;
 	export let tech: string[];
+	export let dark: boolean = false;
 
 	function onLinkClick() {
-		gtag('event', 'visit', {
-			event_category: 'click',
-			event_label: `visit ${name.toLowerCase()}`
+		gtag("event", "visit", {
+			event_category: "click",
+			event_label: `visit ${name.toLowerCase()}`,
 		});
 	}
 
 	function onRepoClick() {
-		gtag('event', 'visit_repo', {
-			event_category: 'click',
-			event_label: `visit ${name.toLowerCase()} repo`
+		gtag("event", "visit_repo", {
+			event_category: "click",
+			event_label: `visit ${name.toLowerCase()} repo`,
 		});
 	}
 </script>
 
 <div
-	class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex flex-col snap-center md:snap-align-none"
+	class="max-w-xs overflow-hidden {dark
+		? 'bg-white'
+		: 'bg-gray-800'} rounded-lg shadow-lg  flex flex-col snap-center md:snap-align-none"
 >
 	<div class="px-4 py-2">
-		<h1 class="text-2xl font-bold text-gray-800 uppercase dark:text-white">
+		<h1
+			class="text-2xl font-bold {dark ? 'text-gray-800' : 'text-white'}
+			uppercase"
+		>
 			{name}
 		</h1>
-		<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+		<p class="mt-1 text-sm {dark ? 'text-gray-600' : 'text-gray-400'}">
 			{description}
 		</p>
 	</div>
