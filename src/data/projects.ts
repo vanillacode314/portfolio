@@ -19,6 +19,14 @@ export default [
     repo_url: "https://github.com/vanillacode314/justinvoice",
   },
   {
+    id: "mtgpacksim",
+    name: "MTGPackSimulator",
+    description: "Simulate draft booster packs for Magic The Gathering",
+    image: true,
+    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
+    url: "https://mtgpacksim.bluemonkeygaming.com/sets",
+  },
+  {
     id: "jl",
     name: "JustLearn",
     description:
@@ -28,15 +36,15 @@ export default [
     url: "https://justlearn.netlify.app",
     repo_url: "https://github.com/vanillacode314/justlearn",
   },
-  {
-    id: "vtt",
-    name: "VanillaTimeTracker",
-    description: "A Free and Open source Time Tracker for Freelancers.",
-    image: true,
-    tech: ["svelte", "sveltekit", "kahi ui"],
-    url: "https://vanillatimetracker.netlify.app",
-    repo_url: "https://github.com/vanillacode314/vanillatimetracker",
-  },
+  /* { */
+  /*   id: "vtt", */
+  /*   name: "VanillaTimeTracker", */
+  /*   description: "A Free and Open source Time Tracker for Freelancers.", */
+  /*   image: true, */
+  /*   tech: ["svelte", "sveltekit", "kahi ui"], */
+  /*   url: "https://vanillatimetracker.netlify.app", */
+  /*   repo_url: "https://github.com/vanillacode314/vanillatimetracker", */
+  /* }, */
   {
     id: "rg",
     name: "RemoteGamepad",
@@ -56,13 +64,5 @@ export default [
     tech: ["rust", "enigo", "clap-rs", "websockets"],
     url: "https://github.com/vanillacode314/remotegamepad-server/releases",
     repo_url: "https://github.com/vanillacode314/remotegamepad-server",
-  },
-  {
-    id: "mtgpacksim",
-    name: "MTGPackSimulator",
-    description: "Simulate draft booster packs for Magic The Gathering",
-    image: true,
-    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
-    url: "https://mtgpacksim.bluemonkeygaming.com/sets",
   },
 ];
