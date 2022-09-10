@@ -40,23 +40,23 @@
 <style>
   article {
     background-color: var(--color-1);
-    padding: var(--gap) var(--large-gap);
+    padding: var(--large-gap);
     color: white;
     border-radius: var(--radius);
     row-gap: var(--gap);
     @media (--lg-n-above) {
       padding: var(--large-gap) var(--larger-gap);
-      max-inline-size: 60%;
-      margin-inline: auto;
     }
   }
   h2 {
-    font-size: 20px;
+    font-size: var(--font-size-fluid-2);
+    margin-bottom: var(--gap);
     grid-column: span 12;
     text-align: center;
   }
   input,
   textarea {
+    font-size: 16px;
     border: none;
     outline: none;
     border-radius: var(--radius);

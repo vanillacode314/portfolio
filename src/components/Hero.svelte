@@ -31,9 +31,9 @@
 		gap: var(--gap);
 	}
 	h1 {
-		font-size: clamp(3rem, 6vw, 5rem);
+		font-size: clamp(3rem, 5vw, 4.5rem);
 		font-weight: bold;
-		grid-column: 1/7;
+		grid-column: 1 / span 6;
 		line-height: 85%;
 	}
 	p {
@@ -41,7 +41,7 @@
 		font-size: 18px;
 	}
 	.hero--image {
-		grid-column: 7/13;
+		grid-column: 7 / span 6;
 		grid-row: 1/-1;
 		@media (--md-n-below) {
 			display: none;

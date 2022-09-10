@@ -1,4 +1,5 @@
 :root {
+  font-size: 16px;
   --max-inline-size: 1080px;
   --small-gap: 7.5px;
   --gap: 15px;
@@ -14,13 +15,13 @@
   --color-4: #70cc40;
   --bg-layer: -1;
 }
+body,
 html {
+  background-color: white;
+  color: black;
   scroll-behavior: smooth;
   font-family: var(--font-family);
-}
-body {
-  font-family: var(--font-family);
-  height: 300vh;
+  -webkit-text-size-adjust: none;
 }
 .container {
   position: relative;
@@ -53,6 +54,6 @@ body {
 }
 img {
   object-fit: cover;
-  width: 100%;
+  max-width: 100%;
   display: block;
 }

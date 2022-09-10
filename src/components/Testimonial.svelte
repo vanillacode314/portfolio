@@ -20,21 +20,19 @@
   .testimonial {
     background-color: var(--color-1);
     color: white;
-    padding: var(--large-gap);
+    padding: var(--larger-gap);
     border-radius: var(--radius);
     flex: 50% 1 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: var(--gap);
+    gap: var(--large-gap);
     scroll-snap-align: center;
     @media (--md-n-below) {
+      padding: var(--large-gap);
       position: relative;
       flex: 80% 1 0;
     }
-    /* @media (max-width: 768px) { */
-    /*     flex-direction: column; */
-    /* } */
   }
   .quote {
     position: absolute;

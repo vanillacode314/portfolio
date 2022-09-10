@@ -6,7 +6,7 @@
 <Section title="why work with me" id="services">
   {#each services as { title, content, image } (title)}
     <div class="grid">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <p>{content}</p>
       <img src="/assets/images/{image.name}" alt={image.alt} />
     </div>
@@ -14,8 +14,8 @@
 </Section>
 
 <style lang="postcss">
-  h2 {
-    font-size: var(--font-size-fluid-3);
+  h3 {
+    font-size: var(--font-size-fluid-2);
     font-weight: bold;
     grid-column: 1/6;
   }
@@ -33,9 +33,9 @@
   .grid {
     margin-block: var(--larger-gap);
     grid-template-rows: auto 1fr;
-    row-gap: var(--gap);
+    row-gap: var(--large-gap);
     &:nth-child(even) {
-      h2 {
+      h3 {
         grid-column: 7/13;
       }
       p {
@@ -47,7 +47,7 @@
     }
   }
   @media (--md-n-below) {
-    h2 {
+    h3 {
       grid-column: span 12;
     }
     p {
@@ -57,7 +57,7 @@
       grid-column: span 12;
     }
     .grid:nth-child(even) {
-      h2 {
+      h3 {
         grid-column: span 12;
       }
       p {

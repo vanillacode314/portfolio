@@ -6,9 +6,9 @@
 <Section title="some projects i have worked on" id="projects">
   {#each projects as { repo_url, name, tech, description, points, url, image } (name)}
     <div class="grid">
-      <h2>
+      <h3>
         {name}
-      </h2>
+      </h3>
       <ul class="links">
         <li>
           <a class="link" href={url}>
@@ -32,7 +32,7 @@
           </a>
         </li>
       </ul>
-      <h3>({tech.join(", ")})</h3>
+      <h4>({tech.join(", ")})</h4>
       <p>{description}</p>
       <ul class="points">
         {#each points as point}
@@ -50,10 +50,10 @@
   .grid {
     margin-block: var(--larger-gap);
     grid-template-rows: auto auto auto auto 1fr;
-    row-gap: var(--gap);
+    row-gap: var(--small-gap);
   }
-  h2 {
-    font-size: var(--font-size-fluid-3);
+  h3 {
+    font-size: var(--font-size-fluid-2);
     font-weight: bold;
     grid-column: 1/7;
   }
@@ -74,7 +74,7 @@
     align-items: center;
     gap: var(--small-gap);
   }
-  h3 {
+  h4 {
     color: #535353;
     font-size: 18px;
     grid-column: 1/7;
@@ -89,6 +89,7 @@
     grid-column: 1/7;
   }
   p {
+    margin-top: var(--gap);
     /* white-space: pre-line; */
     font-size: 18px;
     grid-column: 1/5;
@@ -103,18 +104,10 @@
     overflow: hidden;
   }
   .grid:nth-child(even) {
-    h2 {
-      grid-column: 7/13;
-    }
-    .points {
-      grid-column: 7/13;
-    }
-    h3 {
-      grid-column: 7/13;
-    }
-    p {
-      grid-column: 7/13;
-    }
+    h3,
+    h4,
+    .points,
+    p,
     .links {
       grid-column: 7/13;
     }
@@ -123,40 +116,20 @@
     }
   }
   @media (--md-n-below) {
-    h2 {
-      grid-column: span 12;
-    }
-    h3 {
-      grid-column: span 12;
-    }
-    .points {
-      grid-column: span 12;
-    }
-    p {
-      grid-column: span 12;
-    }
+    h3,
+    h4,
+    .points,
+    p,
+    .image,
     .links {
       grid-column: span 12;
     }
-    .image {
-      grid-column: span 12;
-    }
     .grid:nth-child(even) {
-      h2 {
-        grid-column: span 12;
-      }
-      h3 {
-        grid-column: span 12;
-      }
-      .points {
-        grid-column: span 12;
-      }
-      p {
-        grid-column: span 12;
-      }
-      .image {
-        grid-column: span 12;
-      }
+      h3,
+      h4,
+      .points,
+      p,
+      .image,
       .links {
         grid-column: span 12;
       }

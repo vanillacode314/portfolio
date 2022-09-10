@@ -8,6 +8,7 @@ specifiers:
   astro-google-fonts-optimizer: ^0.2.1
   autoprefixer: ^10.4.8
   cssnano: ^5.1.13
+  normalize.css: ^8.0.1
   open-props: ^1.4.14
   postcss-custom-media: ^8.0.2
   postcss-jit-props: ^1.0.7
@@ -26,6 +27,7 @@ devDependencies:
   astro-google-fonts-optimizer: 0.2.1
   autoprefixer: 10.4.8
   cssnano: 5.1.13
+  normalize.css: 8.0.1
   open-props: 1.4.14
   postcss-custom-media: 8.0.2
   postcss-jit-props: 1.0.7
@@ -2919,6 +2921,10 @@ packages:
   /normalize-url/6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
+    dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
     dev: true
 
   /npm-run-path/5.1.0:
