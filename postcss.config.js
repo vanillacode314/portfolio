@@ -9,6 +9,9 @@ module.exports = {
     }),
     require("postcss-text-stroke"),
     require("autoprefixer"),
-    require("cssnano"),
+    require("cssnano")({
+      safe: true,
+      calc: false,
+    }),
   ],
 };

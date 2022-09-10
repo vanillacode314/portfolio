@@ -1,10 +1,10 @@
 :root {
   font-size: 16px;
-  --max-inline-size: 1080px;
-  --small-gap: 7.5px;
-  --gap: 15px;
-  --large-gap: 30px;
-  --larger-gap: 60px;
+  --max-inline-size: 67.5rem;
+  --small-gap: calc(var(--gap) * 0.5);
+  --gap: 1rem;
+  --large-gap: calc(var(--gap) * 2);
+  --larger-gap: calc(var(--gap) * 4);
   --radius: 10px;
   --font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -55,5 +55,6 @@ html {
 img {
   object-fit: cover;
   max-width: 100%;
+  width: 100%;
   display: block;
 }

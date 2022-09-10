@@ -45,7 +45,7 @@
       transform: translateY(-25%);
     }
   }
-  blockquote {
+  blockquote p {
     font-size: var(--font-size-fluid-1);
     line-height: 110%;
   }

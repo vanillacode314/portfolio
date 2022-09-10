@@ -34,7 +34,7 @@
 		font-size: clamp(3rem, 5vw, 4.5rem);
 		font-weight: bold;
 		grid-column: 1 / span 6;
-		line-height: 85%;
+		line-height: 95%;
 	}
 	p {
 		grid-column: 1/5;
