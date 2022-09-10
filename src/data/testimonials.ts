@@ -18,7 +18,7 @@ export default [
   /* }, */
   {
     content:
-      "Raqueebuddin was very responsive and clearly very knowledgeable about a myriad of different web technologies. He is a great problem solver, good at organizing code and debugging, as well as crating user interfaces. He's also a very down to earth person to talk to and he's always reasonable.",
+      "Raqueebuddin was very responsive and clearly very knowledgeable about a myriad of different web technologies. He is a great problem solver, good at organizing code and debugging, as well as creating user interfaces. He's also a very down to earth person to talk to and he's always reasonable.",
     author: "Justin Golden",
     title: "Fullstack Software Engineer",
   },
