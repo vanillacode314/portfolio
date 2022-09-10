@@ -65,13 +65,13 @@
     min-width: 10%;
     font-family: sans-serif;
   }
-  input:hover,
-  textarea:hover {
-    outline: 2px solid var(--color-1);
-  }
   textarea {
     height: 300px;
     resize: none;
+  }
+  input:hover,
+  textarea:hover {
+    outline: 2px solid var(--color-1);
   }
   input:focus,
   textarea:focus {
