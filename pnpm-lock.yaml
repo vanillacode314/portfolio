@@ -5,6 +5,7 @@ specifiers:
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/svelte': ^1.0.0
   astro: ^1.2.1
+  astro-google-fonts-optimizer: ^0.2.1
   autoprefixer: ^10.4.8
   cssnano: ^5.1.13
   open-props: ^1.4.14
@@ -21,6 +22,7 @@ dependencies:
   svelte: 3.50.1
 
 devDependencies:
+  astro-google-fonts-optimizer: 0.2.1
   autoprefixer: 10.4.8
   cssnano: 5.1.13
   open-props: 1.4.14
@@ -783,6 +785,10 @@ packages:
     dependencies:
       tslib: 2.4.0
     dev: false
+
+  /astro-google-fonts-optimizer/0.2.1:
+    resolution: {integrity: sha512-oHKx31xdENgM+hkaX3sRpeEn8XmMpVVNwP2N6HYHzaRkl2m5CrnsnEef4ukwaJSB3UXteYrixAVD2PUZhTH7mQ==}
+    dev: true
 
   /astro/1.2.1:
     resolution: {integrity: sha512-bNWrYALx2o15QPfF0QKUI6UXZa6FQgprH4hQI742VHl4FGSizCPb1CVejyrIt4pKDvGcM2LUW/J2A5yZ8eIU1A==}

@@ -2,6 +2,7 @@
 import "../styles/reset.css";
 import "../styles/index.css";
 import Background from "../components/Background.svelte";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 export interface Props {
   title?: string;
@@ -15,11 +16,8 @@ const { title } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
-      rel="stylesheet"
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
     />
     <title>{title || "Fullstack Web Developer - Raqueebuddin Aziz"}</title>
   </head>

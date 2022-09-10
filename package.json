@@ -17,6 +17,7 @@
     "svelte": "^3.48.0"
   },
   "devDependencies": {
+    "astro-google-fonts-optimizer": "^0.2.1",
     "autoprefixer": "^10.4.8",
     "cssnano": "^5.1.13",
     "open-props": "^1.4.14",
