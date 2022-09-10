@@ -23,6 +23,7 @@
     "open-props": "^1.4.14",
     "postcss-custom-media": "^8.0.2",
     "postcss-jit-props": "^1.0.7",
-    "postcss-nested": "^5.0.6"
+    "postcss-nested": "^5.0.6",
+    "postcss-text-stroke": "^0.0.4"
   }
 }
