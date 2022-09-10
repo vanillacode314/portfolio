@@ -30,7 +30,11 @@
     scroll-snap-align: center;
     @media (--md-n-below) {
       position: relative;
+      flex: 80% 1 0;
     }
+    /* @media (max-width: 768px) { */
+    /*     flex-direction: column; */
+    /* } */
   }
   .quote {
     position: absolute;
@@ -39,11 +43,12 @@
     color: var(--color-2);
     user-select: none;
     @media (--md-n-below) {
+      font-size: 75px;
       transform: translateY(-25%);
     }
   }
   blockquote {
-    font-size: 22px;
+    font-size: var(--font-size-fluid-1);
     line-height: 110%;
   }
   figcaption {
