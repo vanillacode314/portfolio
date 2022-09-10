@@ -7,11 +7,7 @@ module.exports = {
     require("postcss-custom-media")({
       importFrom: "./node_modules/open-props/media.min.css",
     }),
-    require("postcss-responsive-font"),
     require("autoprefixer"),
-    require("cssnano")({
-      safe: true,
-      calc: false,
-    }),
+    require("cssnano"),
   ],
 };

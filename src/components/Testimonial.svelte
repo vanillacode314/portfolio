@@ -44,7 +44,7 @@
       transform: translateY(-25%);
     }
   }
-  blockquote p {
+  p {
     font-size: var(--font-size-1);
     @media (--md-n-above) {
       font-size: var(--font-size-2);
