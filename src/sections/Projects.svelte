@@ -65,6 +65,7 @@
   }
   .links {
     font-size: 14px;
+    grid-column: 1/7;
     display: flex;
     gap: var(--gap);
   }
@@ -95,7 +96,9 @@
   .image {
     grid-column: 7/13;
     grid-row: 1/-1;
-    margin-inline: var(--large-gap);
+    @media (--lg-n-above) {
+      margin-inline: var(--large-gap);
+    }
     border-radius: var(--radius);
     overflow: hidden;
   }
@@ -110,6 +113,9 @@
       grid-column: 7/13;
     }
     p {
+      grid-column: 7/13;
+    }
+    .links {
       grid-column: 7/13;
     }
     .image {
@@ -129,6 +135,9 @@
     p {
       grid-column: span 12;
     }
+    .links {
+      grid-column: span 12;
+    }
     .image {
       grid-column: span 12;
     }
@@ -146,6 +155,9 @@
         grid-column: span 12;
       }
       .image {
+        grid-column: span 12;
+      }
+      .links {
         grid-column: span 12;
       }
     }
