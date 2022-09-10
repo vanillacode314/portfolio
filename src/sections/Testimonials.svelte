@@ -4,6 +4,7 @@
   import Testimonial from "../components/Testimonial.svelte";
   import { onMount } from "svelte";
 
+  const CAROUSEL_TIMEOUT: number = 10000; // in milliseconds
   let scrollElement: HTMLElement;
   let childElements: HTMLElement[] = [];
   let activeIndex = 1;
@@ -25,7 +26,7 @@
 
   onMount(() => {
     step(0);
-    const interval = setInterval(() => step(1), 3000);
+    const interval = setInterval(() => step(1), CAROUSEL_TIMEOUT);
     return () => clearInterval(interval);
   });
 </script>
