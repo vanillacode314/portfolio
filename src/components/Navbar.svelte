@@ -44,7 +44,7 @@
 			}
 		}
 	}
-	@media (--md-n-below) {
+	@media (--sm-n-below) {
 		.nav-item :not(.nav-button) {
 			display: none;
 		}

@@ -40,7 +40,7 @@
 		padding: var(--gap) var(--large-gap);
 		border-radius: var(--radius);
 		outline: none;
-		font-size: 18px;
+		font-size: var(--body-text);
 		font-weight: bold;
 		text-transform: uppercase;
 		cursor: pointer;

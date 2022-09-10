@@ -21,9 +21,14 @@
 
 <style lang="postcss">
 	.hero {
-		grid-template-rows: repeat(3, auto);
+		grid-template-rows: repeat(2, auto) 1fr;
+		align-items: center;
 		padding-block: calc(var(--gap) * 12);
-		row-gap: var(--gap);
+		row-gap: var(--large-gap);
+		@media (--md-n-below) {
+			justify-items: center;
+			text-align: center;
+		}
 	}
 	.actions {
 		display: flex;
@@ -31,14 +36,15 @@
 		gap: var(--gap);
 	}
 	h1 {
-		font-size: clamp(3rem, 5vw, 4.5rem);
+		font-size: var(--h1-text);
 		font-weight: bold;
 		grid-column: 1 / span 6;
 		line-height: 95%;
 	}
 	p {
+		font-size: var(--body-text);
+		line-height: 1.1;
 		grid-column: 1/5;
-		font-size: 18px;
 	}
 	.hero--image {
 		grid-column: 7 / span 6;

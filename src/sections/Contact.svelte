@@ -49,14 +49,14 @@
     }
   }
   h2 {
-    font-size: var(--font-size-fluid-2);
+    font-size: var(--h3-text);
     margin-bottom: var(--gap);
     grid-column: span 12;
     text-align: center;
   }
   input,
   textarea {
-    font-size: 16px;
+    font-size: var(--body-text);
     border: none;
     outline: none;
     border-radius: var(--radius);

@@ -11,11 +11,11 @@
 
 <style>
 	h2 {
-		font-size: var(--font-size-fluid-3);
 		font-weight: bold;
 		text-align: center;
 		max-width: 15ch;
 		margin-inline: auto;
+		font-size: var(--h2-text);
 	}
 	section {
 		padding-block: var(--large-gap);

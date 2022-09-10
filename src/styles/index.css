@@ -1,6 +1,4 @@
 :root {
-  font-size: 16px;
-  --max-inline-size: 67.5rem;
   --small-gap: calc(var(--gap) * 0.5);
   --gap: 1rem;
   --large-gap: calc(var(--gap) * 2);
@@ -14,9 +12,28 @@
   --color-3: #ffbc0e;
   --color-4: #70cc40;
   --bg-layer: -1;
+  --body-text: var(--font-size-1);
+
+  /* small */
+  --h1-text: var(--font-size-6);
+  --h2-text: var(--font-size-5);
+  --h3-text: var(--font-size-4);
+  /* medium */
+  @media (--md-n-above) {
+    --h1-text: var(--font-size-7);
+    --h2-text: var(--font-size-6);
+    --h3-text: var(--font-size-5);
+  }
+  /* large */
+  @media (--lg-n-above) {
+    --h1-text: var(--font-size-8);
+    --h2-text: var(--font-size-7);
+    --h3-text: var(--font-size-6);
+  }
 }
 body,
 html {
+  font-size: 16px;
   background-color: white;
   color: black;
   scroll-behavior: smooth;
@@ -25,15 +42,34 @@ html {
 }
 .container {
   position: relative;
-  max-inline-size: var(--max-inline-size);
-  margin-inline: auto;
   padding: var(--large-gap);
+  margin-inline: auto;
+  max-inline-size: var(--size-sm);
+  @media (--md-n-above) {
+    max-inline-size: var(--size-md);
+  }
+  @media (--lg-n-above) {
+    max-inline-size: var(--size-lg);
+  }
+  @media (--xl-n-above) {
+    max-inline-size: var(--size-xl);
+  }
+  @media (--xxl-n-above) {
+    max-inline-size: var(--size-xxl);
+  }
 }
 .grid {
   display: grid;
   column-gap: var(--gap);
   grid-template-columns: repeat(12, 1fr);
 }
+img {
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+/* custom scrollbar */
 *::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -51,10 +87,4 @@ html {
 }
 *::-webkit-scrollbar-thumb:active {
   background: rgba(0, 0, 0, 0.9);
-}
-img {
-  object-fit: cover;
-  max-width: 100%;
-  width: 100%;
-  display: block;
 }

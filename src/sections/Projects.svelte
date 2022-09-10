@@ -53,9 +53,12 @@
     row-gap: var(--small-gap);
   }
   h3 {
-    font-size: var(--font-size-fluid-2);
     font-weight: bold;
     grid-column: 1/7;
+    font-size: var(--h3-text);
+    @media (--md-n-below) {
+      text-align: center;
+    }
   }
   a {
     color: black;
@@ -68,6 +71,9 @@
     grid-column: 1/7;
     display: flex;
     gap: var(--gap);
+    @media (--md-n-below) {
+      justify-content: center;
+    }
   }
   .link {
     display: flex;
@@ -76,8 +82,11 @@
   }
   h4 {
     color: #535353;
-    font-size: 18px;
+    font-size: var(--body-text);
     grid-column: 1/7;
+    @media (--md-n-below) {
+      text-align: center;
+    }
   }
   .points {
     display: flex;
@@ -85,19 +94,18 @@
     gap: var(--small-gap);
     list-style-type: disc;
     list-style-position: inside;
-    font-size: 18px;
+    font-size: var(--body-text);
     grid-column: 1/7;
   }
   p {
     margin-top: var(--gap);
-    /* white-space: pre-line; */
-    font-size: 18px;
+    font-size: var(--body-text);
     grid-column: 1/5;
   }
   .image {
     grid-column: 7/13;
     grid-row: 1/-1;
-    @media (--lg-n-above) {
+    @media (--md-n-above) {
       margin-inline: var(--large-gap);
     }
     border-radius: var(--radius);

@@ -46,7 +46,7 @@
     display: flex;
     gap: var(--gap);
     width: 100%;
-    padding-top: var(--large-gap);
+    padding-top: var(--gap);
     padding-bottom: var(--gap);
     scroll-snap-type: x mandatory;
     overflow-x: auto;

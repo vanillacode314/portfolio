@@ -15,14 +15,18 @@
 
 <style lang="postcss">
   h3 {
-    font-size: var(--font-size-fluid-2);
+    font-size: var(--h3-text);
     font-weight: bold;
     grid-column: 1/6;
+    @media (--md-n-below) {
+      text-align: center;
+    }
   }
   p {
     white-space: pre-line;
-    font-size: 18px;
+    font-size: var(--body-text);
     grid-column: 1/5;
+    line-height: 1.1;
   }
   img {
     width: var(--size-fluid-10);
@@ -47,22 +51,14 @@
     }
   }
   @media (--md-n-below) {
-    h3 {
-      grid-column: span 12;
-    }
-    p {
-      grid-column: span 12;
-    }
+    h3,
+    p,
     img {
       grid-column: span 12;
     }
     .grid:nth-child(even) {
-      h3 {
-        grid-column: span 12;
-      }
-      p {
-        grid-column: span 12;
-      }
+      h3,
+      p,
       img {
         grid-column: span 12;
       }

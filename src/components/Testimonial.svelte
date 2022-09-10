@@ -20,7 +20,7 @@
   .testimonial {
     background-color: var(--color-1);
     color: white;
-    padding: var(--larger-gap);
+    padding: var(--large-gap);
     border-radius: var(--radius);
     flex: 50% 1 0;
     display: flex;
@@ -29,7 +29,6 @@
     gap: var(--large-gap);
     scroll-snap-align: center;
     @media (--md-n-below) {
-      padding: var(--large-gap);
       position: relative;
       flex: 80% 1 0;
     }
@@ -37,7 +36,7 @@
   .quote {
     position: absolute;
     top: 0;
-    font-size: 100px;
+    font-size: 70px;
     color: var(--color-2);
     user-select: none;
     @media (--md-n-below) {
@@ -46,13 +45,25 @@
     }
   }
   blockquote p {
-    font-size: var(--font-size-fluid-1);
-    line-height: 110%;
+    font-size: var(--font-size-1);
+    @media (--md-n-above) {
+      font-size: var(--font-size-2);
+    }
+    @media (--lg-n-above) {
+      font-size: var(--font-size-3);
+    }
+    line-height: 1.1;
   }
   figcaption {
     align-self: end;
     /* font-weight: 600; */
-    font-size: 18px;
     text-align: right;
+    font-size: var(--font-size-0);
+    @media (--md-n-above) {
+      font-size: var(--font-size-1);
+    }
+    @media (--lg-n-above) {
+      font-size: var(--font-size-2);
+    }
   }
 </style>

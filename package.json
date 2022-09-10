@@ -26,6 +26,7 @@
     "postcss-fixes": "^3.0.0",
     "postcss-jit-props": "^1.0.7",
     "postcss-nested": "^5.0.6",
+    "postcss-responsive-font": "^1.0.6",
     "postcss-text-stroke": "^0.0.4"
   }
 }
