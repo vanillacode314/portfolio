@@ -5,17 +5,37 @@
   import { onMount } from "svelte";
 
   let scrollElement: HTMLElement;
+  let childElements: HTMLElement[] = [];
+  let activeIndex = 1;
+
+  function step(dir: number) {
+    activeIndex =
+      (activeIndex + dir + testimonials.length) % testimonials.length;
+    const { width: containerWidth } = scrollElement.getBoundingClientRect();
+    const { width: cardWidth } = childElements[0]
+      .querySelector(".testimonial")
+      .getBoundingClientRect();
+    const width = scrollElement.scrollWidth / (containerWidth / cardWidth);
+    scrollElement.scrollTo({
+      behavior: "smooth",
+      left: (width / 2) * activeIndex,
+      top: 0,
+    });
+  }
 
   onMount(() => {
-    const { width } = scrollElement.getBoundingClientRect();
-    scrollElement.scrollTo(width * 0.5, 0);
+    step(0);
+    const interval = setInterval(() => step(1), 3000);
+    return () => clearInterval(interval);
   });
 </script>
 
 <Section title="what others have to say" id="testimonials">
   <div class="testimonials" bind:this={scrollElement}>
-    {#each testimonials as testimonial}
-      <Testimonial {testimonial} />
+    {#each testimonials as testimonial, index}
+      <div bind:this={childElements[index]} style="display: contents">
+        <Testimonial {testimonial} />
+      </div>
     {/each}
   </div>
 </Section>
@@ -30,10 +50,8 @@
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     position: relative;
-  }
-  @media (max-width: 768px) {
-    .testimonials {
-      flex-direction: column;
-    }
+    /* @media (max-width: 768px) { */
+    /*     flex-direction: column; */
+    /* } */
   }
 </style>
