@@ -40,11 +40,12 @@
 <style>
   article {
     background-color: var(--color-1);
+    padding: var(--gap) var(--large-gap);
     color: white;
-    padding: var(--large-gap) var(--larger-gap);
     border-radius: var(--radius);
     row-gap: var(--gap);
     @media (--lg-n-above) {
+      padding: var(--large-gap) var(--larger-gap);
       max-inline-size: 60%;
       margin-inline: auto;
     }

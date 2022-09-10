@@ -45,6 +45,9 @@
 		text-transform: uppercase;
 		cursor: pointer;
 		text-decoration: none;
+		display: grid;
+		place-content: center;
+		text-align: center;
 	}
 	.btn.primary {
 		border: 1px solid var(--color);

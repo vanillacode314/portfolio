@@ -27,7 +27,6 @@
 	}
 	.actions {
 		display: flex;
-		align-items: start;
 		grid-column: 1/7;
 		gap: var(--gap);
 	}
