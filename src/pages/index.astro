@@ -1,12 +1,19 @@
 ---
 import Hero from "../components/Hero.svelte";
 import Navbar from "../components/Navbar.svelte";
-import Section from "../components/Section.svelte";
 import Base from "../layouts/Base.astro";
+
+import Services from "../sections/Services.svelte";
+import Projects from "../sections/Projects.svelte";
+import Testimonials from "../sections/Testimonials.svelte";
+import Contact from "../sections/Contact.svelte";
 ---
 
 <Base>
   <Navbar />
   <Hero />
-  <Section title="what others have to say" />
+  <Testimonials client:load />
+  <Services />
+  <Projects />
+  <Contact />
 </Base>

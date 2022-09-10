@@ -1,7 +1,7 @@
 <nav>
-	<span class="logo">
+	<a class="logo" href="/" aria-label="home">
 		Raqueebuddin<br />Aziz
-	</span>
+	</a>
 	<ul class="nav-list">
 		<li class="nav-item"><a href="#testimonials">testimonials</a></li>
 		<li class="nav-item"><a href="#projects">projects</a></li>
@@ -9,7 +9,11 @@
 	</ul>
 </nav>
 
-<style>
+<style lang="postcss">
+	a {
+		text-decoration: none;
+		color: black;
+	}
 	nav {
 		display: flex;
 		justify-content: space-between;
@@ -24,18 +28,25 @@
 		display: flex;
 		gap: var(--gap);
 	}
-	.nav-item a {
-		text-decoration: none;
-		color: black;
+	.nav-item {
+		a {
+			text-decoration: none;
+			color: black;
+			&:is(:hover, :focus) {
+				text-decoration: underline;
+			}
+			&.nav-button {
+				background-color: black;
+				color: white;
+				padding: calc(var(--gap) / 2) var(--gap);
+				border-radius: 50px;
+				border: 1px solid black;
+			}
+		}
 	}
-	.nav-item a:is(:hover, :focus) {
-		text-decoration: underline;
-	}
-	.nav-item a.nav-button {
-		background-color: black;
-		color: white;
-		padding: calc(var(--gap) / 2) var(--gap);
-		border-radius: 50px;
-		border: 1px solid black;
+	@media (--md-n-below) {
+		.nav-item :not(.nav-button) {
+			display: none;
+		}
 	}
 </style>

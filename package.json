@@ -14,5 +14,13 @@
     "@astrojs/svelte": "^1.0.0",
     "astro": "^1.2.1",
     "svelte": "^3.48.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.13",
+    "open-props": "^1.4.14",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-jit-props": "^1.0.7",
+    "postcss-nested": "^5.0.6"
   }
 }

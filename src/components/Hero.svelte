@@ -2,15 +2,15 @@
 	import Button from "./Button.svelte";
 </script>
 
-<section class="hero">
+<section class="grid hero">
 	<h1>Hi, I build websites people love to use</h1>
 	<p>
 		I help businesses get more customers by building quick to load, beautiful
 		and easy to use websites.
 	</p>
 	<div class="actions">
-		<Button>Contact</Button>
-		<Button variant="secondary">See My Work</Button>
+		<Button href="#contact">Contact</Button>
+		<Button href="#projects" variant="secondary">See My Work</Button>
 	</div>
 	<img
 		class="hero--image"
@@ -19,13 +19,11 @@
 	/>
 </section>
 
-<style>
+<style lang="postcss">
 	.hero {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
 		grid-template-rows: repeat(3, auto);
-		column-gap: var(--gap);
 		padding-block: calc(var(--gap) * 12);
+		row-gap: var(--gap);
 	}
 	.actions {
 		display: flex;
@@ -36,8 +34,10 @@
 	h1 {
 		font-size: 70px;
 		font-weight: bold;
-		line-height: 87%;
 		grid-column: 1/7;
+		@media (--md-n-above) {
+			line-height: 85%;
+		}
 	}
 	p {
 		grid-column: 1/5;
@@ -46,5 +46,22 @@
 	.hero--image {
 		grid-column: 7/13;
 		grid-row: 1/-1;
+		@media (--md-n-below) {
+			display: none;
+		}
+	}
+	@media (--md-n-below) {
+		h1 {
+			grid-column: span 12;
+		}
+		p {
+			grid-column: span 12;
+		}
+		.actions {
+			grid-column: span 12;
+		}
+		.hero--image {
+			grid-column: span 12;
+		}
 	}
 </style>

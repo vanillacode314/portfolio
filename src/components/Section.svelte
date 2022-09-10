@@ -2,18 +2,25 @@
 	export let title: string;
 </script>
 
-<section class="section">
+<section {...$$restProps}>
 	<h2>{title}</h2>
-	<slot />
+	<div class="content">
+		<slot />
+	</div>
 </section>
 
 <style>
 	h2 {
 		font-size: 40px;
-		line-height: 65%;
 		font-weight: bold;
 		text-align: center;
 		max-width: 15ch;
 		margin-inline: auto;
+	}
+	section {
+		padding-block: var(--large-gap);
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap);
 	}
 </style>
