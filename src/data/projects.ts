@@ -17,7 +17,7 @@ export default [
       `Enhances UX for customers by saving relevant user searches and favourites for quick access.`,
       `Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.`,
     ],
-    image: "redditlattice.png",
+    image: "redditlattice.webp",
     tech: ["vue3", "nuxt3", "vuetify", "workbox", "service-workers"],
     url: "https://redditlattice.netlify.app/",
     repo_url: "https://github.com/vanillacode314/redditlattice",
@@ -26,7 +26,7 @@ export default [
     name: "JustInvoice",
     description:
       "An intuitive invoice manager that works completely in the browser and offline",
-    image: "justinvoice.png",
+    image: "justinvoice.webp",
     tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
     points: [
       "Auto formats to print invoices in a concise form.",

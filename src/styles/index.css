@@ -26,7 +26,7 @@ body {
   position: relative;
   max-inline-size: var(--max-inline-size);
   margin-inline: auto;
-  padding: var(--gap);
+  padding: var(--large-gap);
 }
 .grid {
   display: grid;
