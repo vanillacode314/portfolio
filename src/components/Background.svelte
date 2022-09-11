@@ -39,7 +39,7 @@
     border-radius: var(--radius);
     height: 300px;
     width: 300px;
-    transform: translateY(calc(var(--percent-scrolled) * 100))
+    transform: translateY(calc(var(--percent-scrolled, 0px) * 100))
       rotate(60deg);
     filter: blur(10px);
     opacity: 75%;
