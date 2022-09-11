@@ -45,7 +45,7 @@ const { title } = Astro.props as Props;
     </script>
   </head>
   <body>
-    <Background />
+    <Background client:load />
     <div class="container">
       <slot />
     </div>
