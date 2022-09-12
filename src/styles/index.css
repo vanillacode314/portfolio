@@ -4,10 +4,14 @@
   --large-gap: calc(var(--gap) * 2);
   --larger-gap: calc(var(--gap) * 4);
   --radius: 0.625rem;
-  --font-family: "Archivo Narrow", system-ui, -apple-system, blinkmacsystemfont,
-    "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-  --headline-family: "JetBrains Mono", serif;
+  --font-family: "Archivo Narrow", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --headline-family: "JetBrains Mono", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   --color-1: #093f68;
   --color-2: #68e1fd;
   --color-3: #ffbc0e;
