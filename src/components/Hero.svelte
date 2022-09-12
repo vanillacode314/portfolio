@@ -3,7 +3,7 @@
 </script>
 
 <section class="grid hero">
-	<h1>Hi, I build websites people love to use</h1>
+	<h1>Hi, I build websites people love to use_</h1>
 	<p>
 		I help businesses get more customers by building quick to load, beautiful
 		and easy to use websites.
@@ -37,7 +37,8 @@
 	}
 	h1 {
 		font-size: var(--h1-text);
-		font-weight: bold;
+		font-family: var(--headline-family);
+		/* font-weight: bold; */
 		grid-column: 1 / span 6;
 		line-height: 95%;
 	}

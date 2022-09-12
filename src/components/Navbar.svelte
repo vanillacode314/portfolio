@@ -17,12 +17,13 @@
 	nav {
 		display: flex;
 		justify-content: space-between;
-		align-items: start;
+		align-items: flex-start;
 	}
 	.logo {
-		font-weight: 600;
+		/* font-weight: 600; */
 		font-size: 18px;
 		text-transform: uppercase;
+		font-family: var(--headline-family);
 	}
 	.nav-list {
 		display: flex;

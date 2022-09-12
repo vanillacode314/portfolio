@@ -11,7 +11,8 @@
 
 <style>
 	h2 {
-		font-weight: bold;
+		/* font-weight: bold; */
+		font-family: var(--headline-family);
 		text-align: center;
 		max-width: 15ch;
 		margin-inline: auto;

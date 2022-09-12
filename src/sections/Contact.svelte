@@ -6,7 +6,7 @@
   <h2>get in touch</h2>
   <form name="contact" data-netlify="true">
     <div class="form-control">
-      <label for="name"> Name: </label>
+      <label for="name"> Name</label>
       <input
         placeholder="John Doe"
         type="text"
@@ -16,7 +16,7 @@
       />
     </div>
     <div class="form-control">
-      <label for="email"> Email: </label>
+      <label for="email"> Email </label>
       <input
         placeholder="example@example.com"
         type="email"
@@ -26,7 +26,7 @@
       />
     </div>
     <div class="form-control full">
-      <label for="message"> Message: </label>
+      <label for="message"> Message </label>
       <textarea id="message" name="message" required />
     </div>
     <span class="actions">
@@ -37,45 +37,48 @@
   </form>
 </article>
 
-<style>
+<style lang="postcss">
   article {
     background-color: var(--color-1);
     padding: var(--large-gap);
     color: white;
     border-radius: var(--radius);
     row-gap: var(--gap);
+    max-width: 720px;
+    margin-inline: auto;
     @media (--lg-n-above) {
       padding: var(--large-gap) var(--larger-gap);
     }
+  }
+  label {
+    font-family: var(--headline-family);
   }
   h2 {
     font-size: var(--h3-text);
     margin-bottom: var(--gap);
     grid-column: span 12;
+    font-family: var(--headline-family);
     text-align: center;
   }
   input,
   textarea {
-    font-size: var(--body-text);
     border: none;
     outline: none;
-    border-radius: var(--radius);
+    border-radius: calc(var(--radius) / 2);
     padding: var(--gap);
     max-width: 100%;
     min-width: 10%;
-    font-family: sans-serif;
+    &:hover {
+      outline: 2px solid var(--color-2);
+    }
+    &:focus {
+      outline: 2px solid var(--color-3);
+    }
+    /* font-family: sans-serif; */
   }
   textarea {
-    height: 300px;
+    height: 200px;
     resize: none;
-  }
-  input:hover,
-  textarea:hover {
-    outline: 2px solid var(--color-1);
-  }
-  input:focus,
-  textarea:focus {
-    outline: 2px solid var(--color-3);
   }
   .actions {
     display: grid;
@@ -83,6 +86,7 @@
     grid-column: span 12;
   }
   form {
+    font-size: 14px;
     display: contents;
   }
   .form-control {

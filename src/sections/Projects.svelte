@@ -6,9 +6,16 @@
 <Section title="some projects i have worked on" id="projects">
   {#each projects as { repo_url, name, tech, description, points, url, image } (name)}
     <div class="grid">
-      <h3>
+      <h3 class="title">
         {name}
       </h3>
+      <!-- <span class="arrow"> -->
+      <!--   <svg width="1em" height="1em" viewBox="0 0 24 24" -->
+      <!--     ><path -->
+      <!--       d="M6.45 17.45L1 12l5.45-5.45l1.41 1.41L4.83 11h14.34l-3.03-3.04l1.41-1.41L23 12l-5.45 5.45l-1.41-1.41L19.17 13H4.83l3.03 3.04l-1.41 1.41Z" -->
+      <!--     /></svg -->
+      <!--   > -->
+      <!-- </span> -->
       <ul class="links">
         <li>
           <a class="link" href={url}>
@@ -32,8 +39,8 @@
           </a>
         </li>
       </ul>
-      <h4>({tech.join(", ")})</h4>
-      <p>{description}</p>
+      <h4 class="tech">({tech.join(", ")})</h4>
+      <p class="content">{description}</p>
       <ul class="points">
         {#each points as point}
           <li>{point}</li>
@@ -48,98 +55,114 @@
 
 <style lang="postcss">
   .grid {
+    --content-span: 4;
+    --odd-content-start: 1;
+    --even-content-start: 9;
+
+    --image-span: 4;
+    --odd-image-start: 9;
+    --even-image-start: 1;
+
+    @media (--md-n-below) {
+      --content-span: 12;
+      --odd-content-start: 1;
+      --even-content-start: 1;
+
+      --image-span: 12;
+      --odd-image-start: 1;
+      --even-image-start: 1;
+    }
+
+    background-color: rgb(0 0 0 / 5%);
+    border-radius: var(--radius);
     margin-block: var(--larger-gap);
+    padding: var(--large-gap);
     grid-template-rows: auto auto auto auto 1fr;
     row-gap: var(--small-gap);
-  }
-  h3 {
-    font-weight: bold;
-    grid-column: 1/7;
-    font-size: var(--h3-text);
-    @media (--md-n-below) {
-      text-align: center;
+    line-height: 120%;
+
+    .title {
+      /* font-weight: bold; */
+      grid-column-start: var(--odd-content-start);
+      grid-column-end: span var(--content-span);
+      @media (--md-n-below) {
+        text-align: center;
+      }
     }
-  }
-  a {
-    color: black;
-  }
-  a:is(:hover, :focus) {
-    color: var(--color-1);
-  }
-  .links {
-    font-size: 14px;
-    grid-column: 1/7;
-    display: flex;
-    gap: var(--gap);
-    @media (--md-n-below) {
-      justify-content: center;
-    }
-  }
-  .link {
-    display: flex;
-    align-items: center;
-    gap: var(--small-gap);
-  }
-  h4 {
-    color: #535353;
-    font-size: var(--body-text);
-    grid-column: 1/7;
-    @media (--md-n-below) {
-      text-align: center;
-    }
-  }
-  .points {
-    display: flex;
-    flex-direction: column;
-    gap: var(--small-gap);
-    list-style-type: disc;
-    list-style-position: inside;
-    font-size: var(--body-text);
-    grid-column: 1/7;
-  }
-  p {
-    margin-top: var(--gap);
-    font-size: var(--body-text);
-    grid-column: 1/5;
-  }
-  .image {
-    grid-column: 7/13;
-    grid-row: 1/-1;
-    @media (--md-n-above) {
-      margin-inline: var(--large-gap);
-    }
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .grid:nth-child(even) {
-    h3,
-    h4,
-    .points,
-    p,
     .links {
-      grid-column: 7/13;
+      display: flex;
+      gap: var(--gap);
+      font-size: 12px;
+      grid-column-start: var(--odd-content-start);
+      grid-column-end: span var(--content-span);
+      @media (--md-n-below) {
+        justify-content: center;
+      }
+      .link {
+        text-decoration: none;
+        border-bottom: 1px dotted;
+        display: flex;
+        align-items: center;
+        gap: var(--small-gap);
+      }
+    }
+    .tech {
+      font-size: 14px;
+      grid-column-start: var(--odd-content-start);
+      grid-column-end: span var(--content-span);
+      color: #838383;
+      @media (--md-n-below) {
+        text-align: center;
+      }
+    }
+    .content {
+      white-space: pre-line;
+      text-align: justify;
+      font-size: var(--body-text);
+      grid-column-start: var(--odd-content-start);
+      grid-column-end: span var(--content-span);
+      line-height: 1.1;
+    }
+    .points {
+      list-style-type: "☑ ";
+      list-style-position: inside;
+      text-align: justify;
+      font-size: var(--body-text);
+      grid-column-start: var(--odd-content-start);
+      grid-column-end: span var(--content-span);
+    }
+    .arrow {
+      grid-row: 1/-1;
+      align-self: center;
+      justify-self: center;
+      font-size: 100px;
+      grid-column-start: calc(var(--content-span) + 1);
+      grid-column-end: span calc(12 - var(--content-span) - var(--image-span));
+      @media (--md-n-below) {
+        display: none;
+      }
     }
     .image {
-      grid-column: 1/7;
+      width: var(--size-fluid-10);
+      margin-inline: auto;
+      grid-column-start: var(--odd-image-start);
+      grid-column-end: span var(--image-span);
+      grid-row: 1/-1;
+      align-self: center;
     }
-  }
-  @media (--md-n-below) {
-    h3,
-    h4,
-    .points,
-    p,
-    .image,
-    .links {
-      grid-column: span 12;
-    }
-    .grid:nth-child(even) {
-      h3,
-      h4,
+    &:nth-child(even) {
+      .links,
       .points,
-      p,
-      .image,
-      .links {
-        grid-column: span 12;
+      .tech,
+      .title,
+      .content {
+        grid-column-start: var(--even-content-start);
+      }
+      .arrow {
+        grid-column-start: calc(var(--content-span) + 1);
+      }
+      .image {
+        grid-column-start: var(--even-image-start);
       }
     }
   }

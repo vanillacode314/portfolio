@@ -10,6 +10,7 @@
 </script>
 
 {#if $$restProps.href}
+	<!-- svelte-ignore a11y-missing-attribute -->
 	<a
 		{...$$restProps}
 		class="btn {variant}"
@@ -41,11 +42,12 @@
 		border-radius: var(--radius);
 		outline: none;
 		font-size: var(--body-text);
-		font-weight: bold;
+		font-weight: 600;
 		text-transform: uppercase;
 		cursor: pointer;
 		text-decoration: none;
 		display: grid;
+		font-family: var(--headline-family);
 		place-content: center;
 		text-align: center;
 	}

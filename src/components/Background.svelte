@@ -42,7 +42,7 @@
     transform: translateY(calc(var(--percent-scrolled, 0px) * 100))
       rotate(60deg);
     filter: blur(10px);
-    opacity: 75%;
+    opacity: 10%;
     &:first-child {
       @media (--md-n-below) {
         display: none;

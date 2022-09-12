@@ -16,7 +16,7 @@
   </figcaption>
 </figure>
 
-<style>
+<style lang="postcss">
   .testimonial {
     background-color: var(--color-1);
     color: white;
@@ -45,6 +45,7 @@
     }
   }
   p {
+    line-height: 1.1;
     font-size: var(--font-size-1);
     @media (--md-n-above) {
       font-size: var(--font-size-2);
@@ -52,7 +53,6 @@
     @media (--lg-n-above) {
       font-size: var(--font-size-3);
     }
-    line-height: 1.1;
   }
   figcaption {
     align-self: end;

@@ -4,19 +4,10 @@
   --large-gap: calc(var(--gap) * 2);
   --larger-gap: calc(var(--gap) * 4);
   --radius: 0.625rem;
-  --font-family:
-    "Outfit",
-    system-ui,
-    -apple-system,
-    blinkmacsystemfont,
-    "Segoe UI",
-    roboto,
-    oxygen,
-    ubuntu,
-    cantarell,
-    "Open Sans",
-    "Helvetica Neue",
+  --font-family: "Archivo Narrow", system-ui, -apple-system, blinkmacsystemfont,
+    "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
+  --headline-family: "JetBrains Mono", serif;
   --color-1: #093f68;
   --color-2: #68e1fd;
   --color-3: #ffbc0e;
@@ -52,6 +43,7 @@ html {
   scroll-behavior: smooth;
   font-family: var(--font-family);
   text-size-adjust: none;
+  overflow-x: hidden;
 }
 
 .container {
@@ -112,4 +104,13 @@ img {
 
 *::-webkit-scrollbar-thumb:active {
   background: rgb(0 0 0 / 90%);
+}
+
+h3 {
+  font-family: var(--headline-family);
+  font-size: var(--h3-text);
+
+  /* background-color: black; */
+  /* padding: var(--gap); */
+  /* color: white; */
 }
