@@ -13,7 +13,7 @@
   --bg-layer: -1;
 
   /* small */
-  --body-text: 14px;
+  --body-text: 0.875rem;
   --h1-text: var(--font-size-6);
   --h2-text: var(--font-size-5);
   --h3-text: var(--font-size-4);
