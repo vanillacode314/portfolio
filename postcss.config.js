@@ -2,6 +2,7 @@ const postcssJitProps = require("postcss-jit-props");
 const OpenProps = require("open-props");
 module.exports = {
   plugins: [
+    require("stylelint")({ fix: true }),
     require("postcss-nested"),
     postcssJitProps(OpenProps),
     require("postcss-custom-media")({
@@ -9,5 +10,6 @@ module.exports = {
     }),
     require("autoprefixer"),
     require("cssnano"),
+    require("postcss-reporter")({ clearReportedMessages: true }),
   ],
 };
