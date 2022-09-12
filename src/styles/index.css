@@ -4,28 +4,23 @@
   --large-gap: calc(var(--gap) * 2);
   --larger-gap: calc(var(--gap) * 4);
   --radius: 0.625rem;
-  --font-family: "Archivo Narrow", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --headline-family: "JetBrains Mono", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  --font-family: "Archivo Narrow", var(--font-sans);
+  --headline-family: "JetBrains Mono", var(--font-sans);
   --color-1: #093f68;
   --color-2: #68e1fd;
   --color-3: #ffbc0e;
   --color-4: #70cc40;
   --bg-layer: -1;
-  --body-text: var(--font-size-1);
 
   /* small */
+  --body-text: 14px;
   --h1-text: var(--font-size-6);
   --h2-text: var(--font-size-5);
   --h3-text: var(--font-size-4);
 
   /* medium */
   @media (--md-n-above) {
+    --body-text: var(--font-size-1);
     --h1-text: var(--font-size-7);
     --h2-text: var(--font-size-6);
     --h3-text: var(--font-size-5);
