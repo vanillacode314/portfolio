@@ -1,10 +1,14 @@
 <script lang="ts">
   import Button from "../components/Button.svelte";
+
+  function onSubmit() {
+    gtag("event", "generate_lead");
+  }
 </script>
 
 <article class="grid" id="contact">
   <h2>get in touch</h2>
-  <form name="contact" data-netlify="true">
+  <form name="contact" data-netlify="true" on:submit={onSubmit}>
     <div class="form-control">
       <label for="name"> Name</label>
       <input
