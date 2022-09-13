@@ -2,7 +2,8 @@
 import "normalize.css";
 import "../styles/reset.css";
 import "../styles/index.css";
-import Background from "../components/Background.svelte";
+import Background from "@components/Background.svelte";
+import Navbar from "@components/Navbar.svelte";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 export interface Props {
@@ -47,6 +48,7 @@ const { title } = Astro.props as Props;
   <body>
     <Background client:load />
     <div class="container">
+      <Navbar route={Astro.url.pathname} />
       <slot />
     </div>
   </body>
