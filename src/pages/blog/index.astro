@@ -1,0 +1,76 @@
+---
+import Section from "@components/Section.svelte";
+import Base from "@layouts/Base.astro";
+import authors from "@data/authors";
+import Button from "@components/Button.svelte";
+
+const blogs = await Astro.glob("./*.md");
+---
+
+<Base title="Blog">
+  <Section title="Latest Blogs">
+    <div class="blogs">
+      {
+        blogs.map(({ frontmatter, url }) => {
+          const author = authors.find(
+            (author) => author.id === frontmatter.author
+          );
+          return (
+            <div class="card">
+              <h2 class="card__title">{frontmatter.title}</h2>
+              <h3 class="card__author">By {author.name}</h3>
+              <p class="card__description">{frontmatter.description}</p>
+              <div class="actions">
+                <Button
+                  size="small"
+                  variant="secondary"
+                  color="white"
+                  href={url}
+                  dark
+                >
+                  Read More
+                </Button>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Section>
+</Base>
+<style lang="postscss">
+  .blogs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media (--md-n-below) {
+      grid-template-columns: 1fr;
+    }
+    .card {
+      display: grid;
+      background-color: var(--color-1);
+      color: white;
+      border-radius: var(--radius);
+      padding: var(--gap);
+    }
+    .card__title {
+      font-family: var(--font-family);
+      font-family: var(--headline-family);
+      font-size: var(--font-size-3);
+    }
+    .card__author {
+      font-family: var(--font-family);
+      font-size: var(--h4-text);
+    }
+    .card__description {
+      margin-top: var(--gap);
+      font-family: var(--font-family);
+      line-height: var(--font-lineheight-0);
+      font-size: var(--body-text);
+    }
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: var(--gap);
+    }
+  }
+</style>
