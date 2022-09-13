@@ -1,0 +1,72 @@
+@import "./variables.css";
+
+/* custom scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgb(255 255 255 / 20%);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(255 255 255 / 20%);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 40%);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgb(255 255 255 / 90%);
+}
+
+body,
+html {
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  text-size-adjust: none;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  padding: var(--large-gap);
+  margin-inline: auto;
+  max-inline-size: var(--size-sm);
+
+  @media (--md-n-above) {
+    max-inline-size: var(--size-md);
+  }
+
+  @media (--lg-n-above) {
+    max-inline-size: var(--size-lg);
+  }
+
+  @media (--xl-n-above) {
+    max-inline-size: var(--size-xl);
+  }
+
+  @media (--xxl-n-above) {
+    max-inline-size: var(--size-xxl);
+  }
+}
+
+.grid {
+  display: grid;
+  column-gap: var(--gap);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+img {
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}

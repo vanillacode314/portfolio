@@ -1,0 +1,40 @@
+:root {
+  --small-gap: calc(var(--gap) * 0.5);
+  --gap: 1rem;
+  --large-gap: calc(var(--gap) * 2);
+  --larger-gap: calc(var(--gap) * 4);
+
+  --radius: 0.625rem;
+
+  --font-family: "Archivo Narrow", var(--font-sans);
+  --headline-family: "JetBrains Mono", var(--font-sans);
+  --code-family: "JetBrains Mono", var(--font-mono);
+
+  --color-1: #093f68;
+  --color-2: #68e1fd;
+  --color-3: #ffbc0e;
+  --color-4: #70cc40;
+
+  --bg-layer: -1;
+
+  /* small */
+  --body-text: 0.875rem;
+  --h1-text: var(--font-size-6);
+  --h2-text: var(--font-size-5);
+  --h3-text: var(--font-size-4);
+
+  /* medium */
+  @media (--md-n-above) {
+    --body-text: var(--font-size-1);
+    --h1-text: var(--font-size-7);
+    --h2-text: var(--font-size-6);
+    --h3-text: var(--font-size-5);
+  }
+
+  /* large */
+  @media (--lg-n-above) {
+    --h1-text: var(--font-size-8);
+    --h2-text: var(--font-size-7);
+    --h3-text: var(--font-size-6);
+  }
+}
