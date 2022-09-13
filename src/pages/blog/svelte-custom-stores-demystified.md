@@ -50,8 +50,8 @@ Let's think about how would we go about implementing something like this.
   - Lets use an `Array` for this.
 - We would need to store the value itself.
 - We need to call all the callbacks whenever the value changes.
-  - We can call all the callbacks in the set method.
-  - Lets also call all the callbacks immediately in the subscribe method as we might want to check if the user is already 18 years of age.
+  - We can call all the callbacks in the `set` method.
+  - Lets also call all the callbacks immediately in the `subscribe` method as we might want to check if the user is already 18 years of age.
 - We need a way to unsubscribe to changes.
   - Lets return a `unsubscribe` function from our subscribe function that someone can call to unsubscribe.
 
@@ -68,7 +68,7 @@ class Store {
     /* add the callback to list of callbacks */
     this.callbacks.push(callback);
     /* return a function to unsubscribe */
-    return () => this.subscribe(callback);
+    return () => this.unsubscribe(callback);
   }
 
   unsubscribe(callback) {
