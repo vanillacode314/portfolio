@@ -29,7 +29,13 @@ const { title } = Astro.props as Props;
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700"
     />
-    <title>{title || "Web Designer and Developer - Raqueebuddin Aziz"}</title>
+    <title>
+      {
+        title
+          ? title + " - Raqueebuddin Aziz"
+          : "Web Designer and Developer - Raqueebuddin Aziz"
+      }
+    </title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y"
     ></script>
     <script>
