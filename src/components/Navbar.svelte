@@ -38,7 +38,7 @@
 		{/each}
 		{#if route === "/"}
 			<li class="nav-item">
-				<a href="/blog">blog</a>
+				<a href="/blog" class="dont-hide">blog</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-button" href="/#contact">contact</a>
@@ -93,7 +93,7 @@
 		}
 	}
 	@media (--sm-n-below) {
-		.nav-item :not(.nav-button) {
+		.nav-item :not(.nav-button, .dont-hide) {
 			display: none;
 		}
 	}
