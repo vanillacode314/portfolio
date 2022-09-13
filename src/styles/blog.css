@@ -20,6 +20,14 @@ header {
     font-family: var(--headline-family);
     font-size: var(--h1-text);
   }
+  .author {
+    color: var(--gray-7);
+    --body-text: var(--font-size-1);
+    font-size: var(--body-text);
+    @media (--md-n-below) {
+      --body-text: 0.875rem;
+    }
+  }
 }
 
 .content {
@@ -41,11 +49,6 @@ header {
   p {
     font-size: var(--body-text);
     line-height: var(--font-lineheight-2);
-    &.author {
-      /* text-align: right; */
-      --body-text: var(--font-size-1);
-      color: var(--gray-7);
-    }
   }
 
   :not(pre) > code {
@@ -157,7 +160,7 @@ form {
   grid-column: 1/-1;
 }
 article.comment {
-    background-color: rgb(0 0 0 / 5%);
-    border-radius: var(--radius);
-    padding: var(--gap);
+  background-color: rgb(0 0 0 / 5%);
+  border-radius: var(--radius);
+  padding: var(--gap);
 }
