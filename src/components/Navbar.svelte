@@ -3,6 +3,7 @@
 	interface Link {
 		title: string;
 		href: string;
+		showOnMobile?: boolean;
 		on?: string;
 	}
 	const links: Link[] = [
@@ -17,6 +18,7 @@
 			href: "#projects",
 		},
 		{
+			showOnMobile: true,
 			title: "blog",
 			href: "/blog",
 		},
@@ -35,8 +37,10 @@
 		Raqueebuddin<br />Aziz
 	</a>
 	<ul class="nav-list">
-		{#each filteredLinks as { title, href, on } (href)}
-			<li class="nav-item"><a {href}>{title}</a></li>
+		{#each filteredLinks as { title, href, on, showOnMobile } (href)}
+			<li class="nav-item" class:dont-hide={showOnMobile}>
+				<a {href}>{title}</a>
+			</li>
 		{/each}
 		<li class="nav-item"><a class="nav-button" href="#contact">contact</a></li>
 	</ul>
@@ -79,7 +83,7 @@
 		}
 	}
 	@media (--sm-n-below) {
-		.nav-item :not(.nav-button) {
+		.nav-item:not(.dont-hide) :not(.nav-button) {
 			display: none;
 		}
 	}
