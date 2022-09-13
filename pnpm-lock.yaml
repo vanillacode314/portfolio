@@ -23,6 +23,7 @@ specifiers:
   stylelint-config-html: ^1.1.0
   stylelint-config-standard: ^28.0.0
   svelte: ^3.50.1
+  svelte-local-storage-store: ^0.3.1
   typescript: ^4.8.3
 
 dependencies:
@@ -50,6 +51,7 @@ devDependencies:
   stylelint: 14.11.0
   stylelint-config-html: 1.1.0_35nbotopgds64plu275w6fpq24
   stylelint-config-standard: 28.0.0_stylelint@14.11.0
+  svelte-local-storage-store: 0.3.1_svelte@3.50.1
   typescript: 4.8.3
 
 packages:
@@ -4744,6 +4746,15 @@ packages:
       svelte: 3.50.1
     dev: false
 
+  /svelte-local-storage-store/0.3.1_svelte@3.50.1:
+    resolution: {integrity: sha512-pG+jjBY8oZWQ1XRnVkLIuPPbPqBWVtj0IINQBjkZSpJ+OqMs285efd+oiGdk4vBDnqomw81SForn+KH1j3HguA==}
+    engines: {node: '>=0.14'}
+    peerDependencies:
+      svelte: ^3.48.0
+    dependencies:
+      svelte: 3.50.1
+    dev: true
+
   /svelte-preprocess/4.10.7_tbur7cs2xmipccddj2ylchtzpi:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
     engines: {node: '>= 9.11.2'}
@@ -4800,7 +4811,6 @@ packages:
   /svelte/3.50.1:
     resolution: {integrity: sha512-bS4odcsdj5D5jEg6riZuMg5NKelzPtmsCbD9RG+8umU03TeNkdWnP6pqbCm0s8UQNBkqk29w/Bdubn3C+HWSwA==}
     engines: {node: '>= 8'}
-    dev: false
 
   /svelte2tsx/0.5.16_iprco5tylfmvffqgrvqxc46njy:
     resolution: {integrity: sha512-MwgpeRHfzP8T7NkFNT1JPhe9pCF4Dml2oSdjL2zNqvSprjA2BFgQuCNUg4R5qSz7AxVDJsiL/2hciCtVbXAT3A==}
