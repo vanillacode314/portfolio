@@ -51,9 +51,9 @@
 			<h3>Social</h3>
 			<ul class="social-list">
 				{#each socials as { title, href } (href)}
-					<a {href}>
-						<li class="social-item">{title}</li>
-					</a>
+					<li class="social-item">
+						<a {href}>{title}</a>
+					</li>
 				{/each}
 			</ul>
 		</section>
