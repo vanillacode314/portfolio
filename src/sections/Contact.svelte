@@ -8,7 +8,13 @@
 
 <article class="grid" id="contact">
   <h2>get in touch</h2>
-  <form name="contact" data-netlify="true" on:submit={onSubmit}>
+  <form class="hidden" name="contact" data-netlify="true">
+    <input type="hidden" name="name" />
+    <input type="hidden" name="email" />
+    <input type="hidden" name="message" />
+  </form>
+  <form name="contact" on:submit={onSubmit}>
+    <input type="hidden" name="form-name" value="contact" />
     <div class="form-control">
       <label for="name"> Name</label>
       <input
@@ -106,5 +112,8 @@
     .form-control {
       grid-column: span 12;
     }
+  }
+  form.hidden {
+    display: none;
   }
 </style>
