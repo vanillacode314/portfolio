@@ -1,11 +1,13 @@
 <script lang="ts" context="module">
 	export type ButtonVariant = "primary" | "secondary";
 	export type ButtonColor = number | string;
+	export type ButtonSize = "small" | "base";
 </script>
 
 <script lang="ts">
 	export let variant: ButtonVariant = "primary";
 	export let color: ButtonColor = 1;
+	export let size: ButtonSize = "base";
 	export let dark: boolean = false;
 </script>
 
@@ -13,7 +15,7 @@
 	<!-- svelte-ignore a11y-missing-attribute -->
 	<a
 		{...$$restProps}
-		class="btn {variant}"
+		class="btn {variant} {size}"
 		style:--color={typeof color === "number" ? `var(--color-${color})` : color}
 		style:--fg-color={dark !== (variant === "secondary")
 			? "var(--color-1)"
@@ -23,7 +25,7 @@
 	</a>
 {:else}
 	<button
-		class="btn {variant}"
+		class="btn {variant} {size}"
 		type="button"
 		style:--color={typeof color === "number" ? `var(--color-${color})` : color}
 		style:--fg-color={dark !== (variant === "secondary")
@@ -50,6 +52,10 @@
 		font-family: var(--headline-family);
 		place-content: center;
 		text-align: center;
+	}
+	.btn.small {
+		padding: var(--small-gap) var(--gap);
+		font-size: calc(var(--body-text) * 0.8);
 	}
 	.btn.primary {
 		border: 1px solid var(--color);
