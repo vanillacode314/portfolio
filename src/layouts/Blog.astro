@@ -12,11 +12,12 @@ import authors from "@data/authors";
 export interface Props {
   frontmatter: {
     title: string;
+    description: string;
     author: Author["id"];
     seo: {
       title: string;
       description: string;
-      keywords: string;
+      keywords: string[];
     };
   };
 }
@@ -29,14 +30,8 @@ const author = authors.find((author) => author.id === frontmatter.author);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Professional Web Development Services to grow your business"
-    />
-    <meta
-      name="keywords"
-      content="professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript"
-    />
+    <meta name="description" content={frontmatter.seo.description} />
+    <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <GoogleFontsOptimizer
