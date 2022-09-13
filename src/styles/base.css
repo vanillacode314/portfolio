@@ -33,29 +33,17 @@ html {
   font-family: var(--font-family);
   text-size-adjust: none;
   overflow-x: hidden;
+  display: block;
+  height: 100%;
 }
 
 .container {
   position: relative;
   padding: var(--large-gap);
+		padding-top: 0;
   margin-inline: auto;
-  max-inline-size: var(--size-sm);
-
-  @media (--md-n-above) {
-    max-inline-size: var(--size-md);
-  }
-
-  @media (--lg-n-above) {
-    max-inline-size: var(--size-lg);
-  }
-
-  @media (--xl-n-above) {
-    max-inline-size: var(--size-xl);
-  }
-
-  @media (--xxl-n-above) {
-    max-inline-size: var(--size-xxl);
-  }
+  max-inline-size: var(--container-size);
+  min-height: 100%;
 }
 
 .grid {

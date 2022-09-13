@@ -30,6 +30,7 @@
 
 <style>
   .container {
+    pointer-events: none;
     position: fixed;
     inset: 0;
   }

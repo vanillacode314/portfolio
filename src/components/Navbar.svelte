@@ -3,7 +3,6 @@
 	interface Link {
 		title: string;
 		href: string;
-		showOnMobile?: boolean;
 		on?: string;
 	}
 	const links: Link[] = [
@@ -16,11 +15,6 @@
 			on: "/",
 			title: "projects",
 			href: "#projects",
-		},
-		{
-			showOnMobile: true,
-			title: "blog",
-			href: "/blog",
 		},
 	];
 
@@ -37,12 +31,23 @@
 		Raqueebuddin<br />Aziz
 	</a>
 	<ul class="nav-list">
-		{#each filteredLinks as { title, href, on, showOnMobile } (href)}
-			<li class="nav-item" class:dont-hide={showOnMobile}>
+		{#each filteredLinks as { title, href } (href)}
+			<li class="nav-item">
 				<a {href}>{title}</a>
 			</li>
 		{/each}
-		<li class="nav-item"><a class="nav-button" href="#contact">contact</a></li>
+		{#if route === "/"}
+			<li class="nav-item">
+				<a href="/blog">blog</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-button" href="/#contact">contact</a>
+			</li>
+		{:else}
+			<li class="nav-item">
+				<a class="nav-button" href="/blog">blog</a>
+			</li>
+		{/if}
 	</ul>
 </nav>
 
@@ -51,6 +56,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
+		max-inline-size: var(--container-size);
+		margin-inline: auto;
+		padding: var(--large-gap);
+		padding-bottom: 0;
+		z-index: 1;
 	}
 	a {
 		text-decoration: none;
@@ -83,7 +93,7 @@
 		}
 	}
 	@media (--sm-n-below) {
-		.nav-item:not(.dont-hide) :not(.nav-button) {
+		.nav-item :not(.nav-button) {
 			display: none;
 		}
 	}

@@ -159,7 +159,7 @@ This particular implementation only works for
 
 Here we also return a `set` function that checks the type before updating the value of the store.
 
-### Conclusion
+## Conclusion
 
 So there it is custom stores demystified, now you have an amazing new tool in your arsenal to write apps.
 

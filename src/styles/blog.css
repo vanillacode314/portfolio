@@ -9,10 +9,6 @@
   --code-text: 0.875rem;
 }
 
-.container {
-  max-width: var(--size-md);
-}
-
 header {
   margin-block: var(--large-gap);
 
@@ -31,6 +27,7 @@ header {
 }
 
 .content {
+  max-inline-size: var(--size-md);
   display: grid;
   margin-block: var(--large-gap);
   gap: var(--small-gap);

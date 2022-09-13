@@ -50,7 +50,7 @@ const blogs = await Astro.glob("./*.md");
       background-color: var(--color-1);
       color: white;
       border-radius: var(--radius);
-      padding: var(--gap);
+      padding: var(--large-gap);
     }
     .card__title {
       font-family: var(--font-family);
@@ -58,6 +58,7 @@ const blogs = await Astro.glob("./*.md");
       font-size: var(--font-size-3);
     }
     .card__author {
+      margin-top: var(--smaller-gap);
       font-family: var(--font-family);
       font-size: var(--h4-text);
     }

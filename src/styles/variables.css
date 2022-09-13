@@ -1,4 +1,5 @@
 :root {
+  --smaller-gap: calc(var(--gap) * 0.25);
   --small-gap: calc(var(--gap) * 0.5);
   --gap: 1rem;
   --large-gap: calc(var(--gap) * 2);
@@ -15,7 +16,7 @@
   --color-3: #ffbc0e;
   --color-4: #70cc40;
 
-  --bg-layer: -1;
+  --bg-layer: -10;
 
   /* small */
   --body-text: 0.875rem;
@@ -36,5 +37,24 @@
     --h1-text: var(--font-size-8);
     --h2-text: var(--font-size-7);
     --h3-text: var(--font-size-6);
+  }
+
+  /* container */
+  --container-size: var(--size-sm);
+
+  @media (--md-n-above) {
+    --container-size: var(--size-md);
+  }
+
+  @media (--lg-n-above) {
+    --container-size: var(--size-lg);
+  }
+
+  @media (--xl-n-above) {
+    --container-size: var(--size-xl);
+  }
+
+  @media (--xxl-n-above) {
+    --container-size: var(--size-xxl);
   }
 }

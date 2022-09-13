@@ -5,6 +5,7 @@ import "../styles/blog.css";
 import Background from "@components/Background.svelte";
 import Navbar from "@components/Navbar.svelte";
 import Comment from "@sections/Comment.svelte";
+import Footer from "@sections/Footer.svelte";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { Author } from "@data/authors";
 import authors from "@data/authors";
@@ -57,8 +58,8 @@ const author = authors.find((author) => author.id === frontmatter.author);
   </head>
   <body>
     <Background client:load />
+    <Navbar route={Astro.url.pathname} />
     <div class="container">
-      <Navbar route={Astro.url.pathname} />
       <header>
         <h1>{frontmatter.title}</h1>
         <p class="author">
@@ -77,5 +78,6 @@ const author = authors.find((author) => author.id === frontmatter.author);
         <Comment {slug} client:idle />
       </main>
     </div>
+    <Footer />
   </body>
 </html>
