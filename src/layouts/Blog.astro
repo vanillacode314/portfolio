@@ -1,0 +1,86 @@
+---
+import "normalize.css";
+import "../styles/reset.css";
+import "../styles/blog.css";
+import Background from "@components/Background.svelte";
+import Navbar from "@components/Navbar.svelte";
+import Comment from "@sections/Comment.svelte";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import { Author } from "@data/authors";
+import authors from "@data/authors";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    author: Author["id"];
+    seo: {
+      title: string;
+      description: string;
+      keywords: string;
+    };
+  };
+}
+const { frontmatter } = Astro.props as Props;
+const slug = frontmatter.url.replace("/blog/", "");
+const author = authors.find((author) => author.id === frontmatter.author);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Professional Web Development Services to grow your business"
+    />
+    <meta
+      name="keywords"
+      content="professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    />
+    <title>
+      {frontmatter.title + " - Raqueebuddin Aziz"}
+    </title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      gtag("js", new Date());
+
+      gtag("config", "G-197W0VNG3Y", {
+        cookie_domain: window.location.hostname,
+        cookie_flags: "SameSite=None;Secure",
+      });
+    </script>
+  </head>
+  <body>
+    <Background client:load />
+    <div class="container">
+      <Navbar route={Astro.url.pathname} />
+      <header>
+        <h1>{frontmatter.title}</h1>
+        <p class="author">
+          By {author.name}, {author.description}
+        </p>
+      </header>
+      <!-- <section class="author"> -->
+      <!--   <h3>Written By</h3> -->
+      <!--   <h4>{author.name}</h4> -->
+      <!--   <p> -->
+      <!--     {author.description} -->
+      <!--   </p> -->
+      <!-- </section> -->
+      <main class="content">
+        <slot />
+        <Comment {slug} client:idle />
+      </main>
+    </div>
+  </body>
+</html>
