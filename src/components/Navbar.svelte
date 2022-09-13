@@ -1,23 +1,56 @@
+<script lang="ts">
+	export let route: string;
+	interface Link {
+		title: string;
+		href: string;
+		on?: string;
+	}
+	const links: Link[] = [
+		{
+			on: "/",
+			title: "testimonials",
+			href: "#testimonials",
+		},
+		{
+			on: "/",
+			title: "projects",
+			href: "#projects",
+		},
+		{
+			title: "blog",
+			href: "/blog",
+		},
+	];
+
+	let filteredLinks: Link[] = [];
+	$: {
+		filteredLinks = links.filter(
+			(link) => link.on === undefined || link.on === route
+		);
+	}
+</script>
+
 <nav>
 	<a class="logo" href="/" aria-label="home">
 		Raqueebuddin<br />Aziz
 	</a>
 	<ul class="nav-list">
-		<li class="nav-item"><a href="#testimonials">testimonials</a></li>
-		<li class="nav-item"><a href="#projects">projects</a></li>
+		{#each filteredLinks as { title, href, on } (href)}
+			<li class="nav-item"><a {href}>{title}</a></li>
+		{/each}
 		<li class="nav-item"><a class="nav-button" href="#contact">contact</a></li>
 	</ul>
 </nav>
 
 <style lang="postcss">
-	a {
-		text-decoration: none;
-		color: black;
-	}
 	nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
+	}
+	a {
+		text-decoration: none;
+		color: black;
 	}
 	.logo {
 		/* font-weight: 600; */
