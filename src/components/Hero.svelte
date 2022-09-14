@@ -15,7 +15,6 @@
 		</div>
 	</div>
 	<img
-		loading="lazy"
 		class="hero--image"
 		src="/assets/images/hero.svg"
 		alt=""
