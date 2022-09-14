@@ -14,7 +14,7 @@ export default [
 The websites I create have a performance first approach leading you to get more customers and happy customers that would love to use your site as it will be as fast as possible.`,
     title: `Performance first mindset`,
     image: {
-      name: "athlete.svg",
+      name: "rocket.svg",
       alt: "Athlete",
     },
   },
@@ -22,7 +22,7 @@ The websites I create have a performance first approach leading you to get more 
     content: `Okay the site loads fast, now it should be beautiful to look at, this builds trust with the user and grabs their attention so they want to use your website.
 
 The websites I create go through a rigorous design process with constant feedback from you the website owner, so we can create the brand identity you want for your business and make it look beautiful.`,
-    title: `Beautiful to look at`,
+    title: `Designed to be beautiful and effective`,
     image: {
       name: "artist.svg",
       alt: "Artist",
