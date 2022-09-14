@@ -34,7 +34,7 @@ export default defineConfig({
     }),
     robotsTxt(),
     purgecss(),
-    critters(),
+    /* critters(), */
     compress(),
     compressor(),
   ],
