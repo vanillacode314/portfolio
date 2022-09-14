@@ -61,11 +61,28 @@
 		border: 1px solid var(--color);
 		background-color: var(--color);
 		color: var(--fg-color);
+		&[disabled] {
+			border: 1px solid var(--transparent);
+			background-color: var(--gray-1);
+			color: var(--gray-6);
+			/* pointer-events: none; */
+			cursor: not-allowed;
+			&:is(:hover, :focus) {
+				text-decoration: none;
+				outline: none;
+			}
+		}
 	}
 	.btn.secondary {
 		border: 1px solid var(--color);
 		color: var(--fg-color);
 		background-color: transparent;
+		&[disabled] {
+			background-color: var(--gray-1);
+			color: black;
+			/* pointer-events: none; */
+			cursor: not-allowed;
+		}
 	}
 	.btn:is(:hover, :focus) {
 		text-decoration: underline;

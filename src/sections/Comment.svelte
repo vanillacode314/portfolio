@@ -13,6 +13,7 @@
   const BASE_URL = "https://api.raqueebuddinaziz.com";
 
   export let slug: string;
+  let sending: boolean = false;
   let username = writable<string>("username", "");
   let email = writable<string>("email", "");
   let comment: string = "";
@@ -20,6 +21,7 @@
 
   async function onSubmit() {
     try {
+      sending = true;
       await fetch(BASE_URL + "/comment", {
         method: "POST",
         redirect: "error",
@@ -34,6 +36,8 @@
         }),
       });
     } finally {
+      comment = ""
+      sending = false
       getComments();
     }
   }
@@ -80,7 +84,7 @@
       <textarea id="comment" name="comment" required bind:value={comment} />
     </div>
     <div class="form-control full actions">
-      <Button type="submit">Submit</Button>
+      <Button type="submit" disabled={sending}>Submit</Button>
     </div>
   </form>
 
