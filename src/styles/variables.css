@@ -50,9 +50,9 @@
     --container-size: var(--size-lg);
   }
 
-  @media (--xl-n-above) {
-    --container-size: var(--size-xl);
-  }
+  /* @media (--xl-n-above) { */
+  /*   --container-size: var(--size-xl); */
+  /* } */
   /**/
   /* @media (--xxl-n-above) { */
   /*   --container-size: var(--size-xxl); */

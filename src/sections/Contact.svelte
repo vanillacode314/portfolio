@@ -54,8 +54,6 @@
     color: white;
     border-radius: var(--radius);
     row-gap: var(--gap);
-    max-width: 720px;
-    margin-inline: auto;
     @media (--lg-n-above) {
       padding: var(--large-gap) var(--larger-gap);
     }
