@@ -10,7 +10,7 @@ author: raqueebuddinaziz
 created: "Sep 13, 2022"
 ---
 
-Recently a fellow svelte dev asked me about custom stores, So here I am demystifying svelte stores. This is also my first blog post, so please forgive my writing skills and feel free to leave feedback in the comments :).
+Recently a fellow svelte dev asked me about custom stores, So here I am demystifying svelte stores.
 
 The first half is an intro to svelte stores, feel free to skip to the [second half](#custom-stores) if you are already familiar with stores.
 
