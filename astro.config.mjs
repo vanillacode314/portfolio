@@ -35,7 +35,6 @@ export default defineConfig({
     robotsTxt(),
     purgecss(),
     /* critters(), */
-    compress(),
     compressor(),
   ],
   markdown: {
