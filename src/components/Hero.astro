@@ -29,13 +29,13 @@ import Button from "./Button.svelte";
 		gap: var(--larger-gap);
 		@media (--md-n-below) {
 			grid-template-columns: 1fr;
-			grid-template-rows: 1fr 1fr;
+			grid-template-rows: auto auto;
 			grid-template-areas:
 				"image"
 				"content";
 			text-align: center;
 			align-items: start;
-			padding-block: calc(var(--gap) * 6);
+			padding-block: var(--large-gap);
 		}
 	}
 	.content {
@@ -67,6 +67,7 @@ import Button from "./Button.svelte";
 		grid-area: image;
 		@media (--md-n-below) {
 			/* display: none; */
+			max-inline-size: 50vw;
 		}
 	}
 </style>
