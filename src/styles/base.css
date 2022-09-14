@@ -40,7 +40,7 @@ html {
 .container {
   position: relative;
   padding: var(--large-gap);
-		padding-top: 0;
+  padding-top: 0;
   margin-inline: auto;
   max-inline-size: var(--container-size);
   min-height: 100%;
@@ -52,9 +52,10 @@ html {
   grid-template-columns: repeat(12, 1fr);
 }
 
-img {
+img,
+picture {
   object-fit: cover;
-  max-width: 100%;
-  width: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
   display: block;
 }

@@ -1,8 +1,9 @@
-<script>
-	import Button from "./Button.svelte";
-</script>
+---
+import heroImage from "@assets/images/hero.svg";
+import Button from "./Button.svelte";
+---
 
-<section class="grid hero">
+<section class="hero">
 	<div class="content">
 		<h1>Hi, I build websites people love to use_</h1>
 		<p>
@@ -14,30 +15,27 @@
 			<Button href="#projects" variant="secondary">See My Work</Button>
 		</div>
 	</div>
-	<img
-		class="hero--image"
-		src="/assets/images/hero.svg"
-		alt=""
-	/>
+	<img class="hero--image" src={heroImage} alt="" width="630" height="650" />
 </section>
 
 <style lang="postcss">
 	.hero {
-		align-content: center;
+		display: grid;
+		place-items: center;
 		padding-block: calc(var(--gap) * 6);
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		grid-template-areas:
-			"content image"
-			"content image";
+		grid-template-rows: 1fr;
+		grid-template-areas: "content image";
 		gap: var(--larger-gap);
 		@media (--md-n-below) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
 			grid-template-areas:
-				"content content"
-				"content content";
-			justify-items: center;
+				"image"
+				"content";
 			text-align: center;
-			padding-block: calc(var(--gap) * 12);
+			align-items: start;
+			padding-block: var(--large-gap);
 		}
 	}
 	.content {
@@ -68,7 +66,8 @@
 	.hero--image {
 		grid-area: image;
 		@media (--md-n-below) {
-			display: none;
+			/* display: none; */
+			max-inline-size: 50vw;
 		}
 	}
 </style>
