@@ -7,9 +7,12 @@ seo:
   description: A complete guide to Custom Stores in Svelte with Examples
   keywords: ["svelte", "stores", "custom stores", "sveltekit"]
 author: raqueebuddinaziz
+created: "Sep 13, 2022"
 ---
 
-Recently a fellow svelte dev asked me about custom stores, So here I am demystifying svelte stores. This is also my first blog post, so please forgive my writing skills and feel free to leave feedback in the comments :)
+Recently a fellow svelte dev asked me about custom stores, So here I am demystifying svelte stores. This is also my first blog post, so please forgive my writing skills and feel free to leave feedback in the comments :).
+
+The first half is an intro to svelte stores, feel free to skip to the [second half](#custom-stores) if you are already familiar with stores.
 
 ## What are stores anyway?
 
@@ -102,12 +105,11 @@ Let us look at some examples.
 import { writable } from "svelte/store";
 
 function darkModeStore() {
-  /* assume false as initial value, you can also assume true */
-  const { set, subscribe, update } = writable(false);
-
   const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
-  /* set the value immediately */
-  set(darkMode.matches);
+
+  /* set the value immediately in writable initialValue */
+  const { set, subscribe, update } = writable(darkMode.matches);
+
   /* start listening to user preference changes and update the value */
   darkMode.addEventListener("change", () => set(darkMode.matches));
 
@@ -131,20 +133,21 @@ Second we are returning only a `subscribe` function and no `set` function, this 
 ```javascript
 import { writable } from "svelte/store";
 
-function enforceType(initialValue, typeName) {
-  if (typeof initialValue !== typeName)
+function checkType(value, typeName) {
+  if (typeof value !== typeName)
     throw new Error(
-      `provided intial value ${initialValue} has type ${typeof initialValue} expected ${typeName}`
+      `provided value ${value} has type ${value} expected ${typeName}`
     );
+}
+
+function enforceType(initialValue, typeName) {
+  checkType(initialValue, typeName);
   const { set, subscribe, update } = writable(initialValue);
 
   return {
     subscribe,
     set(value) {
-      if (typeof value !== typeName)
-        throw new Error(
-          `provided value ${value} has type ${typeof value} expected ${typeName}`
-        );
+      checkType(value, typeName);
       set(value);
     },
   };
@@ -158,6 +161,28 @@ This particular implementation only works for
 <dfn>[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)</dfn> values.
 
 Here we also return a `set` function that checks the type before updating the value of the store.
+
+### Example #3 (Counter Store)
+
+```javascript
+function createCount() {
+  const { subscribe, set, update } = writable(0);
+
+  return {
+    subscribe,
+    increment: () => update((n) => n + 1),
+    decrement: () => update((n) => n - 1),
+    reset: () => set(0),
+  };
+}
+```
+
+This example I stole from the awesome [svelte tutorial](https://svelte.dev/tutorial/custom-stores).
+It's a store that is something in between a `readable` store and a `writable` store.
+
+It provides the required `subscribe` method but rather than providing a generic `set` method it provides `increment`, `decrement` and `reset` which allows modification of the value but restricts the modifications to three operations.
+
+This is an extremely common pattern while writing svelte stores as this leads to better guarantees about the value stored leading to fewer chances for bugs down the line.
 
 ## Conclusion
 
