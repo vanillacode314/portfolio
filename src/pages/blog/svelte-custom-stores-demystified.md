@@ -136,7 +136,7 @@ import { writable } from "svelte/store";
 function checkType(value, typeName) {
   if (typeof value !== typeName)
     throw new Error(
-      `provided value ${value} has type ${value} expected ${typeName}`
+      `provided value ${value} has type ${typeof value} expected ${typeName}`
     );
 }
 
