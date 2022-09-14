@@ -10,7 +10,7 @@
 }
 
 header {
-  margin-block: var(--large-gap);
+  margin-bottom: var(--large-gap);
 
   h1 {
     font-family: var(--headline-family);
