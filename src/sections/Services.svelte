@@ -10,7 +10,12 @@
         <h3 class="title">{title}</h3>
         <p class="content">{content}</p>
       </div>
-      <img class="image" src="/assets/images/{image.name}" alt={image.alt} />
+      <img
+        loading="lazy"
+        class="image"
+        src="/assets/images/{image.name}"
+        alt={image.alt}
+      />
     </div>
   {/each}
 </Section>

@@ -42,7 +42,12 @@
         </ul>
       </div>
       <!-- <a href={url} class="image"> -->
-      <img class="image" src="/assets/images/{image}" alt={name} />
+      <img
+        loading="lazy"
+        class="image"
+        src="/assets/images/{image}"
+        alt={name}
+      />
       <!-- </a> -->
     </div>
   {/each}
