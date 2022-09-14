@@ -35,12 +35,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={frontmatter.seo.description} />
     <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      property="og:title"
-      content={frontmatter.seo.title
-        ? frontmatter.seo.title + " - Raqueebuddin Aziz"
-        : "Web Designer and Developer - Raqueebuddin Aziz"}
-    />
+    <meta property="og:title" content={frontmatter.seo.title} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:description" content={frontmatter.seo.description} />
     <meta property="og:type" content="article" />
