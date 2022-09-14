@@ -25,6 +25,7 @@ export interface Props {
 const { frontmatter } = Astro.props as Props;
 const slug = frontmatter.url.replace("/blog/", "");
 const author = authors.find((author) => author.id === frontmatter.author);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
@@ -34,7 +35,16 @@ const author = authors.find((author) => author.id === frontmatter.author);
     <meta name="description" content={frontmatter.seo.description} />
     <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href="https://raqueebuddinaziz.com" />
+    <meta
+      property="og:title"
+      content={frontmatter.seo.title
+        ? frontmatter.seo.title + " - Raqueebuddin Aziz"
+        : "Web Designer and Developer - Raqueebuddin Aziz"}
+    />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:description" content={frontmatter.seo.description} />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
