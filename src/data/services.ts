@@ -15,7 +15,7 @@ The websites I create have a performance first approach leading you to get more 
     title: `Performance first mindset`,
     image: {
       name: "rocket.svg",
-      alt: "Athlete",
+      alt: "Rocket",
     },
   },
   {
@@ -25,7 +25,7 @@ The websites I create go through a rigorous design process with constant feedbac
     title: `Designed to be beautiful and effective`,
     image: {
       name: "artist.svg",
-      alt: "Artist",
+      alt: "Designer",
     },
   },
 ] as Service[];

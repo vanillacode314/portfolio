@@ -18,7 +18,7 @@
 		loading="lazy"
 		class="hero--image"
 		src="/assets/images/hero.svg"
-		alt="a person coding on a laptop while sitting on a chair"
+		alt=""
 	/>
 </section>
 
