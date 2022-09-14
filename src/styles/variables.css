@@ -53,8 +53,8 @@
   @media (--xl-n-above) {
     --container-size: var(--size-xl);
   }
-
-  @media (--xxl-n-above) {
-    --container-size: var(--size-xxl);
-  }
+  /**/
+  /* @media (--xxl-n-above) { */
+  /*   --container-size: var(--size-xxl); */
+  /* } */
 }
