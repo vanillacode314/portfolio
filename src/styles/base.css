@@ -1,5 +1,29 @@
 @import "./variables.css";
 
+* {
+  box-sizing: border-box;
+  max-height: 99999999px;
+}
+
+body,
+html {
+  background-color: white;
+  color: black;
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: var(--font-family);
+  /* overflow-x: hidden; */
+  text-size-adjust: none;
+}
+
+img,
+picture {
+  object-fit: cover;
+  max-inline-size: 100%;
+  block-size: auto;
+  display: block;
+}
+
 /* custom scrollbar */
 *::-webkit-scrollbar {
   width: 6px;
@@ -22,40 +46,4 @@
 
 *::-webkit-scrollbar-thumb:active {
   background: rgb(255 255 255 / 90%);
-}
-
-body,
-html {
-  font-size: 16px;
-  background-color: white;
-  color: black;
-  scroll-behavior: smooth;
-  font-family: var(--font-family);
-  text-size-adjust: none;
-  overflow-x: hidden;
-  display: block;
-  height: 100%;
-}
-
-.container {
-  position: relative;
-  padding: var(--large-gap);
-  padding-top: 0;
-  margin-inline: auto;
-  max-inline-size: var(--container-size);
-  min-height: 100%;
-}
-
-.grid {
-  display: grid;
-  column-gap: var(--gap);
-  grid-template-columns: repeat(12, 1fr);
-}
-
-img,
-picture {
-  object-fit: cover;
-  max-inline-size: 100%;
-  block-size: auto;
-  display: block;
 }

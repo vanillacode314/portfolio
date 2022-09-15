@@ -1,11 +1,12 @@
 ---
 import "normalize.css";
 import "../styles/reset.css";
+import "../styles/base.css";
 import "../styles/blog.css";
 import Background from "@components/Background.svelte";
-import Navbar from "@components/Navbar.svelte";
+import Navbar from "@sections/Navbar.svelte";
 import Comment from "@sections/Comment.svelte";
-import Footer from "@sections/Footer.svelte";
+import Footer from "@sections/Footer.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { Author } from "@data/authors";
 import authors from "@data/authors";
@@ -22,6 +23,7 @@ export interface Props {
     };
   };
 }
+
 const { frontmatter } = Astro.props as Props;
 const slug = frontmatter.url.replace("/blog/", "");
 const author = authors.find((author) => author.id === frontmatter.author);
@@ -67,59 +69,87 @@ const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
   <body>
     <Background client:load />
     <Navbar route={Astro.url.pathname} />
-    <div class="container blog_container">
-      <!-- <section class="author"> -->
-      <!--   <h3>Written By</h3> -->
-      <!--   <h4>{author.name}</h4> -->
-      <!--   <p> -->
-      <!--     {author.description} -->
-      <!--   </p> -->
-      <!-- </section> -->
-      <main class="content">
-        <header>
-          <img
-            class="poster"
-            src={image}
-            alt={frontmatter.title + " poster"}
-            width="1024"
-            height="1024"
-          />
-          <div class="text">
-            <h1 id="title">{frontmatter.title}</h1>
-            <p class="author">
-              By {author.name}, {author.description}
-            </p>
+    <div class="blog__wrapper">
+      <div class="blog__container">
+        <main class="content">
+          <header class="blog__header">
+            <img
+              class="poster"
+              src={image}
+              alt={frontmatter.title + " poster"}
+              width="1024"
+              height="1024"
+            />
+            <div class="text">
+              <h1 id="title">{frontmatter.title}</h1>
+              <p class="author">
+                By {author.name}, {author.description}
+              </p>
+            </div>
+          </header>
+          <div class="markdown">
+            <slot />
           </div>
-        </header>
-        <slot />
-        <Comment {slug} client:idle />
-      </main>
-      <aside>
-        <!-- <script -->
-        <!--   async -->
-        <!--   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3391473007789643" -->
-        <!--   crossorigin="anonymous" -->
-        <!-- ></script> -->
-        <!-- <ins -->
-        <!--   class="adsbygoogle" -->
-        <!--   style="display:block" -->
-        <!--   data-ad-client="ca-pub-3391473007789643" -->
-        <!--   data-ad-slot="5146394907" -->
-        <!--   data-ad-format="auto" -->
-        <!--   data-full-width-responsive="true"></ins> -->
-        <!-- <script> -->
-        <!--   (adsbygoogle = window.adsbygoogle || []).push({}); -->
-        <!-- </script> -->
-      </aside>
+          <Comment {slug} client:idle />
+        </main>
+        <aside></aside>
+      </div>
     </div>
     <Footer />
     <style>
-      .poster {
-        /* aspect-ratio: 1; */
+      .blog__wrapper {
+        padding: var(--large-gap);
       }
-      .blog_container {
+      .blog__container {
+        --h1-text: var(--font-size-6);
+        @media (--md-n-below) {
+          --h1-text: var(--font-size-5);
+        }
+        --h2-text: var(--font-size-5);
+        --h3-text: var(--font-size-4);
+        /* --body-text: var(--font-size-2); */
+        --code-text: 0.875rem;
+        max-inline-size: var(--container-size);
+        margin-inline: auto;
         display: grid;
         grid-template-columns: auto 1fr;
+      }
+
+      .blog__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-bottom: var(--large-gap);
+        gap: var(--gap);
+
+        @media (--sm-n-below) {
+          grid-template-columns: 1fr;
+        }
+
+        .poster {
+          @media (--md-n-above) {
+            max-inline-size: 14rem;
+          }
+          border-radius: var(--radius);
+        }
+        h1 {
+          margin-block-end: var(--smaller-gap);
+          font-family: var(--headline-family);
+          font-size: var(--h1-text);
+        }
+        .author {
+          color: var(--gray-7);
+          font-size: var(--body-text);
+        }
+      }
+
+      .content {
+        margin-block: var(--large-gap);
+        max-inline-size: var(--size-md);
+      }
+
+      .markdown {
+        display: grid;
+        gap: var(--gap);
       }
       @media (--md-n-below) {
         aside {

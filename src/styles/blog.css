@@ -1,49 +1,4 @@
-@import "./base.css";
-
-:root {
-  /* small */
-  --h1-text: var(--font-size-5);
-  --h2-text: var(--font-size-4);
-  --h3-text: var(--font-size-3);
-  --body-text: var(--font-size-2);
-  --code-text: 0.875rem;
-}
-
-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  margin-bottom: var(--large-gap);
-  gap: var(--gap);
-
-  @media (--sm-n-below) {
-    grid-template-columns: 1fr;
-  }
-
-  .poster {
-    @media (--md-n-above) {
-      max-inline-size: 14rem;
-    }
-    border-radius: var(--radius);
-  }
-  h1 {
-    font-family: var(--headline-family);
-    font-size: var(--h1-text);
-  }
-  .author {
-    color: var(--gray-7);
-    --body-text: var(--font-size-1);
-    font-size: var(--body-text);
-    @media (--md-n-below) {
-      --body-text: 0.875rem;
-    }
-  }
-}
-
-.content {
-  max-inline-size: var(--size-md);
-  display: grid;
-  margin-block: var(--large-gap);
-  gap: var(--gap);
+.markdown {
   h2 {
     /* font-family: var(--headline-family); */
     font-weight: 600;
@@ -89,30 +44,6 @@ header {
     line-height: var(--font-lineheight-2);
   }
 
-  section.author {
-    display: grid;
-    gap: var(--small-gap);
-    color: white;
-    background-color: var(--color-1);
-    padding: var(--gap);
-    margin-block: var(--gap);
-    border-radius: var(--radius);
-    h3 {
-      font-size: var(--font-size-2);
-      font-weight: normal;
-    }
-    h4 {
-      /* font-family: var(--headline-family); */
-      font-size: var(--font-size-2);
-      /* font-size: var(--font-size-4); */
-      font-weight: 600;
-      color: var(--color-1);
-      color: white;
-    }
-    p {
-      font-size: var(--font-size-1);
-    }
-  }
   ul {
     font-size: var(--body-text);
     line-height: var(--font-lineheight-2);
@@ -129,50 +60,4 @@ header {
   em {
     font-style: italic;
   }
-}
-input,
-textarea {
-  border: none;
-  outline: 2px solid var(--color-1);
-  border-radius: calc(var(--radius) / 2);
-  padding: var(--gap);
-  max-width: 100%;
-  min-width: 10%;
-  &:hover {
-    outline: 2px solid var(--color-2);
-  }
-  &:focus {
-    outline: 2px solid var(--color-3);
-  }
-  /* font-family: sans-serif; */
-}
-textarea {
-  height: 200px;
-  resize: none;
-}
-
-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap);
-}
-
-.form-control {
-  grid-template-rows: auto 1fr;
-  display: grid;
-  grid-column: 1/-1;
-  gap: var(--small-gap);
-  @media (--md-n-above) {
-    grid-column: span 1;
-  }
-}
-
-.full {
-  grid-column: 1/-1;
-}
-
-article.comment {
-  background-color: rgb(0 0 0 / 5%);
-  border-radius: var(--radius);
-  padding: var(--gap);
 }

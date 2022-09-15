@@ -1,27 +1,35 @@
 <script lang="ts">
 	export let title: string;
+	export let fluid: boolean = false;
 </script>
 
-<section {...$$restProps}>
-	<h2>{title}</h2>
+<section {...$$restProps} class="section" class:fluid>
+	<h2 class="section__title">{title}</h2>
 	<div class="section__body">
 		<slot />
 	</div>
 </section>
 
-<style>
-	h2 {
-		/* font-weight: bold; */
-		font-family: var(--headline-family);
-		text-align: center;
-		max-width: 15ch;
-		margin-inline: auto;
-		font-size: var(--h2-text);
-	}
-	section {
+<style lang="postcss">
+	.section {
 		padding-block: var(--large-gap);
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap);
+		.section__title {
+			/* font-weight: bold; */
+			font-family: var(--headline-family);
+			text-align: center;
+			max-width: 15ch;
+			margin-inline: auto;
+			font-size: var(--h2-text);
+		}
+		&:not(.fluid) {
+			padding-inline: var(--large-gap);
+			.section__body {
+				max-inline-size: var(--container-size);
+				margin-inline: auto;
+			}
+		}
 	}
 </style>

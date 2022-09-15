@@ -1,0 +1,80 @@
+---
+import heroImage from "@assets/images/hero.svg";
+import Button from "@components/Button.svelte";
+---
+
+<div class="hero__wrapper">
+	<section class="hero">
+		<div class="content">
+			<h1 class="title">Hi, I build websites people love to use_</h1>
+			<p class="subtitle">
+				I help businesses get more customers by building quick to load,
+				beautiful and easy to use websites.
+			</p>
+			<div class="actions">
+				<Button href="#contact">Contact</Button>
+				<Button href="#projects" variant="secondary">See My Work</Button>
+			</div>
+		</div>
+		<img class="hero__image" src={heroImage} alt="" width="630" height="650" />
+	</section>
+</div>
+
+<style lang="postcss">
+	.hero__wrapper {
+		padding: var(--container-padding);
+	}
+	.hero {
+		max-inline-size: var(--container-size);
+		margin-inline: auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas: "image" "content";
+		gap: var(--larger-gap);
+		place-items: center;
+
+		@media (--md-n-above) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr;
+			grid-template-areas: "content image";
+			padding-block: calc(var(--gap) * 3);
+			justify-items: start;
+		}
+	}
+
+	.content {
+		display: grid;
+		gap: var(--gap);
+		text-align: center;
+		@media (--md-n-above) {
+			text-align: start;
+		}
+	}
+
+	.title {
+		font-size: var(--h1-text);
+		font-family: var(--headline-family);
+	}
+
+	.actions {
+		margin-block-start: var(--gap);
+		width: 100%;
+		display: flex;
+		gap: var(--gap);
+		justify-content: center;
+		@media (--md-n-above) {
+			justify-content: start;
+		}
+	}
+
+	.content {
+		grid-area: content;
+	}
+	.hero__image {
+		grid-area: image;
+		@media (--md-n-below) {
+			max-inline-size: var(--size-xxs);
+		}
+	}
+</style>

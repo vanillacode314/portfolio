@@ -31,7 +31,7 @@
   });
 </script>
 
-<Section title="what others have to say" id="testimonials">
+<Section title="what others have to say" id="testimonials" fluid>
   <div class="testimonials" bind:this={scrollElement}>
     {#each testimonials as testimonial, index}
       <div bind:this={childElements[index]} style="display: contents">
@@ -43,16 +43,20 @@
 
 <style>
   .testimonials {
+    /* max-inline-size: var(--container-size); */
+    /* margin-inline: auto; */
     display: flex;
     gap: var(--gap);
     width: 100%;
-    padding-top: var(--gap);
-    padding-bottom: var(--gap);
+    padding: var(--gap);
+    box-sizing: border-box;
+    /* padding-block: var(--gap); */
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     position: relative;
-    /* @media (max-width: 768px) { */
-    /*     flex-direction: column; */
-    /* } */
+    @media (min-width: 1440px) {
+      justify-content: center;
+      /* flex-direction: column; */
+    }
   }
 </style>

@@ -25,6 +25,7 @@
     flex: 50% 1 0;
     display: flex;
     flex-direction: column;
+    max-inline-size: 30rem;
     justify-content: space-between;
     gap: var(--large-gap);
     scroll-snap-align: center;

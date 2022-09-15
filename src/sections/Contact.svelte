@@ -6,7 +6,7 @@
   }
 </script>
 
-<article class="grid" id="contact">
+<section class="section__contact" id="contact">
   <h2>get in touch</h2>
   <form class="hidden" name="contact" data-netlify="true">
     <input type="hidden" name="name" />
@@ -45,16 +45,22 @@
       >
     </span>
   </form>
-</article>
+</section>
 
 <style lang="postcss">
-  article {
+  .section__contact {
+    margin-bottom: var(--large-gap);
+    display: grid;
     background-color: var(--color-1);
     padding: var(--large-gap);
     color: white;
     border-radius: var(--radius);
-    row-gap: var(--gap);
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+    max-inline-size: var(--container-size);
+    margin-inline: auto;
     @media (--lg-n-above) {
+      grid-template-columns: repeat(2, 1fr);
       padding: var(--large-gap) var(--larger-gap);
     }
   }
@@ -64,7 +70,7 @@
   h2 {
     font-size: var(--h3-text);
     margin-bottom: var(--gap);
-    grid-column: span 12;
+    grid-column: 1/-1;
     font-family: var(--headline-family);
     text-align: center;
   }
@@ -91,24 +97,24 @@
   .actions {
     display: grid;
     place-content: center;
-    grid-column: span 12;
+    grid-column: 1/-1;
   }
   form {
     font-size: 14px;
     display: contents;
   }
   .form-control {
-    grid-template-rows: auto 1fr;
     display: grid;
+    grid-template-rows: auto 1fr;
     gap: var(--small-gap);
-    grid-column: span 6;
+    grid-column: span 1;
   }
   .full {
-    grid-column: span 12;
+    grid-column: 1/-1;
   }
   @media (--md-n-below) {
     .form-control {
-      grid-column: span 12;
+      grid-column: 1/-1;
     }
   }
   form.hidden {

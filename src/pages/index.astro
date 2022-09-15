@@ -1,11 +1,11 @@
 ---
-import Hero from "../components/Hero.astro";
-import Base from "../layouts/Base.astro";
+import Base from "@layouts/Base.astro";
 
-import Services from "../sections/Services.svelte";
-import Projects from "../sections/Projects.astro";
-import Testimonials from "../sections/Testimonials.svelte";
-import Contact from "../sections/Contact.svelte";
+import Hero from "@sections/Hero.astro";
+import Services from "@sections/Services.svelte";
+import Projects from "@sections/Projects.astro";
+import Testimonials from "@sections/Testimonials.svelte";
+import Contact from "@sections/Contact.svelte";
 ---
 
 <Base>
@@ -14,4 +14,14 @@ import Contact from "../sections/Contact.svelte";
   <Services />
   <Projects />
   <Contact client:load />
+  <style>
+    h3 {
+      font-family: var(--headline-family);
+      font-size: var(--h3-text);
+
+      /* background-color: black; */
+      /* padding: var(--gap); */
+      /* color: white; */
+    }
+  </style>
 </Base>

@@ -64,8 +64,8 @@
   });
 </script>
 
-<Section title="Comments">
-  <h3>Leave a comment</h3>
+<Section title="Comments" fluid>
+  <!-- <h3>Leave a comment</h3> -->
   <form
     on:submit|preventDefault={onSubmit}
     class="comment-form"
@@ -104,10 +104,10 @@
   <div class="comments-list">
     {#each comments as { id, username, comment } (id)}
       <article class="comment">
-        <h3>
+        <h3 class="username">
           {username}
         </h3>
-        <p>{comment}</p>
+        <p class="comment">{comment}</p>
       </article>
     {/each}
   </div>
@@ -118,5 +118,70 @@
     display: grid;
     gap: var(--gap);
     margin-block-start: var(--large-gap);
+  }
+
+  input,
+  textarea {
+    border: none;
+    outline: 2px solid var(--color-1);
+    border-radius: calc(var(--radius) / 2);
+    padding: var(--gap);
+    max-width: 100%;
+    min-width: 10%;
+    &:hover {
+      outline: 2px solid var(--color-2);
+    }
+    &:focus {
+      outline: 2px solid var(--color-3);
+    }
+    /* font-family: sans-serif; */
+  }
+  textarea {
+    height: 200px;
+    resize: none;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+  }
+
+  .form-control {
+    grid-template-rows: auto 1fr;
+    display: grid;
+    grid-column: 1/-1;
+    gap: var(--small-gap);
+    label {
+      font-weight: 600;
+      letter-spacing: var(--font-letterspacing-2);
+      text-transform: uppercase;
+      font-size: var(--font-size-0);
+    }
+    @media (--md-n-above) {
+      grid-column: span 1;
+    }
+  }
+
+  .username {
+    font-weight: 600;
+    color: var(--gray-7);
+    letter-spacing: var(--font-letterspacing-2);
+    text-transform: uppercase;
+    font-size: var(--font-size-0);
+  }
+
+  .comment {
+    font-size: var(--body-text);
+  }
+
+  .full {
+    grid-column: 1/-1;
+  }
+
+  article.comment {
+    background-color: rgb(0 0 0 / 5%);
+    border-radius: var(--radius);
+    padding: var(--gap);
   }
 </style>

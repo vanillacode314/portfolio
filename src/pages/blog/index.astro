@@ -5,6 +5,7 @@ import authors from "@data/authors";
 import Button from "@components/Button.svelte";
 
 const blogs = await Astro.glob("./*.md");
+/* const blogs = []; */
 ---
 
 <Base title="Blog">
@@ -20,23 +21,21 @@ const blogs = await Astro.glob("./*.md");
             `../../assets/images/blog/${slug}.svg`
           );
           return (
-            <a href={url}>
-              <div class="card">
-                <img
-                  class="card__image"
-                  src={image}
-                  alt={`${frontmatter.title} poster`}
-                  width="1024"
-                  height="1024"
-                />
-                <div class="card__body">
-                  <h3 class="card__author">By {author.name}</h3>
-                  <h2 class="card__title">{frontmatter.title}</h2>
-                  <p class="card__description">{frontmatter.description}</p>
-                  {/* <div class="actions"> */}
-                  {/* <Button href={url}>Read More</Button> */}
-                  {/* </div> */}
-                </div>
+            <a class="card" href={url}>
+              <img
+                class="card__image"
+                src={image}
+                alt={`${frontmatter.title} poster`}
+                width="1024"
+                height="1024"
+              />
+              <div class="card__body">
+                <h3 class="card__author">By {author.name}</h3>
+                <h2 class="card__title">{frontmatter.title}</h2>
+                <p class="card__description">{frontmatter.description}</p>
+                {/* <div class="actions"> */}
+                {/* <Button href={url}>Read More</Button> */}
+                {/* </div> */}
               </div>
             </a>
           );
@@ -44,72 +43,72 @@ const blogs = await Astro.glob("./*.md");
       }
     </div>
   </Section>
-</Base>
-<style lang="postscss">
-  .blogs {
-    a {
-      all: unset;
-      transition: transform 0.3s ease-out;
-      cursor: pointer;
-      &:is(:hover, :focus) {
-        transform: scale(105%);
-      }
-      /* @media (--sm-n-below) { */
-      /* padding-block: var(--gap); */
-      /* border-block: 2px dashed var(--color-1); */
-      /* } */
-    }
-    margin-block: var(--larger-gap);
-    display: grid;
-    grid-template-columns: 1fr;
-    /* grid-template-columns: repeat(2, 1fr); */
-    /* @media (--lg-n-below) { */
-    /*   grid-template-columns: 1fr; */
-    /* } */
-    .card {
-      /* background-color: var(--color-1); */
-      /* color: white; */
-      /* border-radius: var(--radius); */
-      /* gap: var(--large-gap); */
+  <style lang="postcss">
+    .blogs {
+      margin-block: var(--larger-gap);
       display: grid;
-      overflow: hidden;
-      grid-template-columns: 1fr 2fr;
-      align-items: center;
-      gap: var(--larger-gap);
-      @media (--md-n-below) {
-        grid-template-columns: 1fr;
-      }
-    }
-    .card__image {
-      border-radius: var(--radius);
-      @media (--md-n-above) {
-        /* max-inline-size: 14rem; */
-      }
-    }
-    .card__body {
-      display: flex;
-      gap: var(--large-gap);
-      flex-direction: column;
-      .card__title {
-        font-family: var(--font-family);
-        font-family: var(--headline-family);
-        font-size: var(--h1-text);
-      }
-      .card__author {
-        font-family: var(--font-family);
-        font-size: var(--h4-text);
-        color: var(--gray-6);
-      }
-      .card__description {
-        font-family: var(--font-family);
-        line-height: var(--font-lineheight-0);
-        font-size: var(--body-text);
-        flex-grow: 1;
-      }
-      /* .actions { */
-      /*   display: flex; */
-      /*   justify-content: flex-end; */
+      grid-template-columns: 1fr;
+      /* grid-template-columns: repeat(2, 1fr); */
+      /* @media (--lg-n-below) { */
+      /*   grid-template-columns: 1fr; */
       /* } */
+      .card {
+        all: unset;
+        transition: transform 0.3s ease-out;
+        cursor: pointer;
+        display: grid;
+        overflow: hidden;
+        align-items: center;
+        gap: var(--larger-gap);
+        &:is(:hover, :focus) {
+          transform: scale(105%);
+        }
+        grid-template-columns: 1fr 2fr;
+        @media (--lg-n-below) {
+          grid-template-columns: 1fr 1fr;
+          gap: var(--large-gap);
+        }
+        @media (--sm-n-below) {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card__image {
+        border-radius: var(--radius);
+        @media (--sm-n-above) {
+          /* max-inline-size: 14rem; */
+        }
+      }
+      .card__body {
+        display: flex;
+        gap: var(--large-gap);
+        flex-direction: column;
+        @media (--md-n-below) {
+          gap: var(--gap);
+        }
+        .card__title {
+          font-family: var(--font-family);
+          font-family: var(--headline-family);
+          font-size: var(--h2-text);
+          @media (--md-only) {
+            font-size: var(--h3-text);
+          }
+        }
+        .card__author {
+          font-family: var(--font-family);
+          font-size: var(--h4-text);
+          color: var(--gray-6);
+        }
+        .card__description {
+          font-family: var(--font-family);
+          line-height: var(--font-lineheight-0);
+          font-size: var(--body-text);
+          flex-grow: 1;
+        }
+        /* .actions { */
+        /*   display: flex; */
+        /*   justify-content: flex-end; */
+        /* } */
+      }
     }
-  }
-</style>
+  </style>
+</Base>

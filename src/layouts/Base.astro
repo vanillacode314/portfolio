@@ -1,10 +1,10 @@
 ---
 import "normalize.css";
 import "../styles/reset.css";
-import "../styles/index.css";
+import "../styles/base.css";
 import Background from "@components/Background.svelte";
-import Navbar from "@components/Navbar.svelte";
-import Footer from "@sections/Footer.svelte";
+import Navbar from "@sections/Navbar.svelte";
+import Footer from "@sections/Footer.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 export interface Props {
@@ -67,11 +67,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
   </head>
   <body>
-    <Background client:load />
-    <Navbar route={Astro.url.pathname} />
-    <div class="container">
-      <slot />
+    <!-- <Background client:load /> -->
+    <div class="wrapper">
+      <Navbar route={Astro.url.pathname} />
+      <main>
+        <slot />
+      </main>
+      <Footer />
     </div>
-    <Footer />
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      main {
+        flex-grow: 1;
+      }
+    </style>
   </body>
 </html>

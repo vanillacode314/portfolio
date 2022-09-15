@@ -33,9 +33,9 @@
     pointer-events: none;
     position: fixed;
     inset: 0;
+    z-index: var(--bg-layer);
   }
   .bg-box {
-    z-index: var(--bg-layer);
     position: absolute;
     border-radius: var(--radius);
     height: 300px;

@@ -1,0 +1,32 @@
+---
+import Base from "@layouts/Base.astro";
+import img404 from "@assets/images/404.svg";
+import Button from "@components/Button.svelte";
+---
+
+<Base>
+  <div class="container">
+    <Button href="/">Go Home</Button>
+    <img
+      class="image"
+      src={img404}
+      alt="page not found"
+      width="2560"
+      height="1440"
+    />
+  </div>
+</Base>
+<style>
+  .container {
+    margin-block: var(--gap);
+    gap: var(--gap);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .image {
+    margin-block: var(--large-gap);
+    max-block-size: 500px;
+    inline-size: auto;
+  }
+</style>

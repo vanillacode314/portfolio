@@ -14,30 +14,38 @@
 {#if $$restProps.href}
 	<!-- svelte-ignore a11y-missing-attribute -->
 	<a
-		{...$$restProps}
-		class="btn {variant} {size}"
+		class="btn {variant} {size} {$$props.class || ''}"
 		style:--color={typeof color === "number" ? `var(--color-${color})` : color}
 		style:--fg-color={dark !== (variant === "secondary")
 			? "var(--color-1)"
 			: "white"}
+		{...Object.fromEntries(
+			[...Object.entries($$restProps)].filter(
+				([propName, _]) => propName !== "class"
+			)
+		)}
 	>
 		<slot />
 	</a>
 {:else}
 	<button
-		class="btn {variant} {size}"
+		class="btn {variant} {size} {$$props.class || ''}"
 		type="button"
 		style:--color={typeof color === "number" ? `var(--color-${color})` : color}
 		style:--fg-color={dark !== (variant === "secondary")
 			? "var(--color-1)"
 			: "white"}
-		{...$$restProps}
+		{...Object.fromEntries(
+			[...Object.entries($$restProps)].filter(
+				([propName, _]) => propName !== "class"
+			)
+		)}
 	>
 		<slot />
 	</button>
 {/if}
 
-<style>
+<style lang="postcss">
 	.btn {
 		font-family: var(--font-family);
 		padding: var(--gap) var(--large-gap);

@@ -18,21 +18,18 @@
 
   --bg-layer: -10;
 
-  /* small */
-  --body-text: 0.875rem;
+  /* text */
+  --body-text: var(--font-size-2);
   --h1-text: var(--font-size-6);
   --h2-text: var(--font-size-5);
   --h3-text: var(--font-size-4);
 
-  /* medium */
   @media (--md-n-above) {
-    --body-text: var(--font-size-1);
     --h1-text: var(--font-size-7);
     --h2-text: var(--font-size-6);
     --h3-text: var(--font-size-5);
   }
 
-  /* large */
   @media (--lg-n-above) {
     --h1-text: var(--font-size-8);
     --h2-text: var(--font-size-7);
@@ -40,14 +37,18 @@
   }
 
   /* container */
-  --container-size: var(--size-sm);
+  --container-padding: var(--large-gap);
+  --container-size: calc(var(--size-xs)-var(--container-padding) * 2);
+  @media (--sm-n-above) {
+    --container-size: calc(var(--size-sm)-var(--container-padding) * 2);
+  }
 
   @media (--md-n-above) {
-    --container-size: var(--size-md);
+    --container-size: calc(var(--size-md)-var(--container-padding) * 2);
   }
 
   @media (--lg-n-above) {
-    --container-size: var(--size-lg);
+    --container-size: calc(var(--size-lg)-var(--container-padding) * 2);
   }
 
   /* @media (--xl-n-above) { */

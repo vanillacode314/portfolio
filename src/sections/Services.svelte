@@ -51,6 +51,8 @@
 
   .title {
     /* font-weight: bold; */
+    font-family: var(--headline-family);
+    font-size: var(--h3-text);
     @media (--md-n-below) {
       text-align: center;
     }
