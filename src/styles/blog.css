@@ -10,8 +10,21 @@
 }
 
 header {
+  display: grid;
+  grid-template-columns: auto 1fr;
   margin-bottom: var(--large-gap);
+  gap: var(--gap);
 
+  @media (--sm-n-below) {
+    grid-template-columns: 1fr;
+  }
+
+  .poster {
+    @media (--md-n-above) {
+      max-inline-size: 14rem;
+    }
+    border-radius: var(--radius);
+  }
   h1 {
     font-family: var(--headline-family);
     font-size: var(--h1-text);
@@ -30,7 +43,7 @@ header {
   max-inline-size: var(--size-md);
   display: grid;
   margin-block: var(--large-gap);
-  gap: var(--small-gap);
+  gap: var(--gap);
   h2 {
     /* font-family: var(--headline-family); */
     font-weight: 600;
@@ -46,7 +59,7 @@ header {
   p {
     font-size: var(--body-text);
     line-height: var(--font-lineheight-2);
-    margin-bottom: var(--small-gap);
+    /* margin-bottom: var(--small-gap); */
   }
 
   :not(pre) > code {

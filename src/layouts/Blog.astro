@@ -26,6 +26,7 @@ const { frontmatter } = Astro.props as Props;
 const slug = frontmatter.url.replace("/blog/", "");
 const author = authors.find((author) => author.id === frontmatter.author);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
 ---
 
 <html lang="en">
@@ -37,6 +38,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={frontmatter.seo.title} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={image} />
     <meta property="og:description" content={frontmatter.seo.description} />
     <meta property="og:type" content="article" />
     <link rel="canonical" href={canonicalURL} />
@@ -75,10 +77,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <!-- </section> -->
       <main class="content">
         <header>
-          <h1>{frontmatter.title}</h1>
-          <p class="author">
-            By {author.name}, {author.description}
-          </p>
+          <img class="poster" src={image} alt={frontmatter.title + " poster"} />
+          <div class="text">
+            <h1 id="title">{frontmatter.title}</h1>
+            <p class="author">
+              By {author.name}, {author.description}
+            </p>
+          </div>
         </header>
         <slot />
         <Comment {slug} client:idle />
@@ -103,6 +108,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     <Footer />
     <style>
+      .poster {
+        /* aspect-ratio: 1; */
+      }
       .blog_container {
         display: grid;
         grid-template-columns: auto 1fr;
