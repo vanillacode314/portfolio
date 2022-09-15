@@ -89,7 +89,7 @@ class Store {
 ```
 
 There it is you just implemented the svelte `writable` store from scratch.
-Although I am certain this is not the most performant implementation, but this is the exactly what the svelte `writable` does on a high level.
+Although I am certain this is not the most performant implementation, but this is exactly what the svelte `writable` does on a high level.
 
 ## Custom Stores
 
