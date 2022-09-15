@@ -101,12 +101,22 @@
     </div>
   </form>
 
-  {#each comments as { id, username, comment } (id)}
-    <article class="comment">
-      <h3>
-        {username}
-      </h3>
-      <p>{comment}</p>
-    </article>
-  {/each}
+  <div class="comments-list">
+    {#each comments as { id, username, comment } (id)}
+      <article class="comment">
+        <h3>
+          {username}
+        </h3>
+        <p>{comment}</p>
+      </article>
+    {/each}
+  </div>
 </Section>
+
+<style lang="postcss">
+  .comments-list {
+    display: grid;
+    gap: var(--gap);
+    margin-block-start: var(--large-gap);
+  }
+</style>
