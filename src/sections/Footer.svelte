@@ -44,27 +44,27 @@
 
 <footer class="footer">
 	<div class="container grid">
-		<section>
-			<a class="logo" href="/" aria-label="home">
+		<section class="footer__section">
+			<a class="footer__logo" href="/" aria-label="home">
 				Raqueebuddin<br />Aziz
 			</a>
 		</section>
-		<section>
-			<h3>Links</h3>
-			<ul class="nav-list">
+		<section class="footer__section">
+			<h3 class="section__title">Links</h3>
+			<ul class="list">
 				{#each links as { title, href } (href)}
-					<li class="nav-item">
-						<a {href}>{title}</a>
+					<li class="list-item">
+						<a class="nav-link" {href}>{title}</a>
 					</li>
 				{/each}
 			</ul>
 		</section>
-		<section>
-			<h3>Social</h3>
-			<ul class="social-list">
+		<section class="footer__section">
+			<h3 class="section__title">Social</h3>
+			<ul class="list">
 				{#each socials as { title, href } (href)}
-					<li class="social-item">
-						<a {href}>{title}</a>
+					<li class="list-item">
+						<a class="nav-link" {href}>{title}</a>
 					</li>
 				{/each}
 			</ul>
@@ -74,7 +74,7 @@
 
 <style lang="postcss">
 	.footer {
-		a {
+		.nav-link {
 			all: unset;
 			cursor: pointer;
 			color: var(--color-1);
@@ -88,31 +88,29 @@
 		.grid {
 			gap: var(--large-gap);
 		}
-		section {
+		.footer__section {
 			grid-column: span 4;
 			@media (--md-n-below) {
 				grid-column: span 12;
 			}
 		}
-		ul {
+		.list {
 			display: grid;
 			gap: var(--smaller-gap);
 			text-transform: uppercase;
 		}
-		h3 {
+		.section__title {
 			text-transform: uppercase;
 			font-family: var(--font-family);
 			font-weight: 700;
 			font-size: var(--font-size-0);
 			margin-block-end: var(--small-gap);
 		}
-		.logo {
+		.footer__logo {
 			/* font-weight: 600; */
 			font-size: 18px;
 			text-transform: uppercase;
 			font-family: var(--headline-family);
-		}
-		a.logo {
 			text-decoration: none;
 			color: black;
 		}
