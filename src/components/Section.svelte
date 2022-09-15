@@ -4,7 +4,7 @@
 
 <section {...$$restProps}>
 	<h2>{title}</h2>
-	<div class="content">
+	<div class="section__body">
 		<slot />
 	</div>
 </section>

@@ -8,30 +8,37 @@ const blogs = await Astro.glob("./*.md");
 ---
 
 <Base title="Blog">
-  <Section title="Latest Blogs">
+  <Section title="Latest Posts">
     <div class="blogs">
       {
-        blogs.map(({ frontmatter, url }) => {
+        blogs.map(async ({ frontmatter, url }) => {
           const author = authors.find(
             (author) => author.id === frontmatter.author
           );
+          const slug = url.replace("/blog/", "");
+          const { default: image } = await import(
+            `../../assets/images/blog/${slug}.svg`
+          );
           return (
-            <div class="card">
-              <h2 class="card__title">{frontmatter.title}</h2>
-              <h3 class="card__author">By {author.name}</h3>
-              <p class="card__description">{frontmatter.description}</p>
-              <div class="actions">
-                <Button
-                  size="small"
-                  variant="secondary"
-                  color="white"
-                  href={url}
-                  dark
-                >
-                  Read More
-                </Button>
+            <a href={url}>
+              <div class="card">
+                <img
+                  class="card__image"
+                  src={image}
+                  alt={`${frontmatter.title} poster`}
+                  width="1024"
+                  height="1024"
+                />
+                <div class="card__body">
+                  <h3 class="card__author">By {author.name}</h3>
+                  <h2 class="card__title">{frontmatter.title}</h2>
+                  <p class="card__description">{frontmatter.description}</p>
+                  {/* <div class="actions"> */}
+                  {/* <Button href={url}>Read More</Button> */}
+                  {/* </div> */}
+                </div>
               </div>
-            </div>
+            </a>
           );
         })
       }
@@ -40,38 +47,69 @@ const blogs = await Astro.glob("./*.md");
 </Base>
 <style lang="postscss">
   .blogs {
+    a {
+      all: unset;
+      transition: transform 0.3s ease-out;
+      cursor: pointer;
+      &:is(:hover, :focus) {
+        transform: scale(105%);
+      }
+      /* @media (--sm-n-below) { */
+      /* padding-block: var(--gap); */
+      /* border-block: 2px dashed var(--color-1); */
+      /* } */
+    }
+    margin-block: var(--larger-gap);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media (--md-n-below) {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+    /* grid-template-columns: repeat(2, 1fr); */
+    /* @media (--lg-n-below) { */
+    /*   grid-template-columns: 1fr; */
+    /* } */
     .card {
+      /* background-color: var(--color-1); */
+      /* color: white; */
+      /* border-radius: var(--radius); */
+      /* gap: var(--large-gap); */
       display: grid;
-      background-color: var(--color-1);
-      color: white;
+      overflow: hidden;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      gap: var(--larger-gap);
+      @media (--md-n-below) {
+        grid-template-columns: 1fr;
+      }
+    }
+    .card__image {
       border-radius: var(--radius);
-      padding: var(--large-gap);
+      @media (--md-n-above) {
+        /* max-inline-size: 14rem; */
+      }
     }
-    .card__title {
-      font-family: var(--font-family);
-      font-family: var(--headline-family);
-      font-size: var(--font-size-3);
-    }
-    .card__author {
-      margin-top: var(--smaller-gap);
-      font-family: var(--font-family);
-      font-size: var(--h4-text);
-    }
-    .card__description {
-      margin-top: var(--gap);
-      font-family: var(--font-family);
-      line-height: var(--font-lineheight-0);
-      font-size: var(--body-text);
-    }
-    .actions {
+    .card__body {
       display: flex;
-      justify-content: flex-end;
-      margin-top: var(--gap);
+      gap: var(--large-gap);
+      flex-direction: column;
+      .card__title {
+        font-family: var(--font-family);
+        font-family: var(--headline-family);
+        font-size: var(--h1-text);
+      }
+      .card__author {
+        font-family: var(--font-family);
+        font-size: var(--h4-text);
+        color: var(--gray-6);
+      }
+      .card__description {
+        font-family: var(--font-family);
+        line-height: var(--font-lineheight-0);
+        font-size: var(--body-text);
+        flex-grow: 1;
+      }
+      /* .actions { */
+      /*   display: flex; */
+      /*   justify-content: flex-end; */
+      /* } */
     }
   }
 </style>
