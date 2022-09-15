@@ -38,7 +38,7 @@ const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={frontmatter.seo.title} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={Astro.site + image.slice(1)} />
     <meta property="og:description" content={frontmatter.seo.description} />
     <meta property="og:type" content="article" />
     <link rel="canonical" href={canonicalURL} />
