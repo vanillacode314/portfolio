@@ -4,24 +4,26 @@
     comment: string;
     username: string;
   }
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
 
   import { writable } from "svelte-local-storage-store";
   import Button from "@components/Button.svelte";
   import Section from "@components/Section.svelte";
+  import { sleep } from "@utils";
 
   const BASE_URL = "https://api.raqueebuddinaziz.com";
 
   export let slug: string;
-  let sending: boolean = false;
   let username = writable<string>("username", "");
   let email = writable<string>("email", "");
   let comment: string = "";
   let comments: Comment[] = [];
+  let cooldown: number = 0;
 
   async function onSubmit() {
     try {
-      sending = true;
+      cooldown = 5;
+      await tick();
       await fetch(BASE_URL + "/comment", {
         method: "POST",
         redirect: "error",
@@ -36,8 +38,15 @@
         }),
       });
     } finally {
-      comment = ""
-      sending = false
+      comment = "";
+      async function countdown() {
+        if (cooldown > 0) {
+          cooldown--;
+          await sleep(1000);
+          countdown();
+        }
+      }
+      countdown();
       getComments();
     }
   }
@@ -84,7 +93,11 @@
       <textarea id="comment" name="comment" required bind:value={comment} />
     </div>
     <div class="form-control full actions">
-      <Button type="submit" disabled={sending}>Submit</Button>
+      {#if cooldown > 0}
+        <Button type="submit" disabled>Wait {cooldown} seconds</Button>
+      {:else}
+        <Button type="submit">Submit</Button>
+      {/if}
     </div>
   </form>
 
