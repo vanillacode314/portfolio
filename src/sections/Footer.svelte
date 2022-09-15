@@ -5,6 +5,10 @@
 	}
 	const links: Link[] = [
 		{
+			title: "Portfolio",
+			href: "/",
+		},
+		{
 			title: "Blog",
 			href: "/blog",
 		},
@@ -26,6 +30,14 @@
 		{
 			title: "Twitter",
 			href: "https://twitter.com/RaqueebuddinA",
+		},
+		{
+			title: "LinkedIN",
+			href: "https://www.linkedin.com/in/raqueebuddin-aziz-b28a12232/",
+		},
+		{
+			title: "Github",
+			href: "https://github.com/vanillacode314",
 		},
 	];
 </script>
