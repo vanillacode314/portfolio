@@ -4,7 +4,7 @@
   import Testimonial from "../components/Testimonial.svelte";
   import { onMount } from "svelte";
 
-  const CAROUSEL_TIMEOUT: number = 10000; // in milliseconds
+  const CAROUSEL_TIMEOUT: number = 20000; // in milliseconds
   let scrollElement: HTMLElement;
   let childElements: HTMLElement[] = [];
   let activeIndex = 1;
