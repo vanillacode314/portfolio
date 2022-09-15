@@ -98,7 +98,6 @@ const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
     <Footer />
     <style>
       .blog__wrapper {
-        padding: var(--large-gap);
       }
       .blog__container {
         --h1-text: var(--font-size-6);
@@ -110,6 +109,7 @@ const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
         /* --body-text: var(--font-size-2); */
         --code-text: 0.875rem;
         max-inline-size: var(--container-size);
+        padding: var(--large-gap);
         margin-inline: auto;
         display: grid;
         grid-template-columns: auto 1fr;

@@ -12,8 +12,8 @@
 
 <style lang="postcss">
 	.section {
-		padding-block: var(--large-gap);
 		display: flex;
+		padding-block: var(--large-gap);
 		flex-direction: column;
 		gap: var(--gap);
 		.section__title {
@@ -25,8 +25,8 @@
 			font-size: var(--h2-text);
 		}
 		&:not(.fluid) {
-			padding-inline: var(--large-gap);
 			.section__body {
+				padding-inline: var(--container-padding);
 				max-inline-size: var(--container-size);
 				margin-inline: auto;
 			}

@@ -47,6 +47,7 @@
     display: grid;
     align-content: start;
     gap: var(--gap);
+    white-space: pre-line;
   }
 
   .title {

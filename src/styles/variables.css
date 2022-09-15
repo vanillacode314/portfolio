@@ -38,24 +38,11 @@
 
   /* container */
   --container-padding: var(--large-gap);
-  --container-size: calc(var(--size-xs)-var(--container-padding) * 2);
-  @media (--sm-n-above) {
-    --container-size: calc(var(--size-sm)-var(--container-padding) * 2);
-  }
 
-  @media (--md-n-above) {
-    --container-size: calc(var(--size-md)-var(--container-padding) * 2);
+  @media (--md-n-below) {
+    /* --container-padding: var(--gap); */
   }
+  --container-size: var(--size-sm);
 
-  @media (--lg-n-above) {
-    --container-size: calc(var(--size-lg)-var(--container-padding) * 2);
-  }
-
-  /* @media (--xl-n-above) { */
-  /*   --container-size: var(--size-xl); */
-  /* } */
-  /**/
-  /* @media (--xxl-n-above) { */
-  /*   --container-size: var(--size-xxl); */
-  /* } */
+  @mixin containers md lg;
 }

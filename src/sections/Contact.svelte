@@ -6,48 +6,55 @@
   }
 </script>
 
-<section class="section__contact" id="contact">
-  <h2>get in touch</h2>
-  <form class="hidden" name="contact" data-netlify="true">
-    <input type="hidden" name="name" />
-    <input type="hidden" name="email" />
-    <input type="hidden" name="message" />
-  </form>
-  <form name="contact" on:submit={onSubmit} method="POST">
-    <input type="hidden" name="form-name" value="contact" />
-    <div class="form-control">
-      <label for="name"> Name</label>
-      <input
-        placeholder="John Doe"
-        type="text"
-        id="name"
-        name="name"
-        required
-      />
-    </div>
-    <div class="form-control">
-      <label for="email"> Email </label>
-      <input
-        placeholder="example@example.com"
-        type="email"
-        id="email"
-        name="email"
-        required
-      />
-    </div>
-    <div class="form-control full">
-      <label for="message"> Message </label>
-      <textarea id="message" name="message" required />
-    </div>
-    <span class="actions">
-      <Button dark color="white" variant="secondary" type="submit"
-        >Send Message</Button
-      >
-    </span>
-  </form>
-</section>
+<div class="contact__wrapper">
+  <section class="section__contact" id="contact">
+    <h2>get in touch</h2>
+    <form class="hidden" name="contact" data-netlify="true">
+      <input type="hidden" name="name" />
+      <input type="hidden" name="email" />
+      <input type="hidden" name="message" />
+    </form>
+    <form name="contact" on:submit={onSubmit} method="POST">
+      <input type="hidden" name="form-name" value="contact" />
+      <div class="form-control">
+        <label for="name"> Name</label>
+        <input
+          placeholder="John Doe"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label for="email"> Email </label>
+        <input
+          placeholder="example@example.com"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-control full">
+        <label for="message"> Message </label>
+        <textarea id="message" name="message" required />
+      </div>
+      <span class="actions">
+        <Button dark color="white" variant="secondary" type="submit"
+          >Send Message</Button
+        >
+      </span>
+    </form>
+  </section>
+</div>
 
 <style lang="postcss">
+  .contact__wrapper {
+    max-inline-size: var(--container-size);
+    padding-inline: var(--container-padding);
+    margin-inline: auto;
+  }
   .section__contact {
     margin-bottom: var(--large-gap);
     display: grid;
@@ -57,8 +64,6 @@
     border-radius: var(--radius);
     gap: var(--gap);
     grid-template-columns: 1fr;
-    max-inline-size: var(--container-size);
-    margin-inline: auto;
     @media (--lg-n-above) {
       grid-template-columns: repeat(2, 1fr);
       padding: var(--large-gap) var(--larger-gap);

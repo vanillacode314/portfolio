@@ -26,43 +26,40 @@
 	}
 </script>
 
-<div class="nav__wrapper">
-	<nav>
-		<a class="logo" href="/" aria-label="home">
-			Raqueebuddin<br />Aziz
-		</a>
-		<ul class="nav-list">
-			{#each filteredLinks as { title, href } (href)}
-				<li class="nav-item">
-					<a {href}>{title}</a>
-				</li>
-			{/each}
-			{#if route === "/"}
-				<li class="nav-item">
-					<a href="/blog" class="dont-hide">blog</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-button" href="/#contact">contact</a>
-				</li>
-			{:else}
-				<li class="nav-item">
-					<a class="nav-button" href="/blog">blog</a>
-				</li>
-			{/if}
-		</ul>
-	</nav>
-</div>
+<nav>
+	<a class="logo" href="/" aria-label="home">
+		Raqueebuddin<br />Aziz
+	</a>
+	<ul class="nav-list">
+		{#each filteredLinks as { title, href } (href)}
+			<li class="nav-item">
+				<a {href}>{title}</a>
+			</li>
+		{/each}
+		{#if route === "/"}
+			<li class="nav-item">
+				<a href="/blog" class="dont-hide">blog</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-button" href="/#contact">contact</a>
+			</li>
+		{:else}
+			<li class="nav-item">
+				<a class="nav-button" href="/blog">blog</a>
+			</li>
+		{/if}
+	</ul>
+</nav>
 
 <style lang="postcss">
-	.nav__wrapper {
-		padding: var(--container-padding);
-		padding-bottom: 0;
-	}
 	nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
 		max-inline-size: var(--container-size);
+		padding-inline: var(--container-padding);
+		padding-block-start: var(--large-gap);
+		inline-size: 100%;
 		margin-inline: auto;
 		z-index: 1;
 	}

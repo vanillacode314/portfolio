@@ -3,28 +3,24 @@ import heroImage from "@assets/images/hero.svg";
 import Button from "@components/Button.svelte";
 ---
 
-<div class="hero__wrapper">
-	<section class="hero">
-		<div class="content">
-			<h1 class="title">Hi, I build websites people love to use_</h1>
-			<p class="subtitle">
-				I help businesses get more customers by building quick to load,
-				beautiful and easy to use websites.
-			</p>
-			<div class="actions">
-				<Button href="#contact">Contact</Button>
-				<Button href="#projects" variant="secondary">See My Work</Button>
-			</div>
+<section class="hero">
+	<div class="content">
+		<h1 class="title">Hi, I build websites people love to use_</h1>
+		<p class="subtitle">
+			I help businesses get more customers by building quick to load, beautiful
+			and easy to use websites.
+		</p>
+		<div class="actions">
+			<Button href="#contact">Contact</Button>
+			<Button href="#projects" variant="secondary">See My Work</Button>
 		</div>
-		<img class="hero__image" src={heroImage} alt="" width="630" height="650" />
-	</section>
-</div>
+	</div>
+	<img class="hero__image" src={heroImage} alt="" width="630" height="650" />
+</section>
 
 <style lang="postcss">
-	.hero__wrapper {
-		padding: var(--container-padding);
-	}
 	.hero {
+		padding-inline: var(--container-padding);
 		max-inline-size: var(--container-size);
 		margin-inline: auto;
 		display: grid;

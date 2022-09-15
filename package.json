@@ -35,6 +35,7 @@
     "postcss-fixes": "^3.0.0",
     "postcss-html": "^1.5.0",
     "postcss-jit-props": "^1.0.7",
+    "postcss-mixins": "^9.0.4",
     "postcss-nested": "^5.0.6",
     "postcss-reporter": "^7.0.5",
     "postcss-responsive-font": "^1.0.6",
