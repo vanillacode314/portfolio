@@ -62,10 +62,19 @@
 
 <style lang="postcss">
 	.footer {
+		a {
+			all: unset;
+			cursor: pointer;
+			color: var(--color-1);
+			text-decoration: underline;
+			&:is(:hover, :focus) {
+				color: var(--color-3);
+			}
+		}
 		padding: var(--large-gap) var(--gap);
 		background-color: rgb(0 0 0 / 5%);
 		.grid {
-			gap: var(--gap);
+			gap: var(--large-gap);
 		}
 		section {
 			grid-column: span 4;
@@ -76,11 +85,14 @@
 		ul {
 			display: grid;
 			gap: var(--smaller-gap);
+			text-transform: uppercase;
 		}
 		h3 {
+			text-transform: uppercase;
 			font-family: var(--font-family);
-			font-size: var(--font-size-4);
-			margin-bottom: var(--small-gap);
+			font-weight: 700;
+			font-size: var(--font-size-0);
+			margin-block-end: var(--small-gap);
 		}
 		.logo {
 			/* font-weight: 600; */
