@@ -77,7 +77,13 @@ const { default: image } = await import(`../assets/images/blog/${slug}.svg`);
       <!-- </section> -->
       <main class="content">
         <header>
-          <img class="poster" src={image} alt={frontmatter.title + " poster"} />
+          <img
+            class="poster"
+            src={image}
+            alt={frontmatter.title + " poster"}
+            width="1024"
+            height="1024"
+          />
           <div class="text">
             <h1 id="title">{frontmatter.title}</h1>
             <p class="author">
