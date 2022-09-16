@@ -15,7 +15,7 @@ plugins.push(
         const sizes = args.split(" ");
         for (const size of sizes) {
           nodes[`@media (--${size}-n-above)`] = {
-            "--container-size": `--size-${size}`,
+            "--container-size": `var(--size-${size})`,
           };
         }
         return nodes;
