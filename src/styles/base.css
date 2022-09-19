@@ -7,10 +7,10 @@
 
 body,
 html {
-  background-color: white;
+  background: none;
   color: black;
   scroll-behavior: smooth;
-  height: 100%;
+  min-height: 100%;
   font-family: var(--font-family);
   /* overflow-x: hidden; */
   text-size-adjust: none;
