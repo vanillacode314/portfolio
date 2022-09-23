@@ -37,11 +37,12 @@
   .quote {
     position: absolute;
     top: 0;
-    font-size: 70px;
+    font-size: 210px;
     color: var(--color-2);
     user-select: none;
+    transform: translateY(-23%);
     @media (--md-n-below) {
-      font-size: 75px;
+      font-size: 140px;
       transform: translateY(-25%);
     }
   }

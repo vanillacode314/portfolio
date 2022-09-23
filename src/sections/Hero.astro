@@ -15,7 +15,14 @@ import Button from "@components/Button.svelte";
 			<Button href="#projects" variant="secondary">See My Work</Button>
 		</div>
 	</div>
-	<img class="hero__image" src={heroImage} alt="" width="630" height="650" />
+	<img
+		class="hero__image"
+		src={heroImage}
+		alt=""
+		width="630"
+		height="650"
+		draggable="false"
+	/>
 </section>
 
 <style lang="postcss">
@@ -51,6 +58,10 @@ import Button from "@components/Button.svelte";
 	.title {
 		font-size: var(--h1-text);
 		font-family: var(--headline-family);
+	}
+
+	.subtitle {
+		font-size: var(--body-text);
 	}
 
 	.actions {
