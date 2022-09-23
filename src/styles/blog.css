@@ -43,6 +43,24 @@
     padding: var(--gap);
     border-radius: var(--radius);
     line-height: var(--font-lineheight-2);
+    /* custom scrollbar */
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: rgb(255 255 255 / 20%);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgb(255 255 255 / 20%);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(255 255 255 / 40%);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background: rgb(255 255 255 / 90%);
+    }
   }
 
   ul {
