@@ -258,21 +258,9 @@ export function onRefresh({
   // touch ID used to start pullToRefresh, -1 is used to represent no pullToRefresh started yet
   let touchId = -1;
 
+  // will be linked to css properties later on
   const offset = spring(0);
-  // link offset to css properties
-  offset.subscribe((val) => {
-    requestAnimationFrame(() => {
-      pullToRefresh.style.setProperty("--offset", `${val}px`);
-    });
-  });
-
   const angle = spring(0);
-  // link angle to css properties
-  angle.subscribe((val) => {
-    requestAnimationFrame(() => {
-      pullToRefresh.style.setProperty("--angle", `${val}deg`);
-    });
-  });
 }
 ```
 
