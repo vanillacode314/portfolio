@@ -31,6 +31,7 @@ const blogs = await Astro.glob("./*.md");
               />
               <div class="card__body">
                 <h3 class="card__author">By {author.name}</h3>
+                <h3 class="card__date">On {frontmatter.created}</h3>
                 <h2 class="card__title">{frontmatter.title}</h2>
                 <p class="card__description">{frontmatter.description}</p>
                 {/* <div class="actions"> */}
@@ -48,10 +49,7 @@ const blogs = await Astro.glob("./*.md");
       margin-block: var(--larger-gap);
       display: grid;
       grid-template-columns: 1fr;
-      /* grid-template-columns: repeat(2, 1fr); */
-      /* @media (--lg-n-below) { */
-      /*   grid-template-columns: 1fr; */
-      /* } */
+      gap: var(--larger-gap);
       .card {
         all: unset;
         transition: transform 0.3s ease-out;
@@ -60,25 +58,44 @@ const blogs = await Astro.glob("./*.md");
         overflow: hidden;
         align-items: center;
         gap: var(--larger-gap);
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "image body";
         &:is(:hover, :focus) {
           transform: scale(105%);
         }
-        grid-template-columns: 1fr 2fr;
-        @media (--lg-n-below) {
+        &:nth-child(even) {
+          grid-template-columns: 2fr 1fr;
+          grid-template-areas: "body image";
+        }
+        @media (--md-only) {
           grid-template-columns: 1fr 1fr;
           gap: var(--large-gap);
+          &:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "body image";
+          }
         }
         @media (--sm-n-below) {
           grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+          grid-template-areas: "image" "body";
+          &:nth-child(even) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas: "image" "body";
+          }
         }
       }
       .card__image {
+        grid-area: image;
         border-radius: var(--radius);
         @media (--sm-n-above) {
           /* max-inline-size: 14rem; */
         }
       }
       .card__body {
+        grid-area: body;
         display: flex;
         gap: var(--large-gap);
         flex-direction: column;
@@ -97,6 +114,13 @@ const blogs = await Astro.glob("./*.md");
           font-family: var(--font-family);
           font-size: var(--h4-text);
           color: var(--gray-6);
+        }
+
+        .card__date {
+          text-transform: uppercase;
+          font-family: var(--headline-family);
+          font-size: var(--font-size-0);
+          color: var(--gray-7);
         }
         .card__description {
           font-family: var(--font-family);
