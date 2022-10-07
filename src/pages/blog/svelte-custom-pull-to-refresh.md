@@ -491,6 +491,7 @@ export function onRefresh({
 
     // run callback if refresh needed
     if (shouldRefresh) {
+      shouldRefresh = false;
       refreshing.set(true);
       callback(refreshing);
     }
