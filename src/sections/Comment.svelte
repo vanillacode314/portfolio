@@ -19,8 +19,23 @@
   let comment: string = ''
   let comments: Comment[] = []
   let cooldown: number = 0
+  const filterRegex: RegExp = /\<a.*href\=\".*\".*\>/gm
+
+  async function countdown() {
+    if (cooldown > 0) {
+      cooldown--
+      await sleep(1000)
+      countdown()
+    }
+  }
 
   async function onSubmit() {
+    if (filterRegex.test(comment)) {
+      alert('Your comment cannot contain html tags')
+      cooldown = 10
+      countdown()
+      return
+    }
     try {
       cooldown = 5
       await tick()
@@ -39,13 +54,6 @@
       })
     } finally {
       comment = ''
-      async function countdown() {
-        if (cooldown > 0) {
-          cooldown--
-          await sleep(1000)
-          countdown()
-        }
-      }
       countdown()
       getComments()
     }
@@ -59,9 +67,7 @@
     comments = data.comments
   }
 
-  onMount(() => {
-    getComments()
-  })
+  onMount(() => getComments())
 </script>
 
 <Section title="Comments" fluid>
