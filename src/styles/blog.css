@@ -27,6 +27,20 @@
     display: inline-block;
     /* color: var(--color-3); */
   }
+  a > code {
+    font-size: var(--code-text);
+    font-family: var(--code-family);
+    background-color: #1e1e1e;
+    text-decoration: underline dotted;
+    color: var(--color-2);
+    &:is(:hover, :focus) {
+      color: var(--color-3);
+    }
+    padding: 0 var(--small-gap);
+    border-radius: calc(var(--radius) / 2);
+    display: inline-block;
+    /* color: var(--color-3); */
+  }
 
   a {
     text-decoration: underline dotted;
