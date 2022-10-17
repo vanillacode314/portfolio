@@ -3,11 +3,11 @@
     const percentScrolled =
       document.scrollingElement.scrollTop /
       (document.scrollingElement.scrollHeight -
-        document.scrollingElement.clientHeight);
+        document.scrollingElement.clientHeight)
     document.body.style.setProperty(
-      "--percent-scrolled",
-      percentScrolled + "px"
-    );
+      '--percent-scrolled',
+      percentScrolled + 'px'
+    )
   }
 </script>
 

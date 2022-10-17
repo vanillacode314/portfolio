@@ -1,5 +1,5 @@
 ---
-layout: "@layouts/Blog.astro"
+layout: '@layouts/Blog.astro'
 title: Svelte Custom Pull To Refresh
 description: A guide on how to implement custom pull to refresh in a svelte app
 seo:
@@ -7,15 +7,15 @@ seo:
   description: A guide on how to implement custom pull to refresh in a svelte app
   keywords:
     [
-      "svelte",
-      "stores",
-      "custom pull to refresh",
-      "pull to refresh",
-      "native like pull to refresh",
-      "sveltekit",
+      'svelte',
+      'stores',
+      'custom pull to refresh',
+      'pull to refresh',
+      'native like pull to refresh',
+      'sveltekit',
     ]
 author: raqueebuddinaziz
-created: "Sep 23, 2022"
+created: 'Sep 23, 2022'
 ---
 
 A guide on how to implement custom pull to refresh for svelte apps. This guide assumes you are familiar with svelte stores. If not feel free to check first half of this article explaining [svelte stores](/blog/svelte-custom-stores-demystified#what-are-stores-anyway).
@@ -85,7 +85,7 @@ Then we have some styles to make sure the `main#scroll-area` element takes the r
 ```svelte
 <!-- src/routes/+page.svelte -->
 <script>
-  import '../style.css';
+  import '../style.css'
 </script>
 
 <div class="container">
@@ -107,19 +107,19 @@ Then we have some styles to make sure the `main#scroll-area` element takes the r
       </div>
     </div>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-      eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-      quia totam ipsam dignissimos.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
     </p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-      eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-      quia totam ipsam dignissimos.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
     </p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-      eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-      quia totam ipsam dignissimos.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
     </p>
     <!-- Lots of lorem ipsum to make the page long -->
     ....
@@ -219,8 +219,8 @@ So the pull to refresh implementation we will be creating will
 ```javascript
 /* src/mountHooks.js */
 export function onRefresh({
-  scrollAreaId = "scroll-area",
-  pullToRefreshId = "pull-to-refresh",
+  scrollAreaId = 'scroll-area',
+  pullToRefreshId = 'pull-to-refresh',
   thresholdDistance = 100,
   callback = (refreshing) => refreshing.set(false),
 } = {}) {}
@@ -234,33 +234,33 @@ Then we create two svelte `spring` stores (basically stores that don't immediate
 
 ```javascript
 /* src/mountHooks.js */
-import { writable } from "svelte/store";
-import { spring } from "svelte/motion";
+import { writable } from 'svelte/store'
+import { spring } from 'svelte/motion'
 
 export function onRefresh({
-  scrollAreaId = "scroll-area",
-  pullToRefreshId = "pull-to-refresh",
+  scrollAreaId = 'scroll-area',
+  pullToRefreshId = 'pull-to-refresh',
   thresholdDistance = 100,
   callback = (refreshing) => refreshing.set(false),
 } = {}) {
   // this represents refreshing state if we are currently refreshing or not, this will be returned to the caller of this function
-  const refreshing = writable(false);
+  const refreshing = writable(false)
 
   // is true if threshold distance swiped else false used to figure out if a refresh is needed on touchend
-  let shouldRefresh = false;
+  let shouldRefresh = false
 
   // these will be set in an onMount call alter to the element references
-  let scrollArea;
-  let pullToRefresh;
+  let scrollArea
+  let pullToRefresh
 
   // start Y coordinate of swipe
-  let startY = 0;
+  let startY = 0
   // touch ID used to start pullToRefresh, -1 is used to represent no pullToRefresh started yet
-  let touchId = -1;
+  let touchId = -1
 
   // will be linked to css properties later on
-  const offset = spring(0);
-  const angle = spring(0);
+  const offset = spring(0)
+  const angle = spring(0)
 }
 ```
 
@@ -271,10 +271,10 @@ This is the most straight forward one we check if another touch is already linke
 ```javascript
 function onTouchStart(e) {
   // return if another touch is already registered for pull to refresh
-  if (touchId > -1) return;
-  const touch = e.touches[0];
-  startY = touch.screenY + scrollArea.scrollTop;
-  touchId = touch.identifier;
+  if (touchId > -1) return
+  const touch = e.touches[0]
+  startY = touch.screenY + scrollArea.scrollTop
+  touchId = touch.identifier
 }
 ```
 
@@ -290,20 +290,20 @@ On touch move we check if the touch moved was the registered touch in the above 
 ```javascript
 function onTouchMove(e) {
   // pull to refresh should only trigger if user is at top of the scroll area
-  if (scrollArea.scrollTop > 0) return;
+  if (scrollArea.scrollTop > 0) return
   const touch = Array.from(e.changedTouches).find(
     (t) => t.identifier === touchId
-  );
-  if (!touch) return;
+  )
+  if (!touch) return
 
-  const distance = touch.screenY - startY;
-  shouldRefresh = distance >= thresholdDistance;
+  const distance = touch.screenY - startY
+  shouldRefresh = distance >= thresholdDistance
   if (distance > 0) {
-    scrollArea.style.overflowY = "hidden";
+    scrollArea.style.overflowY = 'hidden'
   }
 
-  offset.set(Math.min(distance, thresholdDistance));
-  angle.set(Math.min(distance, thresholdDistance) * 2);
+  offset.set(Math.min(distance, thresholdDistance))
+  angle.set(Math.min(distance, thresholdDistance) * 2)
 }
 ```
 
@@ -322,36 +322,36 @@ function onTouchEnd(e) {
   // needed so this doesn't trigger if some other touch ended
   const touch = Array.from(e.changedTouches).find(
     (t) => t.identifier === touchId
-  );
-  if (!touch) return;
+  )
+  if (!touch) return
 
-  scrollArea.style.overflowY = "auto";
+  scrollArea.style.overflowY = 'auto'
 
   // reset touchId
-  touchId = -1;
+  touchId = -1
 
   // run callback if refresh needed
   if (shouldRefresh) {
-    refreshing.set(true);
-    callback(refreshing);
+    refreshing.set(true)
+    callback(refreshing)
   }
 
   // create a proxy value for the store to avoid using get(refreshing) in while loop
-  let isRefreshing: boolean = true;
-  const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state));
+  let isRefreshing: boolean = true
+  const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state))
 
   // spin the loader while refreshing
   function spin() {
     if (isRefreshing) {
-      angle.update(($angle) => $angle + 5);
-      requestAnimationFrame(spin);
+      angle.update(($angle) => $angle + 5)
+      requestAnimationFrame(spin)
     } else {
-      offset.set(0);
-      angle.set(0);
-      unsubscribe();
+      offset.set(0)
+      angle.set(0)
+      unsubscribe()
     }
   }
-  requestAnimationFrame(spin);
+  requestAnimationFrame(spin)
 }
 ```
 
@@ -361,13 +361,13 @@ We have two choices here we can call `onMount` inside our function or return a f
 
 ```javascript
 /* src/mountHooks.js */
-import { writable } from "svelte/store";
-import { spring } from "svelte/motion";
-import { onMount } from "svelte";
+import { writable } from 'svelte/store'
+import { spring } from 'svelte/motion'
+import { onMount } from 'svelte'
 
 export function onRefresh({
-  scrollAreaId = "scroll-area",
-  pullToRefreshId = "pull-to-refresh",
+  scrollAreaId = 'scroll-area',
+  pullToRefreshId = 'pull-to-refresh',
   thresholdDistance = 100,
   callback = (refreshing) => refreshing.set(false),
 } = {}) {
@@ -376,45 +376,44 @@ export function onRefresh({
 
   // set element references, link css properties to stores & register touch handlers
   onMount(() => {
-    scrollArea = document.getElementById(scrollAreaId);
-    pullToRefresh = document.getElementById(pullToRefreshId);
+    scrollArea = document.getElementById(scrollAreaId)
+    pullToRefresh = document.getElementById(pullToRefreshId)
 
-    if (!scrollArea)
-      throw new Error(`no element with id ${scrollAreaId} found`);
+    if (!scrollArea) throw new Error(`no element with id ${scrollAreaId} found`)
     if (!pullToRefresh)
-      throw new Error(`no element with id ${pullToRefreshId} found`);
+      throw new Error(`no element with id ${pullToRefreshId} found`)
 
     // link offset to css properties
     const offsetUnsub = offset.subscribe((val) => {
       requestAnimationFrame(() => {
-        pullToRefresh.style.setProperty("--offset", `${val}px`);
-      });
-    });
+        pullToRefresh.style.setProperty('--offset', `${val}px`)
+      })
+    })
 
     // link angle to css properties
     const angleUnsub = angle.subscribe((val) => {
       requestAnimationFrame(() => {
-        pullToRefresh.style.setProperty("--angle", `${val}deg`);
-      });
-    });
+        pullToRefresh.style.setProperty('--angle', `${val}deg`)
+      })
+    })
 
-    scrollArea?.addEventListener("touchstart", onTouchStart);
-    scrollArea?.addEventListener("touchmove", onTouchMove);
-    scrollArea?.addEventListener("touchend", onTouchEnd);
-    scrollArea?.addEventListener("touchcancel", onTouchEnd);
+    scrollArea?.addEventListener('touchstart', onTouchStart)
+    scrollArea?.addEventListener('touchmove', onTouchMove)
+    scrollArea?.addEventListener('touchend', onTouchEnd)
+    scrollArea?.addEventListener('touchcancel', onTouchEnd)
 
     return () => {
-      offsetUnsub();
-      angleUnsub();
-      scrollArea?.removeEventListener("touchstart", onTouchStart);
-      scrollArea?.removeEventListener("touchmove", onTouchMove);
-      scrollArea?.removeEventListener("touchend", onTouchEnd);
-      scrollArea?.removeEventListener("touchcancel", onTouchEnd);
-    };
-  });
+      offsetUnsub()
+      angleUnsub()
+      scrollArea?.removeEventListener('touchstart', onTouchStart)
+      scrollArea?.removeEventListener('touchmove', onTouchMove)
+      scrollArea?.removeEventListener('touchend', onTouchEnd)
+      scrollArea?.removeEventListener('touchcancel', onTouchEnd)
+    }
+  })
 
   // return refreshing state store
-  return refreshing;
+  return refreshing
 }
 ```
 
@@ -422,139 +421,138 @@ export function onRefresh({
 
 ```javascript
 /* src/mountHooks.js */
-import { writable } from "svelte/store";
-import { spring } from "svelte/motion";
-import { onMount } from "svelte";
+import { writable } from 'svelte/store'
+import { spring } from 'svelte/motion'
+import { onMount } from 'svelte'
 
 export function onRefresh({
-  scrollAreaId = "scroll-area",
-  pullToRefreshId = "pull-to-refresh",
+  scrollAreaId = 'scroll-area',
+  pullToRefreshId = 'pull-to-refresh',
   thresholdDistance = 100,
   callback = (refreshing) => refreshing.set(false),
 } = {}) {
   // this represents refreshing state if we are currently refreshing or not, this will be return to the caller of this function
-  const refreshing = writable(false);
+  const refreshing = writable(false)
 
   // is true if threshold distance swiped else false used to figure out if a refresh is needed on touchend
-  let shouldRefresh = false;
+  let shouldRefresh = false
 
   // will be set to element references later on
-  let scrollArea;
-  let pullToRefresh;
+  let scrollArea
+  let pullToRefresh
 
   // start Y coordinate of swipe
-  let startY = 0;
+  let startY = 0
   // touch ID used to start pullToRefresh, -1 is used to represent no pullToRefresh started yet
-  let touchId = -1;
+  let touchId = -1
 
   // will be linked to css properties later on
-  const offset = spring(0);
-  const angle = spring(0);
+  const offset = spring(0)
+  const angle = spring(0)
 
   function onTouchStart(e) {
     // return if another touch is already registered for pull to refresh
-    if (touchId > -1) return;
-    const touch = e.touches[0];
-    startY = touch.screenY + scrollArea.scrollTop;
-    touchId = touch.identifier;
+    if (touchId > -1) return
+    const touch = e.touches[0]
+    startY = touch.screenY + scrollArea.scrollTop
+    touchId = touch.identifier
   }
 
   function onTouchMove(e) {
     // pull to refresh should only trigger if user is at top of the scroll area
-    if (scrollArea.scrollTop > 0) return;
+    if (scrollArea.scrollTop > 0) return
     const touch = Array.from(e.changedTouches).find(
       (t) => t.identifier === touchId
-    );
-    if (!touch) return;
+    )
+    if (!touch) return
 
-    const distance = touch.screenY - startY;
-    shouldRefresh = distance >= thresholdDistance;
+    const distance = touch.screenY - startY
+    shouldRefresh = distance >= thresholdDistance
     if (distance > 0) {
-      scrollArea.style.overflowY = "hidden";
+      scrollArea.style.overflowY = 'hidden'
     }
 
-    offset.set(Math.min(distance, thresholdDistance));
-    angle.set(Math.min(distance, thresholdDistance) * 2);
+    offset.set(Math.min(distance, thresholdDistance))
+    angle.set(Math.min(distance, thresholdDistance) * 2)
   }
 
   function onTouchEnd(e) {
     // needed so this doesn't trigger if some other touch ended
     const touch = Array.from(e.changedTouches).find(
       (t) => t.identifier === touchId
-    );
-    if (!touch) return;
+    )
+    if (!touch) return
 
-    scrollArea.style.overflowY = "auto";
+    scrollArea.style.overflowY = 'auto'
 
     // reset touchId
-    touchId = -1;
+    touchId = -1
 
     // run callback if refresh needed
     if (shouldRefresh) {
-      shouldRefresh = false;
-      refreshing.set(true);
-      callback(refreshing);
+      shouldRefresh = false
+      refreshing.set(true)
+      callback(refreshing)
     }
 
     // create a proxy value for the store to avoid using get(refreshing) in the spin loop
-    let isRefreshing: boolean = true;
-    const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state));
+    let isRefreshing: boolean = true
+    const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state))
 
     // spin the loader while refreshing
     function spin() {
       if (isRefreshing) {
-        angle.update(($angle) => $angle + 5);
-        requestAnimationFrame(spin);
+        angle.update(($angle) => $angle + 5)
+        requestAnimationFrame(spin)
       } else {
-        offset.set(0);
-        angle.set(0);
-        unsubscribe();
+        offset.set(0)
+        angle.set(0)
+        unsubscribe()
       }
     }
-    requestAnimationFrame(spin);
+    requestAnimationFrame(spin)
   }
 
   // set element references, link css properties to stores & register touch handlers
   onMount(() => {
-    scrollArea = document.getElementById(scrollAreaId);
-    pullToRefresh = document.getElementById(pullToRefreshId);
+    scrollArea = document.getElementById(scrollAreaId)
+    pullToRefresh = document.getElementById(pullToRefreshId)
 
-    if (!scrollArea)
-      throw new Error(`no element with id ${scrollAreaId} found`);
+    if (!scrollArea) throw new Error(`no element with id ${scrollAreaId} found`)
     if (!pullToRefresh)
-      throw new Error(`no element with id ${pullToRefreshId} found`);
+      throw new Error(`no element with id ${pullToRefreshId} found`)
 
     // link offset to css properties
     const offsetUnsub = offset.subscribe((val) => {
       requestAnimationFrame(() => {
-        pullToRefresh.style.setProperty("--offset", `${val}px`);
-      });
-    });
+        pullToRefresh.style.setProperty('--offset', `${val}px`)
+      })
+    })
 
     // link angle to css properties
     const angleUnsub = angle.subscribe((val) => {
       requestAnimationFrame(() => {
-        pullToRefresh.style.setProperty("--angle", `${val}deg`);
-      });
-    });
+        pullToRefresh.style.setProperty('--angle', `${val}deg`)
+      })
+    })
 
-    scrollArea?.addEventListener("touchstart", onTouchStart);
-    scrollArea?.addEventListener("touchmove", onTouchMove);
-    scrollArea?.addEventListener("touchend", onTouchEnd);
-    scrollArea?.addEventListener("touchcancel", onTouchEnd);
+    scrollArea?.addEventListener('touchstart', onTouchStart)
+    scrollArea?.addEventListener('touchmove', onTouchMove)
+    scrollArea?.addEventListener('touchend', onTouchEnd)
+    scrollArea?.addEventListener('touchcancel', onTouchEnd)
 
     return () => {
-      offsetUnsub();
-      angleUnsub();
-      scrollArea?.removeEventListener("touchstart", onTouchStart);
-      scrollArea?.removeEventListener("touchmove", onTouchMove);
-      scrollArea?.removeEventListener("touchend", onTouchEnd);
-      scrollArea?.removeEventListener("touchcancel", onTouchEnd);
-    };
-  });
+      offsetUnsub()
+      angleUnsub()
+      scrollArea?.removeEventListener('touchstart', onTouchStart)
+      scrollArea?.removeEventListener('touchmove', onTouchMove)
+      scrollArea?.removeEventListener('touchend', onTouchEnd)
+      scrollArea?.removeEventListener('touchcancel', onTouchEnd)
+    }
+  })
 
   // return refreshing state store
-  return refreshing;
+  return refreshing
 }
 ```
 
@@ -565,15 +563,15 @@ Let's just hide our `p` elements when refreshing and emulate a refresh using `se
 ```svelte
 <!-- src/routes/+page.svelte -->
 <script>
-  import '../style.css';
-  import { onRefresh } from '../mountHooks.js';
+  import '../style.css'
+  import { onRefresh } from '../mountHooks.js'
 
   const refreshing = onRefresh({
     callback(state) {
       setTimeout(() => {
-        state.set(false);
-      }, 3000);
-    }
+        state.set(false)
+      }, 3000)
+    },
   })
 </script>
 
@@ -595,19 +593,22 @@ Let's just hide our `p` elements when refreshing and emulate a refresh using `se
     </div>
     {#if !$refreshing}
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-        eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-        quia totam ipsam dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-        eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-        quia totam ipsam dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam dolor est velit optio
-        eaque perferendis, suscipit voluptatum sit accusamus eius illo cumque laboriosam. Non est
-        quia totam ipsam dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
       </p>
       <!-- Lots of lorem ipsum to make the page long -->
       ....

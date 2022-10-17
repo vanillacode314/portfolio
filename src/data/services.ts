@@ -1,10 +1,10 @@
 export interface Service {
-  content: string;
-  title: string;
+  content: string
+  title: string
   image: {
-    name: string;
-    alt: string;
-  };
+    name: string
+    alt: string
+  }
 }
 
 export default [
@@ -14,8 +14,8 @@ export default [
 The websites I create have a performance first approach leading you to get more customers and happy customers that would love to use your site as it will be as fast as possible.`,
     title: `Performance first mindset`,
     image: {
-      name: "rocket.svg",
-      alt: "Rocket",
+      name: 'rocket.svg',
+      alt: 'Rocket',
     },
   },
   {
@@ -24,8 +24,8 @@ The websites I create have a performance first approach leading you to get more 
 The websites I create go through a rigorous design process with constant feedback from you the website owner, so we can create the brand identity you want for your business and make it look beautiful.`,
     title: `Designed to be beautiful and effective`,
     image: {
-      name: "artist.svg",
-      alt: "Designer",
+      name: 'artist.svg',
+      alt: 'Designer',
     },
   },
-] as Service[];
+] as Service[]

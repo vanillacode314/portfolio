@@ -1,34 +1,34 @@
 <script lang="ts">
   interface Comment {
-    id: string;
-    comment: string;
-    username: string;
+    id: string
+    comment: string
+    username: string
   }
-  import { onMount, tick } from "svelte";
+  import { onMount, tick } from 'svelte'
 
-  import { writable } from "svelte-local-storage-store";
-  import Button from "@components/Button.svelte";
-  import Section from "@components/Section.svelte";
-  import { sleep } from "@utils";
+  import { writable } from 'svelte-local-storage-store'
+  import Button from '@components/Button.svelte'
+  import Section from '@components/Section.svelte'
+  import { sleep } from '@utils'
 
-  const BASE_URL = "https://api.raqueebuddinaziz.com";
+  const BASE_URL = 'https://api.raqueebuddinaziz.com'
 
-  export let slug: string;
-  let username = writable<string>("username", "");
-  let email = writable<string>("email", "");
-  let comment: string = "";
-  let comments: Comment[] = [];
-  let cooldown: number = 0;
+  export let slug: string
+  let username = writable<string>('username', '')
+  let email = writable<string>('email', '')
+  let comment: string = ''
+  let comments: Comment[] = []
+  let cooldown: number = 0
 
   async function onSubmit() {
     try {
-      cooldown = 5;
-      await tick();
-      await fetch(BASE_URL + "/comment", {
-        method: "POST",
-        redirect: "error",
+      cooldown = 5
+      await tick()
+      await fetch(BASE_URL + '/comment', {
+        method: 'POST',
+        redirect: 'error',
         headers: {
-          "content-type": "application/json",
+          'content-type': 'application/json',
         },
         body: JSON.stringify({
           username: $username,
@@ -36,32 +36,32 @@
           comment,
           slug,
         }),
-      });
+      })
     } finally {
-      comment = "";
+      comment = ''
       async function countdown() {
         if (cooldown > 0) {
-          cooldown--;
-          await sleep(1000);
-          countdown();
+          cooldown--
+          await sleep(1000)
+          countdown()
         }
       }
-      countdown();
-      getComments();
+      countdown()
+      getComments()
     }
   }
 
   async function getComments() {
     const res = await fetch(
       BASE_URL + `/get_comments?slug=${encodeURIComponent(slug)}`
-    );
-    const data = await res.json();
-    comments = data.comments;
+    )
+    const data = await res.json()
+    comments = data.comments
   }
 
   onMount(() => {
-    getComments();
-  });
+    getComments()
+  })
 </script>
 
 <Section title="Comments" fluid>
@@ -70,7 +70,7 @@
     on:submit|preventDefault={onSubmit}
     class="comment-form"
     name="comment"
-    action={BASE_URL + "/comment"}
+    action={BASE_URL + '/comment'}
     method="POST"
   >
     <input type="hidden" name="slug" value={slug} />

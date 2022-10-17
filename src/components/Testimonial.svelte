@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Testimonial } from "../data/testimonials";
+  import { Testimonial } from '../data/testimonials'
 
-  export let testimonial: Testimonial;
+  export let testimonial: Testimonial
 </script>
 
 <figure class="testimonial">

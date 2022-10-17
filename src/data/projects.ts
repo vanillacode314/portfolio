@@ -1,15 +1,15 @@
 export interface Project {
-  name: string;
-  description: string;
-  points: string[];
-  image: string;
-  url: string;
-  repo_url: string;
-  tech: string[];
+  name: string
+  description: string
+  points: string[]
+  image: string
+  url: string
+  repo_url: string
+  tech: string[]
 }
 export default [
   {
-    name: "RedditLattice",
+    name: 'RedditLattice',
     description: `A user friendly web application to browse image based subreddits from reddit.com`,
     points: [
       `Implemented quick image loading by progressively loading images and sizing them efficiently.`,
@@ -18,23 +18,23 @@ export default [
       `Enhances UX for customers by saving relevant user searches and favourites for quick access.`,
       `Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.`,
     ],
-    image: "redditlattice.webp",
-    tech: ["vue3", "nuxt3", "vuetify", "workbox", "service-workers", "nodejs"],
-    url: "https://redditlattice.netlify.app/",
-    repo_url: "https://github.com/vanillacode314/redditlattice",
+    image: 'redditlattice.webp',
+    tech: ['vue3', 'nuxt3', 'vuetify', 'workbox', 'service-workers', 'nodejs'],
+    url: 'https://redditlattice.netlify.app/',
+    repo_url: 'https://github.com/vanillacode314/redditlattice',
   },
   {
-    name: "JustInvoice",
+    name: 'JustInvoice',
     description:
-      "An intuitive invoice manager that works completely in the browser and offline",
-    image: "justinvoice.webp",
-    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
+      'An intuitive invoice manager that works completely in the browser and offline',
+    image: 'justinvoice.webp',
+    tech: ['svelte', 'sveltekit', 'tailwindcss', 'daisyui'],
     points: [
-      "Auto formats to print invoices in a concise form.",
-      "Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.",
+      'Auto formats to print invoices in a concise form.',
+      'Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.',
     ],
-    url: "https://justinvoice.netlify.app",
-    repo_url: "https://github.com/vanillacode314/justinvoice",
+    url: 'https://justinvoice.netlify.app',
+    repo_url: 'https://github.com/vanillacode314/justinvoice',
   },
   /* { */
   /*   name: "MTGPackSimulator", */
@@ -79,4 +79,4 @@ export default [
   /*   url: "https://github.com/vanillacode314/remotegamepad-server/releases", */
   /*   repo_url: "https://github.com/vanillacode314/remotegamepad-server", */
   /* }, */
-] as Project[];
+] as Project[]

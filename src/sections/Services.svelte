@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Section from "../components/Section.svelte";
-  import services from "../data/services";
+  import Section from '../components/Section.svelte'
+  import services from '../data/services'
 </script>
 
 <Section title="why work with me" id="services">
@@ -26,19 +26,19 @@
     margin-block: var(--larger-gap);
     gap: var(--larger-gap);
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "content image";
+    grid-template-areas: 'content image';
     &:nth-child(even) {
-      grid-template-areas: "image content";
+      grid-template-areas: 'image content';
     }
     @media (--md-n-below) {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "image"
-        "content";
+        'image'
+        'content';
       &:nth-child(even) {
         grid-template-areas:
-          "image"
-          "content";
+          'image'
+          'content';
       }
     }
   }

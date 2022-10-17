@@ -1,13 +1,13 @@
 export interface Author {
-  id: string;
-  name: string;
-  description: string;
+  id: string
+  name: string
+  description: string
 }
 
 export default [
   {
-    id: "raqueebuddinaziz",
-    name: "Raqueebuddin Aziz",
+    id: 'raqueebuddinaziz',
+    name: 'Raqueebuddin Aziz',
     description: `Web designer & developer`,
   },
-] as Author[];
+] as Author[]

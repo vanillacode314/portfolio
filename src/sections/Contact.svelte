@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Button from "../components/Button.svelte";
+  import Button from '../components/Button.svelte'
 
   function onSubmit() {
-    gtag("event", "generate_lead");
+    gtag('event', 'generate_lead')
   }
 </script>
 
