@@ -1,128 +1,128 @@
 ---
 interface Link {
-	title: string;
-	href: string;
+  title: string
+  href: string
 }
 const links: Link[] = [
-	{
-		title: "Portfolio",
-		href: "/",
-	},
-	{
-		title: "Blog",
-		href: "/blog",
-	},
-];
+  {
+    title: 'Portfolio',
+    href: '/',
+  },
+  {
+    title: 'Blog',
+    href: '/blog',
+  },
+]
 
 const socials: Link[] = [
-	{
-		title: "Email",
-		href: "mailto:raqueebuddin.aziz.314@gmail.com",
-	},
-	{
-		title: "Instagram",
-		href: "https://www.instagram.com/raqueebuddin.aziz",
-	},
-	{
-		title: "Facebook",
-		href: "https://www.facebook.com/vanillacode314",
-	},
-	{
-		title: "Twitter",
-		href: "https://twitter.com/RaqueebuddinA",
-	},
-	{
-		title: "LinkedIN",
-		href: "https://www.linkedin.com/in/raqueebuddin-aziz-b28a12232/",
-	},
-	{
-		title: "Github",
-		href: "https://github.com/vanillacode314",
-	},
-];
+  {
+    title: 'Email',
+    href: 'mailto:raqueebuddin.aziz.314@gmail.com',
+  },
+  {
+    title: 'Instagram',
+    href: 'https://www.instagram.com/raqueebuddin.aziz',
+  },
+  {
+    title: 'Facebook',
+    href: 'https://www.facebook.com/vanillacode314',
+  },
+  {
+    title: 'Twitter',
+    href: 'https://twitter.com/RaqueebuddinA',
+  },
+  {
+    title: 'LinkedIN',
+    href: 'https://www.linkedin.com/in/raqueebuddin-aziz-b28a12232/',
+  },
+  {
+    title: 'Github',
+    href: 'https://github.com/vanillacode314',
+  },
+]
 ---
 
 <div class="footer_wrapper">
-	<footer class="footer">
-		<section class="footer__section">
-			<a class="footer__logo" href="/" aria-label="home">
-				Raqueebuddin<br />Aziz
-			</a>
-		</section>
-		<section class="footer__section">
-			<h3 class="footer__section__title">Links</h3>
-			<ul class="list">
-				{
-					links.map(({ title, href }) => (
-						<li class="list-item">
-							<a class="nav-link" {href}>
-								{title}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</section>
-		<section class="footer__section">
-			<h3 class="footer__section__title">Social</h3>
-			<ul class="list">
-				{
-					socials.map(({ title, href }) => (
-						<li class="list-item">
-							<a class="nav-link" {href}>
-								{title}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</section>
-	</footer>
+  <footer class="footer">
+    <section class="footer__section">
+      <a class="footer__logo" href="/" aria-label="home">
+        Raqueebuddin<br />Aziz
+      </a>
+    </section>
+    <section class="footer__section">
+      <h3 class="footer__section__title">Links</h3>
+      <ul class="list">
+        {
+          links.map(({ title, href }) => (
+            <li class="list-item">
+              <a class="nav-link" {href}>
+                {title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section class="footer__section">
+      <h3 class="footer__section__title">Social</h3>
+      <ul class="list">
+        {
+          socials.map(({ title, href }) => (
+            <li class="list-item">
+              <a class="nav-link" {href}>
+                {title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </footer>
 </div>
 
 <style lang="postcss">
-	.footer_wrapper {
-		padding: var(--container-padding);
-		background-color: rgb(0 0 0 / 5%);
-	}
-	.footer {
-		display: grid;
-		gap: var(--large-gap);
-		max-inline-size: calc(var(--container-size) - 2 * var(--container-padding));
-		margin-inline: auto;
-		@media (--lg-n-above) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-		.nav-link {
-			all: unset;
-			cursor: pointer;
-			color: var(--color-1);
-			text-decoration: underline;
-			line-height: var(--font-lineheight-0);
-			font-size: 20px;
-			&:is(:hover, :focus) {
-				color: var(--color-3);
-			}
-		}
-		.list {
-			display: grid;
-			gap: var(--smaller-gap);
-			text-transform: uppercase;
-		}
-		.footer__section__title {
-			text-transform: uppercase;
-			font-family: var(--font-family);
-			font-weight: 700;
-			font-size: 16px;
-			margin-block-end: var(--small-gap);
-		}
-		.footer__logo {
-			/* font-weight: 600; */
-			font-size: 18px;
-			text-transform: uppercase;
-			font-family: var(--headline-family);
-			text-decoration: none;
-			color: black;
-		}
-	}
+  .footer_wrapper {
+    padding: var(--container-padding);
+    background-color: rgb(0 0 0 / 5%);
+  }
+  .footer {
+    display: grid;
+    gap: var(--large-gap);
+    max-inline-size: calc(var(--container-size) - 2 * var(--container-padding));
+    margin-inline: auto;
+    @media (--lg-n-above) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .nav-link {
+      all: unset;
+      cursor: pointer;
+      color: var(--color-1);
+      text-decoration: underline;
+      line-height: var(--font-lineheight-0);
+      font-size: 20px;
+      &:is(:hover, :focus) {
+        color: var(--color-3);
+      }
+    }
+    .list {
+      display: grid;
+      gap: var(--smaller-gap);
+      text-transform: uppercase;
+    }
+    .footer__section__title {
+      text-transform: uppercase;
+      font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 16px;
+      margin-block-end: var(--small-gap);
+    }
+    .footer__logo {
+      /* font-weight: 600; */
+      font-size: 18px;
+      text-transform: uppercase;
+      font-family: var(--headline-family);
+      text-decoration: none;
+      color: black;
+    }
+  }
 </style>

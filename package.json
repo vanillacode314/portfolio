@@ -8,7 +8,7 @@
     "build": "MODE=PROD astro build",
     "preview": "astro preview",
     "fix-styles": "stylelint '**/*.{css,astro,svelte}' --fix",
-    "format": "prettier --plugin-search-dir \".\" --write \"**/*.{ts,js,svelte,md}\"",
+    "format": "prettier --plugin-search-dir \".\" --write \"**/*.{ts,js,svelte,md,astro}\"",
     "astro": "astro"
   },
   "dependencies": {

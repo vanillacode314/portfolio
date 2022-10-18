@@ -1,10 +1,10 @@
 ---
-import Section from "@components/Section.svelte";
-import Base from "@layouts/Base.astro";
-import authors from "@data/authors";
-import Button from "@components/Button.svelte";
+import Section from '@components/Section.svelte'
+import Base from '@layouts/Base.astro'
+import authors from '@data/authors'
+import Button from '@components/Button.svelte'
 
-const blogs = await Astro.glob("./*.md");
+const blogs = await Astro.glob('./*.md')
 /* const blogs = []; */
 ---
 
@@ -15,11 +15,11 @@ const blogs = await Astro.glob("./*.md");
         blogs.map(async ({ frontmatter, url }) => {
           const author = authors.find(
             (author) => author.id === frontmatter.author
-          );
-          const slug = url.replace("/blog/", "");
+          )
+          const slug = url.replace('/blog/', '')
           const { default: image } = await import(
             `../../assets/images/blog/${slug}.svg`
-          );
+          )
           return (
             <a class="card" href={url}>
               <img
@@ -39,7 +39,7 @@ const blogs = await Astro.glob("./*.md");
                 {/* </div> */}
               </div>
             </a>
-          );
+          )
         })
       }
     </div>
@@ -60,30 +60,30 @@ const blogs = await Astro.glob("./*.md");
         gap: var(--larger-gap);
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr;
-        grid-template-areas: "image body";
+        grid-template-areas: 'image body';
         &:is(:hover, :focus) {
           transform: scale(105%);
         }
         &:nth-child(even) {
           grid-template-columns: 2fr 1fr;
-          grid-template-areas: "body image";
+          grid-template-areas: 'body image';
         }
         @media (--md-only) {
           grid-template-columns: 1fr 1fr;
           gap: var(--large-gap);
           &:nth-child(even) {
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: "body image";
+            grid-template-areas: 'body image';
           }
         }
         @media (--sm-n-below) {
           grid-template-columns: 1fr;
           grid-template-rows: auto auto;
-          grid-template-areas: "image" "body";
+          grid-template-areas: 'image' 'body';
           &:nth-child(even) {
             grid-template-columns: 1fr;
             grid-template-rows: auto auto;
-            grid-template-areas: "image" "body";
+            grid-template-areas: 'image' 'body';
           }
         }
       }
