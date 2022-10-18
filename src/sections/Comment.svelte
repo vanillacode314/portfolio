@@ -99,9 +99,9 @@
     </div>
     <div class="form-control full actions">
       {#if cooldown > 0}
-        <button class="btn btn-gray-600" disabled>Wait {cooldown} seconds</button>
+        <button class="btn btn-primary-gray-600" disabled>Wait {cooldown} seconds</button>
       {:else}
-        <button class="btn-blue-900 btn">Submit</button>
+        <button class="btn-primary-blue-900 btn">Submit</button>
       {/if}
     </div>
   </form>

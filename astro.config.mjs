@@ -9,7 +9,7 @@ import purgecss from 'astro-purgecss'
 import image from '@astrojs/image'
 import solidJs from '@astrojs/solid-js'
 import Unocss from '@unocss/vite'
-import { presetWebFonts, presetUno, presetIcons } from 'unocss'
+import { presetMini, presetUno, presetIcons } from 'unocss'
 
 const BASE_URL = 'https://raqueebuddinaziz.com'
 
@@ -38,22 +38,43 @@ export default defineConfig({
     plugins: [
       Unocss({
         presets: [presetUno()],
-        fonts: {
-          sans: ['Archivo Narrow', 'sans-serif'],
-          jet: ['JetBrains Mono', 'sans-serif'],
-          mono: ['JetBrains Mono', 'monospace'],
+        theme: {
+          fontFamily: {
+            sans: ['Archivo Narrow', 'sans-serif'],
+            jet: ['JetBrains Mono', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
         },
         shortcuts: [
           // you could still have object style
           {
-            btn: 'py-3 px-5 font-semibold rounded-lg uppercase no-underline hover:underline focus:underline font-jet grid place-content-center cursor-pointer',
+            btn: `py-3 px-5 font-semibold rounded-lg uppercase no-underline hover:underline focus:underline font-sans grid place-content-center cursor-pointer`,
           },
           // dynamic shortcuts
           [
             /^btn-secondary-(.*)$/,
-            ([, c]) => `text-${c} border-${c} border-2 bg-transparent`,
+            ([, p]) => {
+              const [c, shade] = p.split('-')
+              return shade
+                ? `text-${c}-${shade} border-${c}-${shade} border-2 bg-transparent hover:border-${c}-${
+                    +shade - 100
+                  } focus:border-${c}-${+shade - 100} hover:text-${c}-${
+                    +shade - 100
+                  } focus:text-${c}-${+shade - 100} transition-colors`
+                : `text-${c} border-${c} border-2 bg-transparent`
+            },
           ],
-          [/^btn-(.*)$/, ([, c]) => `bg-${c} text-white`],
+          [
+            /^btn-primary-(.*)$/,
+            ([, p]) => {
+              const [c, shade] = p.split('-')
+              return shade
+                ? `bg-${c}-${shade} text-white border-none hover:bg-${c}-${
+                    +shade - 100
+                  } focus:bg-${c}-${+shade - 100} transition-colors`
+                : `bg-${c} text-white border-none`
+            },
+          ],
         ],
       }),
     ],
