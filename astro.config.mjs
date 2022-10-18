@@ -1,13 +1,17 @@
-import { defineConfig } from "astro/config";
-import svelte from "@astrojs/svelte";
-import sitemap from "@astrojs/sitemap";
-import robotsTxt from "astro-robots-txt";
-import compress from "astro-compress";
-import critters from "astro-critters";
-import compressor from "astro-compressor";
-import purgecss from "astro-purgecss";
-import image from "@astrojs/image";
-const BASE_URL = "https://raqueebuddinaziz.com";
+import { defineConfig } from 'astro/config'
+import svelte from '@astrojs/svelte'
+import sitemap from '@astrojs/sitemap'
+import robotsTxt from 'astro-robots-txt'
+import compress from 'astro-compress'
+import critters from 'astro-critters'
+import compressor from 'astro-compressor'
+import purgecss from 'astro-purgecss'
+import image from '@astrojs/image'
+import solidJs from '@astrojs/solid-js'
+import Unocss from '@unocss/vite'
+import { presetWebFonts, presetUno, presetIcons } from 'unocss'
+
+const BASE_URL = 'https://raqueebuddinaziz.com'
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,28 +19,43 @@ export default defineConfig({
   site: BASE_URL,
   integrations: [
     image(),
+    solidJs(),
     svelte(),
     sitemap({
       /* customPages: [BASE_URL + "/", BASE_URL + "/blog", ...getBlogs()], */
     }),
     robotsTxt(),
-    purgecss(),
+    /* purgecss(), */
     /* critters(), */
     compressor(),
   ],
   markdown: {
     shikiConfig: {
-      theme: "dark-plus",
+      theme: 'dark-plus',
     },
   },
-  /* output: "server", */
-  /* adapter: netlify(), */
-});
-
-/* import fs from "node:fs"; */
-/* import netlify from "@astrojs/netlify/functions"; */
-/* function getBlogs() { */
-/*   const files = fs.readdirSync("src/pages/blog"); */
-/*   const blogs = files.filter((file) => file.endsWith(".md")); */
-/*   return blogs.map((blog) => BASE_URL + "/blog/" + blog.replace(".md", "")); */
-/* } */
+  vite: {
+    plugins: [
+      Unocss({
+        presets: [presetUno()],
+        fonts: {
+          sans: ['Archivo Narrow', 'sans-serif'],
+          jet: ['JetBrains Mono', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+        shortcuts: [
+          // you could still have object style
+          {
+            btn: 'py-3 px-5 font-semibold rounded-lg uppercase no-underline hover:underline focus:underline font-jet grid place-content-center cursor-pointer',
+          },
+          // dynamic shortcuts
+          [
+            /^btn-secondary-(.*)$/,
+            ([, c]) => `text-${c} border-${c} border-2 bg-transparent`,
+          ],
+          [/^btn-(.*)$/, ([, c]) => `bg-${c} text-white`],
+        ],
+      }),
+    ],
+  },
+})

@@ -7,7 +7,6 @@
   import { onMount, tick } from 'svelte'
 
   import { writable } from 'svelte-local-storage-store'
-  import Button from '@components/Button.svelte'
   import Section from '@components/Section.svelte'
   import { sleep } from '@utils'
 
@@ -100,9 +99,9 @@
     </div>
     <div class="form-control full actions">
       {#if cooldown > 0}
-        <Button type="submit" disabled>Wait {cooldown} seconds</Button>
+        <button class="btn btn-gray-600" disabled>Wait {cooldown} seconds</button>
       {:else}
-        <Button type="submit">Submit</Button>
+        <button class="btn-blue-900 btn">Submit</button>
       {/if}
     </div>
   </form>

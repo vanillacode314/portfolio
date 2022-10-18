@@ -2,7 +2,8 @@
 import 'normalize.css'
 import '../styles/reset.css'
 import '../styles/base.css'
-import Background from '@components/Background.svelte'
+import 'uno.css'
+import { Background } from '@components/Background'
 import Navbar from '@sections/Navbar.svelte'
 import Footer from '@sections/Footer.astro'
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
@@ -67,7 +68,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     </script>
   </head>
   <body>
-    <Background client:load />
+    <Background client:idle />
     <div class="wrapper">
       <Navbar route={Astro.url.pathname} />
       <main>

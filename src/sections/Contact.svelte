@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Button from '../components/Button.svelte'
-
   function onSubmit() {
     gtag('event', 'generate_lead')
   }
@@ -41,9 +39,7 @@
         <textarea id="message" name="message" required />
       </div>
       <span class="actions">
-        <Button dark color="white" variant="secondary" type="submit"
-          >Send Message</Button
-        >
+        <button class="btn btn-secondary-white text-lg">Send Message</button>
       </span>
     </form>
   </section>

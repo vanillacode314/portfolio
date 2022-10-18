@@ -3,7 +3,8 @@ import 'normalize.css'
 import '../styles/reset.css'
 import '../styles/base.css'
 import '../styles/blog.css'
-import Background from '@components/Background.svelte'
+import 'uno.css'
+import { Background } from '@components/Background'
 import Navbar from '@sections/Navbar.svelte'
 import Comment from '@sections/Comment.svelte'
 import Footer from '@sections/Footer.astro'
@@ -71,7 +72,7 @@ const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
     </script>
   </head>
   <body>
-    <Background client:load />
+    <Background client:idle />
     <Navbar route={Astro.url.pathname} />
     <div class="blog__wrapper">
       <div class="blog__container">

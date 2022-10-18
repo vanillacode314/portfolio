@@ -2,7 +2,6 @@
 import Section from '@components/Section.svelte'
 import Base from '@layouts/Base.astro'
 import authors from '@data/authors'
-import Button from '@components/Button.svelte'
 
 const blogs = await Astro.glob('./*.md')
 /* const blogs = []; */
@@ -35,7 +34,6 @@ const blogs = await Astro.glob('./*.md')
                 <h2 class="card__title">{frontmatter.title}</h2>
                 <p class="card__description">{frontmatter.description}</p>
                 {/* <div class="actions"> */}
-                {/* <Button href={url}>Read More</Button> */}
                 {/* </div> */}
               </div>
             </a>
