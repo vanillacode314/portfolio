@@ -8,7 +8,7 @@
   <span class="quote">&ldquo;</span>
   <blockquote>
     <p>
-      &ldquo;{testimonial.content}&rdquo;
+      &ldquo; {testimonial.content} &rdquo;
     </p>
   </blockquote>
   <figcaption>
@@ -47,7 +47,7 @@
     }
   }
   p {
-    line-height: 1.1;
+    line-height: var(--font-lineheight-2);
     font-size: var(--font-size-1);
     @media (--md-n-above) {
       font-size: var(--font-size-2);
