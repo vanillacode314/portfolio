@@ -7,7 +7,6 @@
   import { onMount, tick } from 'svelte'
 
   import { writable } from 'svelte-local-storage-store'
-  import Section from '@components/Section.svelte'
   import { sleep } from '@utils'
 
   const BASE_URL = 'https://api.raqueebuddinaziz.com'
@@ -69,7 +68,6 @@
   onMount(() => getComments())
 </script>
 
-<Section title="Comments" fluid>
   <!-- <h3>Leave a comment</h3> -->
   <form
     on:submit|preventDefault={onSubmit}
@@ -99,7 +97,9 @@
     </div>
     <div class="form-control full actions">
       {#if cooldown > 0}
-        <button class="btn btn-primary-gray-600" disabled>Wait {cooldown} seconds</button>
+        <button class="btn btn-primary-gray-600" disabled
+          >Wait {cooldown} seconds</button
+        >
       {:else}
         <button class="btn-primary-blue-900 btn">Submit</button>
       {/if}
@@ -116,7 +116,6 @@
       </article>
     {/each}
   </div>
-</Section>
 
 <style lang="postcss">
   .comments-list {

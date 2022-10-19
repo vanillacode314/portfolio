@@ -1,0 +1,17 @@
+.testimonials {
+  /* max-inline-size: var(--container-size); */
+  /* margin-inline: auto; */
+  display: flex;
+  gap: var(--gap);
+  width: 100%;
+  padding: var(--gap);
+  box-sizing: border-box;
+  /* padding-block: var(--gap); */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  position: relative;
+  @media (min-width: 1440px) {
+    justify-content: center;
+    /* flex-direction: column; */
+  }
+}

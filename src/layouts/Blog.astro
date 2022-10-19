@@ -8,6 +8,7 @@ import { Background } from '@components/Background'
 import Navbar from '@sections/Navbar.svelte'
 import Comment from '@sections/Comment.svelte'
 import Footer from '@sections/Footer.astro'
+import Section from '@components/Section.astro'
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
 import { Author } from '@data/authors'
 import authors from '@data/authors'
@@ -150,7 +151,9 @@ const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
               Share on LinkedIN</a
             >
           </section>
-          <Comment {slug} client:idle />
+          <Section title="Comments" fluid>
+            <Comment {slug} client:idle />
+          </Section>
         </main>
         <aside></aside>
       </div>

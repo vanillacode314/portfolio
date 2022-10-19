@@ -1,9 +1,17 @@
-<script lang="ts">
-  export let title: string
-  export let fluid: boolean = false
-</script>
+---
+import { pullKeys } from '@utils'
 
-<section {...$$restProps} class="section" class:fluid>
+export interface Props {
+  title: string
+  fluid?: boolean
+  [key: string]: unknown
+}
+
+const { title, fluid, ...others } = Astro.props as Props
+const _class = pullKeys(others, ['class']).class
+---
+
+<section {...others} class={`${_class} section ${fluid && 'fluid'}`}>
   <h2 class="section__title">{title}</h2>
   <div class="section__body">
     <slot />

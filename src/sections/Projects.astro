@@ -1,61 +1,56 @@
 ---
 import { Image, Picture } from '@astrojs/image/components'
-import Section from '@components/Section.svelte'
 import projects from '@data/projects'
 ---
 
-<Section title="some projects i have worked on" id="projects">
-  {
-    projects.map(
-      ({ repo_url, name, tech, description, points, url, image }) => (
-        <div class="item">
-          <div class="content_container">
-            <h3 class="title">{name}</h3>
-            <ul class="links">
-              <li>
-                <a class="link" href={url}>
-                  visit:
-                  <svg width="1em" height="1em" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="m21 12l-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a class="link" href={repo_url}>
-                  repo:{' '}
-                  <svg width="1em" height="1em" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="m14.6 16.6l4.6-4.6l-4.6-4.6L16 6l6 6l-6 6l-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6l6 6l1.4-1.4Z"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <h4 class="tech">({tech.join(', ')})</h4>
-            <p class="content">{description}</p>
-            <ul class="points">
-              {points.map((point) => (
-                <li>{point}</li>
-              ))}
-            </ul>
-          </div>
-          <Picture
-            class="image"
-            src={`/assets/images/${image}`}
-            alt={name}
-            widths={[480, 768]}
-            sizes="(max-width: 480px) 480px, (max-width: 768px) 768px"
-            aspectRatio="1:1"
-          />
-        </div>
-      )
-    )
-  }
-</Section>
+{
+  projects.map(({ repo_url, name, tech, description, points, url, image }) => (
+    <div class="item">
+      <div class="content_container">
+        <h3 class="title">{name}</h3>
+        <ul class="links">
+          <li>
+            <a class="link" href={url}>
+              visit:
+              <svg width="1em" height="1em" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m21 12l-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="link" href={repo_url}>
+              repo:{' '}
+              <svg width="1em" height="1em" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m14.6 16.6l4.6-4.6l-4.6-4.6L16 6l6 6l-6 6l-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6l6 6l1.4-1.4Z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <h4 class="tech">({tech.join(', ')})</h4>
+        <p class="content">{description}</p>
+        <ul class="points">
+          {points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </div>
+      <Picture
+        class="image"
+        src={`/assets/images/${image}`}
+        alt={name}
+        widths={[480, 768]}
+        sizes="(max-width: 480px) 480px, (max-width: 768px) 768px"
+        aspectRatio="1:1"
+      />
+    </div>
+  ))
+}
 
 <style lang="postcss">
   .item {

@@ -1,10 +1,9 @@
-<script lang="ts">
-  import Section from '../components/Section.svelte'
-  import services from '../data/services'
-</script>
+---
+import services from '../data/services'
+---
 
-<Section title="why work with me" id="services">
-  {#each services as { title, content, image } (title)}
+{
+  services.map(({ title, content, image }) => (
     <div class="item">
       <div class="content_container">
         <h3 class="title">{title}</h3>
@@ -13,12 +12,12 @@
       <img
         loading="lazy"
         class="image"
-        src="/assets/images/{image.name}"
+        src={`/assets/images/${image.name}`}
         alt={image.alt}
       />
     </div>
-  {/each}
-</Section>
+  ))
+}
 
 <style lang="postcss">
   .item {

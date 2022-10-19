@@ -1,18 +1,24 @@
 ---
 import Base from '@layouts/Base.astro'
-
 import Hero from '@sections/Hero.astro'
-import Services from '@sections/Services.svelte'
+import Services from '@sections/Services.astro'
 import Projects from '@sections/Projects.astro'
-import Testimonials from '@sections/Testimonials.svelte'
+import { Testimonials } from '@sections/Testimonials'
 import Contact from '@sections/Contact.svelte'
+import Section from '@components/Section.astro'
 ---
 
 <Base>
   <Hero />
-  <Testimonials client:load />
-  <Services />
-  <Projects />
+  <Section title="what others have to say" id="testimonials" fluid>
+    <Testimonials client:load />
+  </Section>
+  <Section title="why work with me" id="services">
+    <Services />
+  </Section>
+  <Section title="some projects i have worked on" id="projects">
+    <Projects />
+  </Section>
   <Contact client:load />
   <style>
     h3 {

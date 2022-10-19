@@ -12,7 +12,7 @@
       <input type="hidden" name="email" />
       <input type="hidden" name="message" />
     </form>
-    <form name="contact" on:submit={onSubmit} method="POST">
+    <form name="contact" on:submit={onSubmit} method="post">
       <input type="hidden" name="form-name" value="contact" />
       <div class="form-control">
         <label for="name"> Name</label>

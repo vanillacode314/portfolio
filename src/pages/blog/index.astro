@@ -1,10 +1,9 @@
 ---
-import Section from '@components/Section.svelte'
+import Section from '@components/Section.astro'
 import Base from '@layouts/Base.astro'
 import authors from '@data/authors'
 
 const blogs = await Astro.glob('./*.md')
-/* const blogs = []; */
 ---
 
 <Base title="Blog">

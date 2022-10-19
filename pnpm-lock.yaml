@@ -20,6 +20,7 @@ specifiers:
   astro-robots-txt: ^0.3.8
   autoprefixer: ^10.4.10
   cssnano: ^5.1.13
+  lodash: ^4.17.21
   normalize.css: ^8.0.1
   open-props: ^1.4.14
   postcss: ^8.4.16
@@ -50,6 +51,7 @@ dependencies:
   astro: 1.5.0
   astro-compressor: 0.1.2
   astro-purgecss: 1.2.1_astro@1.5.0
+  lodash: 4.17.21
   solid-js: 1.5.9
   svelte: 3.52.0
 
@@ -3377,7 +3379,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols/5.1.0:
     resolution: {integrity: sha512-l0x2DvrW294C9uDCoQe1VSU4gf529FkSZ6leBl4TiqZH/e+0R7hSfHQBNut2mNygDgHwvYHfFLn6Oxb3VWj2rA==}
