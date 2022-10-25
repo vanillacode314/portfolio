@@ -4,7 +4,7 @@ export interface Testimonial {
   title: string
 }
 
-export default [
+const Testimonials: Testimonial[] = [
   {
     content:
       "Working with Raqueebuddin has been a pleasure.  He's extremely knowledgeable in what he does and knows how to ask the right questions to help ensure your project is successful. He was patient in working through revisions and promptly made any changes I requested. He also took the time to make sure we were both clear going into the project as to exactly what we would be creating and what the scope was to prevent any confusion as to what the deliverables were. I would highly recommend Raqueebuddin to anyone looking for a full stack developer. He and I will be partnering on multiple project in the future",
@@ -33,4 +33,6 @@ export default [
     author: 'Jakub Donovan',
     title: 'Frontend Developer',
   },
-] as Testimonial[]
+]
+
+export default Testimonials

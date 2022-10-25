@@ -7,12 +7,15 @@ export interface Project {
   repo_url: string
   tech: string[]
 }
-export default [
+
+const Projects: Project[] = [
   {
     name: 'RedditLattice',
     description: `A user friendly web application to browse image based subreddits from reddit.com`,
     points: [
+      `Loads of options for user customizations.`,
       `Implemented quick image loading by progressively loading images and sizing them efficiently.`,
+      `Provided instant image loads and reduced network usage for frequently visited subreddits by building a smart caching solution.`,
       `Implemented Beautiful and Custom UI for a native app like feel, custom pull to refresh, list animations and page loaders.`,
       `Resizing Images on the fly using a custom nodejs server resulting in 3x-5x smaller images.`,
       `Enhances UX for customers by saving relevant user searches and favourites for quick access.`,
@@ -79,4 +82,5 @@ export default [
   /*   url: "https://github.com/vanillacode314/remotegamepad-server/releases", */
   /*   repo_url: "https://github.com/vanillacode314/remotegamepad-server", */
   /* }, */
-] as Project[]
+]
+export default Projects

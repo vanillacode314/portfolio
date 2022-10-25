@@ -4,10 +4,12 @@ export interface Author {
   description: string
 }
 
-export default [
+const Authors: Author[] = [
   {
     id: 'raqueebuddinaziz',
     name: 'Raqueebuddin Aziz',
     description: `Web designer & developer`,
   },
-] as Author[]
+]
+
+export default Authors

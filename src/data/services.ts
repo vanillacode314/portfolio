@@ -7,7 +7,7 @@ export interface Service {
   }
 }
 
-export default [
+const Services: Service[] = [
   {
     content: `You need your website to load as quickly as possible to get customers. A typical user only waits 3-5 seconds for a site to load. It won’t matter if you provide the best product or service to your customers if they never wait to see it.
 
@@ -28,4 +28,6 @@ The websites I create go through a rigorous design process with constant feedbac
       alt: 'Designer',
     },
   },
-] as Service[]
+]
+
+export default Services
