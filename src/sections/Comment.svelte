@@ -17,23 +17,27 @@
   let comment: string = ''
   let comments: Comment[] = []
   let cooldown: number = 0
-  const filterRegex: RegExp = /\<a.*href\=\".*\".*\>/gm
+  const filterRegex: RegExp = /\<a.*href\=\".*\".*\>/m
 
   async function countdown() {
-    if (cooldown > 0) {
-      cooldown--
-      await sleep(1000)
-      countdown()
-    }
+    const count = --cooldown
+    await sleep(1000)
+    if (count > 0) countdown()
+  }
+
+  function validateComment() {
+    return !filterRegex.test(comment)
   }
 
   async function onSubmit() {
-    if (filterRegex.test(comment)) {
+    if (!validateComment()) {
       alert('Your comment cannot contain html tags')
       cooldown = 10
+      await tick()
       countdown()
       return
     }
+
     try {
       cooldown = 5
       await tick()
@@ -68,54 +72,48 @@
   onMount(() => getComments())
 </script>
 
-  <!-- <h3>Leave a comment</h3> -->
-  <form
-    on:submit|preventDefault={onSubmit}
-    class="comment-form"
-    name="comment"
-    action={BASE_URL + '/comment'}
-    method="POST"
-  >
-    <input type="hidden" name="slug" value={slug} />
-    <div class="form-control">
-      <label for="name"> Name</label>
-      <input id="name" name="username" required bind:value={$username} />
-    </div>
-    <div class="form-control">
-      <label for="email">Email (never shared publicly)</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        bind:value={$email}
-      />
-    </div>
-    <div class="form-control full">
-      <label for="comment"> Comment</label>
-      <textarea id="comment" name="comment" required bind:value={comment} />
-    </div>
-    <div class="form-control full actions">
-      {#if cooldown > 0}
-        <button class="btn btn-primary-gray-600" disabled
-          >Wait {cooldown} seconds</button
-        >
-      {:else}
-        <button class="btn-primary-blue-900 btn">Submit</button>
-      {/if}
-    </div>
-  </form>
-
-  <div class="comments-list">
-    {#each comments as { id, username, comment } (id)}
-      <article class="comment">
-        <h3 class="username">
-          {username}
-        </h3>
-        <p class="comment">{comment}</p>
-      </article>
-    {/each}
+<!-- <h3>Leave a comment</h3> -->
+<form
+  on:submit|preventDefault={onSubmit}
+  class="comment-form"
+  name="comment"
+  action={BASE_URL + '/comment'}
+  method="POST"
+>
+  <input type="hidden" name="slug" value={slug} />
+  <div class="form-control">
+    <label for="name"> Name</label>
+    <input id="name" name="username" required bind:value={$username} />
   </div>
+  <div class="form-control">
+    <label for="email">Email (never shared publicly)</label>
+    <input type="email" id="email" name="email" required bind:value={$email} />
+  </div>
+  <div class="form-control full">
+    <label for="comment"> Comment</label>
+    <textarea id="comment" name="comment" required bind:value={comment} />
+  </div>
+  <div class="form-control full actions">
+    {#if cooldown > 0}
+      <button class="btn btn-primary-gray-600 cursor-not-allowed" disabled
+        >Wait {cooldown} seconds</button
+      >
+    {:else}
+      <button class="btn-primary-blue-900 btn">Submit</button>
+    {/if}
+  </div>
+</form>
+
+<div class="comments-list">
+  {#each comments as { id, username, comment } (id)}
+    <article class="comment">
+      <h3 class="username">
+        {username}
+      </h3>
+      <p class="comment">{comment}</p>
+    </article>
+  {/each}
+</div>
 
 <style lang="postcss">
   .comments-list {
