@@ -28,6 +28,7 @@ import heroImage from '@assets/images/hero.svg'
 
 <style lang="postcss">
   .hero {
+    padding-block-start: var(--size-5);
     padding-inline: var(--container-padding);
     max-inline-size: var(--container-size);
     margin-inline: auto;
@@ -39,6 +40,7 @@ import heroImage from '@assets/images/hero.svg'
     place-items: center;
 
     @media (--md-n-above) {
+      padding-block-start: 0;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: 'content image';

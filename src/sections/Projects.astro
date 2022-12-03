@@ -44,8 +44,8 @@ import projects from '@data/projects'
         class="image"
         src={`/assets/images/${image}`}
         alt={name}
-        widths={[480, 768]}
-        sizes="(max-width: 480px) 480px, (max-width: 768px) 768px"
+        widths={[200, 400, 800]}
+        sizes="(max-width: 800px) 100vw, 800px"
         aspectRatio="1:1"
       />
     </div>
@@ -130,7 +130,6 @@ import projects from '@data/projects'
   }
   .image {
     grid-area: image;
-    width: var(--size-fluid-10);
     margin-inline: auto;
     align-self: center;
   }
