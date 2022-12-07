@@ -14,7 +14,7 @@ export const Testimonial: Component<Props> = (props) => {
       <blockquote>
         <p>&ldquo; {local.testimonial.content} &rdquo;</p>
       </blockquote>
-      <figcaption>
+      <figcaption class="text-blue-200 text-sm md:text-base">
         - {local.testimonial.author}, {local.testimonial.title}
       </figcaption>
     </figure>

@@ -11,6 +11,9 @@ import solidJs from '@astrojs/solid-js'
 import Unocss from '@unocss/vite'
 import { presetMini, presetUno, presetIcons } from 'unocss'
 
+const darken = (shade, amount) => Math.min(shade + amount * 100, 900)
+const lighten = (shade, amount) => Math.max(shade - amount * 100, 100)
+
 const BASE_URL = 'https://raqueebuddinaziz.com'
 
 // https://astro.build/config
@@ -48,19 +51,38 @@ export default defineConfig({
         shortcuts: [
           // you could still have object style
           {
-            btn: `py-3 px-5 font-semibold rounded-lg uppercase no-underline hover:underline focus:underline font-sans grid place-content-center cursor-pointer`,
+            btn: `py-3 px-5 font-semibold rounded-lg uppercase no-underline font-sans grid place-content-center cursor-pointer`,
           },
           // dynamic shortcuts
+          [
+            /^btn-ghost-(.*)$/,
+            ([, p]) => {
+              const [c, shade] = p.split('-')
+              return shade
+                ? `text-${c}-${shade} bg-transparent hover:bg-${c}-${lighten(
+                    +shade,
+                    1
+                  )} focus:bg-${c}-${lighten(
+                    +shade,
+                    1
+                  )} hover:text-white focus:text-white transition-colors`
+                : `text-${c} bg-transparent`
+            },
+          ],
           [
             /^btn-secondary-(.*)$/,
             ([, p]) => {
               const [c, shade] = p.split('-')
               return shade
-                ? `text-${c}-${shade} border-${c}-${shade} border-2 bg-transparent hover:border-${c}-${
+                ? `text-${c}-${shade} border-${c}-${shade} border-2 bg-transparent hover:border-${c}-${lighten(
+                    +shade,
+                    1
+                  )} focus:border-${c}-${lighten(
+                    +shade,
+                    1
+                  )} hover:text-${c}-${lighten(+shade, 1)} focus:text-${c}-${
                     +shade - 100
-                  } focus:border-${c}-${+shade - 100} hover:text-${c}-${
-                    +shade - 100
-                  } focus:text-${c}-${+shade - 100} transition-colors`
+                  } transition-colors`
                 : `text-${c} border-${c} border-2 bg-transparent`
             },
           ],
@@ -69,9 +91,10 @@ export default defineConfig({
             ([, p]) => {
               const [c, shade] = p.split('-')
               return shade
-                ? `bg-${c}-${shade} text-white border-none hover:bg-${c}-${
-                    +shade - 100
-                  } focus:bg-${c}-${+shade - 100} transition-colors`
+                ? `bg-${c}-${shade} text-white border-none hover:bg-${c}-${lighten(
+                    +shade,
+                    1
+                  )} focus:bg-${c}-${lighten(+shade, 1)} transition-colors`
                 : `bg-${c} text-white border-none`
             },
           ],

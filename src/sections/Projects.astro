@@ -10,7 +10,10 @@ import projects from '@data/projects'
         <h3 class="title">{name}</h3>
         <ul class="links">
           <li>
-            <a class="link" href={url}>
+            <a
+              class="link text-blue-600 hover:text-blue-700 visited:text-purple-600 hover:visited:text-purple-700 transition-colors hover:decoration-solid decoration-dashed"
+              href={url}
+            >
               visit:
               <svg width="1em" height="1em" viewBox="0 0 24 24">
                 <path
@@ -21,7 +24,10 @@ import projects from '@data/projects'
             </a>
           </li>
           <li>
-            <a class="link" href={repo_url}>
+            <a
+              class="link text-blue-600 hover:text-blue-700 visited:text-purple-600 hover:visited:text-purple-700 transition-colors hover:decoration-solid decoration-dashed"
+              href={repo_url}
+            >
               repo:{' '}
               <svg width="1em" height="1em" viewBox="0 0 24 24">
                 <path
@@ -34,9 +40,22 @@ import projects from '@data/projects'
         </ul>
         <h4 class="tech">({tech.join(', ')})</h4>
         <p class="content">{description}</p>
-        <ul class="points">
+        <ul class="points text-gray-600 flex flex-col gap-2 border-2 border-gray-300 p-5 rounded-lg">
           {points.map((point) => (
-            <li>{point}</li>
+            <li class="grid grid-cols-[auto_1fr] gap-1">
+              <svg
+                class="text-green-600 text-xl"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59L21 7Z"
+                />
+              </svg>
+              {point}
+            </li>
           ))}
         </ul>
       </div>
@@ -52,7 +71,7 @@ import projects from '@data/projects'
   ))
 }
 <div class="flex justify-center">
-  <a class="btn btn-secondary-blue-900" href="https://github.com/vanillacode314"
+  <a class="btn btn-ghost-blue-900" href="https://github.com/vanillacode314"
     >See More Projects</a
   >
 </div>
@@ -89,7 +108,7 @@ import projects from '@data/projects'
     grid-area: content;
     display: grid;
     align-content: start;
-    gap: var(--smaller-gap);
+    gap: var(--small-gap);
     .title {
       /* font-weight: bold; */
       @media (--md-n-below) {
@@ -101,19 +120,15 @@ import projects from '@data/projects'
       gap: var(--gap);
       font-size: 16px;
       @media (--md-n-below) {
-        font-size: 14px;
         justify-content: center;
       }
       .link {
-        text-decoration: none;
-        border-bottom: 1px dotted;
         display: flex;
         align-items: center;
         gap: var(--small-gap);
       }
     }
     .tech {
-      font-size: 14px;
       color: #838383;
       @media (--md-n-below) {
         text-align: center;
@@ -121,16 +136,17 @@ import projects from '@data/projects'
     }
     .content {
       line-height: var(--font-lineheight-1);
-      margin-top: var(--gap);
+      margin-block: var(--gap);
       text-align: justify;
       font-size: var(--body-text);
     }
+
     .points {
       line-height: var(--font-lineheight-1);
-      list-style-type: '☑ ';
+      list-style-type: none;
       list-style-position: inside;
       text-align: justify;
-      font-size: var(--body-text);
+      font-size: calc(var(--body-text) * 0.9);
     }
   }
   .image {

@@ -50,7 +50,7 @@ const socials: Link[] = [
       </a>
     </section>
     <section class="footer__section">
-      <h3 class="footer__section__title">Links</h3>
+      <h3 class="footer__section__title text-gray-500">Links</h3>
       <ul class="list">
         {
           links.map(({ title, href }) => (
@@ -64,7 +64,7 @@ const socials: Link[] = [
       </ul>
     </section>
     <section class="footer__section">
-      <h3 class="footer__section__title">Social</h3>
+      <h3 class="footer__section__title text-gray-500">Social</h3>
       <ul class="list">
         {
           socials.map(({ title, href }) => (
@@ -84,6 +84,7 @@ const socials: Link[] = [
   .footer_wrapper {
     padding: var(--container-padding);
     background-color: rgb(0 0 0 / 5%);
+    backdrop-filter: blur(1rem);
   }
   .footer {
     display: grid;
@@ -97,9 +98,10 @@ const socials: Link[] = [
       all: unset;
       cursor: pointer;
       color: var(--color-1);
-      text-decoration: underline;
+      /* text-decoration: underline; */
       line-height: var(--font-lineheight-0);
-      font-size: 20px;
+      font-size: 18px;
+      transition: color 150ms;
       &:is(:hover, :focus) {
         color: var(--color-3);
       }
@@ -113,7 +115,7 @@ const socials: Link[] = [
       text-transform: uppercase;
       font-family: var(--font-family);
       font-weight: 700;
-      font-size: 16px;
+      font-size: 14px;
       margin-block-end: var(--small-gap);
     }
     .footer__logo {
