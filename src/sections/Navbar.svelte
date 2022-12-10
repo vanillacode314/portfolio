@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { onMount } from 'solid-js'
+
   export let route: string
   interface Link {
     title: string
     href: string
     on?: string
   }
+
+  let scrolled: boolean = false
+
   const links: Link[] = [
     {
       on: '/',
@@ -24,32 +29,46 @@
       (link) => link.on === undefined || link.on === route
     )
   }
+
+  onMount(() => {
+    function onScroll() {
+      scrolled = window.scrollY > 5
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  })
 </script>
 
-<nav>
-  <a class="logo" href="/" aria-label="home">
-    Raqueebuddin<br />Aziz
-  </a>
-  <ul class="nav-list">
-    {#each filteredLinks as { title, href } (href)}
-      <li class="nav-item">
-        <a {href}>{title}</a>
-      </li>
-    {/each}
-    {#if route === '/'}
-      <li class="nav-item">
-        <a href="/blog" class="dont-hide">blog</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-button" href="/#contact">contact</a>
-      </li>
-    {:else}
-      <li class="nav-item">
-        <a class="nav-button" href="/blog">blog</a>
-      </li>
-    {/if}
-  </ul>
-</nav>
+<div
+  class="sticky top-0 z-10 {scrolled
+    ? 'bg-white/80'
+    : 'bg-transparent'} backdrop-blur pb-5"
+>
+  <nav>
+    <a class="logo" href="/" aria-label="home">
+      Raqueebuddin<br />Aziz
+    </a>
+    <ul class="nav-list">
+      {#each filteredLinks as { title, href } (href)}
+        <li class="nav-item">
+          <a {href}>{title}</a>
+        </li>
+      {/each}
+      {#if route === '/'}
+        <li class="nav-item">
+          <a href="/blog" class="dont-hide">blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-button" href="/#contact">contact</a>
+        </li>
+      {:else}
+        <li class="nav-item">
+          <a class="nav-button" href="/blog">blog</a>
+        </li>
+      {/if}
+    </ul>
+  </nav>
+</div>
 
 <style lang="postcss">
   nav {

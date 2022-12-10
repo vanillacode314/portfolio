@@ -16,6 +16,10 @@ html {
   text-size-adjust: none;
 }
 
+:target {
+  scroll-margin-top: 6rem;
+}
+
 img,
 picture {
   object-fit: cover;

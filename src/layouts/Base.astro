@@ -70,7 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   <body>
     <Background client:idle />
     <div class="wrapper">
-      <Navbar route={Astro.url.pathname} />
+      <Navbar route={Astro.url.pathname} client:load />
       <main>
         <slot />
       </main>
