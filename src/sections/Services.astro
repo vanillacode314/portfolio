@@ -6,8 +6,8 @@ import services from '../data/services'
   services.map(({ title, content, image }) => (
     <div class="item">
       <div class="content_container">
-        <h3 class="title">{title}</h3>
-        <p class="content">{content}</p>
+        <h3 class="title mb-3 text-justify">{title}</h3>
+        <p class="content hyphens-auto">{content}</p>
       </div>
       <img
         loading="lazy"

@@ -11,8 +11,8 @@ export const Testimonial: Component<Props> = (props) => {
   return (
     <figure class={styles.testimonial} {...others}>
       <span class={styles.quote}>&ldquo;</span>
-      <blockquote>
-        <p>&ldquo; {local.testimonial.content} &rdquo;</p>
+      <blockquote class="text-justify hyphens-auto">
+        <p>&ldquo;{local.testimonial.content}&rdquo;</p>
       </blockquote>
       <figcaption class="text-blue-200 text-sm md:text-base">
         - {local.testimonial.author}, {local.testimonial.title}

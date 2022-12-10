@@ -18,6 +18,7 @@ export interface Props {
     title: string
     description: string
     author: Author['id']
+    url: string
     seo: {
       title: string
       description: string
@@ -29,6 +30,7 @@ export interface Props {
 const { frontmatter } = Astro.props as Props
 const slug = frontmatter.url.replace('/blog/', '')
 const author = authors.find((author) => author.id === frontmatter.author)
+if (!author) throw new Error(`author with id ${frontmatter.author} not found.`)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const { default: imageSvg } = await import(`../assets/images/blog/${slug}.svg`)
 const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
@@ -93,7 +95,7 @@ const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
               </p>
             </div>
           </header>
-          <div class="markdown">
+          <div class="markdown text-justify hyphens-auto">
             <slot />
           </div>
           <section class="share">
@@ -152,7 +154,7 @@ const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
             >
           </section>
           <Section title="Comments" fluid>
-            <Comment {slug} client:idle />
+            <Comment slug={slug} client:idle />
           </Section>
         </main>
         <aside></aside>

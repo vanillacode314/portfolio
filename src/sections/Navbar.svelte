@@ -55,7 +55,7 @@
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: baseline;
     max-inline-size: var(--container-size);
     padding-inline: var(--container-padding);
     padding-block-start: var(--large-gap);

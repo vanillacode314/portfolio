@@ -50,11 +50,11 @@ const socials: Link[] = [
       </a>
     </section>
     <section class="footer__section">
-      <h3 class="footer__section__title text-gray-500">Links</h3>
+      <h3 class="footer__section__title text-gray-500 tracking-wider">Links</h3>
       <ul class="list">
         {
           links.map(({ title, href }) => (
-            <li class="list-item">
+            <li class="list-item tracking-wide">
               <a class="nav-link" {href}>
                 {title}
               </a>
@@ -64,12 +64,14 @@ const socials: Link[] = [
       </ul>
     </section>
     <section class="footer__section">
-      <h3 class="footer__section__title text-gray-500">Social</h3>
+      <h3 class="footer__section__title text-gray-500 tracking-wider">
+        Social
+      </h3>
       <ul class="list">
         {
           socials.map(({ title, href }) => (
-            <li class="list-item">
-              <a class="nav-link" {href}>
+            <li class="list-item tracking-wide">
+              <a class="nav-link hover:underline" {href}>
                 {title}
               </a>
             </li>
@@ -98,12 +100,11 @@ const socials: Link[] = [
       all: unset;
       cursor: pointer;
       color: var(--color-1);
-      /* text-decoration: underline; */
       line-height: var(--font-lineheight-0);
       font-size: 18px;
       transition: color 150ms;
       &:is(:hover, :focus) {
-        color: var(--color-3);
+        text-decoration: underline dotted 2px;
       }
     }
     .list {
