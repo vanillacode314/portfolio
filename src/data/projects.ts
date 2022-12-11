@@ -14,6 +14,7 @@ const Projects: Project[] = [
     description: `A user friendly web application to browse image based subreddits from reddit.com`,
     points: [
       `Loads of options for user customizations.`,
+      `Auto scrolling capabilities to make it easier to browse subreddits.`,
       `Implemented quick image loading by progressively loading images and sizing them efficiently.`,
       `Provided instant image loads and reduced network usage for frequently visited subreddits by building a smart caching solution.`,
       `Implemented Beautiful and Custom UI for a native app like feel, custom pull to refresh, list animations and page loaders.`,
