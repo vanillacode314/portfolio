@@ -76,7 +76,7 @@ const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
   </head>
   <body>
     <Background client:idle />
-    <Navbar route={Astro.url.pathname} />
+    <Navbar sticky={false} route={Astro.url.pathname} client:load />
     <div class="blog__wrapper">
       <div class="blog__container">
         <main class="content">

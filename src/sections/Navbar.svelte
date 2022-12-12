@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'solid-js'
 
+  export let sticky: boolean = true
   export let route: string
   interface Link {
     title: string
@@ -40,9 +41,10 @@
 </script>
 
 <div
-  class="sticky top-0 z-10 {scrolled
+  class="sticky top-0 z-10 {scrolled && sticky
     ? 'bg-white/80'
     : 'bg-transparent'} backdrop-blur pb-5"
+  class:sticky
 >
   <nav>
     <a class="logo" href="/" aria-label="home">
