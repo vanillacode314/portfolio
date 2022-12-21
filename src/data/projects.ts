@@ -25,10 +25,8 @@ const Projects: Project[] = [
     image: 'redditlattice.webp',
     tech: [
       'solidjs',
-      'solid-start',
-      'vue3',
-      'nuxt3',
-      'vuetify',
+      'solidstart',
+      'tailwindcss',
       'workbox',
       'service-workers',
       'nodejs',
@@ -41,7 +39,14 @@ const Projects: Project[] = [
     description:
       'An intuitive invoice manager that works completely in the browser and offline',
     image: 'justinvoice.webp',
-    tech: ['svelte', 'sveltekit', 'tailwindcss', 'daisyui'],
+    tech: [
+      'svelte',
+      'sveltekit',
+      'tailwindcss',
+      'daisyui',
+      'workbox',
+      'service-workers',
+    ],
     points: [
       'Auto formats to print invoices in a concise form.',
       'Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.',
