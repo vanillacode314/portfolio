@@ -1,0 +1,22 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@iconify/json": "^2.2.5",
+    "@unocss/reset": "^0.48.3",
+    "astro": "^1.9.0",
+    "unocss": "^0.48.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

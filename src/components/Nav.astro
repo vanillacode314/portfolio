@@ -1,0 +1,58 @@
+---
+import Container from "./Container.astro";
+
+interface Link {
+  label: string;
+  href: string;
+}
+
+const route = Astro.url.pathname;
+const isActive = (href: string) => href === route;
+
+const links: Link[] = [
+  {
+    label: "about",
+    href: "/about",
+  },
+  {
+    label: "portfolio",
+    href: "/",
+  },
+  {
+    label: "blog",
+    href: "/blog",
+  },
+];
+---
+
+<Container background="bg-gray-100" class="p-5 md:p-10 pb-0">
+  <nav class="flex items-baseline gap-5">
+    <a href="/" class="leading-tight text-lg">raqueebuddin<br />aziz</a>
+    <span class="grow"></span>
+    <!-- desktop nav -->
+    <ul class="hidden md:contents">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              {href}
+              class={`${
+                isActive(href) && "font-bold underline"
+              } text-lg hover:underline`}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="#contact"
+          class="bg-gray-900 text-gray-100 px-3 py-1 rounded-full font-bold hover:bg-black hover:underline"
+        >
+          contact</a
+        >
+      </li>
+    </ul>
+  </nav>
+</Container>

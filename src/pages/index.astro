@@ -1,0 +1,19 @@
+---
+import Container from "@/components/Container.astro";
+import Projects from "@/sections/Projects.astro";
+import Hero from "@/sections/Hero.astro";
+import Testimonials from "@/sections/Testimonials.astro";
+import Layout from "../layouts/Layout.astro";
+import Services from "@/sections/Services.astro";
+---
+
+<Layout>
+  <Container background="bg-gray-100" class="p-5 md:p-10">
+    <main class="flex flex-col gap-5">
+      <Hero />
+      <Testimonials />
+      <Services />
+      <Projects />
+    </main>
+  </Container>
+</Layout>
