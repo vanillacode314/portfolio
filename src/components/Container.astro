@@ -1,13 +1,11 @@
 ---
 interface Props {
-  background: string;
   class?: string;
 }
 
 const props = Astro.props as Props;
-const { background } = props;
 ---
 
-<div class={background + " " + props.class}>
+<div class={props.class}>
   <div class="max-w-6xl mx-auto"><slot /></div>
 </div>

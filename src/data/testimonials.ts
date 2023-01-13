@@ -7,10 +7,16 @@ export interface Testimonial {
 export default [
   {
     content:
-      "Working with Raqueebuddin has been a pleasure.  He's extremely knowledgeable in what he does and knows how to ask the right questions to help ensure your project is successful. He was patient in working through revisions and promptly made any changes I requested. He also took the time to make sure we were both clear going into the project as to exactly what we would be creating and what the scope was to prevent any confusion as to what the deliverables were. I would highly recommend Raqueebuddin to anyone looking for a full stack developer. He and I will be partnering on multiple project in the future",
+      "Raqueebuddin was a pleasure to work with. I had a very complex project on a topic he was not very familiar with and he took the time to not only learn my industry but provide thoughtful recommendations along the way. Anyone looking for an honest, diligent and hardworking developer should look no further than Raqueebuddin. I will absolutely be using him for my future dev projects.",
     author: "Jeff Carpenter",
     title: "Owner of BlueMonkeyGaming",
   },
+  /* { */
+  /*   content: */
+  /*     "Working with Raqueebuddin has been a pleasure.  He's extremely knowledgeable in what he does and knows how to ask the right questions to help ensure your project is successful. He was patient in working through revisions and promptly made any changes I requested. He also took the time to make sure we were both clear going into the project as to exactly what we would be creating and what the scope was to prevent any confusion as to what the deliverables were. I would highly recommend Raqueebuddin to anyone looking for a full stack developer. He and I will be partnering on multiple project in the future", */
+  /*   author: "Jeff Carpenter", */
+  /*   title: "Owner of BlueMonkeyGaming", */
+  /* }, */
   /* { */
   /*   content: */
   /*     "I was looking for someone to help refactor a large project. Raqueebuddin was very responsive and demonstrated clear knowledge of all of the technologies in my stack (Svelte, Svelte Kit, Tailwind CSS). We had a brief call to discuss an action plan, and after I gave the go, he started immediately, kept in communication with me, and finished the job within just a few days. I think I'll be contacting him again if I need something else cleaned up, or someone to implement a feature or fix a bug", */

@@ -1,4 +1,6 @@
 ---
+import { Background } from "@/components/Background";
+import Container from "@/components/Container.astro";
 import Nav from "@/components/Nav.astro";
 
 export interface Props {
@@ -18,13 +20,53 @@ const { title = "Test Site" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Background client:load />
 		<Nav />
 		<slot />
+		<Container class="bg-gray-100 lg:p-10 p-5">
+			<footer class="grid md:grid-cols-2 gap-5">
+				<section class="flex flex-col gap-3">
+					<h3
+						class="uppercase text-xs font-semibold text-gray-600 tracking-wide"
+					>
+						Links
+					</h3>
+					<ul class="flex flex-col gap-1">
+						<li>
+							<a
+								href="#test"
+								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800"
+								>hi</a
+							>
+						</li>
+					</ul>
+				</section>
+				<section class="flex flex-col gap-3">
+					<h3
+						class="uppercase text-xs font-semibold text-gray-600 tracking-wide"
+					>
+						Social
+					</h3>
+					<ul class="flex flex-col gap-1">
+						<li>
+							<a
+								href="#test"
+								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800"
+								>hi</a
+							>
+						</li>
+					</ul>
+				</section>
+			</footer>
+		</Container>
+		<style is:global>
+			* {
+				max-height: 99999999999999999px;
+			}
+			body,
+			html {
+				@apply h-full font-sans;
+			}
+		</style>
 	</body>
-	<style is:global>
-		body,
-		html {
-			@apply h-full font-sans;
-		}
-	</style>
 </html>

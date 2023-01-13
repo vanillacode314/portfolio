@@ -54,47 +54,52 @@ export default [
     url: "https://justinvoice.netlify.app",
     repo_url: "https://github.com/vanillacode314/justinvoice",
   },
-  /* { */
-  /*   name: "MTGPackSimulator", */
-  /*   description: "Simulate draft booster packs for Magic The Gathering", */
-  /*   /* image: "justinvoice", */
-  /*   tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"], */
-  /*   url: "https://mtgpacksim.bluemonkeygaming.com/sets", */
-  /* }, */
+  {
+    name: "MTGPackSimulator",
+    description: "Simulate draft booster packs for Magic The Gathering",
+    image: "justinvoice",
+    points: [],
+    repo_url: "",
+    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui", "supabase"],
+    url: "https://mtgpacksim.bluemonkeygaming.com/sets",
+  },
   /* { */
   /*   name: "JustLearn", */
   /*   description: */
   /*     "A Free and Open source application where students can create and give tests and share them with the world.", */
-  /*   image: true, */
+  /*   image: "justlearn", */
+  /*   points: [], */
   /*   tech: ["svelte", "sveltekit"], */
   /*   url: "https://justlearn.netlify.app", */
   /*   repo_url: "https://github.com/vanillacode314/justlearn", */
   /* }, */
-  /* { */
-  /*   id: "vtt", */
-  /*   name: "VanillaTimeTracker", */
-  /*   description: "A Free and Open source Time Tracker for Freelancers.", */
-  /*   image: true, */
-  /*   tech: ["svelte", "sveltekit", "kahi ui"], */
-  /*   url: "https://vanillatimetracker.netlify.app", */
-  /*   repo_url: "https://github.com/vanillacode314/vanillatimetracker", */
-  /* }, */
-  /* { */
-  /*   name: "RemoteGamepad", */
-  /*   description: */
-  /*     "A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the client", */
-  /*   image: true, */
-  /*   tech: ["svelte", "sveltekit", "capacitorjs", "websockets"], */
-  /*   url: "https://github.com/vanillacode314/remotegamepad/releases", */
-  /*   repo_url: "https://github.com/vanillacode314/remotegamepad", */
-  /* }, */
-  /* { */
-  /*   name: "RemoteGamepad\nServer", */
-  /*   description: */
-  /*     "A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the server", */
-  /*   image: true, */
-  /*   tech: ["rust", "enigo", "clap-rs", "websockets"], */
-  /*   url: "https://github.com/vanillacode314/remotegamepad-server/releases", */
-  /*   repo_url: "https://github.com/vanillacode314/remotegamepad-server", */
-  /* }, */
+  {
+    name: "JustTimeTrack",
+    description: "A Free and Open source Time Tracker.",
+    image: "justtimetrack",
+    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
+    points: [],
+    url: "https://vanillatimetracker.netlify.app",
+    repo_url: "https://github.com/vanillacode314/vanillatimetracker",
+  },
+  {
+    name: "RemoteGamepad",
+    description:
+      "A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the client",
+    image: "remotegamepad",
+    points: [],
+    tech: ["svelte", "sveltekit", "capacitorjs", "websockets"],
+    url: "https://github.com/vanillacode314/remotegamepad/releases",
+    repo_url: "https://github.com/vanillacode314/remotegamepad",
+  },
+  {
+    name: "RemoteGamepad\nServer",
+    description:
+      "A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the server",
+    image: "remotegamepad-server",
+    points: [],
+    tech: ["rust", "enigo", "clap-rs", "websockets"],
+    url: "https://github.com/vanillacode314/remotegamepad-server/releases",
+    repo_url: "https://github.com/vanillacode314/remotegamepad-server",
+  },
 ] satisfies Project[];

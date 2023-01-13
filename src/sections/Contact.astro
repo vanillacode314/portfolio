@@ -1,0 +1,58 @@
+<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">
+  Get in touch
+</h2>
+<section aria-label="testimonials" id="testimonials">
+  <form
+    name="contact"
+    data-netlify="true"
+    class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden p-10 gap-5"
+  >
+    <div class="flex flex-col gap-1">
+      <label
+        for="name"
+        class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+        >Name</label
+      >
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="e.g. John Doe"
+        class="px-5 py-3 rounded-5"
+        required
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label
+        class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+        for="email">Email</label
+      >
+      <input
+        name="email"
+        type="email"
+        id="name"
+        placeholder="e.g. name@domain.com"
+        class="px-5 py-3 rounded-5"
+        required
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label
+        class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+        for="message">Message</label
+      >
+      <textarea
+        name="message"
+        id="message"
+        placeholder="Your message here"
+        class="px-5 py-3 rounded-5 min-h-xs"
+        required></textarea>
+    </div>
+    <button
+      type="submit"
+      class="px-5 py-3 shadow-lg text-gray-100 bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-white hover:text-gray-900 whitespace-nowrap ml-auto"
+    >
+      Send Message</button
+    >
+  </form>
+</section>

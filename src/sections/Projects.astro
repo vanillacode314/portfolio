@@ -8,18 +8,20 @@ import projects from "@/data/projects";
 <section
   aria-label="testimonials"
   id="testimonials"
-  class="text-gray-900 grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-5 lg:gap-10 items-start"
+  class="text-gray-900 grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-5 lg:gap-10"
 >
   {
     projects.map(
       ({ url, name, tech, image, points, repo_url, description }) => (
-        <article class="bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden">
+        <article class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden">
           <img
             src={`https://picsum.photos/seed/${Math.random()}/1600/900`}
             class="w-full object-cover aspect-video"
           />
-          <div class="p-10 flex flex-col gap-5">
+          <div class="grow p-10 flex flex-col gap-5">
             <h3 class="text-2xl font-black">{name}</h3>
+            <p>{description}</p>
+            <span class="grow" />
             <ul class="flex flex-wrap gap-1">
               {tech.map((tech) => (
                 <li class="px-3 py-1 bg-gray-900 text-gray-100 rounded-full text-xs font-semibold">
@@ -27,7 +29,6 @@ import projects from "@/data/projects";
                 </li>
               ))}
             </ul>
-            <p>{description}</p>
           </div>
         </article>
       )

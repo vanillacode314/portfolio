@@ -5,15 +5,17 @@ import Hero from "@/sections/Hero.astro";
 import Testimonials from "@/sections/Testimonials.astro";
 import Layout from "../layouts/Layout.astro";
 import Services from "@/sections/Services.astro";
+import Contact from "@/sections/Contact.astro";
 ---
 
 <Layout>
-  <Container background="bg-gray-100" class="p-5 md:p-10">
+  <Container class="bg-transparent p-5 md:p-10">
     <main class="flex flex-col gap-5">
       <Hero />
       <Testimonials />
       <Services />
       <Projects />
+      <Contact />
     </main>
   </Container>
 </Layout>
