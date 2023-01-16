@@ -381,6 +381,7 @@ setUsers(0, {
 The path syntax is powerful and is convenient to use in most cases, but sometimes it is convenient to think in terms of mutability, or it is more terse to write updates in a mutable fashion. To address this issue solid came up with the [`produce`](https://www.solidjs.com/docs/latest/api#produce) utility function which allows you to think in terms of mutability without all the downsides of using mutable stores. Let us see one scenario like that and see how `produce` make it cleaner. Let's try to change username and city of the first user in the store using with and without `produce`.
 
 ```typescript
+import { batch } from 'solid-js'
 import { createStore, produce } from 'solid-js/store'
 
 const [users, setUsers] = createStore([
@@ -427,8 +428,10 @@ const [users, setUsers] = createStore([
 ])
 
 // without produce
-setUsers(0, 'username', 'newusername')
-setUsers(0, 'address', 'city', 'newcity')
+batch(() => {
+  setUsers(0, 'username', 'newusername')
+  setUsers(0, 'address', 'city', 'newcity')
+})
 
 // with produce
 setUsers(
