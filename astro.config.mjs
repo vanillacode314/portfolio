@@ -6,7 +6,12 @@ import compressor from 'astro-compressor'
 import image from '@astrojs/image'
 import solidJs from '@astrojs/solid-js'
 import Unocss from 'unocss/astro'
-import { extractorSvelte, presetUno } from 'unocss'
+import { extractorSvelte, presetUno, presetIcons } from 'unocss'
+
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import { h } from 'hastscript'
+import rehypeToc from 'rehype-toc'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 const BASE_URL = 'https://raqueebuddinaziz.com'
 
@@ -20,7 +25,16 @@ export default defineConfig({
   integrations: [
     Unocss({
       extractors: [extractorSvelte],
-      presets: [presetUno()],
+      presets: [
+        presetUno(),
+        presetIcons({
+          extraProperties: {
+            display: 'inline-block',
+            'vertical-align': 'middle',
+          },
+        }),
+      ],
+
       theme: {
         fontFamily: {
           sans: ['Archivo Narrow', 'sans-serif'],
@@ -91,5 +105,24 @@ export default defineConfig({
     shikiConfig: {
       theme: 'dark-plus',
     },
+    rehypePlugins: [
+      rehypeHeadingIds,
+      rehypeToc,
+      [
+        rehypeAutolinkHeadings,
+        {
+          content(node) {
+            return [
+              h(
+                'div.i-mdi-link-variant?bg.transition.hover:rotate-45.transform',
+                {
+                  ariaHidden: true,
+                }
+              ),
+            ]
+          },
+        },
+      ],
+    ],
   },
 })
