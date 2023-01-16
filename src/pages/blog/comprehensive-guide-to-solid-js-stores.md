@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/Blog.astro'
 title: 'A Comprehensive Guide to SolidJS Stores'
-description: 'A comprehensive guide to solid-js stores, in depth explanation path syntax, mutable stores, produce, reconcile and more...'
+description: 'A comprehensive guide to solid-js stores, in depth explanation to path syntax, mutable stores, produce, reconcile and more...'
 seo:
   title: 'A Comprehensive Guide to SolidJS Stores'
   description: 'A guide on solid-js stores'
@@ -290,7 +290,7 @@ setUsers(
 
 ### Path Syntax - Filtering Arrays
 
-Now let's say we wanted to increment id of every use whose username starts with a j.
+Now let's say we wanted to increment id of every use whose username starts with a "j".
 We can't simply do this with array indices or from/to syntax as we don't know ahead of time which users satisfy the condition.
 For this use case you can pass in a function instead of a key as an argument which is equivalent to the [`Array.prototype.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method.
 The function is passed the old value and index as the argument.
@@ -456,7 +456,7 @@ const [data, setData] = createStore({
   colors: ['red', 'blue', 'orange'],
 })
 
-const userColors = getUserColors() // Lets say this is ["red", "blue", "orange". "black"]
+const userColors = getUserColors() // Lets say this is ["red", "blue", "orange", "black"]
 setData('colors', reconcile(userColors))
 ```
 
