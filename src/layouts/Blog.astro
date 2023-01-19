@@ -131,11 +131,7 @@ function getSlug(url: string): string {
             <!--   Share on Facebook</a -->
             <!-- > -->
             <a
-              href={`https://twitter.com/intent/tweet?text=${
-                frontmatter.title
-              }&url=${canonicalURL}&hashtags=${frontmatter.seo.keywords
-                .map((word) => word.replace(' ', '_'))
-                .join(',')}&via=RaqueebuddinA`}
+              href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
               target="_blank"
               class="twitter-share-button"
             >
