@@ -185,7 +185,7 @@ import { usePokemon, useAppState } from '~/state'
 
 export default function Home() {
   const [appState, setAppState] = useAppState()
-  const [pokemon, getPokemon] = usePokemon()
+  const [pokemon, fetchPokemon] = usePokemon()
   const [query, setQuery] = createSignal('')
   setTimeout(() => appState.setTitle('More awesome app'), 4000)
 
@@ -197,7 +197,7 @@ export default function Home() {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          getPokemon(query())
+          fetchPokemon(query())
         }}
       >
         <input
