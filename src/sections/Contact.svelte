@@ -77,6 +77,7 @@
   }
   input,
   textarea {
+    color: black;
     border: none;
     outline: none;
     border-radius: calc(var(--radius) / 2);
