@@ -57,6 +57,7 @@
   }
 
   .astro-code {
+    font-variant-ligatures: none;
     margin-block: var(--small-gap);
     font-size: var(--code-text);
     font-family: var(--code-family);
