@@ -5,7 +5,15 @@ description: A guide on how to type events, slots, and props in svelte
 seo:
   title: How to type Events, Slots, and Props in Svelte
   description: A guide on how to type events, slots, and props in svelte
-  keywords: ['svelte', 'stores', 'custom stores', 'sveltekit']
+  keywords:
+    [
+      'svelte',
+      'typescript',
+      'events',
+      'slots',
+      'props',
+      'typing svelte components',
+    ]
 author: raqueebuddinaziz
 created: 'Feb 01, 2023'
 ---
