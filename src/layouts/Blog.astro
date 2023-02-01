@@ -35,7 +35,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const { default: imageSvg } = await import(`../assets/images/blog/${slug}.svg`)
 const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`)
 
-const blogs = (await Astro.glob('../pages/blog/*.md')).reverse()
+const blogs = (await Astro.glob('../pages/blog/*.md'))
+  .sort((a, b) => {
+    const date1 = new Date(a.frontmatter.created)
+    const date2 = new Date(b.frontmatter.created)
+    if (date1 === date2) return 0
+    if (date1 >= date2) return -1
+    return 1
+  })
+  .reverse()
 const blogIndex = blogs.findIndex(
   (blog) => blog.url.replace('/blog/', '') === slug
 )
