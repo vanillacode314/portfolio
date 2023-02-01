@@ -25,7 +25,7 @@ This guide assumes you have completed the [svelte tutorial](https://svelte.dev/t
 This is the component we will be typing throughout the guide.
 It's a dialog component to confirm with either yes or no.
 
-It has two props title and message plus we want to expose the same props as a dialog element through our component using `$$restProps`.
+It has two props title and message plus we want to expose the same props as a dialog element through our component using `$$restProps` (rest props is a special svelte variable that contains all the props that were passed to the component that were not explicitly defined).
 
 The component has a slot which exposes an `open` function through slot props.
 
