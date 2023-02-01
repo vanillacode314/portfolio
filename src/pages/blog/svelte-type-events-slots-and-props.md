@@ -1,10 +1,10 @@
 ---
 layout: '@layouts/Blog.astro'
-title: How to type Events, Slots and Props in Svelte
-description: A guide on how to type events, slots and props in svelte
+title: How to type Events, Slots, and Props in Svelte
+description: A guide on how to type events, slots, and props in svelte
 seo:
-  title: How to type Events, Slots and Props in Svelte
-  description: A guide on how to type events, slots and props in svelte
+  title: How to type Events, Slots, and Props in Svelte
+  description: A guide on how to type events, slots, and props in svelte
   keywords: ['svelte', 'stores', 'custom stores', 'sveltekit']
 author: raqueebuddinaziz
 created: 'Feb 01, 2023'
