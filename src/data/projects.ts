@@ -1,4 +1,4 @@
-export interface Project {
+export interface IProject {
   name: string
   description: string
   points: string[]
@@ -8,7 +8,7 @@ export interface Project {
   tech: string[]
 }
 
-const Projects: Project[] = [
+const Projects: IProject[] = [
   {
     name: 'RedditLattice',
     description: `A user friendly web application to browse image based subreddits from reddit.com`,
@@ -51,7 +51,7 @@ const Projects: Project[] = [
       'Auto formats to print invoices in a concise form.',
       'Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.',
     ],
-    url: 'https://justinvoice.netlify.app',
+    url: 'https://justinvoice.netlify.app/app',
     repo_url: 'https://github.com/vanillacode314/justinvoice',
   },
   /* { */
