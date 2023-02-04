@@ -105,10 +105,10 @@ But typing the `$$restProps` is a little tricky, we need to use the special inte
 ```svelte
 <!-- Dialog.svelte -->
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements'
+  import type { HTMLDialogAttributes } from 'svelte/elements'
   import { createEventDispatcher } from 'svelte'
 
-  interface $$Props extends HTMLAttributes<HTMLDialogElement> {
+  interface $$Props extends HTMLDialogAttributes {
     title: string
     message: string
   }
@@ -148,10 +148,10 @@ The keys are the name of the slot or `default` for the default slot and the valu
 ```svelte
 <!-- Dialog.svelte -->
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements'
+  import type { HTMLDialogAttributes } from 'svelte/elements'
   import { createEventDispatcher } from 'svelte'
 
-  interface $$Props extends HTMLAttributes<HTMLDialogElement> {
+  interface $$Props extends HTMLDialogAttributes {
     title: string
     message: string
   }
@@ -196,10 +196,10 @@ We also need to type the dispatch functions separately, we can use a mapped type
 ```svelte
 <!-- Dialog.svelte -->
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements'
+  import type { HTMLDialogAttributes } from 'svelte/elements'
   import { createEventDispatcher } from 'svelte'
 
-  interface $$Props extends HTMLAttributes<HTMLDialogElement> {
+  interface $$Props extends HTMLDialogAttributes {
     title: string
     message: string
   }
