@@ -4,7 +4,7 @@ export interface IProject {
   points: string[]
   image: string
   url: string
-  repo_url: string
+  repo_url?: string
   tech: string[]
 }
 
@@ -52,7 +52,7 @@ const Projects: IProject[] = [
       'Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.',
     ],
     url: 'https://justinvoice.netlify.app/app',
-    repo_url: 'https://github.com/vanillacode314/justinvoice',
+    /* repo_url: 'https://github.com/vanillacode314/justinvoice', */
   },
   /* { */
   /*   name: "MTGPackSimulator", */

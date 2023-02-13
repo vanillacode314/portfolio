@@ -23,20 +23,22 @@ import projects from '@data/projects'
               </svg>
             </a>
           </li>
-          <li>
-            <a
-              class="link text-blue-600 hover:text-blue-700 visited:text-purple-600 hover:visited:text-purple-700 transition-colors hover:decoration-solid decoration-dashed"
-              href={repo_url}
-            >
-              repo:{' '}
-              <svg width="1em" height="1em" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="m14.6 16.6l4.6-4.6l-4.6-4.6L16 6l6 6l-6 6l-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6l6 6l1.4-1.4Z"
-                />
-              </svg>
-            </a>
-          </li>
+          {repo_url && (
+            <li>
+              <a
+                class="link text-blue-600 decoration-dashed transition-colors visited:text-purple-600 hover:text-blue-700 hover:decoration-solid hover:visited:text-purple-700"
+                href={repo_url}
+              >
+                repo:{' '}
+                <svg width="1em" height="1em" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="m14.6 16.6l4.6-4.6l-4.6-4.6L16 6l6 6l-6 6l-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6l6 6l1.4-1.4Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          )}
         </ul>
         <h4 class="tech">({tech.join(', ')})</h4>
         <p class="content">{description}</p>
