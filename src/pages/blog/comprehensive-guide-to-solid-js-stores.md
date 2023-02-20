@@ -19,6 +19,7 @@ seo:
     ]
 author: raqueebuddinaziz
 created: 'Jan 16, 2023'
+updated: 'Feb 20, 2023'
 ---
 
 This guide assumes you have been through [solidjs tutorial](https://www.solidjs.com/tutorial/introduction_basics) and are familiar with [mutable](https://developer.mozilla.org/en-US/docs/Glossary/Mutable) vs [immutable](https://developer.mozilla.org/en-US/docs/Glossary/Immutable) data types in javascript.
@@ -474,6 +475,39 @@ const [data, setData] = createStore({
 })
 
 const rawData = unwrap(data)
+```
+
+### modifyMutable
+
+The [`modifyMutable`](https://www.solidjs.com/docs/latest/api#modifymutable) function can be used to modify multiple properties of a mutable store in one batched update.
+
+```typescript
+import { batch } from 'solid-js'
+import { reconcile, createMutable, modifyMutable } from 'solid-js/store'
+
+const data = createMutable({
+  colors: ['red', 'blue', 'orange'],
+  fruits: ['apple', 'banana'],
+})
+
+// this will trigger two updates
+data.colors = ['red', 'blue', 'orange', 'black']
+data.fruits = ['apple', 'banana', 'orange']
+
+// using batch, this will trigger one update
+batch(() => {
+  data.colors = ['red', 'blue', 'orange', 'black']
+  data.fruits = ['apple', 'banana', 'orange']
+})
+
+// using modifyMutable, this is equivalent to the batch example thus this will trigger one update
+modifyMutable(
+  data,
+  reconcile({
+    colors: ['red', 'blue', 'orange', 'black'],
+    fruits: ['apple', 'banana', 'orange'],
+  })
+)
 ```
 
 ## Conclusion
