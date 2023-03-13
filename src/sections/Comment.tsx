@@ -104,7 +104,7 @@ export default function Comments(props: { slug: string }) {
               name="name"
               id="name"
               placeholder="e.g. John Doe"
-              class="px-5 py-3 rounded-5"
+              class="px-5 py-3 rounded-5 min-w-0 w-full"
               required
               value={formData.username}
               onInput={(e) => setFormData({ username: e.currentTarget.value })}
@@ -122,7 +122,7 @@ export default function Comments(props: { slug: string }) {
               type="email"
               id="email"
               placeholder="e.g. name@domain.com"
-              class="px-5 py-3 rounded-5"
+              class="px-5 py-3 rounded-5 min-w-0 w-full"
               required
               value={formData.email}
               onInput={(e) => setFormData({ email: e.currentTarget.value })}
@@ -139,7 +139,7 @@ export default function Comments(props: { slug: string }) {
               name="comment"
               id="comment"
               placeholder="Your comment here"
-              class="px-5 py-3 rounded-5 min-h-xs"
+              class="px-5 py-3 rounded-5 min-h-xs min-w-0 w-full"
               required
               value={comment()}
               onInput={(e) => setComment(e.currentTarget.value)}
