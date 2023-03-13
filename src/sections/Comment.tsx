@@ -57,7 +57,7 @@ export default function Comments(props: { slug: string }) {
         body: JSON.stringify({
           username: formData.username,
           email: formData.email,
-          comment,
+          comment: comment(),
           slug: props.slug,
         }),
       });
@@ -141,6 +141,8 @@ export default function Comments(props: { slug: string }) {
               placeholder="Your comment here"
               class="px-5 py-3 rounded-5 min-h-xs"
               required
+              value={comment()}
+              onInput={(e) => setComment(e.currentTarget.value)}
             ></textarea>
           </div>
           <Show
