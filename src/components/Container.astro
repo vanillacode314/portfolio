@@ -1,11 +1,12 @@
 ---
 interface Props {
   class?: string;
+  innerClass?: string;
 }
 
 const props = Astro.props as Props;
 ---
 
 <div class={props.class}>
-  <div class="max-w-6xl mx-auto"><slot /></div>
+  <div class={"max-w-6xl mx-auto " + props.innerClass ?? ""}><slot /></div>
 </div>

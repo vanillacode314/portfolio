@@ -25,15 +25,15 @@ const links: Link[] = [
 ];
 ---
 
-<Container background="bg-gray-100" class="p-5 md:p-10 pb-0">
+<Container class="p-5 md:p-10 pb-0 nav top-0 backdrop-blur z-20">
   <nav class="flex items-baseline gap-5">
     <a href="/" class="leading-tight text-lg">raqueebuddin<br />aziz</a>
     <span class="grow"></span>
     <!-- desktop nav -->
-    <ul class="hidden md:contents">
+    <ul class="contents">
       {
         links.map(({ href, label }) => (
-          <li>
+          <li class="hidden md:contents">
             <a
               {href}
               class={`${
@@ -56,3 +56,13 @@ const links: Link[] = [
     </ul>
   </nav>
 </Container>
+<script>
+  const nav = document.querySelector(".nav");
+  window.addEventListener("scroll", () => {
+    const condition =
+      window.scrollY > 0 && !location.pathname.startsWith("/blog/");
+    nav?.classList[condition ? "add" : "remove"](
+      ..."bg-white/80 sticky".split(" ")
+    );
+  });
+</script>

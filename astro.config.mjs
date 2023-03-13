@@ -7,14 +7,17 @@ import {
   presetIcons,
 } from "unocss";
 
-// https://astro.build/config
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { h } from "hastscript";
+import rehypeToc from "rehype-toc";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
 import solidJs from "@astrojs/solid-js";
-
-// https://astro.build/config
 import image from "@astrojs/image";
+import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
+  site: "https://raqueebuddinaziz.com/",
   integrations: [
     image(),
     Unocss({
@@ -24,11 +27,38 @@ export default defineConfig({
         presetWebFonts({
           fonts: {
             sans: ["Inter:400,500,600,700,800,900"],
+            mono: ["JetBrains Mono", "monospace"],
           },
         }),
         presetIcons(),
       ],
+      safelist: ["i-mdi-link-variant"],
     }),
     solidJs(),
+    sitemap(),
   ],
+  markdown: {
+    shikiConfig: {
+      theme: "dark-plus",
+    },
+    rehypePlugins: [
+      rehypeHeadingIds,
+      rehypeToc,
+      [
+        rehypeAutolinkHeadings,
+        {
+          content() {
+            return [
+              h(
+                "div.i-mdi-link-variant?bg.transition.hover:rotate-45.transform",
+                {
+                  ariaHidden: true,
+                }
+              ),
+            ];
+          },
+        },
+      ],
+    ],
+  },
 });

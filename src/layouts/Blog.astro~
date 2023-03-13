@@ -1,0 +1,62 @@
+---
+import type { Author } from "@/data/authors";
+import authors from "@/data/authors";
+import Layout from "./Layout.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    author: Author["id"];
+    url: string;
+    seo: {
+      title: string;
+      description: string;
+      keywords: string[];
+    };
+  };
+}
+const { frontmatter } = Astro.props as Props;
+console.log(frontmatter)
+const slug = frontmatter.url.replace("/blog/", "");
+const author = authors.find((author) => author.id === frontmatter.author);
+if (!author) throw new Error(`author with id ${frontmatter.author} not found.`);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// const { default: imageSvg } = await import(`../assets/images/blog/${slug}.svg`);
+const { default: imagePng } = await import(`../assets/images/blog/${slug}.png`);
+const blogs = (await Astro.glob("../pages/blog/*.md"))
+  .sort((a, b) => {
+    const date1 = new Date(a.frontmatter.created);
+    const date2 = new Date(b.frontmatter.created);
+    if (date1 === date2) return 0;
+    if (date1 >= date2) return -1;
+    return 1;
+  })
+  .reverse();
+const blogIndex = blogs.findIndex(
+  (blog) => blog.url.replace("/blog/", "") === slug
+);
+const prevBlog = blogs[blogIndex - 1];
+const nextBlog = blogs[blogIndex + 1];
+function getSlug(url: string): string {
+  return url.replace("/blog/", "");
+}
+---
+
+<Layout title={frontmatter.title + " - Raqueebuddin Aziz"}>
+  <Fragment slot="head">
+    <meta name="description" content={frontmatter.seo.description} />
+    <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:description" content={frontmatter.seo.description} />
+    <meta property="og:title" content={frontmatter.seo.title} />
+    <meta property="og:url" content={canonicalURL} />
+    <!-- <meta property="og:image" content={Astro.site + imageSvg.slice(1)} /> -->
+    <meta property="og:image" content={Astro.site + imagePng.src.slice(1)} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </Fragment>
+</Layout>

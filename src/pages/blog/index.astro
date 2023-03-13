@@ -1,0 +1,86 @@
+---
+import Container from "@/components/Container.astro";
+import authors from "@/data/authors";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const blogEntries = (await getCollection("blog")).sort((a, b) => {
+  const date1 = new Date(a.data.created);
+  const date2 = new Date(b.data.created);
+  if (date1 === date2) return 0;
+  if (date1 >= date2) return 1;
+  return -1;
+});
+---
+
+<Layout>
+  <Container class="lg:p-10 p-5" innerClass="flex flex-col items-center">
+    <h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">
+      Latest Posts
+    </h2>
+    <section
+      class="text-gray-900 grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-5 lg:gap-10"
+    >
+      {
+        blogEntries
+          .map((entry) => ({ ...entry.data, slug: entry.slug }))
+          .map(
+            ({
+              title,
+              description,
+              author: authorId,
+              created,
+              updated,
+              slug,
+            }) => {
+              const author = authors.find((author) => author.id === authorId)!;
+              return (
+                <a href={`/blog/${slug}`} class="contents">
+                  <article class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden">
+                    <img
+                      src={`/assets/images/blog/${slug}.svg`}
+                      class="w-full object-cover aspect-square"
+                      loading="lazy"
+                      width="1024"
+                      height="1024"
+                    />
+                    <div class="grow p-10 flex flex-col gap-3">
+                      <h3 class="text-2xl font-black">{title}</h3>
+                      <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
+                        By {author.name}
+                      </p>
+                      <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
+                        Created On:{" "}
+                        <span class="font-semibold">
+                          {new Date(created).toLocaleDateString()}
+                        </span>
+                      </p>
+                      {updated && (
+                      <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
+                          Updated On:{" "}
+                          <span class="font-semibold">
+                            {new Date(updated).toLocaleDateString()}
+                          </span>
+                        </p>
+                      )}
+                      <p>{description}</p>
+                      <span class="grow" />
+                      <div class="flex flex-wrap gap-5">
+                        <a
+                          href={`/blog/${slug}`}
+                          target="_blank"
+                          class="text-xs text-gray-600 hover:text-gray-500 hover:underline uppercase font-semibold inline-flex gap-3 items-center"
+                        >
+                          <span class="i-ic-sharp-menu-book text-xl" />
+                          <span>Read</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              );
+            }
+          )
+      }
+    </section>
+  </Container>
+</Layout>

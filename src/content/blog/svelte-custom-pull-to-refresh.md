@@ -1,0 +1,629 @@
+---
+title: Svelte Custom Pull To Refresh
+description: A guide on how to implement custom pull to refresh in a svelte app
+seo:
+  title: Svelte Custom Pull To Refresh
+  description: A guide on how to implement custom pull to refresh in a svelte app
+  keywords:
+    [
+      "svelte",
+      "stores",
+      "custom pull to refresh",
+      "pull to refresh",
+      "native like pull to refresh",
+      "sveltekit",
+    ]
+author: raqueebuddinaziz
+created: "Sep 23, 2022"
+---
+
+A guide on how to implement custom pull to refresh for svelte apps. This guide assumes you are familiar with svelte stores. If not feel free to check first half of this article explaining [svelte stores](/blog/svelte-custom-stores-demystified#what-are-stores-anyway).
+
+I'll be using [sveltekit](https://kit.svelte.dev) to build this example for convenience but all of this generally applies to svelte.
+
+## What we will build
+
+<video width="300" autoplay loop muted playsinline style="max-inline-size: 100%">
+  <source src="/assets/videos/pull-to-refresh.webm" type="video/webm">
+  <source src="/assets/videos/pull-to-refresh.mp4" type="video/mp4">
+</video>
+
+Here is a direct link to the [built app](https://svelte-pull-to-refresh.netlify.app/) and here is the link to the [repo](https://github.com/vanillacode314/svelte-pull-to-refresh).
+
+## Setup
+
+There is some basic setup before we get started.
+
+The sveltekit starter template `src/app.html` has a div wrapping sveltekit body contents you can either make it have 100% height and width or remove that div, for this example I will remove the div.
+
+```html
+<!-- src/app.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    %sveltekit.head%
+  </head>
+  <body>
+    <!-- <div>%sveltekit.body%</div> -->
+    %sveltekit.body%
+  </body>
+</html>
+```
+
+### Styles
+
+The only two bits that are functional and not just to make this look pretty is `height: 100%` this will make sure our scroll-area gets the scrollbar and `overscroll-behavior-y: none` which disables browser's own pull to refresh or any other browser animations on scroll.
+
+```css
+/* src/style.css */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  font-family: sans-serif;
+  /* don't make this min-height otherwise the #scroll-area won't get the scrollbar */
+  height: 100%;
+  /* this disables browser's native pull to refresh or any other browser animations on scroll */
+  overscroll-behavior-y: none;
+}
+```
+
+### Markup
+
+The markup is pretty simple we import our global styles. There is a `div.container` element to lay out our `nav` and `main#scroll-area`. The `nav` itself is just there to look pretty and the `main` element is our `#scroll-area` with lots of lorem ipsum to make the element very big and get a scrollbar for demonstration. It also contains our `div#pull-to-refresh` element this is our spinner that we will manipulate with JS later on.
+
+Then we have some styles to make sure the `main#scroll-area` element takes the remaining space after `nav` is laid out. The `#scroll-area` is `position: relative` so that we can position the `#pull-to-refresh` spinner relative to it, and then we define `--offset` &amp; `--angle` CSS custom properties to later on manipulate the position and rotation of our spinner with JS.
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script>
+  import '../style.css'
+</script>
+
+<div class="container">
+  <nav class="nav">
+    <div class="nav__logo">Pull To Refresh</div>
+  </nav>
+
+  <!-- this will be the scroll area -->
+  <main class="main" id="scroll-area">
+    <!-- this is the pull to refresh spinner -->
+    <div id="pull-to-refresh">
+      <div class="ptr-icon">
+        <svg width="1em" height="1em" viewBox="0 0 8 8"
+          ><path
+            fill="currentColor"
+            d="M4 0C1.8 0 0 1.8 0 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88c-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91L4.99 3h3V0L6.8 1.19C6.08.47 5.09 0 3.99 0z"
+          /></svg
+        >
+      </div>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+      dolor est velit optio eaque perferendis, suscipit voluptatum sit accusamus
+      eius illo cumque laboriosam. Non est quia totam ipsam dignissimos.
+    </p>
+    <!-- Lots of lorem ipsum to make the page long -->
+    ....
+  </main>
+</div>
+
+<style>
+  /* create a container to layout our nav and scroll area */
+  .container {
+    --padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    /* the navbar is auto sized and the scroll area takes the remaining height */
+    grid-template-rows: auto 1fr;
+
+    /* needed to make the scroll area have the scrollbar */
+    height: 100%;
+  }
+
+  /* pretty styles not necessary for this to be functional */
+  .nav {
+    background-color: black;
+    color: white;
+    padding: var(--padding);
+  }
+
+  .nav__logo {
+    text-transform: uppercase;
+  }
+
+  .main {
+    padding: var(--padding);
+    display: grid;
+    place-content: start;
+    gap: 1em;
+  }
+
+  .ptr-icon {
+    padding: 0.75rem;
+    font-size: 1.5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 9999px;
+    background-color: black;
+    color: white;
+  }
+
+  /* functional styles needed to make this work */
+  #scroll-area {
+    /* the #scroll-area must have position relative so we can position the #pull-to-refresh element relative to this */
+    position: relative;
+
+    /* attach scrollbar on overflow */
+    overflow-y: auto;
+  }
+
+  #pull-to-refresh {
+    /* we define some css custom properties that we will later use to style the pull-to-refresh spinner */
+
+    /* this is the initial offset of the spinner we translate it by -100% to place it behind the navbar */
+    --initial: -100%;
+
+    /* these are the custom properties we will manipulate with js later on --offset is the amount the icon is dragged and --angle is it's rotation */
+    --y: calc(var(--offset, 0px) + var(--initial));
+    --angle: 0deg;
+
+    /* take the spinner out of document flow and place it relative to scroll area */
+    position: absolute;
+    inset: auto 0;
+
+    /* use the custom properties to rotate and drag the spinner */
+    transform: translateY(var(--y)) rotate(var(--angle, 0deg));
+
+    /* center the containing icon */
+    display: grid;
+    place-content: center;
+  }
+</style>
+```
+
+## Javascript
+
+The following code is written in `src/mountHooks.js`
+
+### API Decisions
+
+So the pull to refresh implementation we will be creating will
+
+- Use `document.getElementById` to target the `#scroll-area` and `#pull-to-refresh` spinner so that this function can be called in one place like a root `+layout.svelte` as we don't use `bind:this` to get element references.
+- Have one function named `onRefresh` that takes four optional paramaters.
+  - `scrollAreaId` (default: `scroll-area`): This is the id of the element to attach touch handlers on.
+  - `pullToRefreshId` (default: `pull-to-refresh`): This is the id of the spinner element.
+  - `thresholdDistance` (default: `100`): the minimum distance the user needs to swipe before a refresh triggers.
+  - `callback` (default: `(refreshing) => refreshing.set(false)`): the function that is called when a refresh is triggered.
+
+```javascript
+/* src/mountHooks.js */
+export function onRefresh({
+  scrollAreaId = "scroll-area",
+  pullToRefreshId = "pull-to-refresh",
+  thresholdDistance = 100,
+  callback = (refreshing) => refreshing.set(false),
+} = {}) {}
+```
+
+### General State
+
+Here we get the element references with id,
+set the initial swipe Y coordinate `startY` to `0` and `touchId` to `-1` representing no touch currently linked to pull to refresh state.
+Then we create two svelte `spring` stores (basically stores that don't immediately change their value but change their value gradually creating a natural feel to the state change [Read More](https://svelte.dev/docs#run-time-svelte-motion-spring)) named `offset` and `angle` that represents the Y offset of our spinner and the angle of rotation, we link their values to the css custom properties we defined earlier.
+
+```javascript
+/* src/mountHooks.js */
+import { writable } from "svelte/store";
+import { spring } from "svelte/motion";
+
+export function onRefresh({
+  scrollAreaId = "scroll-area",
+  pullToRefreshId = "pull-to-refresh",
+  thresholdDistance = 100,
+  callback = (refreshing) => refreshing.set(false),
+} = {}) {
+  // this represents refreshing state if we are currently refreshing or not, this will be returned to the caller of this function
+  const refreshing = writable(false);
+
+  // is true if threshold distance swiped else false used to figure out if a refresh is needed on touchend
+  let shouldRefresh = false;
+
+  // these will be set in an onMount call alter to the element references
+  let scrollArea;
+  let pullToRefresh;
+
+  // start Y coordinate of swipe
+  let startY = 0;
+  // touch ID used to start pullToRefresh, -1 is used to represent no pullToRefresh started yet
+  let touchId = -1;
+
+  // will be linked to css properties later on
+  const offset = spring(0);
+  const angle = spring(0);
+}
+```
+
+### TouchStart Handler
+
+This is the most straight forward one we check if another touch is already linked to pull to refresh state and if not then we link this touch to the state.
+
+```javascript
+function onTouchStart(e) {
+  // return if another touch is already registered for pull to refresh
+  if (touchId > -1) return;
+  const touch = e.touches[0];
+  startY = touch.screenY + scrollArea.scrollTop;
+  touchId = touch.identifier;
+}
+```
+
+### TouchMove Handler
+
+On touch move we check if the touch moved was the registered touch in the above `onTouchStart` handler and if it is,
+
+- We calculate the distance swiped.
+- Update the `shouldRefresh` flag depending on if the distance swiped is greater than or equal to the `thresholdDistance`.
+- If we are swiping down then make the `scrollArea` unscrollable.
+- Update the `offset` and `angle` stores and limit them to `thresholdDistance` using `Math.min`. Multiplying the `angle` value by 2 is just a stylistic choice here.
+
+```javascript
+function onTouchMove(e) {
+  // pull to refresh should only trigger if user is at top of the scroll area
+  if (scrollArea.scrollTop > 0) return;
+  const touch = Array.from(e.changedTouches).find(
+    (t) => t.identifier === touchId
+  );
+  if (!touch) return;
+
+  const distance = touch.screenY - startY;
+  shouldRefresh = distance >= thresholdDistance;
+  if (distance > 0) {
+    scrollArea.style.overflowY = "hidden";
+  }
+
+  offset.set(Math.min(distance, thresholdDistance));
+  angle.set(Math.min(distance, thresholdDistance) * 2);
+}
+```
+
+### TouchEnd Handler
+
+Again we check if this event was triggered with our registered touch otherwise we return.
+
+- Unregister touch aka reset `touchId`.
+- Run the callback if a refresh should be triggered and update the `refreshing` store state.
+- Then we create a proxy value name `isRefreshing` that is linked to our `refreshing` store state. This avoids using `get(refreshing)` in the `requestAnimationFrame` callback which is an expensive operation.
+- Then we spin the spinner until the callback sets `refreshing` store state to false.
+- When refreshing is done we set the `offset` and `angle` to `0`.
+
+```javascript
+function onTouchEnd(e) {
+  // needed so this doesn't trigger if some other touch ended
+  const touch = Array.from(e.changedTouches).find(
+    (t) => t.identifier === touchId
+  );
+  if (!touch) return;
+
+  scrollArea.style.overflowY = "auto";
+
+  // reset touchId
+  touchId = -1;
+
+  // run callback if refresh needed
+  if (shouldRefresh) {
+    refreshing.set(true);
+    callback(refreshing);
+  }
+
+  // create a proxy value for the store to avoid using get(refreshing) in while loop
+  let isRefreshing: boolean = true;
+  const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state));
+
+  // spin the loader while refreshing
+  function spin() {
+    if (isRefreshing) {
+      angle.update(($angle) => $angle + 5);
+      requestAnimationFrame(spin);
+    } else {
+      offset.set(0);
+      angle.set(0);
+      unsubscribe();
+    }
+  }
+  requestAnimationFrame(spin);
+}
+```
+
+### Registering The Handlers
+
+We have two choices here we can call `onMount` inside our function or return a function that registers the handlers and let the caller decide when to handle the registration. I decided to call `onMount` inside the function and return the `refreshing` store. This decision makes it so that the caller needs to call `onRefresh` during component registration as `onMount` can only be called during component registration.
+
+```javascript
+/* src/mountHooks.js */
+import { writable } from "svelte/store";
+import { spring } from "svelte/motion";
+import { onMount } from "svelte";
+
+export function onRefresh({
+  scrollAreaId = "scroll-area",
+  pullToRefreshId = "pull-to-refresh",
+  thresholdDistance = 100,
+  callback = (refreshing) => refreshing.set(false),
+} = {}) {
+  /* code written till now here */
+  /* .... */
+
+  // set element references, link css properties to stores & register touch handlers
+  onMount(() => {
+    scrollArea = document.getElementById(scrollAreaId);
+    pullToRefresh = document.getElementById(pullToRefreshId);
+
+    if (!scrollArea)
+      throw new Error(`no element with id ${scrollAreaId} found`);
+    if (!pullToRefresh)
+      throw new Error(`no element with id ${pullToRefreshId} found`);
+
+    // link offset to css properties
+    const offsetUnsub = offset.subscribe((val) => {
+      requestAnimationFrame(() => {
+        pullToRefresh.style.setProperty("--offset", `${val}px`);
+      });
+    });
+
+    // link angle to css properties
+    const angleUnsub = angle.subscribe((val) => {
+      requestAnimationFrame(() => {
+        pullToRefresh.style.setProperty("--angle", `${val}deg`);
+      });
+    });
+
+    scrollArea?.addEventListener("touchstart", onTouchStart);
+    scrollArea?.addEventListener("touchmove", onTouchMove);
+    scrollArea?.addEventListener("touchend", onTouchEnd);
+    scrollArea?.addEventListener("touchcancel", onTouchEnd);
+
+    return () => {
+      offsetUnsub();
+      angleUnsub();
+      scrollArea?.removeEventListener("touchstart", onTouchStart);
+      scrollArea?.removeEventListener("touchmove", onTouchMove);
+      scrollArea?.removeEventListener("touchend", onTouchEnd);
+      scrollArea?.removeEventListener("touchcancel", onTouchEnd);
+    };
+  });
+
+  // return refreshing state store
+  return refreshing;
+}
+```
+
+### Full Code
+
+```javascript
+/* src/mountHooks.js */
+import { writable } from "svelte/store";
+import { spring } from "svelte/motion";
+import { onMount } from "svelte";
+
+export function onRefresh({
+  scrollAreaId = "scroll-area",
+  pullToRefreshId = "pull-to-refresh",
+  thresholdDistance = 100,
+  callback = (refreshing) => refreshing.set(false),
+} = {}) {
+  // this represents refreshing state if we are currently refreshing or not, this will be return to the caller of this function
+  const refreshing = writable(false);
+
+  // is true if threshold distance swiped else false used to figure out if a refresh is needed on touchend
+  let shouldRefresh = false;
+
+  // will be set to element references later on
+  let scrollArea;
+  let pullToRefresh;
+
+  // start Y coordinate of swipe
+  let startY = 0;
+  // touch ID used to start pullToRefresh, -1 is used to represent no pullToRefresh started yet
+  let touchId = -1;
+
+  // will be linked to css properties later on
+  const offset = spring(0);
+  const angle = spring(0);
+
+  function onTouchStart(e) {
+    // return if another touch is already registered for pull to refresh
+    if (touchId > -1) return;
+    const touch = e.touches[0];
+    startY = touch.screenY + scrollArea.scrollTop;
+    touchId = touch.identifier;
+  }
+
+  function onTouchMove(e) {
+    // pull to refresh should only trigger if user is at top of the scroll area
+    if (scrollArea.scrollTop > 0) return;
+    const touch = Array.from(e.changedTouches).find(
+      (t) => t.identifier === touchId
+    );
+    if (!touch) return;
+
+    const distance = touch.screenY - startY;
+    shouldRefresh = distance >= thresholdDistance;
+    if (distance > 0) {
+      scrollArea.style.overflowY = "hidden";
+    }
+
+    offset.set(Math.min(distance, thresholdDistance));
+    angle.set(Math.min(distance, thresholdDistance) * 2);
+  }
+
+  function onTouchEnd(e) {
+    // needed so this doesn't trigger if some other touch ended
+    const touch = Array.from(e.changedTouches).find(
+      (t) => t.identifier === touchId
+    );
+    if (!touch) return;
+
+    scrollArea.style.overflowY = "auto";
+
+    // reset touchId
+    touchId = -1;
+
+    // run callback if refresh needed
+    if (shouldRefresh) {
+      shouldRefresh = false;
+      refreshing.set(true);
+      callback(refreshing);
+    }
+
+    // create a proxy value for the store to avoid using get(refreshing) in the spin loop
+    let isRefreshing: boolean = true;
+    const unsubscribe = refreshing.subscribe((state) => (isRefreshing = state));
+
+    // spin the loader while refreshing
+    function spin() {
+      if (isRefreshing) {
+        angle.update(($angle) => $angle + 5);
+        requestAnimationFrame(spin);
+      } else {
+        offset.set(0);
+        angle.set(0);
+        unsubscribe();
+      }
+    }
+    requestAnimationFrame(spin);
+  }
+
+  // set element references, link css properties to stores & register touch handlers
+  onMount(() => {
+    scrollArea = document.getElementById(scrollAreaId);
+    pullToRefresh = document.getElementById(pullToRefreshId);
+
+    if (!scrollArea)
+      throw new Error(`no element with id ${scrollAreaId} found`);
+    if (!pullToRefresh)
+      throw new Error(`no element with id ${pullToRefreshId} found`);
+
+    // link offset to css properties
+    const offsetUnsub = offset.subscribe((val) => {
+      requestAnimationFrame(() => {
+        pullToRefresh.style.setProperty("--offset", `${val}px`);
+      });
+    });
+
+    // link angle to css properties
+    const angleUnsub = angle.subscribe((val) => {
+      requestAnimationFrame(() => {
+        pullToRefresh.style.setProperty("--angle", `${val}deg`);
+      });
+    });
+
+    scrollArea?.addEventListener("touchstart", onTouchStart);
+    scrollArea?.addEventListener("touchmove", onTouchMove);
+    scrollArea?.addEventListener("touchend", onTouchEnd);
+    scrollArea?.addEventListener("touchcancel", onTouchEnd);
+
+    return () => {
+      offsetUnsub();
+      angleUnsub();
+      scrollArea?.removeEventListener("touchstart", onTouchStart);
+      scrollArea?.removeEventListener("touchmove", onTouchMove);
+      scrollArea?.removeEventListener("touchend", onTouchEnd);
+      scrollArea?.removeEventListener("touchcancel", onTouchEnd);
+    };
+  });
+
+  // return refreshing state store
+  return refreshing;
+}
+```
+
+### Usage
+
+Let's just hide our `p` elements when refreshing and emulate a refresh using `setTimeout`. We call the `onRefresh` function with a callback that sets `refreshing` state to false after 3 seconds.
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script>
+  import '../style.css'
+  import { onRefresh } from '../mountHooks.js'
+
+  const refreshing = onRefresh({
+    callback(state) {
+      setTimeout(() => {
+        state.set(false)
+      }, 3000)
+    },
+  })
+</script>
+
+<div class="container">
+  <!-- nav here -->
+  <!-- ... -->
+
+  <main class="main" id="scroll-area">
+    <!-- this is the pull to refresh spinner -->
+    <div id="pull-to-refresh">
+      <div class="ptr-icon">
+        <svg width="1em" height="1em" viewBox="0 0 8 8"
+          ><path
+            fill="currentColor"
+            d="M4 0C1.8 0 0 1.8 0 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88c-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91L4.99 3h3V0L6.8 1.19C6.08.47 5.09 0 3.99 0z"
+          /></svg
+        >
+      </div>
+    </div>
+    {#if !$refreshing}
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum magnam
+        dolor est velit optio eaque perferendis, suscipit voluptatum sit
+        accusamus eius illo cumque laboriosam. Non est quia totam ipsam
+        dignissimos.
+      </p>
+      <!-- Lots of lorem ipsum to make the page long -->
+      ....
+    {/if}
+  </main>
+</div>
+
+<style>
+  /* ... */
+</style>
+```
+
+## Conclusion
+
+The beauty of this implementation is that svelte spring stores does all the animation related heavy lifting for us combined with css custom properties. We don't have to worry about animation logic and thus can simplify and focus our approach to pure logic related to pull to refresh semantics.
+
+_If you think this is cool, Leave a comment down below_
