@@ -13,7 +13,7 @@ export const collections = {
       }),
       author: z.string(),
       created: z.string(),
-      update: z.string().optional(),
+      updated: z.string().optional(),
     }),
   }),
 };
