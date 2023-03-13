@@ -6,8 +6,8 @@ import projects from "@/data/projects";
   Some of my work
 </h2>
 <section
-  aria-label="testimonials"
-  id="testimonials"
+  aria-label="projects"
+  id="projects"
   class="text-gray-900 grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-5 lg:gap-10"
 >
   {
@@ -15,8 +15,11 @@ import projects from "@/data/projects";
       ({ url, name, tech, image, points, repo_url, description }) => (
         <article class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden">
           <img
-            src={`https://picsum.photos/seed/${Math.random()}/1600/900`}
+            src={`/assets/images/${image}`}
             class="w-full object-cover aspect-video"
+            loading="lazy"
+            width="16"
+            height="9"
           />
           <div class="grow p-10 flex flex-col gap-5">
             <h3 class="text-2xl font-black">{name}</h3>
@@ -29,9 +32,33 @@ import projects from "@/data/projects";
                 </li>
               ))}
             </ul>
+            <div class="flex flex-wrap gap-5 mt-3">
+              {repo_url && (
+                <a
+                  href={repo_url}
+                  target="_blank"
+                  class="text-xs text-gray-600 hover:text-gray-500 hover:underline uppercase font-semibold inline-flex gap-3 items-center"
+                >
+                  <span class="i-mdi-source-branch text-xl" />
+                  <span>View on github</span>
+                </a>
+              )}
+              <a
+                href={url}
+                target="_blank"
+                class="text-xs text-gray-600 hover:text-gray-500 hover:underline uppercase font-semibold inline-flex gap-3 items-center"
+              >
+                <span class="i-mdi-web text-xl" />
+                <span>View</span>
+              </a>
+            </div>
           </div>
         </article>
       )
     )
   }
 </section>
+<a href="https://github.com/vanillacode314" class="mx-auto mt-10 text-gray-600 hover:underline font-bold uppercase tracking-wide border px-5 py-3 border-gray-300 rounded-10">
+  <span class="i-mdi-arrow-right text-xl" />
+  <span>View all projects</span>
+</a>

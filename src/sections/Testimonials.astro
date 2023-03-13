@@ -17,14 +17,16 @@ import testimonials from "@/data/testimonials";
           <div class="flex gap-5 justify-between items-center">
             <div class="w-20 h-20 rounded-full grid place-content-center bg-gray-300 shadow overflow-hidden">
               <img
-                src="https://api.dicebear.com/5.x/personas/svg?seed=Daisy"
-                alt="avatar"
-                class="w-full h-full object-contain"
+                src={`/assets/images/profiles/${author
+                  .toLowerCase()
+                  .replace(/ /g, "-")}.webp`}
+                alt={`avatar for ${author}`}
+                class="w-full h-full object-cover"
               />
             </div>
             <span class="i-fa-quote-right text-6xl text-gray-400" />
           </div>
-          <blockquote class="grow">{content}</blockquote>
+          <blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
           <figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end">
             - {author}, {title}
           </figcaption>

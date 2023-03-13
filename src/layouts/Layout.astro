@@ -8,6 +8,56 @@ export interface Props {
 }
 
 const { title = "Test Site" } = Astro.props;
+
+interface Link {
+	href: string;
+	label: string;
+	icon?: string;
+}
+
+const links: Link[] = [
+	{
+		href: "/",
+		label: "Portfolio",
+	},
+	{
+		href: "/blog",
+		label: "Blog",
+	},
+];
+
+const socials: Link[] = [
+	{
+		href: "mailto:raqueebuddin.aziz.314@gmail.com",
+		label: "Email",
+		icon: "i-mdi-email",
+	},
+	{
+		href: "https://github.com/vanillacode314",
+		label: "Github",
+		icon: "i-mdi-github",
+	},
+	{
+		href: "https://twitter.com/RaqueebuddinA",
+		label: "Twitter",
+		icon: "i-mdi-twitter",
+	},
+	{
+		href: "https://www.linkedin.com/in/raqueebuddin-aziz-b28a12232/",
+		label: "LinkedIn",
+		icon: "i-mdi-linkedin",
+	},
+	{
+		href: "https://www.instagram.com/raqueebuddin.aziz",
+		label: "Instagram",
+		icon: "i-mdi-instagram",
+	},
+	{
+		href: "https://www.facebook.com/vanillacode314",
+		label: "Facebook",
+		icon: "i-mdi-facebook",
+	},
+];
 ---
 
 <!DOCTYPE html>
@@ -24,21 +74,26 @@ const { title = "Test Site" } = Astro.props;
 		<Nav />
 		<slot />
 		<Container class="bg-gray-100 lg:p-10 p-5">
-			<footer class="grid md:grid-cols-2 gap-5">
+			<footer class="grid sm:grid-cols-2 gap-5">
 				<section class="flex flex-col gap-3">
 					<h3
 						class="uppercase text-xs font-semibold text-gray-600 tracking-wide"
 					>
 						Links
 					</h3>
-					<ul class="flex flex-col gap-1">
-						<li>
-							<a
-								href="#test"
-								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800"
-								>hi</a
-							>
-						</li>
+					<ul class="flex flex-col">
+						{
+							links.map(({ label, href, icon }) => (
+								<li>
+									<a
+										{href}
+										class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800 uppercase font-medium"
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
 					</ul>
 				</section>
 				<section class="flex flex-col gap-3">
@@ -47,25 +102,36 @@ const { title = "Test Site" } = Astro.props;
 					>
 						Social
 					</h3>
-					<ul class="flex flex-col gap-1">
-						<li>
-							<a
-								href="#test"
-								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800"
-								>hi</a
-							>
-						</li>
+					<ul class="flex flex-col">
+						{
+							socials.map(({ label, href, icon }) => (
+								<li>
+									<a
+										{href}
+										class="text-orange-600 hover:text-orange-500 hover:underline visited:text-purple-800 uppercase font-medium inline-flex gap-3 items-center"
+									>
+										<span class={`${icon} text-xl`} />
+										<span>{label}</span>
+									</a>
+								</li>
+							))
+						}
 					</ul>
 				</section>
 			</footer>
 		</Container>
 		<style is:global>
 			* {
+				/* helps with preventing unintended font boosting */
 				max-height: 99999999999999999px;
 			}
 			body,
 			html {
+				scroll-behavior: smooth;
 				@apply h-full font-sans;
+			}
+			section {
+				@apply scroll-m-5;
 			}
 		</style>
 	</body>
