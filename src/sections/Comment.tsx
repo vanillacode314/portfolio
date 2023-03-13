@@ -164,7 +164,14 @@ export default function Comments(props: { slug: string }) {
         Comments
       </h2>
       <div class="flex flex-col gap-5">
-        <For each={comments()}>
+        <For
+          each={comments()}
+          fallback={
+            <div class="uppercase font-semibold grid place-content-center text-gray-400">
+              No Comments
+            </div>
+          }
+        >
           {({ username, comment }) => (
             <article class="bg-gray-100 p-5 rounded-5 flex flex-col gap-1 shadow-sm">
               <h3 class="uppercase tracking-wide font-semibold text-gray-600 text-xs">

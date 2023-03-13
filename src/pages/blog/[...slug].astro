@@ -56,11 +56,11 @@ const nextBlog = blogEntries[index + 1];
     >
       <img
         src={`/assets/images/blog/${entry.slug}.svg`}
-        width="200"
+        width="300"
         class="shadow-inner rounded-5"
       />
       <article
-        class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1"
+        class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1 mb-auto items"
       >
         <p class="text-gray-900 uppercase font-bold">By</p>
         <h3
@@ -70,11 +70,9 @@ const nextBlog = blogEntries[index + 1];
         </h3>
         <p class="text-gray-600">{author.description}</p>
       </article>
-      <div class="flex flex-col sm:flex-row lg:flex-col gap-5 justify-between">
-        <h1 class="text-4xl md:text-6xl font-black">
-          {frontmatter.title}
-        </h1>
-      </div>
+      <h1 class="text-4xl md:text-6xl font-black col-start-1 col-end-3">
+        {frontmatter.title}
+      </h1>
     </section>
     <div class="markdown">
       <Content />
@@ -175,7 +173,7 @@ const nextBlog = blogEntries[index + 1];
         )
       }
     </section>
-    <Comments slug={entry.slug} client:only="solidjs" />
+    <Comments slug={entry.slug} client:idle />
   </Container>
 </Layout>
 

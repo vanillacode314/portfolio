@@ -1,5 +1,6 @@
 import { createComputed } from "solid-js";
 import { createStore } from "solid-js/store";
+import { isServer } from "solid-js/web";
 import z from "zod";
 
 interface Storage {
@@ -19,6 +20,46 @@ interface StorageStoreOptions<
   storage: "localStorage" | "sessionStorage" | Storage;
 }
 
+function serverSafeLocalStorage() {
+  return {
+    getItem: (key: string) => {
+      return isServer ? null : localStorage.getItem(key);
+    },
+    setItem: (key: string, value: string) => {
+      if (isServer) return;
+      localStorage.setItem(key, value);
+    },
+    removeItem: (key: string) => {
+      if (isServer) return;
+      localStorage.removeItem(key);
+    },
+    onStorageChange: (callback: () => void) => {
+      if (isServer) return;
+      window.addEventListener("storage", callback);
+    },
+  };
+}
+
+function serverSafeSessionStorage() {
+  return {
+    getItem: (key: string) => {
+      return isServer ? null : sessionStorage.getItem(key);
+    },
+    setItem: (key: string, value: string) => {
+      if (isServer) return;
+      sessionStorage.setItem(key, value);
+    },
+    removeItem: (key: string) => {
+      if (isServer) return;
+      sessionStorage.removeItem(key);
+    },
+    onStorageChange: (callback: () => void) => {
+      if (isServer) return;
+      window.addEventListener("storage", callback);
+    },
+  };
+}
+
 export const createStorageStore = <
   TSchema extends z.ZodTypeAny,
   TData extends Record<string, unknown> = z.input<TSchema>
@@ -35,9 +76,9 @@ export const createStorageStore = <
   const [store, setStore] = createStore<z.output<TSchema>>(defaultValue);
   const _storage =
     storage === "localStorage"
-      ? localStorage
+      ? serverSafeLocalStorage()
       : storage === "sessionStorage"
-      ? sessionStorage
+      ? serverSafeSessionStorage()
       : storage;
 
   function getStorageValue() {
@@ -54,8 +95,10 @@ export const createStorageStore = <
     }
   }
 
-  getStorageValue();
-  window.addEventListener('storage', getStorageValue)
+  if (!isServer) {
+    getStorageValue();
+    _storage.onStorageChange(() => getStorageValue());
+  }
 
   createComputed(() =>
     _storage.setItem(storageKey, serializer(schema.parse(store)))
