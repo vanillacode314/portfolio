@@ -18,6 +18,7 @@ import projects from "@/data/projects";
             src={`/assets/images/${image}`}
             class="w-full object-cover aspect-video"
             loading="lazy"
+            alt={name}
             width="16"
             height="9"
           />
@@ -58,7 +59,10 @@ import projects from "@/data/projects";
     )
   }
 </section>
-<a href="https://github.com/vanillacode314" class="mx-auto mt-10 text-gray-600 hover:underline font-bold uppercase tracking-wide border px-5 py-3 border-gray-300 rounded-10">
-  <span class="i-mdi-arrow-right text-xl" />
+<a
+  href="https://github.com/vanillacode314"
+  class="mx-auto mt-10 text-gray-600 hover:underline font-bold uppercase tracking-wide border px-5 py-3 border-gray-300 rounded-10"
+>
+  <span class="i-mdi-arrow-right text-xl"></span>
   <span>View all projects</span>
 </a>

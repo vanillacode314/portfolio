@@ -13,6 +13,16 @@ const blogEntries = (await getCollection("blog")).sort((a, b) => {
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <meta
+      name="description"
+      content="I help businesses get more customers by improving their online presence and building quick-to-load, beautiful, easy-to-use websites."
+    />
+    <meta
+      name="keywords"
+      content="professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript"
+    />
+  </Fragment>
   <Container class="lg:p-10 p-5" innerClass="flex flex-col items-center">
     <h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">
       Latest Posts
@@ -55,7 +65,7 @@ const blogEntries = (await getCollection("blog")).sort((a, b) => {
                         </span>
                       </p>
                       {updated && (
-                      <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
+                        <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
                           Updated On:{" "}
                           <span class="font-semibold">
                             {new Date(updated).toLocaleDateString()}
