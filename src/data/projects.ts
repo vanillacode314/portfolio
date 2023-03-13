@@ -46,6 +46,8 @@ export default [
       "daisyui",
       "workbox",
       "service-workers",
+      "zod",
+      "typescript",
     ],
     points: [
       "Auto formats to print invoices in a concise form.",
@@ -61,7 +63,7 @@ export default [
     points: [],
     repo_url: "",
     tech: ["svelte", "sveltekit", "tailwindcss", "daisyui", "supabase"],
-    url: "https://mtgpacksim.bluemonkeygaming.com/sets",
+    url: "https://mtg-pack.pages.dev/sets",
   },
   /* { */
   /*   name: "JustLearn", */
@@ -77,7 +79,14 @@ export default [
     name: "JustTimeTrack",
     description: "A Free and Open source Time Tracker.",
     image: "justtimetrack.webp",
-    tech: ["svelte", "sveltekit", "tailwindcss", "daisyui"],
+    tech: [
+      "solidjs",
+      "solidstart",
+      "tailwindcss",
+      "daisyui",
+      "zod",
+      "typescript",
+    ],
     points: [],
     url: "https://justtimetrack.vercel.app/",
     repo_url: "https://github.com/vanillacode314/vanillatimetracker",
