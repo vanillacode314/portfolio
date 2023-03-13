@@ -57,3 +57,11 @@
     </button>
   </form>
 </section>
+<script>
+  const form = document.querySelector(
+    "form[name='contact']"
+  ) as HTMLFormElement;
+  form?.addEventListener("submit", () => {
+    gtag("event", "generate_lead", {});
+  });
+</script>

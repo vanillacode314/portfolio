@@ -98,3 +98,9 @@
     <div class="i-carbon-arrow-down text-xl bg-orange-600"></div>
   </div>
 </section>
+<script>
+  const form = document.querySelector("form[name='report']") as HTMLFormElement;
+  form?.addEventListener("submit", () => {
+    gtag("event", "generate_lead", {});
+  });
+</script>
