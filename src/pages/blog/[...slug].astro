@@ -52,12 +52,12 @@ const nextBlog = blogEntries[index + 1];
   </Fragment>
   <Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
     <section
-      class="bg-gray-900 p-10 rounded-10 text-gray-100 grid lg:grid-cols-2 gap-5 shadow-lg"
+      class="bg-gray-900 p-10 rounded-10 text-gray-100 grid md:grid-cols-2 gap-5 shadow-lg"
     >
       <img
         src={`/assets/images/blog/${entry.slug}.svg`}
         width="300"
-        class="shadow-inner rounded-5"
+        class="shadow-inner rounded-5 mx-auto md:mx-none"
       />
       <article
         class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1 mb-auto items"
@@ -70,7 +70,7 @@ const nextBlog = blogEntries[index + 1];
         </h3>
         <p class="text-gray-600">{author.description}</p>
       </article>
-      <h1 class="text-4xl md:text-6xl font-black col-start-1 col-end-3">
+      <h1 class="text-4xl md:text-6xl font-black col-start-1 md:col-end-3">
         {frontmatter.title}
       </h1>
     </section>
@@ -231,7 +231,7 @@ const nextBlog = blogEntries[index + 1];
       @media (min-width: 1024px) {
         max-width: calc(100vw - 5rem);
       }
-      @apply p-5 rounded-xl font-mono overflow-x-auto my-5 text-sm min-w-0 block;
+      @apply p-5 rounded-xl font-mono overflow-x-auto my-5 min-w-0 block;
     }
 
     ul {
