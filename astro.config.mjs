@@ -36,7 +36,11 @@ export default defineConfig({
     }),
     solidJs(),
     sitemap(),
-    partytown(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
   markdown: {
     shikiConfig: {
