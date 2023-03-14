@@ -51,6 +51,17 @@ const nextBlog = blogEntries[index + 1];
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </Fragment>
   <Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
+    <ol class="flex gap-1 items-center">
+      <li class="hidden md:contents">
+        <a href="/blog" class="text-lg hover:underline">
+          blog
+        </a>
+        <span class="text-xl i-mdi-chevron-right"/>
+        <span class="font-bold text-lg">
+          {entry.slug}
+        </span>
+      </li>
+    </ol>
     <section
       class="bg-gray-900 p-10 rounded-10 text-gray-100 grid md:grid-cols-2 gap-5 shadow-lg"
     >
