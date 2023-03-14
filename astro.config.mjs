@@ -6,16 +6,16 @@ import {
   presetWebFonts,
   presetIcons,
 } from "unocss";
-
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import { h } from "hastscript";
 import rehypeToc from "rehype-toc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-
 import solidJs from "@astrojs/solid-js";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://raqueebuddinaziz.com/",
   integrations: [
@@ -36,6 +36,7 @@ export default defineConfig({
     }),
     solidJs(),
     sitemap(),
+    partytown(),
   ],
   markdown: {
     shikiConfig: {
