@@ -247,7 +247,7 @@ const nextBlog = blogEntries[index + 1];
       }
 
       a {
-        @apply underline decoration-dotted text-orange-600 hover:text-orange-500 visited:text-purple-600 hover:visited:text-purple-500;
+        @apply underline decoration-dotted text-orange-600 hover:text-orange-500 visited:text-orange-900 hover:visited:text-purple-500;
       }
 
       .astro-code {
@@ -298,6 +298,12 @@ const nextBlog = blogEntries[index + 1];
       }
 
       .toc {
+        a {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
         .toc-level-1 {
           display: flex;
           flex-direction: column;
