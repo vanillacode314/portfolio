@@ -45,7 +45,7 @@ const blogEntries = (await getCollection("blog")).sort((a, b) => {
               const author = authors.find((author) => author.id === authorId)!;
               return (
                 <a href={`/blog/${slug}`} class="contents">
-                  <article class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden hover:scale-105 transition-transform">
+                  <article class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden hover:scale-105 transition-transform">
                     <img
                       src={`/assets/images/blog/${slug}.svg`}
                       class="w-full object-cover aspect-square"

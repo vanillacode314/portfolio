@@ -90,7 +90,7 @@ export default function Comments(props: { slug: string }) {
           name="comment"
           action={BASE_URL + "/comment"}
           method="post"
-          class="flex flex-col bg-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden p-10 gap-5"
+          class="flex flex-col bg-gray-100/90 rounded-10 text-gray-900 shadow-lg overflow-hidden p-10 gap-5"
         >
           <div class="flex flex-col gap-1">
             <label

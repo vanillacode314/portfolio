@@ -25,7 +25,7 @@ const links: Link[] = [
 ];
 ---
 
-<Container class="p-5 md:p-8 nav top-0 backdrop-blur z-20">
+<Container class="p-5 md:p-8 nav top-0 backdrop-blur z-20 bg-gray-100">
   <nav class="flex items-baseline gap-5">
     <a href="/" class="leading-tight text-lg">raqueebuddin<br />aziz</a>
     <span class="grow"></span>
@@ -62,7 +62,7 @@ const links: Link[] = [
     const condition =
       window.scrollY > 0 && !location.pathname.startsWith("/blog/");
     nav?.classList[condition ? "add" : "remove"](
-      ..."bg-white/80 sticky".split(" ")
+      ..."bg-gray-100/80 sticky".split(" ")
     );
   });
 </script>

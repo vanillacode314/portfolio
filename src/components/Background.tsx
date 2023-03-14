@@ -12,6 +12,7 @@ export const Background: Component = () => {
           setProgress(el.scrollTop / (el.scrollHeight - el.clientHeight));
         }}
       />
+      <div class="fixed -z-20 bg-gray-100 inset-0"></div>
       <div
         class="pointer-events-none fixed inset-0 -z-10 max-w-6xl mx-auto"
         style={{ "--progress": progress() * 100 + "%" }}
