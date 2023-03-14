@@ -83,7 +83,7 @@ export default function Comments(props: { slug: string }) {
       <h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-5">
         Leave a Comment
       </h2>
-      <section aria-label="contact" id="contact">
+      <section aria-label="comment-section" id="comment-section">
         <form
           data-netlify="true"
           onSubmit={onSubmit}

@@ -194,7 +194,34 @@ const nextBlog = blogEntries[index + 1];
       }
     </section>
     <Comments slug={entry.slug} client:idle />
+    <button
+      id="gototop"
+      class="bg-orange-600 w-10 text-gray-100 h-10 rounded-full grid place-content-center aspect-square fixed bottom-5 right-5"
+    >
+      <span class="i-mdi-chevron-up text-3xl"></span>
+    </button>
+    <div
+      id="progressbar"
+      class="h-1 w-full fixed top-0 left-0 bg-orange-600 origin-top-left"
+    >
+    </div>
   </Container>
+  <script>
+    const gototop = document.getElementById("gototop");
+    gototop?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    const progressbar = document.getElementById("progressbar");
+    const markdownSection = document.querySelector(".markdown")!;
+    const rect = markdownSection.getBoundingClientRect();
+    const bottom = rect.bottom + window.scrollY;
+    function onScroll() {
+      const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1));
+      progressbar!.style.transform = `scaleX(${progress})`;
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  </script>
 
   <style is:global lang="scss">
     .markdown {
