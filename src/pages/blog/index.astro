@@ -61,14 +61,22 @@ const blogEntries = (await getCollection("blog")).sort((a, b) => {
                       <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
                         Created On:{" "}
                         <span class="font-semibold">
-                          {new Date(created).toLocaleDateString()}
+                          {new Date(created).toLocaleDateString(undefined, {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
                         </span>
                       </p>
                       {updated && (
                         <p class="text-xs uppercase tracking-wider font-medium text-gray-700">
                           Updated On:{" "}
                           <span class="font-semibold">
-                            {new Date(updated).toLocaleDateString()}
+                            {new Date(updated).toLocaleDateString(undefined, {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
                           </span>
                         </p>
                       )}
