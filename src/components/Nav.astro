@@ -25,6 +25,21 @@ const links: Link[] = [
 ];
 ---
 
+{
+  route !== "/" && (
+    <a
+      href="/#performance-report"
+      class="bg-orange-600 text-sm md:text-base text-white font-bold uppercase tracking-wide py-2 flex justify-center text-center px-4 gap-2"
+    >
+      Click Here to get a
+      <span class="bg-white text-orange-600 px-3 rounded-full hover:bg-orange-700 focus:bg-orange-700 focus:text-gray-100 hover:text-gray-100 transition outline-none inline-block">
+        free
+      </span>
+      performance report for your website
+    </a>
+  )
+}
+
 <Container class="p-5 md:p-8 nav top-0 backdrop-blur z-20 bg-gray-100">
   <nav class="flex items-baseline gap-5">
     <a href="/" class="leading-tight text-lg">raqueebuddin<br />aziz</a>
