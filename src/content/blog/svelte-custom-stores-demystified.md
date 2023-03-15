@@ -36,8 +36,8 @@ We pass a callback function to the subscribe method of the `user` store and the 
 const user = new Store({ name: "John Doe", age: 18 });
 
 user.subscribe(($user) => {
-  if ($user.age) === 18 {
-    sendMessage(`Happy Birthday! ${$user.name}`)
+  if ($user.age === 18) {
+    sendMessage(`Happy Birthday! ${$user.name}`);
   }
 });
 ```
