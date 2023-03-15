@@ -255,7 +255,7 @@ This seems more natural to me. But it's completely fine to use the props pattern
 
 ## Async Blocks
 
-The goto way to handle async components in solid-js is by using [`Suspense`](https://www.solidjs.com/docs/latest/api#suspense), [`Switch`](https://www.solidjs.com/docs/latest/api#switchmatch), [`Show`](https://www.solidjs.com/docs/latest/api#show) and [`createResource`](https://www.solidjs.com/docs/latest/api#createresource).
+The goto way to handle async components in solid-js is by using [`Suspense`](https://www.solidjs.com/docs/latest/api#suspense), [`ErrorBoundary`](https://www.solidjs.com/docs/latest/api#errorboundary), [`Show`](https://www.solidjs.com/docs/latest/api#show) and [`createResource`](https://www.solidjs.com/docs/latest/api#createresource).
 
 A typical component looks like this.
 
