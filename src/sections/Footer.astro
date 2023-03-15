@@ -1,4 +1,6 @@
 ---
+import Container from "@/components/Container.astro";
+
 interface Link {
   href: string;
   label: string;
@@ -50,45 +52,105 @@ const socials: Link[] = [
 ];
 ---
 
-<footer class="grid sm:grid-cols-2 gap-5">
-  <section class="flex flex-col gap-3">
-    <h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">
-      Links
-    </h3>
-    <ul class="flex flex-col">
-      {
-        links.map(({ label, href }) => (
-          <li>
-            <a
-              {href}
-              class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium"
-            >
-              {label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-  <section class="flex flex-col gap-3">
-    <h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">
-      Social
-    </h3>
-    <ul class="flex flex-col">
-      {
-        socials.map(({ label, href, icon }) => (
-          <li>
-            <a
-              {href}
-              target="_blank"
-              class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium inline-flex gap-3 items-center"
-            >
-              <span class={`${icon} text-xl`} />
-              <span>{label}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-</footer>
+<Container
+  class="bg-gray-100/50 border-t-2 border-gray-200 lg:p-10 p-5 backdrop-blur"
+>
+  <footer class="gap-5 grid sm:grid-cols-2 lg:grid-cols-3">
+    <section class="flex flex-col gap-3">
+      <h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">
+        Links
+      </h3>
+      <ul class="flex flex-col">
+        {
+          links.map(({ label, href }) => (
+            <li>
+              <a
+                {href}
+                class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium"
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section class="flex flex-col gap-3">
+      <h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">
+        Social
+      </h3>
+      <ul class="flex flex-col">
+        {
+          socials.map(({ label, href, icon }) => (
+            <li>
+              <a
+                {href}
+                target="_blank"
+                class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium inline-flex gap-3 items-center"
+              >
+                <span class={`${icon} text-xl`} />
+                <span>{label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      aria-label="performance-report"
+      id="performance-report"
+      class="row-start-1 col-span-full lg:col-start-3 lg:col-end-4"
+    >
+      <form
+        class="bg-white rounded-lg p-5 flex flex-col gap-5 text-gray-900"
+        name="report"
+        method="post"
+        data-netlify="true"
+      >
+        <h2
+          class="mx-auto uppercase text-lg md:text-xl text-gray-700 font-semibold text-center mb-5"
+        >
+          <span class="bg-orange-600 text-gray-100 px-5 rounded-full font-black"
+            >free</span
+          > performance report for your website
+        </h2>
+        <div class="flex flex-col gap-1">
+          <label
+            for="email-report-footer"
+            class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+            >Email</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email-report-footer"
+            placeholder="name@domain.com"
+            class="px-5 py-3 rounded-5 bg-gray-100 min-w-0 w-full"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label
+            for="address-footer"
+            class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+            >Website Address</label
+          >
+          <input
+            type="text"
+            name="address"
+            id="address-footer"
+            placeholder="www.example.com"
+            class="px-5 py-3 rounded-5 bg-gray-100 min-w-0 w-full"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="px-5 py-3 shadow-lg text-white bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-orange-700 whitespace-nowrap ml-auto"
+        >
+          Submit
+        </button>
+      </form>
+    </section>
+  </footer>
+</Container>

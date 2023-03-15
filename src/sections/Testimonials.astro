@@ -3,37 +3,37 @@ import testimonials from "@/data/testimonials";
 ---
 
 <div class="flex flex-col gap-1">
-<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">
-  What others have to say
-</h2>
-<section
-  aria-label="testimonials"
-  id="testimonials"
-  class="text-gray-900 grid md:grid-cols-2 2xl:grid-cols-3 gap-5 lg:gap-10 items-start"
->
-  {
-    testimonials.map(({ title, content, author }) => (
-      <article class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-lg">
-        <figure class="flex flex-col gap-8">
-          <div class="flex gap-5 justify-between items-center">
-            <div class="w-20 h-20 rounded-full grid place-content-center bg-gray-300 shadow overflow-hidden">
-              <img
-                src={`/assets/images/profiles/${author
-                  .toLowerCase()
-                  .replace(/ /g, "-")}.webp`}
-                alt={`avatar for ${author}`}
-                class="w-full h-full object-cover"
-              />
+  <h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">
+    What others have to say
+  </h2>
+  <section
+    aria-label="testimonials"
+    id="testimonials"
+    class="text-gray-900 grid md:grid-cols-2 2xl:grid-cols-3 gap-5 lg:gap-10 items-start"
+  >
+    {
+      testimonials.map(({ title, content, author }) => (
+        <article class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-lg">
+          <figure class="flex flex-col gap-8">
+            <div class="flex gap-5 justify-between items-center">
+              <div class="w-20 h-20 rounded-full grid place-content-center bg-gray-300 shadow overflow-hidden">
+                <img
+                  src={`/assets/images/profiles/${author
+                    .toLowerCase()
+                    .replace(/ /g, "-")}.webp`}
+                  alt={`avatar for ${author}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <span class="i-fa-quote-right text-6xl text-gray-400" />
             </div>
-            <span class="i-fa-quote-right text-6xl text-gray-400" />
-          </div>
-          <blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
-          <figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end">
-            - {author}, {title}
-          </figcaption>
-        </figure>
-      </article>
-    ))
-  }
-</section>
+            <blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
+            <figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end">
+              - {author}, {title}
+            </figcaption>
+          </figure>
+        </article>
+      ))
+    }
+  </section>
 </div>

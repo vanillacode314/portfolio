@@ -5,60 +5,56 @@ import Nav from "@/components/Nav.astro";
 import Footer from "@/sections/Footer.astro";
 
 export interface Props {
-	title?: string;
+  title?: string;
 }
 
 const { title = "Web Designer and Developer - Raqueebuddin Aziz" } =
-	Astro.props;
+  Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<slot name="head" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script
-			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y"
-		></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			window.gtag = function () {
-				window.dataLayer.push(arguments);
-			};
-			gtag("js", new Date());
-			gtag("config", "G-197W0VNG3Y", {
-				cookie_domain: window.location.hostname,
-				cookie_flags: "SameSite=None;Secure",
-			});
-		</script>
-	</head>
-	<body>
-		<Background client:idle />
-		<Nav />
-		<slot />
-		<Container
-			class="bg-gray-100/50 border-t-2 border-gray-200 lg:p-10 p-5 backdrop-blur"
-		>
-			<Footer />
-		</Container>
-		<style is:global>
-			* {
-				/* helps with preventing unintended font boosting */
-				max-height: 99999999999999999px;
-			}
-			body,
-			html {
-				scroll-behavior: smooth;
-				@apply max-h-full font-sans;
-			}
-			section {
-				@apply scroll-m-60;
-			}
-		</style>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <slot name="head" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      gtag("js", new Date());
+      gtag("config", "G-197W0VNG3Y", {
+        cookie_domain: window.location.hostname,
+        cookie_flags: "SameSite=None;Secure",
+      });
+    </script>
+  </head>
+  <body>
+    <Background client:idle />
+    <Nav />
+    <slot />
+    <Footer />
+    <style is:global>
+      * {
+        /* helps with preventing unintended font boosting */
+        max-height: 99999999999999999px;
+      }
+      body,
+      html {
+        scroll-behavior: smooth;
+        @apply max-h-full font-sans;
+      }
+      section {
+        @apply scroll-m-60;
+      }
+    </style>
+  </body>
 </html>
