@@ -202,7 +202,7 @@ export const getSlots = (_children: JSXElement) => {
   const [slots, setSlots] = createStore<Record<string, JSXElement>>({});
   createComputed(
     on(parts, () => {
-      for (const part of parts.toArray() as unknown as Required<SlotProps>[]) {
+      for (const part of parts.toArray() as unknown as SlotProps[]) {
         if (!part.name) {
           setSlots("default", part);
           continue;
@@ -237,6 +237,10 @@ export const Slot: Component<SlotProps> = (props) => {
   return props as unknown as JSXElement;
 };
 ```
+
+The `getSlots` function parses the children and returns a store which contains the name of the `Slot` as the key and the children of the `Slot` as the value.
+
+Any children not wrapped in a `Slot` is given the name default this makes it so we don't have to pass a `Slot` even if there is only one children we want to pass.
 
 ### Usage
 
