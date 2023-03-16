@@ -48,8 +48,8 @@ const blogEntries = (await getCollection("blog")).sort((a, b) => {
                   <article class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden hover:scale-105 transition-transform">
                     <img
                       src={`/assets/images/blog/${slug}.svg`}
+                      alt={title}
                       class="w-full object-cover aspect-square"
-                      loading="lazy"
                       width="1024"
                       height="1024"
                     />
