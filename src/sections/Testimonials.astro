@@ -27,6 +27,13 @@ import testimonials from "@/data/testimonials";
               </div>
               <span class="i-fa-quote-right text-6xl text-gray-400" />
             </div>
+            <div class="flex gap-3">
+              {Array(5)
+                .fill(null)
+                .map(() => (
+                  <span class="text-amber-400 text-2xl i-clarity:star-solid" />
+                ))}
+            </div>
             <blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
             <figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end">
               - {author}, {title}

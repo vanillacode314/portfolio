@@ -39,6 +39,15 @@ import BlinkingEye from "@/components/BlinkingEye.astro";
     class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl"
   >
     <figure class="flex flex-col gap-5">
+      <div class="flex gap-3">
+        {
+          Array(5)
+            .fill(null)
+            .map(() => (
+              <span class="text-amber-400 text-2xl i-clarity:star-solid" />
+            ))
+        }
+      </div>
       <div class="flex gap-5">
         <blockquote class="grow md:text-lg">
           &ldquo;I've been coming back to work with Aziz for a couple months now
