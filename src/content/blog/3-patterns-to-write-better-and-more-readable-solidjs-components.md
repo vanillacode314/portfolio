@@ -246,12 +246,14 @@ Any children not wrapped in a `Slot` is given the name default this makes it so 
 
 ```tsx
 export const App: Component = () => {
-  <Section>
-    <Slot name="header">
-      <h3>My Header</h3>
-    </Slot>
-    My Content
-  </Section>;
+  return (
+    <Section>
+      <Slot name="header">
+        <h3>My Header</h3>
+      </Slot>
+      My Content
+    </Section>
+  );
 };
 ```
 
