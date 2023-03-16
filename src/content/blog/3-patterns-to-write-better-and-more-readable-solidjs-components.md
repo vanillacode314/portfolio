@@ -204,7 +204,7 @@ export const getSlots = (_children: JSXElement) => {
     on(parts, () => {
       for (const part of parts.toArray() as unknown as SlotProps[]) {
         if (!part.name) {
-          setSlots("default", part);
+          setSlots("default", () => part);
           continue;
         }
         setSlots(part.name, () => part.children);
