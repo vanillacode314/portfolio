@@ -1,6 +1,5 @@
 ---
 import { Background } from "@/components/Background";
-import Container from "@/components/Container.astro";
 import Nav from "@/components/Nav.astro";
 import Footer from "@/sections/Footer.astro";
 
@@ -10,6 +9,7 @@ export interface Props {
 
 const { title = "Web Designer and Developer - Raqueebuddin Aziz" } =
   Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -17,6 +17,8 @@ const { title = "Web Designer and Developer - Raqueebuddin Aziz" } =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta property="og:url" content={canonicalURL} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <slot name="head" />
     <meta name="generator" content={Astro.generator} />
