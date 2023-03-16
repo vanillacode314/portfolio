@@ -13,6 +13,7 @@ specifiers:
   astro: ^2.1.2
   astro-compressor: ^0.3.0
   astro-robots-txt: ^0.4.0
+  astro-seo-meta: ^2.0.0
   astro-seo-schema: ^2.0.0
   hastscript: ^7.2.0
   rehype-autolink-headings: ^6.1.1
@@ -32,6 +33,7 @@ dependencies:
   '@solid-primitives/event-listener': 2.2.8_solid-js@1.6.14
   '@unocss/reset': 0.50.4
   astro: 2.1.2_sass@1.59.2
+  astro-seo-meta: 2.0.0_astro@2.1.2
   astro-seo-schema: 2.0.0_gv4tm3kmxgwqni7sat6vrqchiu
   solid-js: 1.6.14
   unocss: 0.50.4
@@ -1096,6 +1098,14 @@ packages:
       valid-filename: 4.0.0
       zod: 3.21.4
     dev: true
+
+  /astro-seo-meta/2.0.0_astro@2.1.2:
+    resolution: {integrity: sha512-T/c1nQQvmYz0Ub04UooYo6JLZux7OaVwYeolWDf9L7RhpaqyWX80lOczSIt19/9mNKZq1hNYRcJBXWOArI36ug==}
+    peerDependencies:
+      astro: ^2.0.0
+    dependencies:
+      astro: 2.1.2_sass@1.59.2
+    dev: false
 
   /astro-seo-schema/2.0.0_gv4tm3kmxgwqni7sat6vrqchiu:
     resolution: {integrity: sha512-VMsoQr/v4VN3wLiVm4czfabQlQOKOVim45rwcYWVTuLZuksnE848F1GqejqSaUrCqVrUd8n31p6gLgS2yghw3A==}

@@ -17,10 +17,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta property="og:url" content={canonicalURL} />
+    <slot name="head" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <slot name="head" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script

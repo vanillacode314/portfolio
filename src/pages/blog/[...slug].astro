@@ -4,6 +4,7 @@ import authors from "@/data/authors";
 import Layout from "@/layouts/Layout.astro";
 import Comments from "@/sections/Comment";
 import { Schema } from "astro-seo-schema";
+import { Seo } from "astro-seo-meta";
 import { CollectionEntry, getCollection } from "astro:content";
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -49,20 +50,29 @@ const nextBlog = blogEntries[index + 1];
         keywords: frontmatter.seo.keywords,
         thumbnailUrl: Astro.site + imagePng.src.slice(1),
         image: Astro.site + imagePng.src.slice(1),
-        url: canonicalURL,
+        url: canonicalURL.toString(),
       }}
     />
-    <meta name="description" content={frontmatter.seo.description} />
-    <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:description" content={frontmatter.seo.description} />
-    <meta property="og:title" content={frontmatter.seo.title} />
-    <!-- <meta property="og:image" content={Astro.site + imageSvg.slice(1)} /> -->
-    <meta property="og:image" content={Astro.site + imagePng.src.slice(1)} />
+    <Seo
+      title={frontmatter.seo.title}
+      description={frontmatter.seo.description}
+      keywords={frontmatter.seo.keywords}
+      icon="/favicon.svg"
+      themeColor="#ea580c"
+      colorScheme="light"
+      facebook={{
+        image: `/assets/images/blog/${entry.slug}.svg`,
+        url: canonicalURL.toString(),
+        type: "article",
+      }}
+      twitter={{
+        image: `/assets/images/blog/${entry.slug}.svg`,
+        site: "@RaqueebuddinA",
+        card: "summary",
+      }}
+    />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:type" content="article" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </Fragment>
   <Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
     <ol class="flex gap-1 items-center">
