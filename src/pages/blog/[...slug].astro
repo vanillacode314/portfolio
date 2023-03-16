@@ -3,6 +3,7 @@ import Container from "@/components/Container.astro";
 import authors from "@/data/authors";
 import Layout from "@/layouts/Layout.astro";
 import Comments from "@/sections/Comment";
+import { Schema } from "astro-seo-schema";
 import { CollectionEntry, getCollection } from "astro:content";
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -36,6 +37,21 @@ const nextBlog = blogEntries[index + 1];
 
 <Layout title={frontmatter.title + " - Raqueebuddin Aziz"}>
   <Fragment slot="head">
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        identifier: entry.slug,
+        name: frontmatter.seo.title,
+        headline: frontmatter.seo.title,
+        author: author.name,
+        publisher: author.name,
+        keywords: frontmatter.seo.keywords,
+        thumbnailUrl: Astro.site + imagePng.src.slice(1),
+        image: Astro.site + imagePng.src.slice(1),
+        url: canonicalURL,
+      }}
+    />
     <meta name="description" content={frontmatter.seo.description} />
     <meta name="keywords" content={frontmatter.seo.keywords.join(",")} />
     <meta name="generator" content={Astro.generator} />

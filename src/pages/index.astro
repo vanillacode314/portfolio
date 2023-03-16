@@ -7,10 +7,31 @@ import About from "@/sections/About.astro";
 import Layout from "../layouts/Layout.astro";
 import Services from "@/sections/Services.astro";
 import Contact from "@/sections/Contact.astro";
+import { Schema } from "astro-seo-schema";
 ---
 
 <Layout>
   <Fragment slot="head">
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Raqueebuddin Aziz",
+        alternateName: "Raqueebuddin Aziz",
+        knowsAbout: [
+          "Computer Science",
+          "Web Programming",
+          "Web Development",
+          "Web Design",
+          "Freelancing",
+        ],
+        image: Astro.site + "assets/images/profile.webp",
+        thumbnailUrl: Astro.site + "assets/images/profile.webp",
+        email: "raqueebuddin.aziz.314@gmail.com",
+        gender: "https://schema.org/Male",
+        knowsLanguage: ["English", "Hindi"],
+      }}
+    />
     <meta
       name="description"
       content="I help businesses get more customers by improving their online presence and building quick-to-load, beautiful, easy-to-use websites."

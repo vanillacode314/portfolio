@@ -13,6 +13,7 @@ specifiers:
   astro: ^2.1.2
   astro-compressor: ^0.3.0
   astro-robots-txt: ^0.4.0
+  astro-seo-schema: ^2.0.0
   hastscript: ^7.2.0
   rehype-autolink-headings: ^6.1.1
   rehype-toc: ^3.0.2
@@ -31,6 +32,7 @@ dependencies:
   '@solid-primitives/event-listener': 2.2.8_solid-js@1.6.14
   '@unocss/reset': 0.50.4
   astro: 2.1.2_sass@1.59.2
+  astro-seo-schema: 2.0.0_gv4tm3kmxgwqni7sat6vrqchiu
   solid-js: 1.6.14
   unocss: 0.50.4
 
@@ -1094,6 +1096,17 @@ packages:
       valid-filename: 4.0.0
       zod: 3.21.4
     dev: true
+
+  /astro-seo-schema/2.0.0_gv4tm3kmxgwqni7sat6vrqchiu:
+    resolution: {integrity: sha512-VMsoQr/v4VN3wLiVm4czfabQlQOKOVim45rwcYWVTuLZuksnE848F1GqejqSaUrCqVrUd8n31p6gLgS2yghw3A==}
+    peerDependencies:
+      astro: ^2.0.0
+    dependencies:
+      astro: 2.1.2_sass@1.59.2
+      schema-dts: 1.1.2_typescript@4.9.5
+    transitivePeerDependencies:
+      - typescript
+    dev: false
 
   /astro/2.1.2_sass@1.59.2:
     resolution: {integrity: sha512-qxBIPHfFJhwNOxI2E96XrGrUM6lGkDRkDY8iqEJNFWPGP+t5yY5SWb8H+OdYUGopexy1GGjoY7SYQCzFBkt7iw==}
@@ -2993,6 +3006,14 @@ packages:
 
   /sax/1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
+  /schema-dts/1.1.2_typescript@4.9.5:
+    resolution: {integrity: sha512-MpNwH0dZJHinVxk9bT8XUdjKTxMYrA5bLtrrGmFA6PTLwlOKnhi67XoRd6/ty+Djt6ZC0slR57qFhZDNMI6DhQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 4.9.5
     dev: false
 
   /section-matter/1.0.0:
