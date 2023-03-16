@@ -45,8 +45,36 @@ const nextBlog = blogEntries[index + 1];
         identifier: entry.slug,
         name: frontmatter.seo.title,
         headline: frontmatter.seo.title,
-        author: author.name,
-        publisher: author.name,
+        author: {
+          name: "Raqueebuddin Aziz",
+          knowsAbout: [
+            "Computer Science",
+            "Web Programming",
+            "Web Development",
+            "Web Design",
+            "Freelancing",
+          ],
+          image: Astro.site + "assets/images/profile.webp",
+          url: canonicalURL.toString(),
+          email: "raqueebuddin.aziz.314@gmail.com",
+          gender: "https://schema.org/Male",
+          knowsLanguage: ["English", "Hindi"],
+        },
+        publisher: {
+          name: "Raqueebuddin Aziz",
+          knowsAbout: [
+            "Computer Science",
+            "Web Programming",
+            "Web Development",
+            "Web Design",
+            "Freelancing",
+          ],
+          image: Astro.site + "assets/images/profile.webp",
+          url: canonicalURL.toString(),
+          email: "raqueebuddin.aziz.314@gmail.com",
+          gender: "https://schema.org/Male",
+          knowsLanguage: ["English", "Hindi"],
+        },
         keywords: frontmatter.seo.keywords,
         thumbnailUrl: Astro.site + imagePng.src.slice(1),
         image: Astro.site + imagePng.src.slice(1),
@@ -61,12 +89,12 @@ const nextBlog = blogEntries[index + 1];
       themeColor="#ea580c"
       colorScheme="light"
       facebook={{
-        image: `/assets/images/blog/${entry.slug}.svg`,
+        image: Astro.site + `/assets/images/blog/${entry.slug}.svg`,
         url: canonicalURL.toString(),
         type: "article",
       }}
       twitter={{
-        image: `/assets/images/blog/${entry.slug}.svg`,
+        image: Astro.site + `/assets/images/blog/${entry.slug}.svg`,
         site: "@RaqueebuddinA",
         card: "summary",
       }}

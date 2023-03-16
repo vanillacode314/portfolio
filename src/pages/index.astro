@@ -19,7 +19,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "@context": "https://schema.org",
         "@type": "Person",
         name: "Raqueebuddin Aziz",
-        alternateName: "Raqueebuddin Aziz",
         knowsAbout: [
           "Computer Science",
           "Web Programming",
@@ -43,12 +42,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       themeColor="#ea580c"
       colorScheme="light"
       facebook={{
-        image: "/assets/images/profile.webp",
+        image: Astro.site + "/assets/images/profile.webp",
         url: canonicalURL.toString(),
         type: "website",
       }}
       twitter={{
-        image: "/assets/images/profile.webp",
+        image: Astro.site + "/assets/images/profile.webp",
         site: "@RaqueebuddinA",
         card: "summary",
       }}
