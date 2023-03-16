@@ -30,7 +30,11 @@ export default defineConfig({
             mono: ["JetBrains Mono", "monospace"],
           },
         }),
-        presetIcons(),
+        presetIcons({
+          extraProperties: {
+            "vertical-align": "middle",
+          },
+        }),
       ],
       safelist: ["i-mdi-link-variant"],
     }),
