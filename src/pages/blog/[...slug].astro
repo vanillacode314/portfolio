@@ -46,6 +46,7 @@ const nextBlog = blogEntries[index + 1];
         name: frontmatter.seo.title,
         headline: frontmatter.seo.title,
         author: {
+          "@type": "Person",
           name: "Raqueebuddin Aziz",
           knowsAbout: [
             "Computer Science",
@@ -61,7 +62,9 @@ const nextBlog = blogEntries[index + 1];
           knowsLanguage: ["English", "Hindi"],
         },
         publisher: {
+          "@type": "Organization",
           name: "Raqueebuddin Aziz",
+          logo: Astro.site + "assets/favicon.svg",
           knowsAbout: [
             "Computer Science",
             "Web Programming",
@@ -72,7 +75,6 @@ const nextBlog = blogEntries[index + 1];
           image: Astro.site + "assets/images/profile.webp",
           url: canonicalURL.toString(),
           email: "raqueebuddin.aziz.314@gmail.com",
-          gender: "https://schema.org/Male",
           knowsLanguage: ["English", "Hindi"],
         },
         keywords: frontmatter.seo.keywords,
@@ -89,12 +91,12 @@ const nextBlog = blogEntries[index + 1];
       themeColor="#ea580c"
       colorScheme="light"
       facebook={{
-        image: Astro.site + `/assets/images/blog/${entry.slug}.svg`,
+        image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
         url: canonicalURL.toString(),
         type: "article",
       }}
       twitter={{
-        image: Astro.site + `/assets/images/blog/${entry.slug}.svg`,
+        image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
         site: "@RaqueebuddinA",
         card: "summary",
       }}
