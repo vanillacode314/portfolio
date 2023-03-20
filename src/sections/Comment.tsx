@@ -175,7 +175,7 @@ export default function Comments(props: { slug: string }) {
           }
         >
           {({ username, comment }) => (
-            <article class="bg-gray-100 p-5 rounded-5 flex flex-col gap-1 border shadow-sm">
+            <article class="bg-gray-100 p-5 rounded-5 flex flex-col gap-1 border shadow-sm whitespace-pre-line">
               <h3 class="uppercase tracking-wide font-semibold text-gray-600 text-xs">
                 {username}
               </h3>
