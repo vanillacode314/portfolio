@@ -57,7 +57,7 @@ export default function Comments(props: { slug: string }) {
         body: JSON.stringify({
           username: formData.username,
           email: formData.email,
-          comment: comment(),
+          comment: comment().trim(),
           slug: props.slug,
         }),
       });
@@ -179,7 +179,7 @@ export default function Comments(props: { slug: string }) {
               <h3 class="uppercase tracking-wide font-semibold text-gray-600 text-xs">
                 {username}
               </h3>
-              <p class="text-gray-900">{comment}</p>
+              <p class="text-gray-900">{comment.trim()}</p>
             </article>
           )}
         </For>
