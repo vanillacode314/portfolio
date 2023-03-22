@@ -37,11 +37,11 @@ export default defineConfig({
 		}),
 		solidJs(),
 		sitemap(),
-		partytown({
-			config: {
-				forward: ['dataLayer.push']
-			}
-		}),
+		// partytown({
+		// 	config: {
+		// 		forward: ['dataLayer.push']
+		// 	}
+		// }),
 		robots(),
 		compressor()
 	],
