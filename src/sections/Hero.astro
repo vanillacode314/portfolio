@@ -144,7 +144,7 @@
 	const forms = document.querySelectorAll("form[name='report']") as NodeListOf<HTMLFormElement>
 	function onSubmit(e: SubmitEvent) {
 		e.preventDefault()
-		gtag('event', 'generate_lead', {
+		window.gtag('event', 'generate_lead', {
 			event_category: 'Lead Generation',
 			event_label: 'Report Form Submission (A)',
 			event_callback: function () {
