@@ -142,11 +142,13 @@
 <script>
 	// import Typewriter from 'typewriter-effect/dist/core'
 
-	const form = document.querySelector("form[name='report']") as HTMLFormElement
-	form?.addEventListener('submit', () => {
-		gtag('event', 'generate_lead', {
-			event_category: 'Lead Generation',
-			event_label: 'Report Form Submission'
+	const forms = document.querySelectorAll("form[name='report']") as NodeListOf<HTMLFormElement>
+	forms.forEach((form) => {
+		form.addEventListener('submit', () => {
+			gtag('event', 'generate_lead', {
+				event_category: 'Lead Generation',
+				event_label: 'Report Form Submission (A)'
+			})
 		})
 	})
 

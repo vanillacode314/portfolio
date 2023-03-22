@@ -56,7 +56,10 @@
 	<script>
 		const form = document.querySelector("form[name='contact']") as HTMLFormElement
 		form?.addEventListener('submit', () => {
-			gtag('event', 'generate_lead', {})
+			gtag('event', 'generate_lead', {
+				event_category: 'Lead Generation',
+				event_label: 'Contact Form Submission (A)'
+			})
 		})
 	</script>
 </div>
