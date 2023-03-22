@@ -4,9 +4,9 @@ description: A complete guide to Custom Stores in Svelte with Examples
 seo:
   title: Svelte Custom Stores Demystified
   description: A complete guide to Custom Stores in Svelte with Examples
-  keywords: ["svelte", "stores", "custom stores", "sveltekit"]
+  keywords: ['svelte', 'stores', 'custom stores', 'sveltekit']
 author: raqueebuddinaziz
-created: "Sep 13, 2022"
+created: 'Sep 13, 2022'
 ---
 
 Recently a fellow svelte dev asked me about custom stores, So here I am demystifying svelte stores.
@@ -33,13 +33,13 @@ is just there to differentiate it from the actual `user` store.
 We pass a callback function to the subscribe method of the `user` store and the store guarantees that whenever user object changes it will run that callback.
 
 ```javascript
-const user = new Store({ name: "John Doe", age: 18 });
+const user = new Store({ name: 'John Doe', age: 18 })
 
 user.subscribe(($user) => {
-  if ($user.age === 18) {
-    sendMessage(`Happy Birthday! ${$user.name}`);
-  }
-});
+	if ($user.age === 18) {
+		sendMessage(`Happy Birthday! ${$user.name}`)
+	}
+})
 ```
 
 ### Telling about changes
@@ -59,31 +59,31 @@ Let's think about how would we go about implementing something like this.
 
 ```javascript
 class Store {
-  constructor(initialValue = null) {
-    this.value = initialValue;
-    this.callbacks = [];
-  }
+	constructor(initialValue = null) {
+		this.value = initialValue
+		this.callbacks = []
+	}
 
-  subscribe(callback) {
-    /* call the callback immediately on subscribe */
-    callback(this.value);
-    /* add the callback to list of callbacks */
-    this.callbacks.push(callback);
-    /* return a function to unsubscribe */
-    return () => this.unsubscribe(callback);
-  }
+	subscribe(callback) {
+		/* call the callback immediately on subscribe */
+		callback(this.value)
+		/* add the callback to list of callbacks */
+		this.callbacks.push(callback)
+		/* return a function to unsubscribe */
+		return () => this.unsubscribe(callback)
+	}
 
-  unsubscribe(callback) {
-    this.callbacks = this.callbacks.filter((cb) => cb !== callback);
-  }
+	unsubscribe(callback) {
+		this.callbacks = this.callbacks.filter((cb) => cb !== callback)
+	}
 
-  set(value) {
-    this.value = value;
-    /* call all the callbacks registered */
-    for (const callback of this.callbacks) {
-      callback(this.value);
-    }
-  }
+	set(value) {
+		this.value = value
+		/* call all the callbacks registered */
+		for (const callback of this.callbacks) {
+			callback(this.value)
+		}
+	}
 }
 ```
 
@@ -101,23 +101,23 @@ Let us look at some examples.
 ### Example #1 (Dark Mode Store)
 
 ```javascript
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store'
 
 function darkModeStore() {
-  const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
+	const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
-  /* set the value immediately in writable initialValue */
-  const { set, subscribe, update } = writable(darkMode.matches);
+	/* set the value immediately in writable initialValue */
+	const { set, subscribe, update } = writable(darkMode.matches)
 
-  /* start listening to user preference changes and update the value */
-  darkMode.addEventListener("change", () => set(darkMode.matches));
+	/* start listening to user preference changes and update the value */
+	darkMode.addEventListener('change', () => set(darkMode.matches))
 
-  return {
-    subscribe,
-  };
+	return {
+		subscribe
+	}
 }
 
-const darkMode = darkModeStore();
+const darkMode = darkModeStore()
 ```
 
 This is a store whose value is `true` if user has dark mode on otherwise `false`.
@@ -130,29 +130,27 @@ Second we are returning only a `subscribe` function and no `set` function, this 
 ### Example #2 (Runtime Type Checking)
 
 ```javascript
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store'
 
 function checkType(value, typeName) {
-  if (typeof value !== typeName)
-    throw new Error(
-      `provided value ${value} has type ${typeof value} expected ${typeName}`
-    );
+	if (typeof value !== typeName)
+		throw new Error(`provided value ${value} has type ${typeof value} expected ${typeName}`)
 }
 
 function enforceType(initialValue, typeName) {
-  checkType(initialValue, typeName);
-  const { set, subscribe, update } = writable(initialValue);
+	checkType(initialValue, typeName)
+	const { set, subscribe, update } = writable(initialValue)
 
-  return {
-    subscribe,
-    set(value) {
-      checkType(value, typeName);
-      set(value);
-    },
-  };
+	return {
+		subscribe,
+		set(value) {
+			checkType(value, typeName)
+			set(value)
+		}
+	}
 }
 
-const age = enforceType(18, "number");
+const age = enforceType(18, 'number')
 ```
 
 This is a store which takes two parameters an `initialValue` and a `typeName` and makes sure that the value of the store always has that type.
@@ -165,14 +163,14 @@ Here we also return a `set` function that checks the type before updating the va
 
 ```javascript
 function createCount() {
-  const { subscribe, set, update } = writable(0);
+	const { subscribe, set, update } = writable(0)
 
-  return {
-    subscribe,
-    increment: () => update((n) => n + 1),
-    decrement: () => update((n) => n - 1),
-    reset: () => set(0),
-  };
+	return {
+		subscribe,
+		increment: () => update((n) => n + 1),
+		decrement: () => update((n) => n - 1),
+		reset: () => set(0)
+	}
 }
 ```
 

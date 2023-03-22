@@ -1,387 +1,370 @@
 ---
-import Container from "@/components/Container.astro";
-import authors from "@/data/authors";
-import Layout from "@/layouts/Layout.astro";
-import Comments from "@/sections/Comment";
-import { Schema } from "astro-seo-schema";
-import { Seo } from "astro-seo-meta";
-import { CollectionEntry, getCollection } from "astro:content";
+import Container from '@/components/Container.astro'
+import authors from '@/data/authors'
+import Layout from '@/layouts/Layout.astro'
+import Comments from '@/sections/Comment'
+import { Schema } from 'astro-seo-schema'
+import { Seo } from 'astro-seo-meta'
+import { CollectionEntry, getCollection } from 'astro:content'
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+	const blogEntries = await getCollection('blog')
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}))
 }
-const { entry } = Astro.props as { entry: CollectionEntry<"blog"> };
-const frontmatter = entry.data;
-const { Content } = await entry.render();
+const { entry } = Astro.props as { entry: CollectionEntry<'blog'> }
+const frontmatter = entry.data
+const { Content } = await entry.render()
 
-const author = authors.find((author) => author.id === entry.data.author);
-if (!author) throw new Error(`author with id ${entry.data.author} not found.`);
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const author = authors.find((author) => author.id === entry.data.author)
+if (!author) throw new Error(`author with id ${entry.data.author} not found.`)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // const { default: imageSvg } = await import(`../assets/images/blog/${slug}.svg`);
-const { default: imagePng } = await import(
-  `../../assets/images/blog/${entry.slug}.png`
-);
-const blogEntries = (await getCollection("blog")).sort((a, b) => {
-  const date1 = new Date(a.data.created);
-  const date2 = new Date(b.data.created);
-  if (date1 === date2) return 0;
-  if (date1 >= date2) return 1;
-  return -1;
-});
-const index = blogEntries.findIndex(($entry) => $entry.slug === entry.slug);
-const prevBlog = blogEntries[index - 1];
-const nextBlog = blogEntries[index + 1];
+const { default: imagePng } = await import(`../../assets/images/blog/${entry.slug}.png`)
+const blogEntries = (await getCollection('blog')).sort((a, b) => {
+	const date1 = new Date(a.data.created)
+	const date2 = new Date(b.data.created)
+	if (date1 === date2) return 0
+	if (date1 >= date2) return 1
+	return -1
+})
+const index = blogEntries.findIndex(($entry) => $entry.slug === entry.slug)
+const prevBlog = blogEntries[index - 1]
+const nextBlog = blogEntries[index + 1]
 ---
 
-<Layout title={frontmatter.title + " - Raqueebuddin Aziz"}>
-  <Fragment slot="head">
-    <Schema
-      item={{
-        "@context": "https://schema.org",
-        "@type": "Article",
-        identifier: entry.slug,
-        name: frontmatter.seo.title,
-        headline: frontmatter.seo.title,
-        author: {
-          "@type": "Person",
-          name: "Raqueebuddin Aziz",
-          knowsAbout: [
-            "Computer Science",
-            "Web Programming",
-            "Web Development",
-            "Web Design",
-            "Freelancing",
-          ],
-          image: Astro.site + "assets/images/profile.webp",
-          url: canonicalURL.toString(),
-          email: "raqueebuddin.aziz.314@gmail.com",
-          gender: "https://schema.org/Male",
-          knowsLanguage: ["English", "Hindi"],
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Raqueebuddin Aziz",
-          logo: Astro.site + "assets/favicon.svg",
-          knowsAbout: [
-            "Computer Science",
-            "Web Programming",
-            "Web Development",
-            "Web Design",
-            "Freelancing",
-          ],
-          image: Astro.site + "assets/images/profile.webp",
-          url: canonicalURL.toString(),
-          email: "raqueebuddin.aziz.314@gmail.com",
-          knowsLanguage: ["English", "Hindi"],
-        },
-        keywords: frontmatter.seo.keywords,
-        thumbnailUrl: Astro.site + imagePng.src.slice(1),
-        image: Astro.site + imagePng.src.slice(1),
-        url: canonicalURL.toString(),
-      }}
-    />
-    <Seo
-      title={frontmatter.seo.title}
-      description={frontmatter.seo.description}
-      keywords={frontmatter.seo.keywords}
-      icon="/favicon.svg"
-      themeColor="#ea580c"
-      colorScheme="light"
-      facebook={{
-        image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
-        url: canonicalURL.toString(),
-        type: "article",
-      }}
-      twitter={{
-        image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
-        site: "@RaqueebuddinA",
-        card: "summary",
-      }}
-    />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-  </Fragment>
-  <Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
-    <ol class="flex gap-1 items-center">
-      <li class="hidden md:contents">
-        <a href="/blog" class="text-lg hover:underline"> blog</a>
-        <span class="text-xl i-mdi-chevron-right"></span>
-        <span class="font-bold text-lg">
-          {entry.slug}
-        </span>
-      </li>
-    </ol>
-    <section
-      class="bg-gray-900 p-10 rounded-10 text-gray-100 grid md:grid-cols-2 gap-5 shadow-lg"
-    >
-      <img
-        src={`/assets/images/blog/${entry.slug}.svg`}
-        alt={frontmatter.title}
-        width="300"
-        height="300"
-        class="shadow-inner rounded-5 mx-auto md:mx-none"
-      />
-      <article
-        class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1 mb-auto items"
-      >
-        <p class="text-gray-900 uppercase font-bold">By</p>
-        <h3
-          class="text-2xl uppercase tracking-wide text-gray-900 font-semibold"
-        >
-          {author.name}
-        </h3>
-        <p class="text-gray-500 text-xs font-medium uppercase tracking-wide">
-          {
-            new Date(frontmatter.created).toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          }
-          {
-            frontmatter.updated &&
-              `(Updated on ${new Date(frontmatter.updated).toLocaleDateString(
-                undefined,
-                {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                }
-              )})`
-          }
-        </p>
-        <p class="mt-3 text-lg text-gray-600">{author.description}</p>
-      </article>
-      <h1 class="text-4xl md:text-6xl font-black col-start-1 md:col-end-3">
-        {frontmatter.title}
-      </h1>
-    </section>
-    <div class="markdown">
-      <Content />
-    </div>
-    <section class="flex flex-wrap gap-5">
-      <!-- TODO: get facebook share working -->
-      <!-- <a -->
-      <!--   href={`https://www.facebook.com/dialog/share?app_id=3270061229907621&display=page&hashtag=${encodeURIComponent( -->
-      <!--     '#' + frontmatter.seo.keywords[0] -->
-      <!--   )}&href=${canonicalURL}&redirect_uri=${canonicalURL}`} -->
-      <!--   class="facebook-share-button" -->
-      <!-- > -->
-      <!--   <span class="icon-wrapper"> -->
-      <!--     <svg width="1em" height="1em" viewBox="0 0 256 256" -->
-      <!--       ><path -->
-      <!--         fill="#1877F2" -->
-      <!--         d="M256 128C256 57.308 198.692 0 128 0C57.308 0 0 57.307 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.347-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.958 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445" -->
-      <!--       ></path><path -->
-      <!--         fill="#FFF" -->
-      <!--         d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A128.959 128.959 0 0 0 128 256a128.9 128.9 0 0 0 20-1.555V165h29.825" -->
-      <!--       ></path> -->
-      <!--     </svg> -->
-      <!--   </span> -->
-      <!--   Share on Facebook</a -->
-      <!-- > -->
-      <a
-        href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
-        target="_blank"
-        class="flex gap-3 text-gray-100 bg-blue-500 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-700 focus:bg-blue-700 transition-colors"
-      >
-        <span class="i-mdi-twitter text-2xl"></span>
-        Tweet</a
-      >
-      <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
-        class="flex gap-3 text-gray-100 bg-blue-900 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-800 focus:bg-blue-800 transition-colors"
-        target="_blank"
-      >
-        <span class="i-mdi-linkedin text-2xl"></span>
-        Share on LinkedIN</a
-      >
-      <a
-        href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
-        class="flex gap-3 text-gray-100 bg-red-600 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-red-800 focus:bg-red-800 transition-colors"
-        target="_blank"
-      >
-        <span class="i-fa6-brands:reddit-alien text-2xl"></span>
-        Post on Reddit</a
-      >
-    </section>
-    <section class="flex justify-between gap-5 flex-wrap">
-      {
-        prevBlog ? (
-          <a href={`/blog/${prevBlog.slug}`}>
-            <article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
-              <span class="text-lg i-mdi-chevron-left" />
-              <span class="text-sm md:text-base font-bold uppercase">
-                {prevBlog.data.title}
-              </span>
-              <img
-                src={`/assets/images/blog/${prevBlog.slug}.svg`}
-                class="rounded w-20 md:w-25 lg:w-30"
-                alt={prevBlog.data.title}
-                width="50"
-                height="50"
-              />
-            </article>
-          </a>
-        ) : (
-          <div />
-        )
-      }
-      {
-        nextBlog ? (
-          <a href={`/blog/${nextBlog.slug}`}>
-            <article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
-              <img
-                src={`/assets/images/blog/${nextBlog.slug}.svg`}
-                class="rounded w-20 md:w-25 lg:w-30"
-                width="50"
-                height="50"
-                alt={nextBlog.data.title}
-              />
-              <span class="text-sm md:text-base font-bold uppercase">
-                {nextBlog.data.title}
-              </span>
-              <span class="text-lg i-mdi-chevron-right" />
-            </article>
-          </a>
-        ) : (
-          <div />
-        )
-      }
-    </section>
-    <Comments slug={entry.slug} client:idle />
-    <button
-      id="gototop"
-      aria-label="Go to top"
-      class="bg-orange-600 w-10 text-gray-100 h-10 rounded-full grid place-content-center aspect-square fixed bottom-5 right-5 z-30"
-    >
-      <span class="i-mdi-chevron-up text-3xl"></span>
-    </button>
-    <div
-      id="progressbar"
-      class="h-1 w-full fixed top-0 left-0 bg-orange-600 origin-top-left"
-    >
-    </div>
-  </Container>
-  <script>
-    const gototop = document.getElementById("gototop");
-    gototop?.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    const progressbar = document.getElementById("progressbar");
-    const markdownSection = document.querySelector(".markdown")!;
-    const rect = markdownSection.getBoundingClientRect();
-    const bottom = rect.bottom + window.scrollY;
-    function onScroll() {
-      const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1));
-      progressbar!.style.transform = `scaleX(${progress})`;
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-  </script>
+<Layout title={frontmatter.title + ' - Raqueebuddin Aziz'}>
+	<Fragment slot="head">
+		<Schema
+			item={{
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				identifier: entry.slug,
+				name: frontmatter.seo.title,
+				headline: frontmatter.seo.title,
+				author: {
+					'@type': 'Person',
+					name: 'Raqueebuddin Aziz',
+					knowsAbout: [
+						'Computer Science',
+						'Web Programming',
+						'Web Development',
+						'Web Design',
+						'Freelancing'
+					],
+					image: Astro.site + 'assets/images/profile.webp',
+					url: canonicalURL.toString(),
+					email: 'raqueebuddin.aziz.314@gmail.com',
+					gender: 'https://schema.org/Male',
+					knowsLanguage: ['English', 'Hindi']
+				},
+				publisher: {
+					'@type': 'Organization',
+					name: 'Raqueebuddin Aziz',
+					logo: Astro.site + 'assets/favicon.svg',
+					knowsAbout: [
+						'Computer Science',
+						'Web Programming',
+						'Web Development',
+						'Web Design',
+						'Freelancing'
+					],
+					image: Astro.site + 'assets/images/profile.webp',
+					url: canonicalURL.toString(),
+					email: 'raqueebuddin.aziz.314@gmail.com',
+					knowsLanguage: ['English', 'Hindi']
+				},
+				keywords: frontmatter.seo.keywords,
+				thumbnailUrl: Astro.site + imagePng.src.slice(1),
+				image: Astro.site + imagePng.src.slice(1),
+				url: canonicalURL.toString()
+			}}
+		/>
+		<Seo
+			title={frontmatter.seo.title}
+			description={frontmatter.seo.description}
+			keywords={frontmatter.seo.keywords}
+			icon="/favicon.svg"
+			themeColor="#ea580c"
+			colorScheme="light"
+			facebook={{
+				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
+				url: canonicalURL.toString(),
+				type: 'article'
+			}}
+			twitter={{
+				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
+				site: '@RaqueebuddinA',
+				card: 'summary'
+			}}
+		/>
+		<meta property="og:image:width" content="1024" />
+		<meta property="og:image:height" content="1024" />
+	</Fragment>
+	<Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
+		<ol class="flex gap-1 items-center">
+			<li class="hidden md:contents">
+				<a href="/blog" class="text-lg hover:underline"> blog</a>
+				<span class="text-xl i-mdi-chevron-right"></span>
+				<span class="font-bold text-lg">
+					{entry.slug}
+				</span>
+			</li>
+		</ol>
+		<section class="bg-gray-900 p-10 rounded-10 text-gray-100 grid md:grid-cols-2 gap-5 shadow-lg">
+			<img
+				src={`/assets/images/blog/${entry.slug}.svg`}
+				alt={frontmatter.title}
+				width="300"
+				height="300"
+				class="shadow-inner rounded-5 mx-auto md:mx-none"
+			/>
+			<article
+				class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1 mb-auto items"
+			>
+				<p class="text-gray-900 uppercase font-bold">By</p>
+				<h3 class="text-2xl uppercase tracking-wide text-gray-900 font-semibold">
+					{author.name}
+				</h3>
+				<p class="text-gray-500 text-xs font-medium uppercase tracking-wide">
+					{
+						new Date(frontmatter.created).toLocaleDateString(undefined, {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric'
+						})
+					}
+					{
+						frontmatter.updated &&
+							`(Updated on ${new Date(frontmatter.updated).toLocaleDateString(undefined, {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric'
+							})})`
+					}
+				</p>
+				<p class="mt-3 text-lg text-gray-600">{author.description}</p>
+			</article>
+			<h1 class="text-4xl md:text-6xl font-black col-start-1 md:col-end-3">
+				{frontmatter.title}
+			</h1>
+		</section>
+		<div class="markdown">
+			<Content />
+		</div>
+		<section class="flex flex-wrap gap-5">
+			<!-- TODO: get facebook share working -->
+			<!-- <a -->
+			<!--   href={`https://www.facebook.com/dialog/share?app_id=3270061229907621&display=page&hashtag=${encodeURIComponent( -->
+			<!--     '#' + frontmatter.seo.keywords[0] -->
+			<!--   )}&href=${canonicalURL}&redirect_uri=${canonicalURL}`} -->
+			<!--   class="facebook-share-button" -->
+			<!-- > -->
+			<!--   <span class="icon-wrapper"> -->
+			<!--     <svg width="1em" height="1em" viewBox="0 0 256 256" -->
+			<!--       ><path -->
+			<!--         fill="#1877F2" -->
+			<!--         d="M256 128C256 57.308 198.692 0 128 0C57.308 0 0 57.307 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.347-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.958 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445" -->
+			<!--       ></path><path -->
+			<!--         fill="#FFF" -->
+			<!--         d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A128.959 128.959 0 0 0 128 256a128.9 128.9 0 0 0 20-1.555V165h29.825" -->
+			<!--       ></path> -->
+			<!--     </svg> -->
+			<!--   </span> -->
+			<!--   Share on Facebook</a -->
+			<!-- > -->
+			<a
+				href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
+				target="_blank"
+				class="flex gap-3 text-gray-100 bg-blue-500 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-700 focus:bg-blue-700 transition-colors"
+			>
+				<span class="i-mdi-twitter text-2xl"></span>
+				Tweet</a
+			>
+			<a
+				href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
+				class="flex gap-3 text-gray-100 bg-blue-900 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-800 focus:bg-blue-800 transition-colors"
+				target="_blank"
+			>
+				<span class="i-mdi-linkedin text-2xl"></span>
+				Share on LinkedIN</a
+			>
+			<a
+				href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
+				class="flex gap-3 text-gray-100 bg-red-600 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-red-800 focus:bg-red-800 transition-colors"
+				target="_blank"
+			>
+				<span class="i-fa6-brands:reddit-alien text-2xl"></span>
+				Post on Reddit</a
+			>
+		</section>
+		<section class="flex justify-between gap-5 flex-wrap">
+			{
+				prevBlog ? (
+					<a href={`/blog/${prevBlog.slug}`}>
+						<article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
+							<span class="text-lg i-mdi-chevron-left" />
+							<span class="text-sm md:text-base font-bold uppercase">{prevBlog.data.title}</span>
+							<img
+								src={`/assets/images/blog/${prevBlog.slug}.svg`}
+								class="rounded w-20 md:w-25 lg:w-30"
+								alt={prevBlog.data.title}
+								width="50"
+								height="50"
+							/>
+						</article>
+					</a>
+				) : (
+					<div />
+				)
+			}
+			{
+				nextBlog ? (
+					<a href={`/blog/${nextBlog.slug}`}>
+						<article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
+							<img
+								src={`/assets/images/blog/${nextBlog.slug}.svg`}
+								class="rounded w-20 md:w-25 lg:w-30"
+								width="50"
+								height="50"
+								alt={nextBlog.data.title}
+							/>
+							<span class="text-sm md:text-base font-bold uppercase">{nextBlog.data.title}</span>
+							<span class="text-lg i-mdi-chevron-right" />
+						</article>
+					</a>
+				) : (
+					<div />
+				)
+			}
+		</section>
+		<Comments slug={entry.slug} client:idle />
+		<button
+			id="gototop"
+			aria-label="Go to top"
+			class="bg-orange-600 w-10 text-gray-100 h-10 rounded-full grid place-content-center aspect-square fixed bottom-5 right-5 z-30"
+		>
+			<span class="i-mdi-chevron-up text-3xl"></span>
+		</button>
+		<div id="progressbar" class="h-1 w-full fixed top-0 left-0 bg-orange-600 origin-top-left"></div>
+	</Container>
+	<script>
+		const gototop = document.getElementById('gototop')
+		gototop?.addEventListener('click', () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
+		})
+		const progressbar = document.getElementById('progressbar')
+		const markdownSection = document.querySelector('.markdown')!
+		const rect = markdownSection.getBoundingClientRect()
+		const bottom = rect.bottom + window.scrollY
+		function onScroll() {
+			const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1))
+			progressbar!.style.transform = `scaleX(${progress})`
+		}
+		onScroll()
+		window.addEventListener('scroll', onScroll)
+	</script>
 
-  <style is:global lang="scss">
-    .markdown {
-      h2 {
-        @apply flex gap-3 items-center text-2xl my-3 font-semibold;
-      }
+	<style is:global lang="scss">
+		.markdown {
+			h2 {
+				@apply my-3 flex items-center gap-3 text-2xl font-semibold;
+			}
 
-      h3 {
-        @apply flex gap-3 items-center text-xl my-3 font-semibold;
-      }
+			h3 {
+				@apply my-3 flex items-center gap-3 text-xl font-semibold;
+			}
 
-      p {
-        @apply my-5;
-      }
+			p {
+				@apply my-5;
+			}
 
-      :not(pre) > code {
-        @apply bg-stone-800 px-2 text-gray-100 rounded-md font-mono inline-block mb-1;
-      }
+			:not(pre) > code {
+				@apply mb-1 inline-block rounded-md bg-stone-800 px-2 font-mono text-gray-100;
+			}
 
-      a > code {
-        @apply bg-stone-800 px-2 rounded-md cursor-pointer font-mono inline-block;
-        @apply underline decoration-dotted text-orange-600 hover:text-orange-500 visited:text-purple-600 hover:visited:text-purple-500;
-      }
+			a > code {
+				@apply inline-block cursor-pointer rounded-md bg-stone-800 px-2 font-mono;
+				@apply text-orange-600 underline decoration-dotted visited:text-purple-600 hover:text-orange-500 hover:visited:text-purple-500;
+			}
 
-      a {
-        @apply underline decoration-dotted text-orange-600 hover:text-orange-500 visited:text-orange-900 hover:visited:text-purple-500;
-      }
+			a {
+				@apply text-orange-600 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500;
+			}
 
-      .astro-code {
-        font-variant-ligatures: none;
-        /* custom scrollbar */
-        &::-webkit-scrollbar-track {
-          border-radius: 10px;
-          background: rgb(255 255 255 / 20%);
-        }
+			.astro-code {
+				font-variant-ligatures: none;
+				/* custom scrollbar */
+				&::-webkit-scrollbar-track {
+					border-radius: 10px;
+					background: rgb(255 255 255 / 20%);
+				}
 
-        &::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          background: rgb(255 255 255 / 20%);
-        }
+				&::-webkit-scrollbar-thumb {
+					border-radius: 10px;
+					background: rgb(255 255 255 / 20%);
+				}
 
-        &::-webkit-scrollbar-thumb:hover {
-          background: rgb(255 255 255 / 40%);
-        }
+				&::-webkit-scrollbar-thumb:hover {
+					background: rgb(255 255 255 / 40%);
+				}
 
-        &::-webkit-scrollbar-thumb:active {
-          background: rgb(255 255 255 / 90%);
-        }
-        * {
-          @apply font-mono;
-        }
-        max-width: calc(100vw - 2.5rem);
-        @media (min-width: 1024px) {
-          max-width: calc(100vw - 5rem);
-        }
-        @apply p-5 rounded-xl font-mono overflow-x-auto my-5 min-w-0 block;
-      }
+				&::-webkit-scrollbar-thumb:active {
+					background: rgb(255 255 255 / 90%);
+				}
+				* {
+					@apply font-mono;
+				}
+				max-width: calc(100vw - 2.5rem);
+				@media (min-width: 1024px) {
+					max-width: calc(100vw - 5rem);
+				}
+				@apply my-5 block min-w-0 overflow-x-auto rounded-xl p-5 font-mono;
+			}
 
-      ul {
-        font-size: var(--body-text);
-        line-height: var(--font-lineheight-2);
-        list-style-type: disc;
-        list-style-position: inside;
-        & > li > ul {
-          list-style-type: circle;
-          margin-inline-start: 3ch;
-          & > li > ul {
-            list-style-type: square;
-          }
-        }
-      }
-      em {
-        font-style: italic;
-      }
+			ul {
+				font-size: var(--body-text);
+				line-height: var(--font-lineheight-2);
+				list-style-type: disc;
+				list-style-position: inside;
+				& > li > ul {
+					list-style-type: circle;
+					margin-inline-start: 3ch;
+					& > li > ul {
+						list-style-type: square;
+					}
+				}
+			}
+			em {
+				font-style: italic;
+			}
 
-      .toc {
-        a {
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-        .toc-level-1 {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        ol {
-          font-size: 1.125rem;
-          line-height: 1.75rem;
-          list-style-type: decimal;
-          & > li > ol {
-            list-style-type: lower-roman;
-            font-size: 1rem;
-            line-height: 1.5rem;
-            margin-inline-start: 3ch;
-          }
-        }
-        @apply px-12 py-10 bg-neutral-100 rounded-10 shadow-lg;
-      }
-    }
-  </style>
+			.toc {
+				a {
+					text-decoration: none;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				.toc-level-1 {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+				ol {
+					font-size: 1.125rem;
+					line-height: 1.75rem;
+					list-style-type: decimal;
+					& > li > ol {
+						list-style-type: lower-roman;
+						font-size: 1rem;
+						line-height: 1.5rem;
+						margin-inline-start: 3ch;
+					}
+				}
+				@apply rounded-10 bg-neutral-100 px-12 py-10 shadow-lg;
+			}
+		}
+	</style>
 </Layout>

@@ -4,17 +4,9 @@ description: A guide on how to type events, slots, and props in svelte
 seo:
   title: How to type Events, Slots, and Props in Svelte
   description: A guide on how to type events, slots, and props in svelte
-  keywords:
-    [
-      "svelte",
-      "typescript",
-      "events",
-      "slots",
-      "props",
-      "typing svelte components",
-    ]
+  keywords: ['svelte', 'typescript', 'events', 'slots', 'props', 'typing svelte components']
 author: raqueebuddinaziz
-created: "Feb 01, 2023"
+created: 'Feb 01, 2023'
 ---
 
 This guide assumes you have completed the [svelte tutorial](https://svelte.dev/tutorial/basics), and you have basic understanding of [typescript](https://www.typescriptlang.org/docs/handbook/).

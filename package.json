@@ -1,40 +1,43 @@
 {
-  "name": "@example/basics",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write --plugin-search-dir=. ."
-  },
-  "dependencies": {
-    "@astrojs/image": "^0.16.0",
-    "@astrojs/partytown": "^1.1.1",
-    "@astrojs/sitemap": "^1.2.0",
-    "@astrojs/solid-js": "^2.1.0",
-    "@iconify/json": "^2.2.34",
-    "@solid-primitives/event-listener": "^2.2.8",
-    "@unocss/reset": "^0.50.4",
-    "astro": "^2.1.2",
-    "astro-seo-meta": "^2.0.0",
-    "astro-seo-schema": "^2.0.0",
-    "solid-js": "^1.6.14",
-    "unocss": "^0.50.4"
-  },
-  "devDependencies": {
-    "@astrojs/markdown-remark": "^2.1.0",
-    "@types/gtag.js": "^0.0.12",
-    "astro-compressor": "^0.3.0",
-    "astro-robots-txt": "^0.4.0",
-    "hastscript": "^7.2.0",
-    "rehype-autolink-headings": "^6.1.1",
-    "rehype-toc": "^3.0.2",
-    "sass": "^1.59.2",
-    "typescript": "^4.9.5",
-    "zod": "^3.21.4"
-  }
+	"name": "@example/basics",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier --write --plugin-search-dir=. ."
+	},
+	"dependencies": {
+		"@astrojs/image": "^0.16.0",
+		"@astrojs/partytown": "^1.1.1",
+		"@astrojs/sitemap": "^1.2.0",
+		"@astrojs/solid-js": "^2.1.0",
+		"@iconify/json": "^2.2.34",
+		"@solid-primitives/event-listener": "^2.2.8",
+		"@unocss/reset": "^0.50.4",
+		"astro": "^2.1.2",
+		"astro-seo-meta": "^2.0.0",
+		"astro-seo-schema": "^2.0.0",
+		"solid-js": "^1.6.14",
+		"typewriter-effect": "^2.19.0",
+		"unocss": "^0.50.4"
+	},
+	"devDependencies": {
+		"@astrojs/markdown-remark": "^2.1.0",
+		"@types/gtag.js": "^0.0.12",
+		"astro-compressor": "^0.3.0",
+		"astro-robots-txt": "^0.4.0",
+		"hastscript": "^7.2.0",
+		"prettier-plugin-organize-imports": "^3.2.2",
+		"prettier-plugin-tailwindcss": "^0.2.5",
+		"rehype-autolink-headings": "^6.1.1",
+		"rehype-toc": "^3.0.2",
+		"sass": "^1.59.2",
+		"typescript": "^4.9.5",
+		"zod": "^3.21.4"
+	}
 }

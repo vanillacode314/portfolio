@@ -1,70 +1,70 @@
 ---
-import Container from "@/components/Container.astro";
-import Projects from "@/sections/Projects.astro";
-import Hero from "@/sections/Hero.astro";
-import Testimonials from "@/sections/Testimonials.astro";
-import About from "@/sections/About.astro";
-import Layout from "../layouts/Layout.astro";
-import Services from "@/sections/Services.astro";
-import Contact from "@/sections/Contact.astro";
-import { Schema } from "astro-seo-schema";
-import { Seo } from "astro-seo-meta";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import Container from '@/components/Container.astro'
+import Projects from '@/sections/Projects.astro'
+import Hero from '@/sections/Hero.astro'
+import Testimonials from '@/sections/Testimonials.astro'
+import About from '@/sections/About.astro'
+import Layout from '../layouts/Layout.astro'
+import Services from '@/sections/Services.astro'
+import Contact from '@/sections/Contact.astro'
+import { Schema } from 'astro-seo-schema'
+import { Seo } from 'astro-seo-meta'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <Layout>
-  <Fragment slot="head">
-    <Schema
-      item={{
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Raqueebuddin Aziz",
-        knowsAbout: [
-          "Computer Science",
-          "Web Programming",
-          "Web Development",
-          "Web Design",
-          "Freelancing",
-        ],
-        image: Astro.site + "assets/images/profile.webp",
-        url: canonicalURL.toString(),
-        email: "raqueebuddin.aziz.314@gmail.com",
-        gender: "https://schema.org/Male",
-        knowsLanguage: ["English", "Hindi"],
-      }}
-    />
-    <Seo
-      title="Web Designer and Developer - Raqueebuddin Aziz"
-      ,
-      description="I help businesses get more customers by improving their online presence and building quick-to-load, beautiful, easy-to-use websites."
-      keywords={"professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript".split(
-        ","
-      )}
-      icon="/favicon.svg"
-      themeColor="#ea580c"
-      colorScheme="light"
-      facebook={{
-        image: Astro.site + "/assets/images/profile.webp",
-        url: canonicalURL.toString(),
-        type: "website",
-      }}
-      twitter={{
-        image: Astro.site + "/assets/images/profile.webp",
-        site: "@RaqueebuddinA",
-        card: "summary",
-      }}
-    />
-    <!-- <meta property="og:image:width" content="1024" /> -->
-    <!-- <meta property="og:image:height" content="1024" /> -->
-  </Fragment>
-  <Container class="bg-transparent p-5 md:p-10">
-    <main class="flex flex-col gap-20">
-      <Hero />
-      <Testimonials />
-      <Services />
-      <Projects />
-      <About />
-      <Contact />
-    </main>
-  </Container>
+	<Fragment slot="head">
+		<Schema
+			item={{
+				'@context': 'https://schema.org',
+				'@type': 'Person',
+				name: 'Raqueebuddin Aziz',
+				knowsAbout: [
+					'Computer Science',
+					'Web Programming',
+					'Web Development',
+					'Web Design',
+					'Freelancing'
+				],
+				image: Astro.site + 'assets/images/profile.webp',
+				url: canonicalURL.toString(),
+				email: 'raqueebuddin.aziz.314@gmail.com',
+				gender: 'https://schema.org/Male',
+				knowsLanguage: ['English', 'Hindi']
+			}}
+		/>
+		<Seo
+			title="Web Designer and Developer - Raqueebuddin Aziz"
+			,
+			description="I help businesses get more customers by improving their online presence and building quick-to-load, beautiful, easy-to-use websites."
+			keywords={'professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript'.split(
+				','
+			)}
+			icon="/favicon.svg"
+			themeColor="#ea580c"
+			colorScheme="light"
+			facebook={{
+				image: Astro.site + '/assets/images/profile.webp',
+				url: canonicalURL.toString(),
+				type: 'website'
+			}}
+			twitter={{
+				image: Astro.site + '/assets/images/profile.webp',
+				site: '@RaqueebuddinA',
+				card: 'summary'
+			}}
+		/>
+		<!-- <meta property="og:image:width" content="1024" /> -->
+		<!-- <meta property="og:image:height" content="1024" /> -->
+	</Fragment>
+	<Container class="bg-transparent p-5 md:p-10">
+		<main class="flex flex-col gap-20">
+			<Hero />
+			<Testimonials />
+			<Services />
+			<Projects />
+			<About />
+			<Contact />
+		</main>
+	</Container>
 </Layout>

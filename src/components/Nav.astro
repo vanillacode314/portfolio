@@ -1,85 +1,75 @@
 ---
-import Container from "./Container.astro";
+import Container from './Container.astro'
 
 interface Link {
-  label: string;
-  href: string;
+	label: string
+	href: string
 }
 
-const route = Astro.url.pathname;
-const isActive = (href: string) => href === route;
+const route = Astro.url.pathname
+const isActive = (href: string) => href === route
 
 const links: Link[] = [
-  {
-    label: "about",
-    href: "/#about",
-  },
-  {
-    label: "portfolio",
-    href: "/",
-  },
-  {
-    label: "blog",
-    href: "/blog/",
-  },
-];
+	{
+		label: 'about',
+		href: '/#about'
+	},
+	{
+		label: 'portfolio',
+		href: '/'
+	},
+	{
+		label: 'blog',
+		href: '/blog/'
+	}
+]
 ---
 
 {
-  route !== "/" && (
-    <a
-      href="/#performance-report"
-      class="bg-orange-600 text-sm md:text-base text-white font-bold uppercase tracking-wide py-2 justify-center text-center px-4 block"
-    >
-      Click Here to get a
-      <span class="bg-white text-orange-600 px-3 rounded-full hover:bg-orange-700 focus:bg-orange-700 focus:text-gray-100 hover:text-gray-100 transition outline-none inline-block mx-2">
-        free
-      </span>
-      performance report for your website
-    </a>
-  )
+	route !== '/' && (
+		<a
+			href="/#performance-report"
+			class="bg-orange-600 text-sm md:text-base text-white font-bold uppercase tracking-wide py-2 justify-center text-center px-4 block"
+		>
+			Click Here to get a
+			<span class="bg-white text-orange-600 px-3 rounded-full hover:bg-orange-700 focus:bg-orange-700 focus:text-gray-100 hover:text-gray-100 transition outline-none inline-block mx-2">
+				free
+			</span>
+			report on how make your website faster
+		</a>
+	)
 }
 
 <Container class="p-5 md:p-8 nav top-0 backdrop-blur z-20">
-  <nav class="flex items-baseline gap-5">
-    <a href="/" class="leading-tight text-lg"
-      >raqueebuddin <span class="font-bold">aziz</span></a
-    >
-    <span class="grow"></span>
-    <!-- desktop nav -->
-    <ul class="contents">
-      {
-        links.map(({ href, label }) => (
-          <li class="hidden md:contents">
-            <a
-              {href}
-              class={`${
-                isActive(href) && "font-bold underline"
-              } text-lg hover:underline`}
-            >
-              {label}
-            </a>
-          </li>
-        ))
-      }
-      <li>
-        <a
-          href="/#contact"
-          class="bg-black text-gray-100 px-3 py-1 rounded-full font-bold hover:bg-gray-700 transition-colors"
-        >
-          contact</a
-        >
-      </li>
-    </ul>
-  </nav>
+	<nav class="flex items-baseline gap-5">
+		<a href="/" class="leading-tight text-lg">raqueebuddin <span class="font-bold">aziz</span></a>
+		<span class="grow"></span>
+		<!-- desktop nav -->
+		<ul class="contents">
+			{
+				links.map(({ href, label }) => (
+					<li class="hidden md:contents">
+						<a {href} class={`${isActive(href) && 'font-bold underline'} text-lg hover:underline`}>
+							{label}
+						</a>
+					</li>
+				))
+			}
+			<li>
+				<a
+					href="/#contact"
+					class="bg-black text-gray-100 px-3 py-1 rounded-full font-bold hover:bg-gray-700 transition-colors"
+				>
+					contact</a
+				>
+			</li>
+		</ul>
+	</nav>
 </Container>
 <script>
-  const nav = document.querySelector(".nav");
-  window.addEventListener("scroll", () => {
-    const condition =
-      window.scrollY > 0 && !location.pathname.startsWith("/blog/");
-    nav?.classList[condition ? "add" : "remove"](
-      ..."bg-gray-100/80 sticky".split(" ")
-    );
-  });
+	const nav = document.querySelector('.nav')
+	window.addEventListener('scroll', () => {
+		const condition = window.scrollY > 0 && !location.pathname.startsWith('/blog/')
+		nav?.classList[condition ? 'add' : 'remove'](...'bg-gray-100/80 sticky'.split(' '))
+	})
 </script>

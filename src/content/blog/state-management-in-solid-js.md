@@ -1,12 +1,12 @@
 ---
-title: "State Management in Solid JS"
-description: "A guide on state management in solid js"
+title: 'State Management in Solid JS'
+description: 'A guide on state management in solid js'
 seo:
-  title: "State Management in Solid JS"
-  description: "A guide on state management in solid js"
-  keywords: ["solid", "solid-js", "solid-start", "state-management"]
+  title: 'State Management in Solid JS'
+  description: 'A guide on state management in solid js'
+  keywords: ['solid', 'solid-js', 'solid-start', 'state-management']
 author: raqueebuddinaziz
-created: "Oct 17, 2022"
+created: 'Oct 17, 2022'
 ---
 
 A guide on state management in a solid-js application.
@@ -22,58 +22,56 @@ This is the one of the easiest thing to do in solid-js. Define a [signal](https:
 
 ```javascript
 /* src/state/index.js */
-import { createSignal } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createSignal } from 'solid-js'
+import { createStore } from 'solid-js/store'
 
-const [count, setCount] = createSignal(0);
+const [count, setCount] = createSignal(0)
 const [appState, setAppState] = createStore({
-  title: "My Awesome App",
-  user: {
-    name: "John Doe",
-    age: Infinity,
-  },
-});
+	title: 'My Awesome App',
+	user: {
+		name: 'John Doe',
+		age: Infinity
+	}
+})
 
-export const useAppState = () => [appState, setAppState];
-export const useCount = () => [count, setCount];
+export const useAppState = () => [appState, setAppState]
+export const useCount = () => [count, setCount]
 ```
 
 ```javascript
 /* src/components/Counter.jsx */
-import { useCount } from "~/state";
+import { useCount } from '~/state'
 
 export function Counter() {
-  const [count, setCount] = useCount();
+	const [count, setCount] = useCount()
 
-  return <div>{count()}</div>;
+	return <div>{count()}</div>
 }
 ```
 
 ```javascript
 /* src/components/Increment.jsx */
-import { useCount } from "~/state";
+import { useCount } from '~/state'
 
 export function Increment() {
-  const [count, setCount] = useCount();
+	const [count, setCount] = useCount()
 
-  return (
-    <button onClick={() => setCount(count() + 1)}>Make the count go up</button>
-  );
+	return <button onClick={() => setCount(count() + 1)}>Make the count go up</button>
 }
 ```
 
 ```javascript
 /* src/routes/index.jsx */
-import { Counter } from "~/components/Counter";
-import { Increment } from "~/components/Increment";
+import { Counter } from '~/components/Counter'
+import { Increment } from '~/components/Increment'
 
 export default function Home() {
-  return (
-    <>
-      <Counter />
-      <Increment />
-    </>
-  );
+	return (
+		<>
+			<Counter />
+			<Increment />
+		</>
+	)
 }
 ```
 
@@ -87,53 +85,53 @@ You can just write a function in the state file and import it in other files, an
 
 ```javascript
 /* src/state/index.js */
-import { createSignal } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createSignal } from 'solid-js'
+import { createStore } from 'solid-js/store'
 
-const [count, setCount] = createSignal(0);
-export const incrementCount = () => setCount(count() + 1);
+const [count, setCount] = createSignal(0)
+export const incrementCount = () => setCount(count() + 1)
 
 const [appState, setAppState] = createStore({
-  title: "My Awesome App",
-  user: {
-    name: "John Doe",
-    age: Infinity,
-  },
-  setTitle(val) {
-    setAppState("title", val);
-  },
-});
+	title: 'My Awesome App',
+	user: {
+		name: 'John Doe',
+		age: Infinity
+	},
+	setTitle(val) {
+		setAppState('title', val)
+	}
+})
 
-export const useAppState = () => [appState, setAppState];
-export const useCount = () => [count, setCount];
+export const useAppState = () => [appState, setAppState]
+export const useCount = () => [count, setCount]
 ```
 
 ```javascript
 /* src/components/Increment.jsx */
-import { incrementCount } from "~/state";
+import { incrementCount } from '~/state'
 
 export function Increment() {
-  return <button onClick={() => incrementCount()}>Make the count go up</button>;
+	return <button onClick={() => incrementCount()}>Make the count go up</button>
 }
 ```
 
 ```javascript
 /* src/routes/index.jsx */
-import { Counter } from "~/components/Counter";
-import { Increment } from "~/components/Increment";
-import { useAppState } from "~/state";
+import { Counter } from '~/components/Counter'
+import { Increment } from '~/components/Increment'
+import { useAppState } from '~/state'
 
 export default function Home() {
-  const [appState, setAppState] = useAppState();
-  setTimeout(() => appState.setTitle("More awesome app"), 4000);
+	const [appState, setAppState] = useAppState()
+	setTimeout(() => appState.setTitle('More awesome app'), 4000)
 
-  return (
-    <>
-      <div>{appState.title}</div>
-      <Counter />
-      <Increment />
-    </>
-  );
+	return (
+		<>
+			<div>{appState.title}</div>
+			<Counter />
+			<Increment />
+		</>
+	)
 }
 ```
 
@@ -147,70 +145,64 @@ Define a resource in the state file and any relevant mutations and optionally (b
 
 ```javascript
 /* src/state/index.js */
-import { createResource, createSignal } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createResource, createSignal } from 'solid-js'
+import { createStore } from 'solid-js/store'
 
-const [count, setCount] = createSignal(0);
-export const incrementCount = () => setCount(count() + 1);
+const [count, setCount] = createSignal(0)
+export const incrementCount = () => setCount(count() + 1)
 
 const [appState, setAppState] = createStore({
-  title: "My Awesome App",
-  user: {
-    name: "John Doe",
-    age: Infinity,
-  },
-  setTitle(val) {
-    setAppState("title", val);
-  },
-});
+	title: 'My Awesome App',
+	user: {
+		name: 'John Doe',
+		age: Infinity
+	},
+	setTitle(val) {
+		setAppState('title', val)
+	}
+})
 
 const [pokemon, { refetch }] = createResource((_, { refetching: name }) =>
-  fetch(`https://pokeapi.co/api/v2/pokemon/${name || "ditto"}`).then((res) =>
-    res.json()
-  )
-);
+	fetch(`https://pokeapi.co/api/v2/pokemon/${name || 'ditto'}`).then((res) => res.json())
+)
 
-export const useAppState = () => [appState, setAppState];
-export const useCount = () => [count, setCount];
-export const usePokemon = () => [pokemon, refetch];
+export const useAppState = () => [appState, setAppState]
+export const useCount = () => [count, setCount]
+export const usePokemon = () => [pokemon, refetch]
 ```
 
 ```javascript
 /* src/routes/index.jsx */
-import { createEffect, createSignal, Suspense } from "solid-js";
-import { Counter } from "~/components/Counter";
-import { Increment } from "~/components/Increment";
-import { usePokemon, useAppState } from "~/state";
+import { createEffect, createSignal, Suspense } from 'solid-js'
+import { Counter } from '~/components/Counter'
+import { Increment } from '~/components/Increment'
+import { usePokemon, useAppState } from '~/state'
 
 export default function Home() {
-  const [appState, setAppState] = useAppState();
-  const [pokemon, fetchPokemon] = usePokemon();
-  const [query, setQuery] = createSignal("");
-  setTimeout(() => appState.setTitle("More awesome app"), 4000);
+	const [appState, setAppState] = useAppState()
+	const [pokemon, fetchPokemon] = usePokemon()
+	const [query, setQuery] = createSignal('')
+	setTimeout(() => appState.setTitle('More awesome app'), 4000)
 
-  return (
-    <>
-      <div>{appState.title}</div>
-      <Counter />
-      <Increment />
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetchPokemon(query());
-        }}
-      >
-        <input
-          onInput={(e) => setQuery(e.currentTarget.value)}
-          value={query()}
-          required
-        />
-      </form>
-      <Suspense fallback={<div>loading...</div>}>
-        <span>{pokemon()?.name || "Not Found"}</span>
-        <img src={pokemon()?.sprites.front_default} />
-      </Suspense>
-    </>
-  );
+	return (
+		<>
+			<div>{appState.title}</div>
+			<Counter />
+			<Increment />
+			<form
+				onSubmit={(e) => {
+					e.preventDefault()
+					fetchPokemon(query())
+				}}
+			>
+				<input onInput={(e) => setQuery(e.currentTarget.value)} value={query()} required />
+			</form>
+			<Suspense fallback={<div>loading...</div>}>
+				<span>{pokemon()?.name || 'Not Found'}</span>
+				<img src={pokemon()?.sprites.front_default} />
+			</Suspense>
+		</>
+	)
 }
 ```
 
