@@ -140,22 +140,17 @@
 	</a>
 </section>
 <script>
-	// import Typewriter from 'typewriter-effect/dist/core'
-
+	import { submitFormWithoutListener } from '@/utils'
 	const forms = document.querySelectorAll("form[name='report']") as NodeListOf<HTMLFormElement>
-	forms.forEach((form) => {
-		form.addEventListener('submit', () => {
-			gtag('event', 'generate_lead', {
-				event_category: 'Lead Generation',
-				event_label: 'Report Form Submission (A)'
-			})
+	function onSubmit(e: SubmitEvent) {
+		e.preventDefault()
+		gtag('event', 'generate_lead', {
+			event_category: 'Lead Generation',
+			event_label: 'Report Form Submission (A)',
+			event_callback: function () {
+				submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
+			}
 		})
-	})
-
-	// new Typewriter('.tagline', {
-	// 	strings: ['fast', 'responsive', 'stunning'],
-	// 	autoStart: true,
-	// 	cursor: '_',
-	// 	skipAddStyles: true
-	// })
+	}
+	forms.forEach((form) => form.addEventListener('submit', onSubmit))
 </script>
