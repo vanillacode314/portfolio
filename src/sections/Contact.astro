@@ -58,8 +58,9 @@
 		const form = document.querySelector("form[name='contact']") as HTMLFormElement
 		function onSubmit(e: SubmitEvent) {
 			e.preventDefault()
-			const timer = setTimeout(() =>
-				submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
+			const timer = setTimeout(
+				() => submitFormWithoutListener(e.target as HTMLFormElement, onSubmit),
+				1000
 			)
 			window.gtag('event', 'generate_lead', {
 				event_category: 'Lead Generation',
