@@ -3,8 +3,8 @@ import Container from '@/components/Container.astro'
 import authors from '@/data/authors'
 import Layout from '@/layouts/Layout.astro'
 import Comments from '@/sections/Comment'
-import { Schema } from 'astro-seo-schema'
 import { Seo } from 'astro-seo-meta'
+import { Schema } from 'astro-seo-schema'
 import { CollectionEntry, getCollection } from 'astro:content'
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog')
@@ -102,32 +102,32 @@ const nextBlog = blogEntries[index + 1]
 		<meta property="og:image:width" content="1024" />
 		<meta property="og:image:height" content="1024" />
 	</Fragment>
-	<Container class="lg:p-10 p-5" innerClass="flex flex-col gap-5">
-		<ol class="flex gap-1 items-center">
+	<Container class="p-5 lg:p-10" innerClass="flex flex-col gap-5">
+		<ol class="flex items-center gap-1">
 			<li class="hidden md:contents">
 				<a href="/blog" class="text-lg hover:underline"> blog</a>
-				<span class="text-xl i-mdi-chevron-right"></span>
-				<span class="font-bold text-lg">
+				<span class="i-mdi-chevron-right text-xl"></span>
+				<span class="text-lg font-bold">
 					{entry.slug}
 				</span>
 			</li>
 		</ol>
-		<section class="bg-gray-900 p-10 rounded-10 text-gray-100 grid md:grid-cols-2 gap-5 shadow-lg">
+		<section class="rounded-10 grid gap-5 bg-gray-900 p-10 text-gray-100 shadow-lg md:grid-cols-2">
 			<img
 				src={`/assets/images/blog/${entry.slug}.svg`}
 				alt={frontmatter.title}
 				width="300"
 				height="300"
-				class="shadow-inner rounded-5 mx-auto md:mx-none"
+				class="rounded-5 md:mx-none mx-auto shadow-inner"
 			/>
 			<article
-				class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl flex flex-col gap-1 mb-auto items"
+				class="rounded-10 shadow-inset items mb-auto flex flex-col gap-1 bg-gray-100 p-10 text-gray-900 shadow-xl"
 			>
-				<p class="text-gray-900 uppercase font-bold">By</p>
-				<h3 class="text-2xl uppercase tracking-wide text-gray-900 font-semibold">
+				<p class="font-bold uppercase text-gray-900">By</p>
+				<h3 class="text-2xl font-semibold uppercase tracking-wide text-gray-900">
 					{author.name}
 				</h3>
-				<p class="text-gray-500 text-xs font-medium uppercase tracking-wide">
+				<p class="text-xs font-medium uppercase tracking-wide text-gray-500">
 					{
 						new Date(frontmatter.created).toLocaleDateString(undefined, {
 							year: 'numeric',
@@ -146,7 +146,7 @@ const nextBlog = blogEntries[index + 1]
 				</p>
 				<p class="mt-3 text-lg text-gray-600">{author.description}</p>
 			</article>
-			<h1 class="text-4xl md:text-6xl font-black col-start-1 md:col-end-3">
+			<h1 class="col-start-1 text-4xl font-black md:col-end-3 md:text-6xl">
 				{frontmatter.title}
 			</h1>
 		</section>
@@ -177,14 +177,14 @@ const nextBlog = blogEntries[index + 1]
 			<a
 				href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
 				target="_blank"
-				class="flex gap-3 text-gray-100 bg-blue-500 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-700 focus:bg-blue-700 transition-colors"
+				class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
 			>
 				<span class="i-mdi-twitter text-2xl"></span>
 				Tweet</a
 			>
 			<a
 				href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
-				class="flex gap-3 text-gray-100 bg-blue-900 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-blue-800 focus:bg-blue-800 transition-colors"
+				class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800"
 				target="_blank"
 			>
 				<span class="i-mdi-linkedin text-2xl"></span>
@@ -192,23 +192,23 @@ const nextBlog = blogEntries[index + 1]
 			>
 			<a
 				href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
-				class="flex gap-3 text-gray-100 bg-red-600 px-5 py-3 rounded-lg uppercase font-bold tracking-wide items-center hover:bg-red-800 focus:bg-red-800 transition-colors"
+				class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800"
 				target="_blank"
 			>
 				<span class="i-fa6-brands:reddit-alien text-2xl"></span>
 				Post on Reddit</a
 			>
 		</section>
-		<section class="flex justify-between gap-5 flex-wrap">
+		<section class="flex flex-wrap justify-between gap-5">
 			{
 				prevBlog ? (
 					<a href={`/blog/${prevBlog.slug}`}>
-						<article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
-							<span class="text-lg i-mdi-chevron-left" />
-							<span class="text-sm md:text-base font-bold uppercase">{prevBlog.data.title}</span>
+						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
+							<span class="i-mdi-chevron-left text-lg" />
+							<span class="text-sm font-bold uppercase md:text-base">{prevBlog.data.title}</span>
 							<img
 								src={`/assets/images/blog/${prevBlog.slug}.svg`}
-								class="rounded w-20 md:w-25 lg:w-30"
+								class="md:w-25 lg:w-30 w-20 rounded"
 								alt={prevBlog.data.title}
 								width="50"
 								height="50"
@@ -222,16 +222,16 @@ const nextBlog = blogEntries[index + 1]
 			{
 				nextBlog ? (
 					<a href={`/blog/${nextBlog.slug}`}>
-						<article class="p-3 rounded-lg bg-gray-100/50 backdrop-blur shadow flex gap-5 items-center">
+						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
 							<img
 								src={`/assets/images/blog/${nextBlog.slug}.svg`}
-								class="rounded w-20 md:w-25 lg:w-30"
+								class="md:w-25 lg:w-30 w-20 rounded"
 								width="50"
 								height="50"
 								alt={nextBlog.data.title}
 							/>
-							<span class="text-sm md:text-base font-bold uppercase">{nextBlog.data.title}</span>
-							<span class="text-lg i-mdi-chevron-right" />
+							<span class="text-sm font-bold uppercase md:text-base">{nextBlog.data.title}</span>
+							<span class="i-mdi-chevron-right text-lg" />
 						</article>
 					</a>
 				) : (
@@ -243,14 +243,14 @@ const nextBlog = blogEntries[index + 1]
 		<button
 			id="gototop"
 			aria-label="Go to top"
-			class="bg-orange-600 w-10 text-gray-100 h-10 rounded-full grid place-content-center aspect-square fixed bottom-5 right-5 z-30"
+			class="fixed bottom-5 right-5 z-30 grid aspect-square h-10 w-10 place-content-center rounded-full bg-orange-600 text-gray-100 opacity-0 transition-opacity"
 		>
 			<span class="i-mdi-chevron-up text-3xl"></span>
 		</button>
-		<div id="progressbar" class="h-1 w-full fixed top-0 left-0 bg-orange-600 origin-top-left"></div>
+		<div id="progressbar" class="fixed top-0 left-0 h-1 w-full origin-top-left bg-orange-600"></div>
 	</Container>
 	<script>
-		const gototop = document.getElementById('gototop')
+		const gototop = document.getElementById('gototop')!
 		gototop?.addEventListener('click', () => {
 			window.scrollTo({ top: 0, behavior: 'smooth' })
 		})
@@ -259,6 +259,9 @@ const nextBlog = blogEntries[index + 1]
 		const rect = markdownSection.getBoundingClientRect()
 		const bottom = rect.bottom + window.scrollY
 		function onScroll() {
+			window.scrollY > 100
+				? gototop.classList.remove('opacity-0')
+				: gototop.classList.add('opacity-0')
 			const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1))
 			progressbar!.style.transform = `scaleX(${progress})`
 		}
