@@ -249,13 +249,13 @@ const nextBlog = blogEntries[index + 1]
 		</button>
 		<div id="progressbar" class="fixed top-0 left-0 h-1 w-full origin-top-left bg-orange-600"></div>
 	</Container>
-	<script>
-		const gototop = document.getElementById('gototop')!
+	<script defer>
+		const gototop = document.getElementById('gototop')
 		gototop?.addEventListener('click', () => {
 			window.scrollTo({ top: 0, behavior: 'smooth' })
 		})
 		const progressbar = document.getElementById('progressbar')
-		const markdownSection = document.querySelector('.markdown')!
+		const markdownSection = document.querySelector('.markdown')
 		const rect = markdownSection.getBoundingClientRect()
 		const bottom = rect.bottom + window.scrollY
 		function onScroll() {
@@ -263,7 +263,7 @@ const nextBlog = blogEntries[index + 1]
 				? gototop.classList.remove('opacity-0')
 				: gototop.classList.add('opacity-0')
 			const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1))
-			progressbar!.style.transform = `scaleX(${progress})`
+			progressbar.style.transform = `scaleX(${progress})`
 		}
 		onScroll()
 		window.addEventListener('scroll', onScroll)
