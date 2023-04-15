@@ -142,7 +142,7 @@ We will create a simple index page that will have an input where we type our nam
 
 	let name: string = '';
 	let output: string = '';
-	$: name && trpc.greet.query({ name }).then((value) => (output = value)) ? (output = '');
+	$: name ? trpc.greet.query({ name }).then((value) => (output = value)) : (output = '');
 </script>
 
 <input bind:value={name} />
