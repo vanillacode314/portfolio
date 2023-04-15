@@ -8,8 +8,7 @@ export const collections = {
 			seo: z.object({
 				title: z.string(),
 				description: z.string(),
-
-				keywords: z.array(z.string())
+				keywords: z.string().array()
 			}),
 			author: z.string(),
 			created: z.string(),

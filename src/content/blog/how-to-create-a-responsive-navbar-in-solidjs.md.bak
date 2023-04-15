@@ -1,0 +1,94 @@
+---
+title: 'How to create a responsive navbar in solidjs'
+description: This guide will show you how to create a responsive, aria friendly navbar in solidjs that works on multiple screen sizes like mobile, tablet and desktop.
+seo:
+  title: 'How to create a responsive navbar in solidjs'
+  description: This guide will show you how to create a responsive, aria friendly navbar in solidjs that works on multiple screen sizes like mobile, tablet and desktop.
+  keywords:
+    [
+      'solidjs',
+      'responsive',
+      'navbar',
+      'responsive navbar',
+      'aria friendly navbar',
+      'ssr friendly navbar'
+    ]
+author: raqueebuddinaziz
+created: 'Apr 4, 2023'
+---
+
+You will learn how to build a navbar that is SSR (server-side rendering) friendly, turns into a hamburger menu on mobile, and turns into a standard navbar on desktop.
+
+This guide assumes you have been through [solidjs tutorial](https://www.solidjs.com/tutorial/introduction_basics).
+
+## Setup
+
+We will start with a completely unstyled navbar, slowly we will build up to a mobile nav with hamburger menu, and eventually we will build the standard desktop navbar.
+
+I am using `@unocss/reset/tailwind.css` to reset all browser native styles, so we can start from scratch.
+You are free to use whatever css reset or none if you like.
+
+If you choose to use `@unocss/reset/tailwind.css`, you can install it using npm, yarn or pnpm like `npm install @unocss/reset`, `pnpm install @unocss/reset` or `yarn add @unocss/reset`.
+
+```tsx
+import '@unocss/reset/tailwind.css'
+import { For } from 'solid-js'
+import styles from './App.module.css'
+
+const links = [
+	{ label: 'Home', href: '/' },
+	{ label: 'Blog', href: '/blog' },
+	{ label: 'About', href: '/about' }
+]
+
+const App = () => {
+	return (
+		<div>
+			<nav class={styles.nav}>
+				{/* A Logo or Brand Name */}
+				<a href="/">
+					{/* <img src="/logo.svg" alt="logo" /> */}
+					<span>Brand Name</span>
+				</a>
+				<ul>
+					<For each={links}>
+						{(link) => (
+							<li>
+								<a href={link.href}>{link.label}</a>
+							</li>
+						)}
+					</For>
+				</ul>
+				Hamburger Menu
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M3 4h18v2H3V4Zm6 7h12v2H9v-2Zm-6 7h18v2H3v-2Z" />
+				</svg>
+			</nav>
+			<main>Main Content</main>
+		</div>
+	)
+}
+
+export default App
+```
+
+## Mobile Nav
+
+### Styling the links
+
+I am using CSS modules here for styling.
+
+- First we will make the nav a [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to lay out the children horizontally, and align all the children center vertically.
+- Then we will hide all links and so later we only show them when someone toggles the menu with the hamburger icon.
+
+```css
+/* App.module.css */
+.nav {
+	display: flex;
+}
+.nav ul {
+	display: none;
+}
+```
+
+## Conclusion
