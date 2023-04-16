@@ -72,7 +72,7 @@ export const appRouter = router({
 export type AppRouter = typeof appRouter
 ```
 
-- We import our `router` and `publicProcedure` from the `context.ts` file and `z` from [`zod`](zod.dev) for input validation for our `procedures/endpoints`.
+- We import our `router` and `publicProcedure` from the `context.ts` file and `z` from [`zod`](https://zod.dev) for input validation for our `procedures/endpoints`.
 - We create a `greet` endpoint that takes an object as an input of form `{ name: string }` and returns a string with a greeting.
 - We export both `appRouter` and it's type `AppRouter`. The reason we export the type independently, so we don't have to import our server code in the client when we create our tRPC client later.
 
