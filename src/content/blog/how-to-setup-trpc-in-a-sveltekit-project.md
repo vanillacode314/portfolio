@@ -7,6 +7,7 @@ seo:
   keywords: ['svelte', 'typescript', 'trpc', 'zod', 'sveltekit', 'tRPC']
 author: raqueebuddinaziz
 created: 'Apr 15, 2023'
+updated: 'Apr 17, 2023'
 ---
 
 <!-- Intro -->
@@ -117,18 +118,25 @@ Let's create the tRPC client in `src/lib/trpc.ts` file.
 // src/lib/trpc.ts
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client'
 import type { AppRouter } from './server/router'
+import type { FetchEsque } from '@trpc/client/dist/internals/types'
 
 export const trpc = createTRPCProxyClient<AppRouter>({
-	links: [
-		httpBatchLink({
-			url: '/api/trpc'
-		})
-	]
+	links: [httpBatchLink({ url: '/api/trpc' })]
 })
+
+export const trpcOnServer = (fetch: FetchEsque) =>
+	createTRPCProxyClient<AppRouter>({
+		links: [
+			httpBatchLink({
+				url: '/api/trpc',
+				fetch
+			})
+		]
+	})
 ```
 
 - We import our `AppRouter` type and pass it to the `createTRPCProxyClient`, so we can get autocompletions in our tRPC client when we use it to call our `endpoints/procedures`.
-- Finally, we export the `trpc` client, so we can use it throughout our app.
+- Finally, we export the `trpc` client, so we can use it throughout our app. We also export the `trpcOnServer` function that creates a trpc instance with the sveltekit patched fetch which allows us to call our tRPC server in the same way as we call it in our client.
 
 ## Using the client
 
@@ -153,6 +161,43 @@ We will create a simple index page that will have an input where we type our nam
 - Lastly, we bind the `name` to an input and showcase the output in a `p` tag.
 
 You are not limited to using the client in `.svelte` files, you can use them anywhere in your project including but not limited to `+layout.ts`, `+layout.server.ts`, `+page.ts`, `+page.server.ts` and other `+server.ts` files.
+
+For example: You can ssr a name and output and update it on the client
+
+Write the server code in `+page.server.ts` file:
+
+```typescript
+// src/routes/+page.server.ts
+import { trpcOnServer } from '$lib/trpc'
+import type { PageLoad } from './$types'
+
+export const load = (async ({ fetch }) => {
+	const trpc = trpcOnServer(fetch)
+	const name = 'Server Alias'
+	return { output: await trpc.greet.query({ name }), name }
+}) satisfies PageLoad
+```
+
+Update the client code in `+page.svelte` files:
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script lang="ts">
+	import { browser } from '$app/environment';
+	import { trpc } from '$lib/trpc';
+
+	export let data;
+	let name: string = data.name;
+	let output: string = data.output;
+
+	$: if (browser) {
+		name && trpc.greet.query({ name }).then((value) => (output = value));
+	}
+</script>
+
+<input bind:value={name} />
+<p>{output}</p>
+```
 
 ## Conclusion
 
