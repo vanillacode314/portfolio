@@ -52,17 +52,17 @@ const socials: Link[] = [
 ]
 ---
 
-<Container class="bg-gray-100/50 border-t-2 border-gray-200 lg:p-10 p-5 backdrop-blur">
-	<footer class="gap-5 grid sm:grid-cols-2 lg:grid-cols-3">
+<Container class="border-t-2 border-gray-200 bg-gray-100/50 p-5 backdrop-blur lg:p-10">
+	<footer class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		<section class="flex flex-col gap-3">
-			<h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">Links</h3>
+			<h3 class="text-xs font-semibold uppercase tracking-wide text-gray-600">Links</h3>
 			<ul class="flex flex-col">
 				{
 					links.map(({ label, href }) => (
 						<li>
 							<a
 								{href}
-								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium"
+								class="font-medium uppercase text-orange-600 visited:text-orange-900 hover:text-orange-500 hover:underline"
 							>
 								{label}
 							</a>
@@ -72,7 +72,7 @@ const socials: Link[] = [
 			</ul>
 		</section>
 		<section class="flex flex-col gap-3">
-			<h3 class="uppercase text-xs font-semibold text-gray-600 tracking-wide">Social</h3>
+			<h3 class="text-xs font-semibold uppercase tracking-wide text-gray-600">Social</h3>
 			<ul class="flex flex-col">
 				{
 					socials.map(({ label, href, icon }) => (
@@ -80,7 +80,7 @@ const socials: Link[] = [
 							<a
 								{href}
 								target="_blank"
-								class="text-orange-600 hover:text-orange-500 hover:underline visited:text-orange-900 uppercase font-medium inline-flex gap-3 items-center"
+								class="inline-flex items-center gap-3 font-medium uppercase text-orange-600 visited:text-orange-900 hover:text-orange-500 hover:underline"
 							>
 								<span class={`${icon} text-xl`} />
 								<span>{label}</span>
@@ -93,38 +93,38 @@ const socials: Link[] = [
 		<section
 			aria-label="performance-report"
 			id="performance-report"
-			class="row-start-1 col-span-full lg:col-start-3 lg:col-end-4"
+			class="col-span-full row-start-1 lg:col-start-3 lg:col-end-4"
 		>
 			<form
-				class="bg-white rounded-lg p-5 flex flex-col gap-5 text-gray-900"
+				class="flex flex-col gap-5 rounded-lg bg-white p-5 text-gray-900"
 				name="report"
 				method="post"
 				data-netlify="true"
 			>
 				<h2
-					class="mx-auto uppercase text-lg md:text-xl text-gray-700 font-semibold text-center mb-5"
+					class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl"
 				>
-					<span class="bg-orange-600 text-gray-100 px-5 rounded-full font-black">free</span>
-					report on how make your website faster
+					<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
+					report on how to make your website faster
 				</h2>
 				<div class="flex flex-col gap-1">
 					<label
 						for="email-report-footer"
-						class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3">Email</label
+						class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600">Email</label
 					>
 					<input
 						type="email"
 						name="email"
 						id="email-report-footer"
 						placeholder="name@domain.com"
-						class="px-5 py-3 rounded-5 bg-gray-100 min-w-0 w-full"
+						class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
 						required
 					/>
 				</div>
 				<div class="flex flex-col gap-1">
 					<label
 						for="address-footer"
-						class="uppercase tracking-wide font-semibold text-gray-600 text-xs ml-3"
+						class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600"
 						>Website Address</label
 					>
 					<input
@@ -132,13 +132,13 @@ const socials: Link[] = [
 						name="address"
 						id="address-footer"
 						placeholder="www.example.com"
-						class="px-5 py-3 rounded-5 bg-gray-100 min-w-0 w-full"
+						class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
 						required
 					/>
 				</div>
 				<button
 					type="submit"
-					class="px-5 py-3 shadow-lg text-white bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-orange-700 whitespace-nowrap ml-auto"
+					class="rounded-5 ml-auto whitespace-nowrap bg-orange-600 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-none"
 				>
 					Submit
 				</button>
