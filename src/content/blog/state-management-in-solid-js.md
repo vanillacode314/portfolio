@@ -7,6 +7,7 @@ seo:
   keywords: ['solid', 'solid-js', 'solid-start', 'state-management']
 author: raqueebuddinaziz
 created: 'Oct 17, 2022'
+updated: 'May 04, 2023'
 ---
 
 A guide on state management in a solid-js application.
@@ -16,9 +17,11 @@ This guide assumes you have gone through the [solidjs tutorial](https://www.soli
 
 ## Sharing State
 
+### True Global State
+
 This is the one of the easiest thing to do in solid-js. Define a [signal](https://www.solidjs.com/docs/latest/api#createsignal) or [store](https://www.solidjs.com/docs/latest/api#using-stores) in an external file and import it into your components and all the components will have the same state and any changes will be propagated to all the components.
 
-### Example
+#### Example
 
 ```javascript
 /* src/state/index.js */
@@ -77,11 +80,113 @@ export default function Home() {
 
 In the example above even though the `Increment` and `Counter` components are separate, pressing the `Increment` component will still increment the visible count in the `Counter` component because both components use the same signal from `src/state/index.js`.
 
+### Context Aware Global State
+
+Another way to share state is to use the [createContext](https://www.solidjs.com/docs/latest/api#createcontext) and [useContext](https://www.solidjs.com/docs/latest/api#usecontext) API.
+It's basically like creating state in another file and importing it where you want to use it, but the key difference is you can scope it to specific parts of your project and even have different values simultaneously for different parts of your project.
+
+User data is a perfect example where you want to use context API rather than true global state as with true global state you might leak user state across different users but with context API you can have different values scoped to each user.
+
+#### Example
+
+```javascript
+/* src/state/index.js */
+import { createContext, createSignal, useContext } from 'solid-js'
+import { createStore } from 'solid-js/store'
+
+const [appState, setAppState] = createStore({
+	title: 'My Awesome App',
+	user: {
+		name: 'John Doe',
+		age: Infinity
+	}
+})
+
+export const useAppState = () => [appState, setAppState]
+
+const [count, setCount] = createSignal(0)
+export const CountContext = createContext([
+	count,
+	setCount,
+	{
+		increment() {
+			setCount((c) => c + 1)
+		}
+	}
+])
+
+export function CountProvider(props) {
+	const [count, setCount] = createSignal(props.initialValue ?? 0)
+	return (
+		<CountContext.Provider
+			value={[
+				count,
+				setCount,
+				{
+					increment() {
+						setCount((c) => c + 1)
+					}
+				}
+			]}
+		>
+			{props.children}
+		</CountContext.Provider>
+	)
+}
+
+export const useCount = () => useContext(CountContext)
+```
+
+```javascript
+/* src/components/Counter.jsx */
+import { useCount } from '~/state'
+
+export function Counter() {
+	const [count, setCount] = useCount()
+
+	return <div>{count()}</div>
+}
+```
+
+```javascript
+/* src/components/Increment.jsx */
+import { useCount } from '~/state'
+
+export function Increment() {
+	const [count, setCount, { increment }] = useCount()
+
+	return <button onClick={() => increment()}>Make the count go up</button>
+}
+```
+
+```javascript
+/* src/routes/index.jsx */
+import { Counter } from '~/components/Counter'
+import { Increment } from '~/components/Increment'
+import { CountProvider } from '~/state'
+
+export default function Home() {
+	return (
+		<>
+			<CountProvider>
+				<Counter />
+				<Increment />
+			</CountProvider>
+			<CountProvider initialValue={10}>
+				<Counter />
+				<Increment />
+			</CountProvider>
+		</>
+	)
+}
+```
+
 ## Mutations
 
-You can just write a function in the state file and import it in other files, and then you have centralized mutations.
+- When using context API you can just include the mutations in the context provider like `increment` in the above example.
+- When using true global state you can just write a function in the state file and import it in other files, and then you have centralized mutations.
 
-### Example
+#### Example
 
 ```javascript
 /* src/state/index.js */
