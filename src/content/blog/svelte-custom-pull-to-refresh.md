@@ -229,7 +229,7 @@ export function onRefresh({
 
 Here we get the element references with id,
 set the initial swipe Y coordinate `startY` to `0` and `touchId` to `-1` representing no touch currently linked to pull to refresh state.
-Then we create two svelte `spring` stores (basically stores that don't immediately change their value but change their value gradually creating a natural feel to the state change [Read More](https://svelte.dev/docs#run-time-svelte-motion-spring)) named `offset` and `angle` that represents the Y offset of our spinner and the angle of rotation, we link their values to the css custom properties we defined earlier.
+Then we create two svelte `spring` stores (basically stores that don't immediately change their value but change their value gradually creating a natural feel to the state change [Read More at Svelte Docs](https://svelte.dev/docs#run-time-svelte-motion-spring)) named `offset` and `angle` that represents the Y offset of our spinner and the angle of rotation, we link their values to the css custom properties we defined earlier.
 
 ```javascript
 /* src/mountHooks.js */
