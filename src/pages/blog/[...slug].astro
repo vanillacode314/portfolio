@@ -123,8 +123,8 @@ const nextBlog = blogEntries[index + 1]
 			<article
 				class="rounded-10 shadow-inset items mb-auto flex flex-col gap-1 bg-gray-100 p-10 text-gray-900 shadow-xl"
 			>
-				<p class="font-bold uppercase text-gray-900">By</p>
-				<h3 class="text-2xl font-semibold uppercase tracking-wide text-gray-900">
+				<p class="text-sm font-bold uppercase text-gray-900 lg:text-base">By</p>
+				<h3 class="text-lg font-semibold uppercase tracking-wide text-gray-900 md:text-2xl">
 					{author.name}
 				</h3>
 				<p class="text-xs font-medium uppercase tracking-wide text-gray-500">
@@ -144,7 +144,7 @@ const nextBlog = blogEntries[index + 1]
 							})})`
 					}
 				</p>
-				<p class="mt-3 text-lg text-gray-600">{author.description}</p>
+				<p class="mt-3 text-gray-600 md:text-lg">{author.description}</p>
 			</article>
 			<h1 class="col-start-1 text-4xl font-black md:col-end-3 md:text-6xl">
 				{frontmatter.title}
