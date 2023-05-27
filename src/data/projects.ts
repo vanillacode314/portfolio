@@ -9,24 +9,24 @@ export interface Project {
 }
 
 export default [
-	{
-		name: 'RedditLattice',
-		description: `A user friendly web application to browse image based subreddits from reddit.com`,
-		points: [
-			`Loads of options for user customizations.`,
-			`Auto scrolling capabilities to make it easier to browse subreddits.`,
-			`Implemented quick image loading by progressively loading images and sizing them efficiently.`,
-			`Provided instant image loads and reduced network usage for frequently visited subreddits by building a smart caching solution.`,
-			`Implemented Beautiful and Custom UI for a native app like feel, custom pull to refresh, list animations and page loaders.`,
-			`Resizing Images on the fly using a custom nodejs server resulting in 3x-5x smaller images.`,
-			`Enhances UX for customers by saving relevant user searches and favourites for quick access.`,
-			`Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.`
-		],
-		image: 'redditlattice.webp',
-		tech: ['solidjs', 'solidstart', 'tailwindcss', 'workbox', 'service-workers', 'nodejs'],
-		url: 'https://redditlattice.netlify.app/',
-		repo_url: 'https://github.com/vanillacode314/redditlattice'
-	},
+	// {
+	// 	name: 'RedditLattice',
+	// 	description: `A user friendly web application to browse image based subreddits from reddit.com`,
+	// 	points: [
+	// 		`Loads of options for user customizations.`,
+	// 		`Auto scrolling capabilities to make it easier to browse subreddits.`,
+	// 		`Implemented quick image loading by progressively loading images and sizing them efficiently.`,
+	// 		`Provided instant image loads and reduced network usage for frequently visited subreddits by building a smart caching solution.`,
+	// 		`Implemented Beautiful and Custom UI for a native app like feel, custom pull to refresh, list animations and page loaders.`,
+	// 		`Resizing Images on the fly using a custom nodejs server resulting in 3x-5x smaller images.`,
+	// 		`Enhances UX for customers by saving relevant user searches and favourites for quick access.`,
+	// 		`Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.`
+	// 	],
+	// 	image: 'redditlattice.webp',
+	// 	tech: ['solidjs', 'solidstart', 'tailwindcss', 'workbox', 'service-workers', 'nodejs'],
+	// 	url: 'https://redditlattice.netlify.app/',
+	// 	repo_url: 'https://github.com/vanillacode314/redditlattice'
+	// },
 	{
 		name: 'JustInvoice',
 		description: 'An intuitive invoice manager that works completely in the browser and offline',
