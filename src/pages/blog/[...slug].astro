@@ -330,6 +330,20 @@ const nextBlog = blogEntries[index + 1]
 				@apply my-5 block min-w-0 overflow-x-auto rounded-xl p-5 font-mono;
 			}
 
+			ol {
+				font-size: var(--body-text);
+				line-height: var(--font-lineheight-2);
+				list-style-type: decimal;
+				list-style-position: inside;
+				& > li > ol {
+					list-style-type: lower-roman;
+					margin-inline-start: 3ch;
+					& > li > ol {
+						list-style-type: lower-alpha;
+					}
+				}
+			}
+
 			ul {
 				font-size: var(--body-text);
 				line-height: var(--font-lineheight-2);
