@@ -80,6 +80,11 @@ export default function Home() {
 
 In the example above even though the `Increment` and `Counter` components are separate, pressing the `Increment` component will still increment the visible count in the `Counter` component because both components use the same signal from `src/state/index.js`.
 
+<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
+  <source src="/assets/videos/state-management-in-solidjs.1.webm" type="video/webm">
+  <source src="/assets/videos/state-management-in-solidjs.1.mp4" type="video/mp4">
+</video>
+
 ### Context Aware Global State
 
 Another way to share state is to use the [createContext](https://www.solidjs.com/docs/latest/api#createcontext) and [useContext](https://www.solidjs.com/docs/latest/api#usecontext) API.
@@ -180,6 +185,11 @@ export default function Home() {
 	)
 }
 ```
+
+<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
+  <source src="/assets/videos/state-management-in-solidjs.2.webm" type="video/webm">
+  <source src="/assets/videos/state-management-in-solidjs.2.mp4" type="video/mp4">
+</video>
 
 ## Mutations
 
@@ -310,6 +320,11 @@ export default function Home() {
 	)
 }
 ```
+
+<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
+  <source src="/assets/videos/state-management-in-solidjs.3.webm" type="video/webm">
+  <source src="/assets/videos/state-management-in-solidjs.3.mp4" type="video/mp4">
+</video>
 
 ## Conclusion
 
