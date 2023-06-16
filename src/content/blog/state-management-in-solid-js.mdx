@@ -10,6 +10,8 @@ created: 'Oct 17, 2022'
 updated: 'May 04, 2023'
 ---
 
+import Video from '../../components/Video.astro'
+
 A guide on state management in a solid-js application.
 I will be using solid-start in this guide for convenience but all these concepts can be applied to any solid-js project.
 
@@ -80,10 +82,7 @@ export default function Home() {
 
 In the example above even though the `Increment` and `Counter` components are separate, pressing the `Increment` component will still increment the visible count in the `Counter` component because both components use the same signal from `src/state/index.js`.
 
-<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
-  <source src="/assets/videos/state-management-in-solidjs.1.webm" type="video/webm">
-  <source src="/assets/videos/state-management-in-solidjs.1.mp4" type="video/mp4">
-</video>
+<Video path="state-management-in-solidjs.1" />
 
 ### Context Aware Global State
 
@@ -186,10 +185,7 @@ export default function Home() {
 }
 ```
 
-<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
-  <source src="/assets/videos/state-management-in-solidjs.2.webm" type="video/webm">
-  <source src="/assets/videos/state-management-in-solidjs.2.mp4" type="video/mp4">
-</video>
+<Video path="state-management-in-solidjs.2" />
 
 ## Mutations
 
@@ -321,10 +317,7 @@ export default function Home() {
 }
 ```
 
-<video autoplay loop muted playsinline class="rounded-xl mx-auto max-w-full border-2">
-  <source src="/assets/videos/state-management-in-solidjs.3.webm" type="video/webm">
-  <source src="/assets/videos/state-management-in-solidjs.3.mp4" type="video/mp4">
-</video>
+<Video path="state-management-in-solidjs.3" />
 
 ## Conclusion
 

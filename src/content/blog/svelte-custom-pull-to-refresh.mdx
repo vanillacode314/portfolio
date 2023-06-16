@@ -17,16 +17,15 @@ author: raqueebuddinaziz
 created: 'Sep 23, 2022'
 ---
 
+import Video from '../../components/Video.astro'
+
 A guide on how to implement custom pull to refresh for svelte apps. This guide assumes you are familiar with svelte stores. If not feel free to check first half of this article explaining [svelte stores](/blog/svelte-custom-stores-demystified#what-are-stores-anyway).
 
 I'll be using [sveltekit](https://kit.svelte.dev) to build this example for convenience but all of this generally applies to svelte.
 
 ## What we will build
 
-<video width="300" autoplay loop muted playsinline style="max-inline-size: 100%">
-  <source src="/assets/videos/pull-to-refresh.webm" type="video/webm">
-  <source src="/assets/videos/pull-to-refresh.mp4" type="video/mp4">
-</video>
+<Video path="pull-to-refresh" class="ml-0 mr-auto w-[300px]" />
 
 Here is a direct link to the [built app](https://svelte-pull-to-refresh.netlify.app/) and here is the link to the [repo](https://github.com/vanillacode314/svelte-pull-to-refresh).
 
