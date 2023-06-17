@@ -1,10 +1,22 @@
 ---
 title: 'HTML Anchor Tag Explained'
-description: 'In depth explainer for the HTML anchor tag.'
+description: 'In depth explainer for the HTML anchor tag including best SEO and Accessibility practices'
 seo:
   title: 'HTML Anchor Tag Explained'
-  description: 'In depth explainer for the HTML anchor tag.'
-  keywords: ['html', 'anchor', 'explained', 'guide', 'explainer', 'a', 'links', 'hyperlinks']
+  description: 'In depth explainer for the HTML anchor tag including best SEO and Accessibility practices'
+  keywords:
+    [
+      'html',
+      'anchor',
+      'explained',
+      'guide',
+      'explainer',
+      'a',
+      'links',
+      'hyperlinks',
+      'seo',
+      'accessibility'
+    ]
 author: raqueebuddinaziz
 created: 'Jun 11, 2023'
 ---
