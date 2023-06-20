@@ -8,6 +8,6 @@ export default [
 	{
 		id: 'raqueebuddinaziz',
 		name: 'Raqueebuddin Aziz',
-		description: `Web designer & developer`
+		description: `Freelance Web Designer & Developer`
 	}
 ] satisfies Author[]
