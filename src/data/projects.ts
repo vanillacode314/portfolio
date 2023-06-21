@@ -55,7 +55,7 @@ export default [
 		points: [],
 		repo_url: '',
 		tech: ['svelte', 'sveltekit', 'tailwindcss', 'daisyui', 'supabase'],
-		url: 'https://mtgpacksim.bluemonkeygaming.com/sets'
+		url: 'https://mtg-pack.pages.dev/sets'
 	},
 	/* { */
 	/*   name: "JustLearn", */
