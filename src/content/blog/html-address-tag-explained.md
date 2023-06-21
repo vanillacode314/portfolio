@@ -19,6 +19,12 @@ Let's see how we can use the `address` tag to improve our sites SEO and accessib
 <address>Phone No: +11234567890</address>
 <!-- OR  -->
 <address>Mail us a letter at P/O box at XYZ Street, ABC City</address>
+<!-- OR  you are free to put multiple contact methods in the same tag -->
+<address>
+	You can contact me at raqueebuddin.aziz.314@gmail.com<br />
+	Phone No: +11234567890<br />
+	Mail us a letter at P/O box at XYZ Street, ABC City
+</address>
 ```
 
 `address` tag is meant to be used to provide contact information for the current context, if you use it inside an `article` tag it would be associated with that part of the page, if you use it directly under `body` it would be considered a contact for the entire webpage and so on.
