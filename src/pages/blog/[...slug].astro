@@ -94,8 +94,8 @@ const nextBlog = blogEntries[index + 1]
 				type: 'article'
 			}}
 			twitter={{
-				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
 				site: '@RaqueebuddinA',
+				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
 				card: 'summary_large_image'
 			}}
 		/>
@@ -112,7 +112,9 @@ const nextBlog = blogEntries[index + 1]
 				</span>
 			</li>
 		</ol>
-		<section class="rounded-10 grid gap-5 bg-gray-900 p-10 text-gray-100 shadow-lg md:grid-cols-2">
+		<section
+			class="rounded-10 grid gap-5 bg-gray-900 p-10 text-gray-100 shadow-lg md:grid-cols-2 w-full"
+		>
 			<img
 				src={`/assets/images/blog/${entry.slug}.svg`}
 				alt={frontmatter.title}
@@ -150,8 +152,89 @@ const nextBlog = blogEntries[index + 1]
 				{frontmatter.title}
 			</h1>
 		</section>
-		<div class="markdown" id="content">
-			<Content />
+		<div class="relative gap-10 xl:grid-cols-[1fr_350px] grid" id="content">
+			<div class="markdown">
+				<Content />
+			</div>
+			<section
+				aria-label="performance-report"
+				id="performance-report"
+				class="xl:flex hidden self-start sticky top-5 flex-col gap-5"
+			>
+				<form
+					class="flex flex-col gap-5 rounded-xl bg-neutral-50 p-5 text-gray-900 shadow-lg"
+					name="report"
+					method="post"
+					data-netlify="true"
+				>
+					<h2
+						class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl"
+					>
+						<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
+						report on how to make your website faster
+					</h2>
+					<div class="flex flex-col gap-1">
+						<label
+							for="email-report-footer"
+							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600">Email</label
+						>
+						<input
+							type="email"
+							name="email"
+							id="email-report-footer"
+							placeholder="name@domain.com"
+							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
+							required
+						/>
+					</div>
+					<div class="flex flex-col gap-1">
+						<label
+							for="address-footer"
+							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600"
+							>Website Address</label
+						>
+						<input
+							type="text"
+							name="address"
+							id="address-footer"
+							placeholder="www.example.com"
+							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
+							required
+						/>
+					</div>
+					<button
+						class="rounded-5 ml-auto whitespace-nowrap bg-orange-600 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-none"
+					>
+						Submit
+					</button>
+				</form>
+				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
+					>Share This Post on</span
+				>
+				<div class="flex gap-5 justify-end">
+					<a
+						href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
+						target="_blank"
+						class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
+					>
+						<span class="i-mdi-twitter text-2xl"></span>
+					</a>
+					<a
+						href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
+						class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800"
+						target="_blank"
+					>
+						<span class="i-mdi-linkedin text-2xl"></span>
+					</a>
+					<a
+						href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
+						class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800"
+						target="_blank"
+					>
+						<span class="i-fa6-brands:reddit-alien text-2xl"></span>
+					</a>
+				</div>
+			</section>
 		</div>
 		<section class="flex flex-wrap gap-5">
 			<!-- TODO: get facebook share working -->
