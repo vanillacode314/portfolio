@@ -5,15 +5,11 @@ import Layout from '@/layouts/Layout.astro'
 import Comments from '@/sections/Comment'
 import { Seo } from 'astro-seo-meta'
 import { Schema } from 'astro-seo-schema'
-import { CollectionEntry, getCollection } from 'astro:content'
-export async function getStaticPaths() {
-	const blogEntries = await getCollection('blog')
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry }
-	}))
-}
-const { entry } = Astro.props as { entry: CollectionEntry<'blog'> }
+import { getCollection } from 'astro:content'
+export async function getStaticPaths() {}
+
+const entry = (await getCollection('blog')).find((entry) => entry.slug === Astro.params.slug)
+if (!entry) return new Response(null, { status: 404, statusText: 'Not Found' })
 const frontmatter = entry.data
 const { Content } = await entry.render()
 
