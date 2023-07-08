@@ -25,6 +25,8 @@
 		"astro-seo-meta": "^2.2.0",
 		"astro-seo-schema": "^2.2.0",
 		"clsx": "^1.2.1",
+		"markdown-it": "^13.0.1",
+		"sanitize-html": "^2.11.0",
 		"solid-js": "^1.7.6",
 		"typewriter-effect": "^2.20.1",
 		"unocss": "^0.53.1"

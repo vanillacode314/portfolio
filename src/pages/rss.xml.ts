@@ -1,6 +1,9 @@
 import rss from '@astrojs/rss'
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
+import MarkdownIt from 'markdown-it'
+import sanitizeHtml from 'sanitize-html'
+const parser = new MarkdownIt()
 
 export const get: APIRoute = async (context) => {
 	const posts = (await getCollection('blog')).sort((a, b) => {
@@ -20,7 +23,8 @@ export const get: APIRoute = async (context) => {
 			pubDate: new Date(post.data.created),
 			description: post.data.description,
 			author: post.data.author,
-			link: `/blog/${post.slug}/`
+			link: `/blog/${post.slug}/`,
+			content: sanitizeHtml(parser.render(post.body))
 		})),
 		customData: `<language>en-us</language>`
 	})
