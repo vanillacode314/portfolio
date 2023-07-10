@@ -15,6 +15,7 @@ export const get: APIRoute = async (context) => {
 	})
 
 	return rss({
+		stylesheet: '/assets/styles/rss.xsl',
 		title: "Raqueebuddin's Blog",
 		description: 'All about web design & development',
 		site: context.site!.toString(),
