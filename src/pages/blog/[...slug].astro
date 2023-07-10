@@ -1,5 +1,6 @@
 ---
 import Container from '@/components/Container.astro'
+import RSSButton from '@/components/RSSButton'
 import authors from '@/data/authors'
 import Layout from '@/layouts/Layout.astro'
 import Comments from '@/sections/Comment'
@@ -99,15 +100,18 @@ const nextBlog = blogEntries[index + 1]
 		<meta property="og:image:height" content="1024" />
 	</Fragment>
 	<Container class="p-5 lg:p-10" innerClass="flex flex-col gap-5">
-		<ol class="flex items-center gap-1">
-			<li class="hidden md:contents">
-				<a href="/blog" class="text-lg hover:underline"> blog</a>
-				<span class="i-mdi-chevron-right text-xl"></span>
-				<span class="text-lg font-bold">
-					{entry.slug}
-				</span>
-			</li>
-		</ol>
+		<div class="flex gap-5 justify-between">
+			<ol class="flex items-center gap-1">
+				<li class="hidden md:contents">
+					<a href="/blog" class="text-lg hover:underline"> blog</a>
+					<span class="i-mdi-chevron-right text-xl"></span>
+					<span class="text-lg font-bold">
+						{entry.slug}
+					</span>
+				</li>
+			</ol>
+			<RSSButton />
+		</div>
 		<section
 			class="rounded-10 grid gap-5 bg-gray-900 p-10 text-gray-100 shadow-lg md:grid-cols-2 w-full"
 		>

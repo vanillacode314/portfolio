@@ -1,6 +1,7 @@
 ---
 import BlogPostCard from '@/components/BlogPostCard.astro'
 import Container from '@/components/Container.astro'
+import RSSButton from '@/components/RSSButton'
 import authors from '@/data/authors'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
@@ -25,7 +26,10 @@ const blogEntries = (await getCollection('blog')).sort((a, b) => {
 		/>
 	</Fragment>
 	<Container class="lg:p-10 p-5" innerClass="flex flex-col items-center">
-		<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">Latest Posts</h2>
+		<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10 flex gap-3">
+			Latest Posts
+			<RSSButton />
+		</h2>
 		<section
 			class="text-gray-900 grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-5 lg:gap-10"
 		>
