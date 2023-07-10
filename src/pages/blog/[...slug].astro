@@ -148,7 +148,7 @@ const nextBlog = blogEntries[index + 1]
 				{frontmatter.title}
 			</h1>
 		</section>
-		<div class="relative gap-10 xl:grid-cols-[1fr_350px] grid" id="content">
+		<div class="relative gap-10 xl:grid-cols-[minmax(0,1fr)_350px] grid" id="content">
 			<div class="markdown">
 				<Content />
 			</div>
@@ -350,6 +350,7 @@ const nextBlog = blogEntries[index + 1]
 
 	<style is:global lang="scss">
 		.markdown {
+			overflow: hidden;
 			h2 {
 				@apply my-3 flex items-center gap-3 text-2xl font-semibold;
 			}
@@ -402,11 +403,8 @@ const nextBlog = blogEntries[index + 1]
 				* {
 					@apply font-mono;
 				}
-				max-width: calc(100vw - 2.5rem);
-				@media (min-width: 1024px) {
-					max-width: calc(100vw - 5rem);
-				}
-				@apply my-5 block min-w-0 overflow-x-auto rounded-xl p-5 font-mono;
+				width: clamp(0px, 100%, 100%);
+				@apply my-5 block rounded-xl p-5 font-mono;
 			}
 
 			ol {
