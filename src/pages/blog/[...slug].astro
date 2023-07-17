@@ -7,7 +7,6 @@ import Comments from '@/sections/Comment'
 import { Seo } from 'astro-seo-meta'
 import { Schema } from 'astro-seo-schema'
 import { getCollection } from 'astro:content'
-export async function getStaticPaths() {}
 
 const entry = (await getCollection('blog')).find((entry) => entry.slug === Astro.params.slug)
 if (!entry) return new Response(null, { status: 404, statusText: 'Not Found' })
