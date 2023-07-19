@@ -1,7 +1,7 @@
 ---
 import Container from '@/components/Container.astro'
-import Projects from '@/sections/Projects.astro'
-import Hero from '@/sections/Hero.astro'
+import Projects from '@/sections/ProjectsSvelte.astro'
+import Hero from '@/sections/HeroSvelte.astro'
 import Testimonials from '@/sections/Testimonials.astro'
 import About from '@/sections/About.astro'
 import Layout from '../layouts/Layout.astro'
@@ -35,11 +35,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			}}
 		/>
 		<Seo
-			title="Web Designer and Developer - Raqueebuddin Aziz"
-			description="I help businesses get more customers by improving their online presence and building quick-to-load, beautiful, easy-to-use websites."
-			keywords={'professional web developer, web developer, freelance web developer, svelte web developer, frontend web developer, fullstack web developer, fullstack, frontend, svelte, vue, tailwind, html, css, js, typescript'.split(
-				','
-			)}
+			title="Svelte(Kit) Developer - Raqueebuddin Aziz"
+			description="The fastest and most professional svelte(kit) developer on the planet"
+			keywords={['svelte web developer', 'sveltekit developer', 'svelte dev']}
 			icon="/favicon.svg"
 			themeColor="#ea580c"
 			colorScheme="light"
@@ -63,7 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			<Testimonials />
 			<Services />
 			<Projects />
-			<Posts />
+			<Posts tags={['svelte', 'sveltekit']} />
 			<About />
 			<Contact />
 		</main>

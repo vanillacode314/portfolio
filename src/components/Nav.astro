@@ -29,7 +29,7 @@ const links: Link[] = [
 ---
 
 {
-	route !== '/' && (
+	route.startsWith('/blog') && (
 		<a
 			href="/#performance-report"
 			class="block justify-center bg-orange-600 py-2 px-4 text-center text-sm font-bold uppercase tracking-wide text-white md:text-base"

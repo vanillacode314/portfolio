@@ -2,6 +2,12 @@
 import BlogPostCard from '@/components/BlogPostCard.astro'
 import authors from '@/data/authors'
 import { getCollection } from 'astro:content'
+
+export interface Props {
+	tags: string[]
+}
+const { tags = [] } = Astro.props as Props
+
 const blogEntries = (await getCollection('blog'))
 	.sort((a, b) => {
 		const date1 = new Date(a.data.created)
@@ -9,6 +15,9 @@ const blogEntries = (await getCollection('blog'))
 		if (date1 === date2) return 0
 		if (date1 >= date2) return -1
 		return 1
+	})
+	.filter((entry) => {
+		return entry.data.seo.keywords.some((tag) => tags.length === 0 || tags.includes(tag))
 	})
 	.slice(0, 5)
 ---
