@@ -4,7 +4,7 @@ import authors from '@/data/authors'
 import { getCollection } from 'astro:content'
 
 export interface Props {
-	tags: string[]
+	tags?: string[]
 }
 const { tags = [] } = Astro.props as Props
 
