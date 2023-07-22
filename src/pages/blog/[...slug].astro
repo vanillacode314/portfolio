@@ -158,53 +158,18 @@ const nextBlog = blogEntries[index + 1]
 			<section
 				class="xl:flex hidden self-start sticky top-5 flex-col gap-5"
 			>
-				<form
-					class="flex flex-col gap-5 rounded-xl bg-neutral-50 p-5 text-gray-900 shadow-lg"
-					name="report"
-					method="post"
-					data-netlify="true"
-				>
-					<h2
-						class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl"
-					>
-						<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
-						report on how to make your website faster
-					</h2>
-					<div class="flex flex-col gap-1">
-						<label
-							for="email-report-footer"
-							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600">Email</label
-						>
-						<input
-							type="email"
-							name="email"
-							id="email-report-footer"
-							placeholder="name@domain.com"
-							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
-							required
-						/>
-					</div>
-					<div class="flex flex-col gap-1">
-						<label
-							for="address-footer"
-							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600"
-							>Website Address</label
-						>
-						<input
-							type="text"
-							name="address"
-							id="address-footer"
-							placeholder="www.example.com"
-							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
-							required
-						/>
-					</div>
-					<button
-						class="rounded-5 ml-auto whitespace-nowrap bg-orange-600 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-none"
-					>
-						Submit
-					</button>
-				</form>
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3391473007789643"
+						 crossorigin="anonymous"></script>
+				<!-- blog sidebar -->
+				<ins class="adsbygoogle"
+						 style="display:block"
+						 data-ad-client="ca-pub-3391473007789643"
+						 data-ad-slot="5146394907"
+						 data-ad-format="auto"
+						 data-full-width-responsive="true"></ins>
+				<script>
+						 (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
 				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
 					>Share This Post on</span
 				>
@@ -233,52 +198,52 @@ const nextBlog = blogEntries[index + 1]
 				</div>
 			</section>
 		</div>
-		<!-- <section class="flex flex-wrap gap-5"> -->
-		<!-- 	TODO: get facebook share working -->
-		<!-- 	<a -->
-		<!-- 	  href={`https://www.facebook.com/dialog/share?app_id=3270061229907621&display=page&hashtag=${encodeURIComponent( -->
-		<!-- 	    '#' + frontmatter.seo.keywords[0] -->
-		<!-- 	  )}&href=${canonicalURL}&redirect_uri=${canonicalURL}`} -->
-		<!-- 	  class="facebook-share-button" -->
-		<!-- 	> -->
-		<!-- 	  <span class="icon-wrapper"> -->
-		<!-- 	    <svg width="1em" height="1em" viewBox="0 0 256 256" -->
-		<!-- 	      ><path -->
-		<!-- 	        fill="#1877F2" -->
-		<!-- 	        d="M256 128C256 57.308 198.692 0 128 0C57.308 0 0 57.307 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.347-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.958 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445" -->
-		<!-- 	      ></path><path -->
-		<!-- 	        fill="#FFF" -->
-		<!-- 	        d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A128.959 128.959 0 0 0 128 256a128.9 128.9 0 0 0 20-1.555V165h29.825" -->
-		<!-- 	      ></path> -->
-		<!-- 	    </svg> -->
-		<!-- 	  </span> -->
-		<!-- 	  Share on Facebook</a -->
-		<!-- 	> -->
-		<!-- 	<a -->
-		<!-- 		href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`} -->
-		<!-- 		target="_blank" -->
-		<!-- 		class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700" -->
-		<!-- 	> -->
-		<!-- 		<span class="i-mdi-twitter text-2xl"></span> -->
-		<!-- 		Tweet</a -->
-		<!-- 	> -->
-		<!-- 	<a -->
-		<!-- 		href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`} -->
-		<!-- 		class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800" -->
-		<!-- 		target="_blank" -->
-		<!-- 	> -->
-		<!-- 		<span class="i-mdi-linkedin text-2xl"></span> -->
-		<!-- 		Share on LinkedIN</a -->
-		<!-- 	> -->
-		<!-- 	<a -->
-		<!-- 		href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`} -->
-		<!-- 		class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800" -->
-		<!-- 		target="_blank" -->
-		<!-- 	> -->
-		<!-- 		<span class="i-fa6-brands:reddit-alien text-2xl"></span> -->
-		<!-- 		Post on Reddit</a -->
-		<!-- 	> -->
-		<!-- </section> -->
+		<section class="flex flex-wrap gap-5">
+			<!-- TODO: get facebook share working -->
+			<!-- <a -->
+			<!--   href={`https://www.facebook.com/dialog/share?app_id=3270061229907621&display=page&hashtag=${encodeURIComponent( -->
+			<!--     '#' + frontmatter.seo.keywords[0] -->
+			<!--   )}&href=${canonicalURL}&redirect_uri=${canonicalURL}`} -->
+			<!--   class="facebook-share-button" -->
+			<!-- > -->
+			<!--   <span class="icon-wrapper"> -->
+			<!--     <svg width="1em" height="1em" viewBox="0 0 256 256" -->
+			<!--       ><path -->
+			<!--         fill="#1877F2" -->
+			<!--         d="M256 128C256 57.308 198.692 0 128 0C57.308 0 0 57.307 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.347-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.958 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445" -->
+			<!--       ></path><path -->
+			<!--         fill="#FFF" -->
+			<!--         d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A128.959 128.959 0 0 0 128 256a128.9 128.9 0 0 0 20-1.555V165h29.825" -->
+			<!--       ></path> -->
+			<!--     </svg> -->
+			<!--   </span> -->
+			<!--   Share on Facebook</a -->
+			<!-- > -->
+			<a
+				href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
+				target="_blank"
+				class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
+			>
+				<span class="i-mdi-twitter text-2xl"></span>
+				Tweet</a
+			>
+			<a
+				href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
+				class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800"
+				target="_blank"
+			>
+				<span class="i-mdi-linkedin text-2xl"></span>
+				Share on LinkedIN</a
+			>
+			<a
+				href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
+				class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800"
+				target="_blank"
+			>
+				<span class="i-fa6-brands:reddit-alien text-2xl"></span>
+				Post on Reddit</a
+			>
+		</section>
 		<section class="flex flex-wrap justify-between gap-5">
 			{
 				prevBlog ? (
