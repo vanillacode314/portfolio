@@ -32,6 +32,12 @@ dependencies:
   '@solid-primitives/event-listener':
     specifier: ^2.2.13
     version: 2.2.13(solid-js@1.7.8)
+  '@solid-primitives/storage':
+    specifier: ^2.0.0
+    version: 2.0.0(solid-js@1.7.8)
+  '@types/cookie':
+    specifier: ^0.5.1
+    version: 0.5.1
   '@unocss/reset':
     specifier: ^0.53.5
     version: 0.53.5
@@ -47,6 +53,9 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  cookie:
+    specifier: ^0.5.0
+    version: 0.5.0
   markdown-it:
     specifier: ^13.0.1
     version: 13.0.1
@@ -1042,6 +1051,19 @@ packages:
       solid-js: 1.7.8
     dev: false
 
+  /@solid-primitives/storage@2.0.0(solid-js@1.7.8):
+    resolution: {integrity: sha512-64etR/or0A7jUtsg4gG9jhV+QN5hNrQrQl0/Ss9Qcbl4Rc//dznN/s9V1OEBiQCNRrsSM91vAQuq3XXBbilUwA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+      solid-start: ^0.2.26
+    peerDependenciesMeta:
+      solid-start:
+        optional: true
+    dependencies:
+      '@solid-primitives/utils': 6.2.0(solid-js@1.7.8)
+      solid-js: 1.7.8
+    dev: false
+
   /@solid-primitives/utils@6.2.0(solid-js@1.7.8):
     resolution: {integrity: sha512-T62WlLwKkbmicsw/xpwMQyv9MmZRSaVyutXfS5icc9v0cb8qGMUxRxr5LVvZHYQCZ9DEFboZB0r711xsbVBbeA==}
     peerDependencies:
@@ -1080,6 +1102,10 @@ packages:
     resolution: {integrity: sha512-MitHFXnhtgwsGZWtT68URpOvLN4EREih1u3QtQiN4VdAxWKRVvGCSvw/Qth0M0Qq3pJpnGOu5JaM/ydK7OGbqg==}
     dependencies:
       '@babel/types': 7.22.5
+
+  /@types/cookie@0.5.1:
+    resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
+    dev: false
 
   /@types/debug@4.1.8:
     resolution: {integrity: sha512-/vPO1EPOs306Cvhwv7KfVfYvOJqA/S/AXjaHQiJboCZzcNDb+TIJFN9/2C9DZ//ijSKWioNyUxD792QmDJ+HKQ==}
