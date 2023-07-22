@@ -12,11 +12,21 @@ export const CookieBanner: VoidComponent<{ cookie: string }> = (props) => {
 	}
 	const [didConsent, setDidConsent] = makePersisted(createSignal<boolean>(false), {
 		storage: cookieStorage,
-		storageOptions: { path: '/', secure: true, sameSite: 'lax' }
+		storageOptions: {
+			path: '/',
+			secure: true,
+			sameSite: 'lax',
+			expires: new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000)
+		}
 	})
 	const [didChoose, setDidChoose] = makePersisted(createSignal<boolean>(false), {
 		storage: cookieStorage,
-		storageOptions: { path: '/', secure: true, sameSite: 'lax' }
+		storageOptions: {
+			path: '/',
+			secure: true,
+			sameSite: 'lax',
+			expires: new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000)
+		}
 	})
 	createEffect(() => console.log(didConsent(), didChoose()))
 
