@@ -53,7 +53,7 @@ export default defineConfig({
 			safelist: ['i-mdi-link-variant']
 		}),
 		solidJs(),
-		sitemap({ customPages: blogUrls }),
+		sitemap({ customPages: blogUrls, changefreq: 'daily' }),
 		// partytown({
 		// 	config: {
 		// 		forward: ['dataLayer.push']
