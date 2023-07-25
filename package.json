@@ -21,6 +21,7 @@
 		"@astrojs/solid-js": "^2.2.0",
 		"@iconify/json": "^2.2.92",
 		"@solid-primitives/event-listener": "^2.2.13",
+		"@solid-primitives/media": "^2.2.3",
 		"@solid-primitives/storage": "^2.0.0",
 		"@types/cookie": "^0.5.1",
 		"@unocss/reset": "^0.53.5",

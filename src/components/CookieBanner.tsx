@@ -1,6 +1,6 @@
 import { CookieOptions, cookieStorage, makePersisted } from '@solid-primitives/storage'
 import cookie from 'cookie'
-import { createEffect, createSignal, onMount, type VoidComponent } from 'solid-js'
+import { createSignal, onMount, type VoidComponent } from 'solid-js'
 import { isServer } from 'solid-js/web'
 
 export const CookieBanner: VoidComponent<{ cookie: string }> = (props) => {
@@ -30,7 +30,6 @@ export const CookieBanner: VoidComponent<{ cookie: string }> = (props) => {
 		},
 		name: 'chose_consent'
 	})
-	createEffect(() => console.log(didConsent(), didChoose()))
 
 	async function onAccept() {
 		setDidChoose(true)
