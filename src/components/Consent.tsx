@@ -93,18 +93,20 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 					Privacy Policy
 				</a>
 				<span class="grow" />
-				<button
-					onClick={onReject}
-					class="border-2 border-white px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:bg-white hover:text-orange-600 transition-colors focus:bg-white focus:text-orange-600 "
-				>
-					Reject
-				</button>
-				<button
-					onClick={onAccept}
-					class="border-2 border-transparent bg-white text-orange-600 px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:bg-orange-100 transition-colors focus:bg-orange-100"
-				>
-					Accept
-				</button>
+				<div class="flex gap-3 flex-wrap items-center">
+					<button
+						onClick={onReject}
+						class="border-2 border-white px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:bg-white hover:text-orange-600 transition-colors focus:bg-white focus:text-orange-600 "
+					>
+						Reject
+					</button>
+					<button
+						onClick={onAccept}
+						class="border-2 border-transparent bg-white text-orange-600 px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:bg-orange-100 transition-colors focus:bg-orange-100"
+					>
+						Accept
+					</button>
+				</div>
 			</div>
 		</article>
 	)
