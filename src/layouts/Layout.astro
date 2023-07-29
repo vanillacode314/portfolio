@@ -1,6 +1,6 @@
 ---
 import { Background } from '@/components/Background'
-import CookieBanner from '@/components/CookieBanner'
+import Consent from '@/components/Consent'
 import Nav from '@/components/Nav.astro'
 import Footer from '@/sections/Footer.astro'
 import '@unocss/reset/tailwind.css'
@@ -39,7 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<Nav />
 		<slot />
 		<Footer />
-		<CookieBanner client:load cookie={Astro.request.headers.get('cookie') ?? ''} />
+		<Consent client:load cookie={Astro.request.headers.get('cookie') ?? ''} />
 		<style is:global>
 			* {
 				/* helps with preventing unintended font boosting */

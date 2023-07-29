@@ -3,7 +3,7 @@ import cookie from 'cookie'
 import { createSignal, onMount, type VoidComponent } from 'solid-js'
 import { isServer } from 'solid-js/web'
 
-export const CookieBanner: VoidComponent<{ cookie: string }> = (props) => {
+export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	cookieStorage._read = (key: string) => {
 		return isServer ? props.cookie : document.cookie
 	}
@@ -110,4 +110,4 @@ export const CookieBanner: VoidComponent<{ cookie: string }> = (props) => {
 	)
 }
 
-export default CookieBanner
+export default CookieConsent
