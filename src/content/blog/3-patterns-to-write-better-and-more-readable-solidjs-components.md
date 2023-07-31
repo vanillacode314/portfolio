@@ -1,9 +1,9 @@
 ---
 title: '3 Patterns to Write Declarative, More Readable SolidJS Components'
-description: 'This posts explains how to write more readable declarative components'
+description: 'This post explains how to write more readable declarative components in solidjs'
 seo:
   title: '3 Patterns to Write Better and More Readable SolidJS Components'
-  description: 'This posts explains how to write more readable declarative components'
+  description: 'This post explains how to write more readable declarative components in solidjs'
   keywords:
     [
       'solidjs',
