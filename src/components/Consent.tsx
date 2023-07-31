@@ -98,9 +98,9 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	return (
 		<article
 			class="fixed bottom-0 right-0 z-30 bg-orange-600 p-8 m-5 rounded-xl text-white flex flex-col gap-8 shadow-xl max-w-xl transition-opacity"
-			classList={{
-				'opacity-0 pointer-events-none': didChoose(),
-				'opacity-100': !didChoose()
+			style={{
+				'pointer-events': isServer ? 'none' : didChoose() ? 'none' : 'auto',
+				opacity: isServer ? 0 : didChoose() ? 0 : 1
 			}}
 		>
 			<p>
