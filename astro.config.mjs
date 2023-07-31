@@ -38,6 +38,7 @@ export default defineConfig({
 			presets: [
 				presetUno(),
 				presetWebFonts({
+					provider: 'bunny',
 					fonts: {
 						sans: ['Inter:400,500,600,700,800,900'],
 						mono: ['JetBrains Mono', 'monospace']
