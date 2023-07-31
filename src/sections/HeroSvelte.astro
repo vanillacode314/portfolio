@@ -98,7 +98,7 @@
 				class="mx-auto mb-5 text-center text-xl font-semibold uppercase text-gray-700 md:text-2xl"
 			>
 				<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
-				analysis on how to make your sveltekit website faster
+				 analysis on how to make your sveltekit website faster
 			</h2>
 			<div class="flex flex-col gap-1">
 				<label
@@ -161,6 +161,7 @@
 				submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
 			}
 		})
+		fbq('track', 'Contact')
 	}
 	forms.forEach((form) => form.addEventListener('submit', onSubmit))
 </script>

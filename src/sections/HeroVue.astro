@@ -159,6 +159,7 @@
 				submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
 			}
 		})
+		fbq('track', 'Contact')
 	}
 	forms.forEach((form) => form.addEventListener('submit', onSubmit))
 </script>
