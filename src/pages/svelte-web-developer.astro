@@ -10,6 +10,7 @@ import Contact from '@/sections/Contact.astro'
 import { Schema } from 'astro-seo-schema'
 import { Seo } from 'astro-seo-meta'
 import Posts from '@/sections/Posts.astro'
+export const prerender = true
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -62,7 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			<Services />
 			<Projects />
 			<Posts tags={['svelte', 'sveltekit']} />
-			<About />
+			<!-- <About /> -->
 			<Contact />
 		</main>
 	</Container>
