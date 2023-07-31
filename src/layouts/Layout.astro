@@ -25,6 +25,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<title>{title}</title>
 	</head>
 	<body>
+		<noscript
+			><img
+				height="1"
+				width="1"
+				style="display:none"
+				src="https://www.facebook.com/tr?id=988774449217223&ev=PageView&noscript=1"
+			/></noscript
+		>
 		{
 			/\/blog\/\w+/.test(canonicalURL.pathname) && (
 				<a
@@ -40,14 +48,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<slot />
 		<Footer />
 		<Consent client:load cookie={Astro.request.headers.get('cookie') ?? ''} />
-		<noscript
-			><img
-				height="1"
-				width="1"
-				style="display:none"
-				src="https://www.facebook.com/tr?id=988774449217223&ev=PageView&noscript=1"
-			/></noscript
-		>
 		<style is:global>
 			* {
 				/* helps with preventing unintended font boosting */
