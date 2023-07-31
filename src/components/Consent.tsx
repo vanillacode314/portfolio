@@ -96,7 +96,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 
 	return (
 		<article
-			class="fixed bottom-0 right-0 z-30 bg-orange-600 p-5 m-5 rounded-xl text-white flex flex-col gap-5 shadow-xl max-w-xl transition-opacity"
+			class="fixed bottom-0 right-0 z-30 bg-orange-600 p-8 m-5 rounded-xl text-white flex flex-col gap-8 shadow-xl max-w-xl transition-opacity"
 			classList={{
 				'opacity-0 pointer-events-none': didChoose(),
 				'opacity-100': !didChoose()
@@ -107,7 +107,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 				continuing to use our website, you consent to the use of cookies in accordance with our
 				Privacy Policy.
 			</p>
-			<div class="flex gap-3 flex-wrap items-center self-end">
+			<div class="flex gap-3 flex-wrap items-center self-end w-full">
 				<a
 					class="text-orange-100 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500"
 					href="/privacy-policy"
@@ -118,7 +118,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 				<div class="flex gap-3 flex-wrap items-center">
 					<button
 						onClick={onReject}
-						class="border-2 border-white px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:bg-white hover:text-orange-600 transition-colors focus:bg-white focus:text-orange-600 "
+						class="border-2 border-transparent px-5 py-3 rounded font-bold uppercase tracking-wide text-sm hover:text-orange-100 transition-colors focus:text-orange-100 "
 					>
 						Reject
 					</button>
