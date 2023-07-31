@@ -34,6 +34,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	async function onAccept() {
 		setDidChoose(true)
 		setDidConsent(true)
+		loadPixel()
 		loadAdsense()
 		loadAnalytics()
 	}
