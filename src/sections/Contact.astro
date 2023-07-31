@@ -11,7 +11,7 @@
 				 Book A Call
 			</a>
 		</noscript>
-		<script is:inline src="https://asset-tidycal.b-cdn.net//js/embed.js"></script>
+		<script is:inline async defer src="https://asset-tidycal.b-cdn.net//js/embed.js"></script>
 		<div id="tidycal-embed" data-path="raqueebuddin.aziz.314/30-minute-meeting"></div>
 		<style is:global>
 			.tidycal-embed {
@@ -94,7 +94,7 @@
 					submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
 				}
 			})
-  fbq('track', 'Contact');
+			fbq('track', 'Contact')
 		}
 		form.addEventListener('submit', onSubmit)
 	</script>
