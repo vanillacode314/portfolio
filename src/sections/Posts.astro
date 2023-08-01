@@ -34,7 +34,17 @@ const blogEntries = (await getCollection('blog'))
 				.map((entry) => ({ ...entry.data, slug: entry.slug }))
 				.map(({ title, description, author: authorId, created, updated, slug }) => {
 					const author = authors.find((author) => author.id === authorId)!
-					return <BlogPostCard {title} {description} {author} {created} {updated} {slug} />
+					return (
+						<BlogPostCard
+							{title}
+							{description}
+							{author}
+							{created}
+							{updated}
+							{slug}
+							fullHover={false}
+						/>
+					)
 				})
 		}
 	</section>

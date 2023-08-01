@@ -1,5 +1,6 @@
 ---
 export interface Props {
+	fullHover?: boolean
 	slug: string
 	title: string
 	description: string
@@ -9,12 +10,23 @@ export interface Props {
 		name: string
 	}
 }
-const { slug, title, author, description, created, updated } = Astro.props as Props
+const {
+	fullHover = true,
+	slug,
+	title,
+	author,
+	description,
+	created,
+	updated
+} = Astro.props as Props
+
+const A = fullHover ? 'a' : 'div'
 ---
 
-<a href={`/blog/${slug}`} class="contents">
+<A href={`/blog/${slug}`} class="contents">
 	<article
-		class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden hover:scale-105 transition-transform"
+		class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden transition-transform"
+		class:list={[fullHover && 'hover:scale-105']}
 	>
 		<img
 			src={`/assets/images/blog/${slug}.svg`}
@@ -54,10 +66,13 @@ const { slug, title, author, description, created, updated } = Astro.props as Pr
 			</p>
 			<p class="mt-3">{description}</p>
 			<span class="grow"></span>
-			<div class="flex flex-wrap gap-5">
+			<a
+				href={`/blog/${slug}`}
+				class="flex flex-wrap gap-5 focus:border-orange-600 focus:text-orange-600 hover:border-orange-600 hover:text-orange-600 border-b self-start border-transparent"
+			>
 				<span class="i-ic-sharp-menu-book text-xl"></span>
 				<span>Read</span>
-			</div>
+			</a>
 		</div>
 	</article>
-</a>
+</A>
