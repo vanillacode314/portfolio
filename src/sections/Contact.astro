@@ -85,6 +85,7 @@
 	</section>
 	<script>
 		import { submitFormWithoutListener } from '@/utils'
+		const BRANCH = document.querySelector('.branch')?.dataset.branch ?? 'unknown'
 		const form = document.querySelector("form[name='contact']") as HTMLFormElement
 		function onSubmit(e: SubmitEvent) {
 			e.preventDefault()
@@ -94,7 +95,7 @@
 			)
 			window.gtag('event', 'generate_lead', {
 				event_category: 'Lead Generation',
-				event_label: 'Contact Form',
+				event_label: `Contact Form (${BRANCH})`,
 				event_callback: function () {
 					clearTimeout(timer)
 					submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
