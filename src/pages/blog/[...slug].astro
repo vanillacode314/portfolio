@@ -158,17 +158,53 @@ const nextBlog = blogEntries[index + 1]
 			<section
 				class="xl:flex hidden self-start sticky top-5 flex-col gap-5"
 			>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3391473007789643"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3391473007789643"
-     data-ad-slot="5146394907"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+				<form
+					class="flex flex-col gap-5 rounded-xl bg-neutral-50 p-5 text-gray-900 shadow-lg border-2 border-orange-600"
+					name="report"
+					method="post"
+					data-netlify="true"
+				>
+					<h2
+						class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl"
+					>
+						<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
+						report on how to make your website faster
+					</h2>
+					<div class="flex flex-col gap-1">
+						<label
+							for="email-report-footer"
+							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600">Email</label
+						>
+						<input
+							type="email"
+							name="email"
+							id="email-report-footer"
+							placeholder="example@domain.com"
+							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
+							required
+						/>
+					</div>
+					<div class="flex flex-col gap-1">
+						<label
+							for="address-footer"
+							class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600"
+							>Website Address</label
+						>
+						<input
+							type="text"
+							name="address"
+							id="address-footer"
+							placeholder="www.example.com"
+							class="rounded-5 w-full min-w-0 bg-gray-100 px-5 py-3"
+							required
+						/>
+					</div>
+					<button
+						class="rounded-5 ml-auto whitespace-nowrap bg-orange-600 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-none"
+					>
+						Submit
+					</button>
+				</form>
 				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
 					>Share This Post on</span
 				>
@@ -284,7 +320,10 @@ const nextBlog = blogEntries[index + 1]
 			}
 		</section>
 		<article class="px-10 py-8 rounded-5 bg-orange-600 flex flex-col gap-5 max-w-4xl">
-			<p class="max-w-2xl text-white font-black text-3xl lg:text-5xl">Want to discuss your projects with me?</p>
+			<div class="max-w-2xl text-white !leading-snug flex flex-col gap-3">
+			<p class="text-3xl">Get a gorgeous website at <span class="font-bold">just $99/month.</span></p>
+<p class="text-5xl font-bold">30 DAY FREE TRIAL</p>
+			</div>
 			<span class="grow"></span>
 			<a href="https://tidycal.com/raqueebuddin.aziz.314/15-minute-meeting" target="_blank" class="self-end bg-white shadow-inset px-5 py-3 rounded uppercase font-bold tracking-wide text-orange-600 hover:bg-neutral-100 transition-colors">Book a call</a>
 		</article>
