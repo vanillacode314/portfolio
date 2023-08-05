@@ -1,5 +1,4 @@
 ---
-import AdUnit from '@/components/AdUnit'
 import Container from '@/components/Container.astro'
 import RSSButton from '@/components/RSSButton'
 import authors from '@/data/authors'
@@ -18,7 +17,7 @@ const author = authors.find((author) => author.id === entry.data.author)
 if (!author) throw new Error(`author with id ${entry.data.author} not found.`)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // const { default: imageSvg } = await import(`../assets/images/blog/${slug}.svg`);
-const { default: imagePng } = await import(`../../assets/images/blog/${entry.slug}.png`)
+const { default: image } = await import(`../../assets/images/blog/${entry.slug}.png`)
 const blogEntries = (await getCollection('blog')).sort((a, b) => {
 	const date1 = new Date(a.data.created)
 	const date2 = new Date(b.data.created)
@@ -73,8 +72,8 @@ const nextBlog = blogEntries[index + 1]
 					knowsLanguage: ['English', 'Hindi']
 				},
 				keywords: frontmatter.seo.keywords,
-				thumbnailUrl: Astro.site + imagePng.src.slice(1),
-				image: Astro.site + imagePng.src.slice(1),
+				thumbnailUrl: Astro.site + image.src.slice(1),
+				image: Astro.site + image.src.slice(1),
 				url: canonicalURL.toString()
 			}}
 		/>
@@ -86,13 +85,13 @@ const nextBlog = blogEntries[index + 1]
 			themeColor="#ea580c"
 			colorScheme="light"
 			facebook={{
-				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
+				image: Astro.site + image.src.slice(1),
 				url: canonicalURL.toString(),
 				type: 'article'
 			}}
 			twitter={{
 				site: '@RaqueebuddinA',
-				image: Astro.site + `/assets/images/blog/${entry.slug}.png`,
+				image: Astro.site + image.src.slice(1),
 				card: 'summary_large_image'
 			}}
 		/>
@@ -116,7 +115,7 @@ const nextBlog = blogEntries[index + 1]
 			class="rounded-10 grid gap-5 bg-gray-900 p-10 text-gray-100 shadow-lg md:grid-cols-2 w-full"
 		>
 			<img
-				src={`/assets/images/blog/${entry.slug}.svg`}
+				src={`/assets/images/blog/${entry.slug}.png`}
 				alt={frontmatter.title}
 				width="300"
 				height="300"
@@ -252,7 +251,7 @@ const nextBlog = blogEntries[index + 1]
 							<span class="i-mdi-chevron-left text-lg" />
 							<span class="text-sm font-bold uppercase md:text-base">{prevBlog.data.title}</span>
 							<img
-								src={`/assets/images/blog/${prevBlog.slug}.svg`}
+								src={`/assets/images/blog/${prevBlog.slug}.png`}
 								class="md:w-25 lg:w-30 w-20 rounded"
 								alt={prevBlog.data.title}
 								width="50"
@@ -269,7 +268,7 @@ const nextBlog = blogEntries[index + 1]
 					<a href={`/blog/${nextBlog.slug}`} rel="next">
 						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
 							<img
-								src={`/assets/images/blog/${nextBlog.slug}.svg`}
+								src={`/assets/images/blog/${nextBlog.slug}.png`}
 								class="md:w-25 lg:w-30 w-20 rounded"
 								width="50"
 								height="50"
