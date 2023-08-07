@@ -11,7 +11,7 @@ created: 'Aug 4, 2023'
 
 This guide assumes you are familiar with how JS <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank">scopes</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank">modules</a> work and have completed the <a href="https://learn.svelte.dev" target="_blank">svelte tutorial</a>.
 
-## The Setup
+## The setup
 
 This is a simple hello world svelte component that you and I will be walking through to see how script `context=module` works.
 
@@ -43,7 +43,7 @@ This is a simple hello world svelte component that you and I will be walking thr
 <!-- OUTER SCOPE ENDS -->
 ```
 
-## What a Svelte Component File Looks Like In JS
+## What a svelte component file looks like in JS
 
 Let's see what a svelte component roughly would look like if it was written in JS to understand how `context=module` script works.
 
@@ -78,17 +78,17 @@ export default HelloWorld
 // OUTER SCOPE ENDS
 ```
 
-## What Are The Differences Between context=module And Non context=module Script Tags?
+## What are the differences between context=module and non context=module script tags?
 
-- The code inside `context=module` scripts only run once, no matter how many times you use a component.
+- The code inside `context=module` scripts only runs once, no matter how many times you use a component.
 - You cannot use any variables/imports defined inside the normal script tag inside `context=module` script tag. You can do it the other way round though.
 - You cannot use svelte syntax including but not limited to dereferencing stores by prefixing `$` to their name or creating reactive variables using `let` in `context=module` script tags.
 
-## Why Does context=module code only runs once but normal script tags runs per component usage?
+## Why does context=module code only runs once but normal script tags runs per component usage?
 
 Because the global scope (`context=module` in svelte files) is only run on the first import of a module, but the component function (the normal script tag and the html) is executed every time a component is used.
 
-## Why Can I Not Access Non context=module Script Variables Inside Context=Module Script?
+## Why can I not access non context=module script variables inside context=module script?
 
 Look at the [svelte example code above](#code-example-1) and then compare the scopes to the [js example code above](#code-example-2).
 
@@ -96,7 +96,7 @@ See how all the non `context=module` script variables are inside the inner scope
 
 The outside of the function in the `.js` file corresponding to the `context=module` script in the `.svelte` file.
 
-## Why Does Svelte Syntax Only Work In Non context=module Scripts?
+## Why does svelte syntax only work in non context=module scripts?
 
 You would have noticed that you cannot use any svelte specific syntax in `context=module` scripts like `$: console.log($count)`, `setInterval(() => $count++, 1000)`.
 Instead we have to write pure JS inside `context=module` scripts.
