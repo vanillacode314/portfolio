@@ -379,16 +379,16 @@ const nextBlog = blogEntries[index + 1]
 			}
 
 			:not(pre) > code {
-				@apply mb-1 inline-block rounded-md bg-stone-800 px-2 font-mono text-gray-100;
+				@apply inline-block rounded-md font-mono;
 			}
 
 			a > code {
-				@apply inline-block cursor-pointer rounded-md bg-stone-800 px-2 font-mono;
-				@apply text-orange-600 underline decoration-dotted visited:text-purple-600 hover:text-orange-500 hover:visited:text-purple-500;
+				@apply inline-block rounded-md font-mono;
+				@apply text-orange-600 underline decoration-dotted visited:text-purple-600 hover:text-orange-500 hover:visited:text-purple-500 cursor-pointer;
 			}
 
 			a {
-				@apply text-orange-600 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500;
+				@apply text-orange-600 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500 cursor-pointer;
 			}
 
 			.astro-code {
@@ -423,6 +423,9 @@ const nextBlog = blogEntries[index + 1]
 				line-height: var(--font-lineheight-2);
 				list-style-type: decimal;
 				margin-inline-start: 1.5ch;
+				display: flex;
+				flex-direction: column;
+				gap: .5rem;
 				& > li > ol {
 					list-style-type: lower-roman;
 					margin-inline-start: 3ch;
@@ -437,6 +440,9 @@ const nextBlog = blogEntries[index + 1]
 				line-height: var(--font-lineheight-2);
 				list-style-type: disc;
 				margin-inline-start: 1.5ch;
+				display: flex;
+				flex-direction: column;
+				gap: .5rem;
 				& > li > ul {
 					list-style-type: circle;
 					margin-inline-start: 3ch;
