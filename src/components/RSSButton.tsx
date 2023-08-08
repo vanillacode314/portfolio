@@ -1,11 +1,15 @@
+import clsx from 'clsx'
 import type { VoidComponent } from 'solid-js'
 
-export const RSSButton: VoidComponent = () => {
+export const RSSButton: VoidComponent<{ class?: string }> = (props) => {
 	return (
 		<a
 			href="/blog/rss.xml"
 			target="_blank"
-			class="flex items-center gap-1 px-3 py-1 bg-orange-700 rounded text-white text-sm font-bold tracking-wide"
+			class={clsx(
+				'flex items-center gap-1 px-3 py-1 bg-orange-700 rounded text-white text-sm font-bold tracking-wide',
+				props.class
+			)}
 		>
 			<span class="i-mdi-rss" />
 			<span>RSS</span>

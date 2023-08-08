@@ -152,7 +152,7 @@ const nextBlog = blogEntries[index + 1]
 			</h1>
 		</section>
 		<div class="relative gap-10 xl:grid-cols-[minmax(0,1fr)_350px] grid" id="content">
-			<div class="markdown">
+			<div class="markdown" id="content">
 				<Content />
 			</div>
 			<section
@@ -233,6 +233,10 @@ const nextBlog = blogEntries[index + 1]
 						<span class="i-fa6-brands:reddit-alien text-2xl"></span>
 					</a>
 				</div>
+				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
+					>Subscribe on</span
+				>
+				<RSSButton class="self-end"/>
 			</section>
 		</div>
 		<section class="flex flex-wrap gap-5">
@@ -341,18 +345,19 @@ const nextBlog = blogEntries[index + 1]
 	</Container>
 	<script defer>
 		const gototop = document.getElementById('gototop')
+		const content = document.getElementById('content')
 		gototop?.addEventListener('click', () => {
-			window.scrollTo({ top: 0, behavior: 'smooth' })
+			window.scrollTo({ top: content.offsetTop, behavior: 'smooth' })
 		})
 		const progressbar = document.getElementById('progressbar')
-		const markdownSection = document.querySelector('.markdown')
-		const rect = markdownSection.getBoundingClientRect()
-		const bottom = rect.bottom + window.scrollY
+		const rect = content.getBoundingClientRect()
+		const bottom = rect.bottom + window.scrollY - content.offsetTop
 		function onScroll() {
+		const top = window.pageYOffset - content.offsetTop
 			window.scrollY > 100
 				? gototop.classList.remove('opacity-0')
 				: gototop.classList.add('opacity-0')
-			const progress = Math.max(0, Math.min(window.pageYOffset / bottom, 1))
+			const progress = Math.max(0, Math.min(top / bottom, 1))
 			progressbar.style.transform = `scaleX(${progress})`
 		}
 		onScroll()
@@ -422,7 +427,7 @@ const nextBlog = blogEntries[index + 1]
 				font-size: var(--body-text);
 				line-height: var(--font-lineheight-2);
 				list-style-type: decimal;
-				margin-inline-start: 1.5ch;
+				margin-inline-start: 2ch;
 				display: flex;
 				flex-direction: column;
 				gap: .5rem;
