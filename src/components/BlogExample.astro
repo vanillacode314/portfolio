@@ -1,0 +1,15 @@
+---
+export interface Props {
+	vPadding?: boolean
+	class?: string
+}
+
+const { vPadding = false } = Astro.props as Props
+---
+
+<div
+	class="rounded-xl border border-black my-5"
+	class:list={[vPadding ? 'p-5' : 'px-5', Astro.props.class]}
+>
+	<slot />
+</div>

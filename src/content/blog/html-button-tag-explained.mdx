@@ -1,0 +1,246 @@
+---
+title: 'HTML Button Tag Explained'
+description: 'Learn how to use the html button tag to add interactivity to your website in an SEO friendly and Accessbile way'
+seo:
+  title: 'HTML Button Tag Explained'
+  description: 'Learn how to use the html button tag to add interactivity to your website in an SEO friendly and Accessbile way'
+  keywords: ['html', 'button tag', 'seo', 'accessibility', 'guide', 'explainer', 'explained']
+author: raqueebuddinaziz
+created: 'Aug 09, 2023'
+---
+
+import BlogExample from '../../components/BlogExample.astro'
+
+The `button` tag should be used to trigger an action. Using `button` tag instead of any other tag for this purpose automatically handles most of the SEO and Accessibility concerns.
+
+## The type attribute
+
+There are three types of buttons each with their own use.
+
+- `submit` - Submit the associated form. This is the default value.
+- `reset` - Reset the associated form.
+- `button` - Does nothing on it's own, useful to run custom code by attaching event handlers for the `click` event.
+
+You can use the type attribute to set the type of the button.
+
+```html
+<form action="/send-message">
+	<input name="name" placeholder="Enter name" />
+	<button type="reset">Reset Form</button>
+
+	<button>Send Message</button>
+	<!-- OR -->
+	<button type="submit">Send Message</button>
+</form>
+<button id="say-hello" type="button">Say Hello</button>
+<script>
+	const btn = document.getElementById('say-hello')
+	btn.addEventListener('click', () => alert('Hello!'))
+</script>
+```
+
+<BlogExample vPadding>
+	<form action="/send-message" onsubmit="return false" class="flex flex-col items-start gap-1">
+		<input name="name" placeholder="Enter name" />
+		<button type="reset">Reset Form</button>
+		<button>Send Message</button>
+		<button id="say-hello" type="button">{`Say Hello`}</button>
+		<script
+			set:html={`{const btn = document.getElementById('say-hello'); btn.addEventListener('click', () => alert('Hello!'))}`}
+		/>
+	</form>
+</BlogExample>
+
+## The disabled attribute
+
+You can disable a button using the `disabled` attribute.
+
+```html
+<form action="/send-message">
+	<input name="name" placeholder="Enter name" />
+	<button disabled>Send Message</button>
+</form>
+```
+
+<BlogExample vPadding>
+	<form action="/send-message">
+		<input name="name" placeholder="Enter name" />
+		<button disabled>Send Message</button>
+	</form>
+</BlogExample>
+
+## Styling
+
+You can style the button element just like any other element using CSS.
+You can (and should) use the `:hover`, `:focus`, `:disabled` modifiers to style those states uniquely.
+
+```html
+<button class="cool-button">Cool Button</button>
+<button class="cool-button" disabled>Disabled Cool Button</button>
+<style>
+	.cool-button {
+		padding: 0.75rem 1.25rem;
+		background-color: #ea580c;
+		color: white;
+		border-radius: 0.5rem;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 0.85rem;
+		transition: background-color 150ms;
+	}
+	.cool-button:is(:hover, :focus) {
+		background-color: black;
+	}
+	.cool-button:disabled {
+		background-color: gray;
+	}
+</style>
+```
+
+<BlogExample vPadding class="flex gap-1">
+	<button class="cool-button">{`Cool Button`}</button>
+	<button class="cool-button" disabled>{`Disabled Cool Button`}</button>
+	<style>
+		{`
+	.cool-button {
+		padding: .75rem 1.25rem; background-color: #ea580c; color: white; border-radius: 0.5rem; text-transform: uppercase; font-weight: bold; font-size: .85rem;
+		transition: background-color 150ms;
+	}
+	.cool-button:is(:hover, :focus) {
+		background-color: black;
+	}
+	.cool-button:disabled {
+		background-color: gray;
+	}
+`}
+	</style>
+</BlogExample>
+
+## Usage with forms
+
+To associate a `button` tag with a `form` tag you can either make the button the children of the `form` tag or use the `form` attribute of the `button` tag with the form id.
+
+```html
+<form id="my-form">
+	<button>Submit</button>
+</form>
+<button form="my-form">Submit</button>
+```
+
+<BlogExample vPadding>
+	<form id="my-form" onsubmit="alert('submit'); return false">
+		<button>Submit</button>
+	</form>
+	<button form="my-form">Submit</button>
+</BlogExample>
+
+## Usage with javascript
+
+To run javascript code on a button click, you can attach an event handler for the `click` event on the button element.
+
+```html
+<button id="say-hello">Say Hello</button>
+<script>
+	const btn = document.getElementById('say-hello')
+	btn.addEventListener('click', () => alert('Hello!'))
+</script>
+```
+
+<BlogExample vPadding>
+	<button id="say-hello-2" type="button">{`Say Hello`}</button>
+	<script
+		set:html={`const btn = document.getElementById('say-hello-2'); btn.addEventListener('click', () => alert('Hello!'))`}
+	/>
+</BlogExample>
+
+## SEO and Accessibility Concerns
+
+Usually all you need to do for SEO and Accessibility is make sure the button has descriptive text inside it and make sure the button has different styles for `hover`, `focus`, and `disabled` states than the normal state,
+but in cases like icon buttons where you might not want text inside a button you need to take some additional steps to ensure accessibility and SEO.
+
+1. Either add text inside the button and hide it with CSS.
+
+```html
+<button>
+	<svg
+		aria-hidden="true"
+		focusable="false"
+		width="17"
+		height="17"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="m.967 14.217 5.8-5.906-5.765-5.89L3.094.26l5.783 5.888L14.66.26l2.092 2.162-5.766 5.889 5.801 5.906-2.092 2.162-5.818-5.924-5.818 5.924-2.092-2.162Z"
+			fill="#000"
+		/>
+	</svg>
+	<span
+		style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;"
+	>
+		Close</span
+	>
+</button>
+```
+
+<BlogExample vPadding>
+	<button>
+		<svg
+			aria-hidden="true"
+			focusable="false"
+			width="17"
+			height="17"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="m.967 14.217 5.8-5.906-5.765-5.89L3.094.26l5.783 5.888L14.66.26l2.092 2.162-5.766 5.889 5.801 5.906-2.092 2.162-5.818-5.924-5.818 5.924-2.092-2.162Z"
+				fill="#000"
+			/>
+		</svg>
+		<span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+			Close
+		</span>
+	</button>
+</BlogExample>
+
+2. Or use the `aria-label` attribute to give the button a label.
+
+```html
+<button aria-label="close">
+	<svg
+		aria-hidden="true"
+		focusable="false"
+		width="17"
+		height="17"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="m.967 14.217 5.8-5.906-5.765-5.89L3.094.26l5.783 5.888L14.66.26l2.092 2.162-5.766 5.889 5.801 5.906-2.092 2.162-5.818-5.924-5.818 5.924-2.092-2.162Z"
+			fill="#000"
+		/>
+	</svg>
+</button>
+```
+
+<BlogExample vPadding>
+	<button aria-label="close">
+		<svg
+			aria-hidden="true"
+			focusable="false"
+			width="17"
+			height="17"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="m.967 14.217 5.8-5.906-5.765-5.89L3.094.26l5.783 5.888L14.66.26l2.092 2.162-5.766 5.889 5.801 5.906-2.092 2.162-5.818-5.924-5.818 5.924-2.092-2.162Z"
+				fill="#000"
+			/>
+		</svg>
+	</button>
+</BlogExample>
+
+## Conclusion
+
+The `button` tag does one thing and does it well.
+Using the `button` tag for triggering actions instead of other elements takes care of most SEO and Accessibility concerns for you.
+
+_Leave a comment if you have any questions!_
