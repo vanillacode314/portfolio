@@ -29,9 +29,11 @@ const A = fullHover ? 'a' : 'div'
 		class:list={[fullHover && 'hover:scale-105']}
 	>
 		<img
+			transition:name={slug}
+			transition:animate="initial"
 			src={`/assets/images/blog/${slug}.png`}
 			alt={title}
-			class="w-full object-cover aspect-square max-w-full"
+			class="w-full object-cover aspect-square max-w-full rounded-t-10"
 			width="1"
 			height="1"
 		/>

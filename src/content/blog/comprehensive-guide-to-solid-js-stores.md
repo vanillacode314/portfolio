@@ -477,7 +477,7 @@ The [`modifyMutable`](https://www.solidjs.com/docs/latest/api#modifymutable) fun
 
 ```typescript
 import { batch } from 'solid-js'
-import { reconcile, createMutable, modifyMutable } from 'solid-js/store'
+import { createMutable, modifyMutable, reconcile } from 'solid-js/store'
 
 const data = createMutable({
 	colors: ['red', 'blue', 'orange'],

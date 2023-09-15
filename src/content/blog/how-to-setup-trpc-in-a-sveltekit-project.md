@@ -56,7 +56,7 @@ export const publicProcedure = t.procedure
 ```typescript
 // src/lib/server/router.ts
 import { z } from 'zod'
-import { router, publicProcedure } from './context'
+import { publicProcedure, router } from './context'
 
 export const appRouter = router({
 	greet: publicProcedure
@@ -84,10 +84,10 @@ To do this we will be creating a catchall route `/api/trpc/[...procedure]` so al
 
 ```typescript
 // src/routes/api/trpc/[...procedure]/+server.ts
-import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
-import { appRouter } from '$lib/server/router'
 import { createSvelteKitContext } from '$lib/server/context'
+import { appRouter } from '$lib/server/router'
 import type { RequestHandler } from '@sveltejs/kit'
+import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
 
 export const GET = ((event) =>
 	fetchRequestHandler({
@@ -117,8 +117,8 @@ Let's create the tRPC client in `src/lib/trpc.ts` file.
 ```typescript
 // src/lib/trpc.ts
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client'
-import type { AppRouter } from './server/router'
 import type { FetchEsque } from '@trpc/client/dist/internals/types'
+import type { AppRouter } from './server/router'
 
 export const trpc = createTRPCProxyClient<AppRouter>({
 	links: [httpBatchLink({ url: '/api/trpc' })]
