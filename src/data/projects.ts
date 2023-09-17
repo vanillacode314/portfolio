@@ -57,6 +57,30 @@ export default [
 		tech: ['svelte', 'sveltekit', 'tailwindcss', 'daisyui', 'supabase'],
 		url: 'https://mtg-pack.pages.dev/sets'
 	},
+	{
+		name: 'TicTacToe Client',
+		description: 'A free and opensource online TicTacToe game. This is the client.',
+		image: 'tictactoeclient.webp',
+		tech: ['solidjs', 'astrojs', 'tailwindcss', 'zod', 'typescript', 'websockets'],
+		points: [
+			'Uses websockets for instant gameplay',
+			'Custom optimized communication protocol for minimum bandwidth usage and fast gameplay'
+		],
+		url: 'https://raqueebuddinaziz.com/games/tictactoe',
+		repo_url: 'https://github.com/vanillacode314/portfolio/blob/main/src/components/TicTacToe.tsx'
+	},
+	{
+		name: 'TicTacToe Server',
+		description: 'A free and opensource online TicTacToe game. This is the server.',
+		image: 'tictactoeserver.webp',
+		tech: ['typescript', 'websockets', 'bunjs', 'elysia', 'zod'],
+		points: [
+			'Uses websockets for instant gameplay',
+			'Custom optimized communication protocol for minimum bandwidth usage and fast gameplay'
+		],
+		url: 'https://github.com/vanillacode314/tictactoe-server',
+		repo_url: 'https://github.com/vanillacode314/tictactoe-server'
+	},
 	/* { */
 	/*   name: "JustLearn", */
 	/*   description: */
