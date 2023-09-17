@@ -1,0 +1,10 @@
+---
+import TicTacToe from '@/components/TicTacToe'
+import { ToastComp } from '@/components/Toast'
+import Bare from '@/layouts/Bare.astro'
+---
+
+<Bare title="TicTacToe">
+	<TicTacToe client:load />
+	<ToastComp client:only="solid" />
+</Bare>

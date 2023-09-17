@@ -1,4 +1,3 @@
-import image from '@astrojs/image'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
@@ -32,7 +31,6 @@ const blogUrls = files.map((file) => {
 export default defineConfig({
 	site: 'https://raqueebuddinaziz.com/',
 	integrations: [
-		image(),
 		Unocss({
 			transformers: [transformerDirectives()],
 			presets: [

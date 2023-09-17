@@ -1,7 +1,5 @@
 ---
-import { Background } from '@/components/Background'
 import Consent from '@/components/Consent'
-import Nav from '@/components/Nav.astro'
 import Footer from '@/sections/Footer.astro'
 import '@unocss/reset/tailwind.css'
 import { ViewTransitions } from 'astro:transitions'
@@ -24,7 +22,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions fallback="swap"  />
+		<ViewTransitions fallback="swap" />
 	</head>
 	<body>
 		<span data-branch={process.env.BRANCH} class="hidden branch"></span>
@@ -46,8 +44,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 				</a>
 			)
 		}
-		<Background client:idle />
-		<Nav />
 		<slot />
 		<Footer />
 		<Consent client:load cookie={Astro.request.headers.get('cookie') ?? ''} />
