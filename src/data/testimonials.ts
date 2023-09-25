@@ -27,16 +27,16 @@ export default [
 			"Raqueebuddin was very responsive and clearly very knowledgeable about a myriad of different web technologies. He is a great problem solver, good at organizing code and debugging, as well as creating user interfaces. He's also a very down to earth person to talk to and he's always reasonable.",
 		author: 'Justin Golden',
 		title: 'Fullstack Software Engineer'
-	},
+	}
 	/* { */
 	/*   content: */
 	/*     "I have been looking for a great developer for a while now, and I was very happy to find Aziz. He did a good job for me, and met deadlines on a consistent basis. He requires very little oversight, as everything is typically done 100% correct the first time. I absolutely recommend Aziz as a developer", */
 	/*   author: "Jakub Donovan", */
 	/* }, */
-	{
-		content:
-			"I've been coming back to work with Aziz for a couple months now and he has always been able to get the job done to my complete satisfaction. Smart, polite, and enthusiastic about his field. Would recommend!",
-		author: 'Jakub Donovan',
-		title: 'Frontend Developer'
-	}
+	// {
+	// 	content:
+	// 		"I've been coming back to work with Aziz for a couple months now and he has always been able to get the job done to my complete satisfaction. Smart, polite, and enthusiastic about his field. Would recommend!",
+	// 	author: 'Jakub Donovan',
+	// 	title: 'Frontend Developer'
+	// }
 ] satisfies Testimonial[]
