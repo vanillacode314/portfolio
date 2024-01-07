@@ -116,7 +116,7 @@ const nextBlog = blogEntries[index + 1]
 		>
 			<img
 				transition:name={entry.slug}
-			transition:animate="initial"
+				transition:animate="initial"
 				src={`/assets/images/blog/${entry.slug}.png`}
 				alt={frontmatter.title}
 				width="300"
@@ -157,11 +157,9 @@ const nextBlog = blogEntries[index + 1]
 			<div class="markdown" id="content">
 				<Content />
 			</div>
-			<section
-				class="xl:flex hidden self-start sticky top-5 flex-col gap-5"
-			>
+			<section class="xl:flex hidden self-start sticky top-5 flex-col gap-5">
 				<form
-					class="flex flex-col gap-5 rounded-xl bg-neutral-50 p-5 text-gray-900 shadow-lg border-2 border-orange-600"
+					class="flex flex-col gap-5 rounded-10 bg-neutral-50 p-5 text-gray-900 shadow-lg border-2 border-orange-600"
 					name="report"
 					method="post"
 					data-netlify="true"
@@ -238,7 +236,7 @@ const nextBlog = blogEntries[index + 1]
 				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
 					>Subscribe on</span
 				>
-				<RSSButton class="self-end"/>
+				<RSSButton class="self-end" />
 			</section>
 		</div>
 		<section class="flex flex-wrap gap-5">
@@ -327,14 +325,19 @@ const nextBlog = blogEntries[index + 1]
 				)
 			}
 		</section>
-<!-- 		<article class="px-10 py-8 rounded-5 bg-orange-600 flex flex-col gap-5 max-w-4xl"> -->
-<!-- 			<div class="max-w-2xl text-white !leading-snug flex flex-col gap-3"> -->
-<!-- 			<p class="text-3xl">Get a gorgeous website at <span class="font-bold">just $99/month.</span></p> -->
-<!-- <p class="text-5xl font-bold">30 DAY FREE TRIAL</p> -->
-<!-- 			</div> -->
-<!-- 			<span class="grow"></span> -->
-<!-- 			<a href="https://tidycal.com/raqueebuddin.aziz.314/15-minute-meeting" target="_blank" class="self-end bg-white shadow-inset px-5 py-3 rounded uppercase font-bold tracking-wide text-orange-600 hover:bg-neutral-100 transition-colors">Book a call</a> -->
-<!-- 		</article> -->
+		<article class="px-10 py-8 rounded-5 bg-orange-600 flex flex-col gap-5 max-w-4xl">
+			<div class="max-w-2xl text-white flex flex-col gap-3">
+				<p class="text-3xl font-bold">
+					Looking for a dev to build a MVP for your tech startup? <br /><br />I can help you out.
+				</p>
+			</div>
+			<a
+				href="/#contact"
+				target="_blank"
+				class="self-end bg-white shadow-inset px-5 py-3 rounded uppercase font-bold tracking-wide text-orange-600 hover:bg-neutral-100 transition-colors"
+				>Contact</a
+			>
+		</article>
 		<Comments slug={entry.slug} client:idle />
 		<button
 			id="gototop"
@@ -355,7 +358,7 @@ const nextBlog = blogEntries[index + 1]
 		const rect = content.getBoundingClientRect()
 		const bottom = rect.bottom + window.scrollY - content.offsetTop
 		function onScroll() {
-		const top = window.pageYOffset - content.offsetTop
+			const top = window.pageYOffset - content.offsetTop
 			window.scrollY > 100
 				? gototop.classList.remove('opacity-0')
 				: gototop.classList.add('opacity-0')
@@ -391,11 +394,11 @@ const nextBlog = blogEntries[index + 1]
 
 			a > code {
 				@apply inline-block rounded-md font-mono;
-				@apply text-orange-600 underline decoration-dotted visited:text-purple-600 hover:text-orange-500 hover:visited:text-purple-500 cursor-pointer;
+				@apply cursor-pointer text-orange-600 underline decoration-dotted visited:text-purple-600 hover:text-orange-500 hover:visited:text-purple-500;
 			}
 
 			a {
-				@apply text-orange-600 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500 cursor-pointer;
+				@apply cursor-pointer text-orange-600 underline decoration-dotted visited:text-orange-900 hover:text-orange-500 hover:visited:text-purple-500;
 			}
 
 			.astro-code {
@@ -432,7 +435,7 @@ const nextBlog = blogEntries[index + 1]
 				margin-inline-start: 2ch;
 				display: flex;
 				flex-direction: column;
-				gap: .5rem;
+				gap: 0.5rem;
 				& > li > ol {
 					list-style-type: lower-roman;
 					margin-inline-start: 3ch;
@@ -449,7 +452,7 @@ const nextBlog = blogEntries[index + 1]
 				margin-inline-start: 1.5ch;
 				display: flex;
 				flex-direction: column;
-				gap: .5rem;
+				gap: 0.5rem;
 				& > li > ul {
 					list-style-type: circle;
 					margin-inline-start: 3ch;
