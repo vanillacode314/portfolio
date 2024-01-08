@@ -35,6 +35,7 @@ export default function Comments(props: { slug: string }) {
 
 	async function onSubmit(e: SubmitEvent) {
 		e.preventDefault()
+
 		if (!validateComment()) {
 			alert('Your comment cannot contain html tags')
 			cooldown = 10
@@ -42,10 +43,12 @@ export default function Comments(props: { slug: string }) {
 			return
 		}
 
+		const form = e.target as HTMLFormElement
+
 		try {
 			cooldown = 5
-			await fetch(BASE_URL + '/api/v1/comments', {
-				method: 'POST',
+			await fetch(form.action, {
+				method: form.method,
 				redirect: 'error',
 				headers: {
 					'content-type': 'application/json'
@@ -77,10 +80,8 @@ export default function Comments(props: { slug: string }) {
 			<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-5">Leave a Comment</h2>
 			<section aria-label="comment-section" id="comment-section">
 				<form
-					data-netlify="true"
 					onSubmit={onSubmit}
-					name="comment"
-					action={BASE_URL + '/comment'}
+					action={BASE_URL + '/api/v1/comments'}
 					method="post"
 					class="flex flex-col bg-gray-100/90 rounded-10 text-gray-900 shadow-lg overflow-hidden p-10 gap-5"
 				>
