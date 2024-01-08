@@ -159,7 +159,7 @@ export default function Comments(props: { slug: string }) {
 					<Show
 						when={cooldown > 0}
 						fallback={
-							<button class="px-5 py-3 shadow-lg text-gray-100 bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-white hover:text-gray-900 whitespace-nowrap ml-auto">
+							<button class="px-5 py-3 shadow-lg text-gray-100 bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-orange-700 whitespace-nowrap ml-auto">
 								Submit
 							</button>
 						}
