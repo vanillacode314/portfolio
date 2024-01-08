@@ -14,7 +14,7 @@ import rehypeToc from 'rehype-toc'
 import { presetIcons, presetUno, presetWebFonts, transformerDirectives } from 'unocss'
 import Unocss from 'unocss/astro'
 
-import netlify from '@astrojs/netlify/functions'
+import netlify from '@astrojs/netlify'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
