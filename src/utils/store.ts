@@ -75,8 +75,15 @@ export const createStorageStore = <
 		storage === 'localStorage'
 			? serverSafeLocalStorage()
 			: storage === 'sessionStorage'
-			? serverSafeSessionStorage()
-			: storage
+				? serverSafeSessionStorage()
+				: storage
+
+	if (!isServer) getStorageValue()
+	_storage.onStorageChange(() => getStorageValue())
+
+	createComputed(() => _storage.setItem(storageKey, serializer(schema.parse(store))))
+
+	return [store, setStore] as const
 
 	function getStorageValue() {
 		const storedValue = _storage.getItem(storageKey)
@@ -91,13 +98,4 @@ export const createStorageStore = <
 			console.error(err)
 		}
 	}
-
-	if (!isServer) {
-		getStorageValue()
-		_storage.onStorageChange(() => getStorageValue())
-	}
-
-	createComputed(() => _storage.setItem(storageKey, serializer(schema.parse(store))))
-
-	return [store, setStore] as const
 }

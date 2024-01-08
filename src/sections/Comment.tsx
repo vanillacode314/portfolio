@@ -5,8 +5,9 @@ interface Comment {
 }
 
 import { sleep } from '@/utils'
-import { createStorageStore } from '@/utils/store'
+import { makePersisted } from '@solid-primitives/storage'
 import { createResource, createSignal, For, Show } from 'solid-js'
+import { createStore } from 'solid-js/store'
 import z from 'zod'
 
 const BASE_URL = 'https://api.raqueebuddinaziz.com'
@@ -16,9 +17,25 @@ export default function Comments(props: { slug: string }) {
 		username: z.string().default(''),
 		email: z.string().default('')
 	})
-	const [formData, setFormData] = createStorageStore('comment-form', formSchema.parse({}), {
-		schema: formSchema
+
+	const [formData, setFormData] = makePersisted(createStore(formSchema.parse({})), {
+		name: 'comment-form',
+		serialize: (data) => {
+			try {
+				return JSON.stringify(formSchema.parse(data))
+			} catch {
+				return JSON.stringify(formSchema.parse({}))
+			}
+		},
+		deserialize: (data) => {
+			try {
+				return formSchema.parse(JSON.parse(data))
+			} catch {
+				return formSchema.parse({})
+			}
+		}
 	})
+
 	const [comment, setComment] = createSignal<string>('')
 	let cooldown: number = 0
 	const filterRegex: RegExp = /\<a.*href\=\".*\".*\>/m
