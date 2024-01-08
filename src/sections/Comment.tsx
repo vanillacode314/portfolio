@@ -159,7 +159,7 @@ export default function Comments(props: { slug: string }) {
 			<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-5">Comments</h2>
 			<div class="flex flex-col gap-5">
 				<For
-					each={comments()}
+					each={comments.latest}
 					fallback={
 						<div class="uppercase font-semibold grid place-content-center text-gray-400">
 							No Comments
