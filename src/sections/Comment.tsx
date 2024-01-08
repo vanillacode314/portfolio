@@ -44,7 +44,7 @@ export default function Comments(props: { slug: string }) {
 
 		try {
 			cooldown = 5
-			await fetch(BASE_URL + '/comment', {
+			await fetch(BASE_URL + '/api/v1/comments', {
 				method: 'POST',
 				redirect: 'error',
 				headers: {
@@ -68,7 +68,7 @@ export default function Comments(props: { slug: string }) {
 		initialValue: []
 	})
 	async function getComments() {
-		const res = await fetch(BASE_URL + `/get_comments?slug=${encodeURIComponent(props.slug)}`)
+		const res = await fetch(BASE_URL + `/api/v1/comments?slug=${encodeURIComponent(props.slug)}`)
 		const data = await res.json()
 		return data.comments as Comment[]
 	}

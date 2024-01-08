@@ -338,7 +338,7 @@ const nextBlog = blogEntries[index + 1]
 				>Contact</a
 			>
 		</article>
-		<Comments slug={entry.slug} client:only="solid" />
+		<Comments slug={entry.slug} client:idle />
 		<button
 			id="gototop"
 			aria-label="Go to top"
