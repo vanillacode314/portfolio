@@ -40,7 +40,7 @@ export default function Comments(props: { slug: string }) {
 			alert('Your comment cannot contain html tags')
 			cooldown = 10
 			countdown()
-			return
+			return false
 		}
 
 		const form = e.target as HTMLFormElement
@@ -64,6 +64,7 @@ export default function Comments(props: { slug: string }) {
 			setComment('')
 			countdown()
 			refetch()
+			return false
 		}
 	}
 
