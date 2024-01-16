@@ -5,7 +5,7 @@ import MarkdownIt from 'markdown-it'
 import sanitizeHtml from 'sanitize-html'
 const parser = new MarkdownIt()
 
-export const get: APIRoute = async (context) => {
+export const GET: APIRoute = async (context) => {
 	const posts = (await getCollection('blog')).sort((a, b) => {
 		const date1 = new Date(a.data.created)
 		const date2 = new Date(b.data.created)
