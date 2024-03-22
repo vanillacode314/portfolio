@@ -206,7 +206,7 @@ export default function Comments(props: { slug: string }) {
 							<h3 class="uppercase tracking-wide font-semibold text-gray-600 text-xs">
 								{username}
 							</h3>
-							<p class="text-gray-900">{comment.trim()}</p>
+							<p class="text-gray-900 whitespace-pre-wrap">{comment.trim()}</p>
 						</article>
 					)}
 				</For>
