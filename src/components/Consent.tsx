@@ -1,13 +1,13 @@
-import { CookieOptions, cookieStorage, makePersisted } from '@solid-primitives/storage'
-import cookie from 'cookie'
+import { cookieStorage, makePersisted } from '@solid-primitives/storage'
+import cookie, { type CookieSerializeOptions } from 'cookie'
 import { createSignal, onMount, type VoidComponent } from 'solid-js'
 import { isServer } from 'solid-js/web'
 
 export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
-	cookieStorage._read = (key: string) => {
+	cookieStorage._read = () => {
 		return isServer ? props.cookie : document.cookie
 	}
-	cookieStorage._write = (key: string, value: string, options: CookieOptions) => {
+	cookieStorage._write = (key: string, value: string, options: CookieSerializeOptions) => {
 		document.cookie = cookie.serialize(key, value, options)
 	}
 	const [didConsent, setDidConsent] = makePersisted(createSignal<boolean>(false), {

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import profileImage from '../assets/images/profile.webp'
 import clsx from 'clsx'
 import Container from './Container.astro'
 
@@ -43,9 +45,10 @@ const links: Link[] = [
 <Container class="nav top-0 z-20 p-5 backdrop-blur md:p-8">
 	<nav class="flex items-center gap-5">
 		<a href="/" class="text-lg leading-tight flex items-center gap-3">
-			<img
-				src="/assets/images/profile.nav.webp"
-				alt="logo"
+			<Image
+				src={profileImage}
+				alt="profile"
+				loading="eager"
 				class="object-cover w-10 h-10 rounded-full aspect-square"
 			/>
 			<span>

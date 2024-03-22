@@ -72,11 +72,10 @@ export default defineConfig({
 			[
 				rehypeAutolinkHeadings,
 				{
-					content() {
+					content(node) {
 						return [
-							h('div.i-mdi-link-variant?bg.transition.hover:rotate-45.transform', {
-								ariaHidden: true
-							})
+							h('span.hidden', `Read the ${node.children[0].value} section`),
+							h('div.i-mdi-link-variant?bg.transition.hover:rotate-45.transform')
 						]
 					}
 				}

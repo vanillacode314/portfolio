@@ -36,9 +36,19 @@ const blogEntries = (await getCollection('blog')).sort((a, b) => {
 				{
 					blogEntries
 						.map((entry) => ({ ...entry.data, slug: entry.slug }))
-						.map(({ title, description, author: authorId, created, updated, slug }) => {
+						.map(({ title, description, author: authorId, created, updated, slug }, index) => {
 							const author = authors.find((author) => author.id === authorId)!
-							return <BlogPostCard {title} {description} {author} {created} {updated} {slug} />
+							return (
+								<BlogPostCard
+									{title}
+									{description}
+									{author}
+									{created}
+									{updated}
+									{slug}
+									loading={index > 2 ? 'lazy' : 'eager'}
+								/>
+							)
 						})
 				}
 			</section>

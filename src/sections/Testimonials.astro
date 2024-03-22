@@ -1,5 +1,9 @@
 ---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
 import testimonials from '@/data/testimonials'
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**/*.webp')
 ---
 
 <div class="flex flex-col gap-1">
@@ -17,8 +21,10 @@ import testimonials from '@/data/testimonials'
 					<figure class="flex flex-col gap-8">
 						<div class="flex gap-5 justify-between items-center">
 							<div class="w-20 h-20 rounded-full grid place-content-center bg-gray-300 shadow overflow-hidden">
-								<img
-									src={`/assets/images/profiles/${author.toLowerCase().replace(/ /g, '-')}.webp`}
+								<Image
+									src={images[
+										`../assets/images/profiles/${author.toLowerCase().replace(/ /g, '-')}.webp`
+									]!()}
 									alt={`avatar for ${author}`}
 									class="w-full h-full object-cover"
 								/>

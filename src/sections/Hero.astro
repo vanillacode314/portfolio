@@ -1,5 +1,7 @@
 ---
 // import BlinkingEye from '@/components/BlinkingEye.astro'
+import { Image } from 'astro:assets'
+import heroImage from '@/assets/images/monitor.svg'
 ---
 
 <section
@@ -35,12 +37,11 @@
 	<div class="flex flex-col gap-5">
 		<!-- CTA -->
 		<!-- Testimonial -->
-		<img
-			src="/assets/images/monitor.svg"
+		<Image
+			src={heroImage}
 			class="my-auto hidden xl:block w-[90%] mx-auto"
 			alt="monitor"
-			width="2120"
-			height="1600"
+			loading="eager"
 		/>
 		<!-- <article -->
 		<!--   class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-inset shadow-xl lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3" -->
