@@ -61,14 +61,14 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 				ad_personalization: 'denied',
 				analytics_storage: 'denied'
 			})
-			return
+		} else {
+			gtag('consent', 'update', {
+				ad_storage: 'granted',
+				ad_user_data: 'granted',
+				ad_personalization: 'granted',
+				analytics_storage: 'granted'
+			})
 		}
-		gtag('consent', 'update', {
-			ad_storage: 'granted',
-			ad_user_data: 'granted',
-			ad_personalization: 'granted',
-			analytics_storage: 'granted'
-		})
 		gtag('js', new Date())
 		gtag('config', 'G-197W0VNG3Y', {
 			cookie_domain: window.location.hostname,
@@ -103,7 +103,9 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 			s = b.getElementsByTagName(e)[0]
 			s.parentNode.insertBefore(t, s)
 		})(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+		fbq('consent', 'revoke')
 		fbq('init', '988774449217223')
+		if (didConsent()) fbq('consent', 'grant')
 		fbq('track', 'PageView')
 	}
 
