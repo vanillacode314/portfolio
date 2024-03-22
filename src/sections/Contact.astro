@@ -35,9 +35,15 @@
 		<form
 			name="contact"
 			data-netlify="true"
+			netlify-honeypot="bot-field"
 			method="post"
 			class="rounded-10 flex flex-col gap-5 overflow-hidden bg-gray-100 p-10 text-gray-900 shadow-lg w-full border-2 border-gray-700"
 		>
+			<p class="hidden">
+				<label>
+					Don’t fill this out if you’re human: <input name="bot-field" />
+				</label>
+			</p>
 			<div class="flex flex-col gap-1">
 				<label for="name" class="ml-3 text-xs font-semibold uppercase tracking-wide text-gray-600"
 					>Name</label
