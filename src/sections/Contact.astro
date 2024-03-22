@@ -90,22 +90,21 @@
 		</form>
 	</section>
 	<script>
-		import { submitFormWithoutListener } from '@/utils'
-		const BRANCH = document.querySelector('.branch')?.dataset.branch ?? 'unknown'
+		const BRANCH = (document.querySelector('.branch') as HTMLElement)?.dataset.branch ?? 'unknown'
 		const form = document.querySelector("form[name='contact']") as HTMLFormElement
-		function onSubmit(e: SubmitEvent) {
-			e.preventDefault()
-			const timer = setTimeout(
-				() => submitFormWithoutListener(e.target as HTMLFormElement, onSubmit),
-				1000
-			)
+		function onSubmit(event: SubmitEvent) {
+			event.preventDefault()
+			const formData = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
+			fetch(form.action, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(formData).toString()
+			})
+				.then(() => alert('Form successfully submitted'))
+				.catch(() => alert('Sorry! There was a problem submitting your form'))
 			window.gtag('event', 'generate_lead', {
 				event_category: 'Lead Generation',
-				event_label: `Contact Form (${BRANCH})`,
-				event_callback: function () {
-					clearTimeout(timer)
-					submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
-				}
+				event_label: `Contact Form (${BRANCH})`
 			})
 			fbq('track', 'Contact')
 		}
