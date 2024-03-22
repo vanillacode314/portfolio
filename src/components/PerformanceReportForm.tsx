@@ -12,7 +12,8 @@ export const PerformanceReportForm: Component<{ class?: string }> = (props) => {
 		fetch(form.action, {
 			method: form.method,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: new URLSearchParams(formData).toString()
+			body: new URLSearchParams(formData).toString(),
+			redirect: 'manual'
 		})
 			.then(() => alert('Form successfully submitted'))
 			.catch(() => alert('Sorry! There was a problem submitting your form'))
