@@ -82,6 +82,6 @@ const links: Link[] = [
 	const nav = document.querySelector('.nav')
 	window.addEventListener('scroll', () => {
 		const condition = window.scrollY > 0 && !location.pathname.startsWith('/blog/')
-		nav?.classList[condition ? 'add' : 'remove'](...'bg-gray-100/80 sticky'.split(' '))
+		nav?.classList[condition ? 'add' : 'remove'](...'bg-gray-50/80 sticky'.split(' '))
 	})
 </script>

@@ -1,11 +1,15 @@
 ---
 import { Image } from 'astro:assets'
+import profileImage from '../assets/images/profile.webp'
 ---
 
 <div class="flex flex-col gap-1">
 	<h2 class="mx-auto uppercase text-xl text-gray-700 font-semibold my-10">About Me</h2>
 	<section aria-label="about me" id="about">
-		<article class="bg-gray-100 p-10 rounded-10 grid md:grid-cols-[3fr_2fr] gap-10 shadow-xl">
+		<article
+			class="p-10 rounded-10 grid md:grid-cols-[3fr_2fr] gap-10 shadow-xl border-2 border-orange-700"
+			style="box-shadow: #c2410c 0px 5px"
+		>
 			<div class="flex flex-col gap-4">
 				<h3 class="text-2xl md:text-5xl text-gray-700 font-bold mb-5">Raqueebuddin Aziz</h3>
 
@@ -38,8 +42,8 @@ import { Image } from 'astro:assets'
 					</span>
 				</p>
 			</div>
-			<img
-				src="/assets/images/profile.webp"
+			<Image
+				src={profileImage}
 				alt="profile"
 				loading="lazy"
 				class="aspect-square rounded-full w-full h-full object-cover shadow-inner shadow-black"

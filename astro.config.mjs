@@ -38,8 +38,8 @@ export default defineConfig({
 				presetWebFonts({
 					provider: 'bunny',
 					fonts: {
-						sans: ['Inter:400,500,600,700,800,900'],
-						mono: ['JetBrains Mono', 'monospace']
+						sans: ['Ubuntu:400,500,600,700,800,900'],
+						mono: ['Ubuntu Mono', 'monospace']
 					}
 				}),
 				presetIcons({

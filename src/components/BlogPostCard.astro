@@ -33,7 +33,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <A href={`/blog/${slug}`} class="contents">
 	<article
-		class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden transition-transform"
+		class="flex flex-col border-2 border-gray-300 rounded-10 text-gray-900 overflow-hidden transition-transform"
+		style="box-shadow: #d1d5db 0px 5px"
 		class:list={[fullHover && 'hover:scale-105']}
 	>
 		<Image
@@ -41,7 +42,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 			transition:animate="initial"
 			src={images[`../assets/images/blog/${slug}.png`]!()}
 			alt={title}
-			class="w-full object-cover aspect-square max-w-full rounded-t-10"
+			class="w-full object-cover aspect-square max-w-full"
 			{loading}
 		/>
 		<div class="grow p-10 flex flex-col gap-3">

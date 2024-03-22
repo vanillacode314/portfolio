@@ -1,8 +1,11 @@
 import { WindowEventListener } from '@solid-primitives/event-listener'
+import clsx from 'clsx'
 import { createSignal, type Component } from 'solid-js'
 
 export const Background: Component = () => {
 	const [progress, setProgress] = createSignal<number>(0)
+	const baseClass =
+		'absolute rounded-lg size-144 hidden md:block rotate-[60deg] opacity-5 blur-[1000px] translate-y-[var(--progress)]'
 
 	return (
 		<>
@@ -12,29 +15,29 @@ export const Background: Component = () => {
 					setProgress(el.scrollTop / (el.scrollHeight - el.clientHeight))
 				}}
 			/>
-			<div class="fixed -z-20 bg-gray-100 inset-0"></div>
+			<div class="fixed -z-20 bg-white inset-0"></div>
 			<div
 				class="pointer-events-none fixed inset-0 -z-10 max-w-6xl mx-auto"
 				style={{ '--progress': progress() * -100 + '%' }}
 			>
 				<div
-					class="absolute rounded-lg w-60 h-60 hidden md:block rotate-[60deg] opacity-10 blur translate-y-[var(--progress)] bg-orange-600"
+					class={clsx(baseClass, 'bg-orange-600')}
 					style={{
 						top: '20%',
-						left: '0'
+						left: '-20%'
 					}}
 				/>
 				<div
-					class="absolute rounded-lg w-60 h-60 rotate-[60deg] opacity-10 blur translate-y-[var(--progress)] bg-green-600"
+					class={clsx(baseClass, 'bg-green-600')}
 					style={{
 						top: '-200px',
-						right: '0'
+						right: '-20%'
 					}}
 				/>
 				<div
-					class="absolute rounded-lg w-60 h-60 rotate-[60deg] opacity-10 blur translate-y-[var(--progress)] bg-blue-600"
+					class={clsx(baseClass, 'bg-blue-600')}
 					style={{
-						top: '50%',
+						top: '70%',
 						right: '0'
 					}}
 				/>

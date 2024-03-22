@@ -17,7 +17,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	>
 		{
 			projects.map(({ url, name, tech, image, points, repo_url, description }) => (
-				<article class="flex flex-col bg-gray-100 rounded-10 text-gray-900 shadow-lg overflow-hidden">
+				<article
+					class="flex flex-col border-2 border-gray-200 rounded-10 text-gray-900 shadow-lg overflow-hidden"
+					style="box-shadow: #d1d5db 0px 5px"
+				>
 					<Image
 						src={images[`../assets/images/${image}`]!()}
 						class="w-full object-cover aspect-video"

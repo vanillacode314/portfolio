@@ -6,6 +6,7 @@ interface Comment {
 
 import { sleep } from '@/utils'
 import { makePersisted } from '@solid-primitives/storage'
+import clsx from 'clsx'
 import { createResource, createSignal, For, Show } from 'solid-js'
 import { createStore } from 'solid-js/store'
 import z from 'zod'
@@ -101,7 +102,8 @@ export default function Comments(props: { slug: string }) {
 					onSubmit={onSubmit}
 					action={BASE_URL + '/api/v1/comments'}
 					method="post"
-					class="flex flex-col bg-gray-100/90 rounded-10 text-gray-900 shadow-lg overflow-hidden p-10 gap-5"
+					class="flex flex-col bg-white rounded-10 text-gray-900 overflow-hidden p-10 gap-5 border-2 border-[--color] [--color:theme(colors.orange.600)]"
+					style="box-shadow: var(--color) 0px 2px"
 				>
 					<div class="flex flex-col gap-1">
 						<label
@@ -115,7 +117,11 @@ export default function Comments(props: { slug: string }) {
 							name="name"
 							id="name"
 							placeholder="e.g. John Doe"
-							class="px-5 py-3 rounded-5 min-w-0 w-full"
+							class={clsx([
+								'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none',
+								'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+							])}
+							style="box-shadow: var(--color) 0px 2px"
 							required
 							value={formData.username}
 							onInput={(e) => setFormData({ username: e.currentTarget.value })}
@@ -133,7 +139,11 @@ export default function Comments(props: { slug: string }) {
 							type="email"
 							id="email"
 							placeholder="e.g. name@domain.com"
-							class="px-5 py-3 rounded-5 min-w-0 w-full"
+							class={clsx([
+								'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none',
+								'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+							])}
+							style="box-shadow: var(--color) 0px 2px"
 							required
 							value={formData.email}
 							onInput={(e) => setFormData({ email: e.currentTarget.value })}
@@ -150,7 +160,11 @@ export default function Comments(props: { slug: string }) {
 							name="comment"
 							id="comment"
 							placeholder="Your comment here"
-							class="px-5 py-3 rounded-5 min-h-xs min-w-0 w-full"
+							class={clsx([
+								'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none min-w-xs',
+								'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+							])}
+							style="box-shadow: var(--color) 0px 2px"
 							required
 							value={comment()}
 							onInput={(e) => setComment(e.currentTarget.value)}
@@ -159,13 +173,17 @@ export default function Comments(props: { slug: string }) {
 					<Show
 						when={cooldown > 0}
 						fallback={
-							<button class="px-5 py-3 shadow-lg text-gray-100 bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-orange-700 whitespace-nowrap ml-auto">
+							<button
+								class="rounded-lg ml-auto whitespace-nowrap px-5 py-3 font-bold text-orange-600 border-2 border-orange-600 transition hover:bg-orange-600 hover:text-white"
+								style="box-shadow: #ea580c 0px 5px"
+							>
 								Submit
 							</button>
 						}
 					>
 						<button
-							class="px-5 py-3 shadow-lg text-gray-100 bg-orange-600 font-bold rounded-5 transition hover:shadow-none hover:bg-white hover:text-gray-900 whitespace-nowrap ml-auto"
+							class="rounded-lg ml-auto whitespace-nowrap px-5 py-3 font-bold text-orange-600 border-2 border-orange-600 transition hover:bg-orange-600 hover:text-white"
+							style="box-shadow: #ea580c 0px 5px"
 							disabled
 						>
 							Wait {cooldown} seconds

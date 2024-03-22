@@ -37,7 +37,8 @@
 			data-netlify="true"
 			netlify-honeypot="bot-field"
 			method="post"
-			class="rounded-10 flex flex-col gap-5 overflow-hidden bg-gray-100 p-10 text-gray-900 shadow-lg w-full border-2 border-gray-700"
+			class="rounded-10 flex flex-col gap-5 overflow-hidden p-10 text-gray-900 w-full border-2 border-orange-600 bg-white"
+			style="box-shadow: #ea580c 0px 5px"
 		>
 			<p class="hidden">
 				<label>
@@ -53,7 +54,11 @@
 					name="name"
 					id="name"
 					placeholder="e.g. John Doe"
-					class="rounded-5 w-full min-w-0 px-5 py-3"
+					class:list={[
+						'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none',
+						'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+					]}
+					style="box-shadow: var(--color) 0px 2px"
 					required
 				/>
 			</div>
@@ -66,7 +71,11 @@
 					type="email"
 					id="email"
 					placeholder="e.g. name@domain.com"
-					class="rounded-5 w-full min-w-0 px-5 py-3"
+					class:list={[
+						'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none',
+						'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+					]}
+					style="box-shadow: var(--color) 0px 2px"
 					required
 				/>
 			</div>
@@ -79,11 +88,16 @@
 					name="message"
 					id="message"
 					placeholder="Your message here"
-					class="rounded-5 min-h-xs w-full min-w-0 px-5 py-3"
+					class:list={[
+						'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none min-h-xs',
+						'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
+					]}
+					style="box-shadow: var(--color) 0px 2px"
 					required></textarea>
 			</div>
 			<button
-				class="rounded-5 ml-auto whitespace-nowrap bg-orange-600 px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-none"
+				class="rounded-lg ml-auto whitespace-nowrap px-5 py-3 font-bold text-orange-600 border-2 border-orange-600 transition hover:bg-orange-600 hover:text-white"
+				style="box-shadow: #ea580c 0px 5px"
 			>
 				Send Message
 			</button>

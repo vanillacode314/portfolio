@@ -17,10 +17,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 	>
 		{
 			testimonials.map(({ title, content, author }) => (
-				<article class="bg-gray-100 rounded-10 p-10 text-gray-900 shadow-lg">
+				<article
+					class="rounded-10 p-10 text-gray-900 border-2 border-orange-700"
+					style="box-shadow: #c2410c 0px 5px"
+				>
 					<figure class="flex flex-col gap-8">
 						<div class="flex gap-5 justify-between items-center">
-							<div class="w-20 h-20 rounded-full grid place-content-center bg-gray-300 shadow overflow-hidden">
+							<div class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden">
 								<Image
 									src={images[
 										`../assets/images/profiles/${author.toLowerCase().replace(/ /g, '-')}.webp`
