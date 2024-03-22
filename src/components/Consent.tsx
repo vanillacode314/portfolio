@@ -35,14 +35,12 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		setDidChoose(true)
 		setDidConsent(true)
 		loadPixel()
-		loadAdsense()
 		loadAnalytics()
 	}
 
 	async function onReject() {
 		setDidChoose(true)
 		setDidConsent(false)
-		loadAdsense()
 	}
 
 	async function loadAnalytics() {
@@ -50,12 +48,32 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		window.gtag = function () {
 			window.dataLayer.push(arguments)
 		}
+		gtag('consent', 'default', {
+			ad_storage: 'denied',
+			ad_user_data: 'denied',
+			ad_personalization: 'denied',
+			analytics_storage: 'denied'
+		})
+		if (!didConsent()) {
+			gtag('consent', 'update', {
+				ad_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+				analytics_storage: 'denied'
+			})
+			return
+		}
+		gtag('consent', 'update', {
+			ad_storage: 'granted',
+			ad_user_data: 'granted',
+			ad_personalization: 'granted',
+			analytics_storage: 'granted'
+		})
 		gtag('js', new Date())
 		gtag('config', 'G-197W0VNG3Y', {
 			cookie_domain: window.location.hostname,
 			cookie_flags: 'SameSite=None;Secure'
 		})
-
 		const gaScript = document.createElement('script')
 		gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y'
 		document.head.appendChild(gaScript)
@@ -68,7 +86,8 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	}
 
 	async function loadPixel() {
-		!(function (f, b, e, v, n, t, s) {
+		if (!didConsent()) return
+		;(function (f, b, e, v, n, t, s) {
 			if (f.fbq) return
 			n = f.fbq = function () {
 				n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
@@ -89,8 +108,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	}
 
 	onMount(() => {
-		loadAdsense()
-		if (!didConsent()) return
+		// loadAdsense()
 		loadAnalytics()
 		loadPixel()
 	})
