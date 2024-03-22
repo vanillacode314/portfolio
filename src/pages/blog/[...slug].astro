@@ -9,6 +9,8 @@ import { Seo } from 'astro-seo-meta'
 import { Schema } from 'astro-seo-schema'
 import { getCollection } from 'astro:content'
 import PerformanceReportForm from '@/components/PerformanceReportForm'
+import type { ImageMetadata } from 'astro'
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/**/*.{webp,png,svg,jpg}')
 
 const entry = (await getCollection('blog')).find((entry) => entry.slug === Astro.params.slug)
 if (!entry) return new Response(null, { status: 404, statusText: 'Not Found' })
@@ -247,11 +249,9 @@ const nextBlog = blogEntries[index + 1]
 							<span class="i-mdi-chevron-left text-lg" />
 							<span class="text-sm font-bold uppercase md:text-base">{prevBlog.data.title}</span>
 							<Image
-								src={`/assets/images/blog/${prevBlog.slug}.png`}
+								src={images[`../../assets/images/blog/${prevBlog.slug}.png`]!()}
 								class="md:w-25 lg:w-30 w-20 rounded"
 								alt={prevBlog.data.title}
-								width="50"
-								height="50"
 							/>
 						</article>
 					</a>
@@ -263,11 +263,9 @@ const nextBlog = blogEntries[index + 1]
 				nextBlog ? (
 					<a href={`/blog/${nextBlog.slug}`} rel="next">
 						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
-							<img
-								src={`/assets/images/blog/${nextBlog.slug}.png`}
+							<Image
+								src={images[`../../assets/images/blog/${nextBlog.slug}.png`]!()}
 								class="md:w-25 lg:w-30 w-20 rounded"
-								width="50"
-								height="50"
 								alt={nextBlog.data.title}
 							/>
 							<span class="text-sm font-bold uppercase md:text-base">{nextBlog.data.title}</span>
@@ -442,8 +440,8 @@ const nextBlog = blogEntries[index + 1]
 						margin-inline-start: 3ch;
 					}
 				}
-			box-shadow: var(--color) 0px 5px;
-				@apply rounded-10 px-12 py-10 border-2 border-[--color] [--color:theme(colors.gray.300)] mb-10;
+				box-shadow: var(--color) 0px 5px;
+				@apply rounded-10 mb-10 border-2 border-[--color] px-12 py-10 [--color:theme(colors.gray.300)];
 			}
 		}
 	</style>
