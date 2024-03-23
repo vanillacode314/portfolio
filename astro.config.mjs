@@ -49,7 +49,7 @@ export default defineConfig({
 					}
 				})
 			],
-			safelist: ['i-mdi-link-variant']
+			safelist: ['i-mdi-link-variant', 'whitespace-pre-wrap']
 		}),
 		solidJs(),
 		sitemap({ customPages: blogUrls, changefreq: 'daily' }),
