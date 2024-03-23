@@ -11,7 +11,6 @@ import { h } from 'hastscript'
 import path from 'path'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
-import { presetIcons, presetUno, presetWebFonts, transformerDirectives } from 'unocss'
 import Unocss from 'unocss/astro'
 
 import netlify from '@astrojs/netlify'
@@ -31,26 +30,7 @@ const blogUrls = files.map((file) => {
 export default defineConfig({
 	site: 'https://raqueebuddinaziz.com/',
 	integrations: [
-		Unocss({
-			transformers: [transformerDirectives()],
-			presets: [
-				presetUno(),
-				presetWebFonts({
-					provider: 'bunny',
-					fonts: {
-						sans: ['Ubuntu:400,500,600,700,800,900'],
-						mono: ['Ubuntu Mono', 'monospace']
-					}
-				}),
-				presetIcons({
-					extraProperties: {
-						display: 'inline-block',
-						'vertical-align': 'middle'
-					}
-				})
-			],
-			safelist: ['i-mdi-link-variant', 'whitespace-pre-wrap']
-		}),
+		Unocss(),
 		solidJs(),
 		sitemap({ customPages: blogUrls, changefreq: 'daily' }),
 		// partytown({
