@@ -10,15 +10,7 @@
 			<span class="text-xl i-mdi-phone"></span>
 			Book A Call
 		</a>
-		<script>
-			document.getElementById('book-a-call')?.addEventListener('click', function () {
-				window.gtag('event', 'generate_lead', {
-					event_category: 'Lead Generation',
-					event_label: 'Book A Call'
-				})
-				fbq('track', 'Contact')
-			})
-		</script>
+
 		<!-- <script is:inline async defer src="https://asset-tidycal.b-cdn.net//js/embed.js"></script> -->
 		<!-- <div id="tidycal-embed" data-path="raqueebuddin.aziz.314/30-minute-meeting"></div> -->
 		<!-- <style is:global> -->
@@ -123,5 +115,12 @@
 			fbq('track', 'Contact')
 		}
 		form.addEventListener('submit', onSubmit)
+		document.getElementById('book-a-call')?.addEventListener('click', function () {
+			window.gtag('event', 'generate_lead', {
+				event_category: 'Lead Generation',
+				event_label: `Book A Call ${BRANCH}`
+			})
+			fbq('track', 'Contact')
+		})
 	</script>
 </div>

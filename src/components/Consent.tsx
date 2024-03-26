@@ -54,21 +54,14 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 			ad_personalization: 'denied',
 			analytics_storage: 'denied'
 		})
-		if (!didConsent()) {
-			gtag('consent', 'update', {
-				ad_storage: 'denied',
-				ad_user_data: 'denied',
-				ad_personalization: 'denied',
-				analytics_storage: 'denied'
-			})
-		} else {
+		if (didConsent())
 			gtag('consent', 'update', {
 				ad_storage: 'granted',
 				ad_user_data: 'granted',
 				ad_personalization: 'granted',
 				analytics_storage: 'granted'
 			})
-		}
+
 		gtag('js', new Date())
 		gtag('config', 'G-197W0VNG3Y', {
 			cookie_domain: window.location.hostname,
