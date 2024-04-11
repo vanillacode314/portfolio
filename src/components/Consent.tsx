@@ -30,6 +30,10 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		},
 		name: 'chose_consent'
 	})
+	if (!isServer) {
+		setDidChoose(true)
+		setDidConsent(true)
+	}
 
 	async function onAccept() {
 		setDidChoose(true)
