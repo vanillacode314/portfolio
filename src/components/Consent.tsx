@@ -4,6 +4,7 @@ import { createSignal, onMount, type VoidComponent } from 'solid-js'
 import { isServer } from 'solid-js/web'
 
 export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
+	if (import.meta.env.DEV) return <></>
 	cookieStorage._read = () => {
 		return isServer ? props.cookie : document.cookie
 	}
