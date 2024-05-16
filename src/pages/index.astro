@@ -3,7 +3,6 @@ import Container from '@/components/Container.astro'
 import Projects from '@/sections/Projects.astro'
 import Hero from '@/sections/Hero.astro'
 import Testimonials from '@/sections/Testimonials.astro'
-import About from '@/sections/About.astro'
 import Layout from '../layouts/Layout.astro'
 import Services from '@/sections/Services.astro'
 import Contact from '@/sections/Contact.astro'
@@ -36,8 +35,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			}}
 		/>
 		<Seo
-			title="Helping tech startups build their MVPs as fast as possible - Raqueebuddin Aziz"
-			description="Helping tech startups build their MVPs as fast as possible"
+			title="Helping businesses ship web apps as fast as possible - Raqueebuddin Aziz"
+			description="Helping businesses ship web apps as fast as possible"
 			keywords={[
 				'professional web developer',
 				'web developer',
@@ -69,7 +68,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			<Services />
 			<Projects />
 			<Posts />
-			<!-- <About /> -->
 			<Contact />
 		</main>
 	</Container>
