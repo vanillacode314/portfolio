@@ -161,7 +161,7 @@ export default function Comments(props: { slug: string }) {
 							id="comment"
 							placeholder="Your comment here"
 							class={clsx([
-								'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none min-w-xs',
+								'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none',
 								'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
 							])}
 							style="box-shadow: var(--color) 0px 2px"
