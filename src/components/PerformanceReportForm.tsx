@@ -42,7 +42,7 @@ export const PerformanceReportForm: Component<{ class?: string }> = (props) => {
 			<input type="hidden" name="bot-field" />
 			<input type="hidden" name="form-name" value="report" />
 			<h2 class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl">
-				<span class="rounded-full bg-orange-600 px-5 font-black text-gray-100">free</span>
+				<span class="rounded-full bg-orange-600 px-3 font-black text-gray-100">free</span>&nbsp;
 				report on how to make your website faster
 			</h2>
 			<div class="flex flex-col gap-1">

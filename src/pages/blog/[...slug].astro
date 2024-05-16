@@ -10,7 +10,9 @@ import { Schema } from 'astro-seo-schema'
 import { getCollection } from 'astro:content'
 import PerformanceReportForm from '@/components/PerformanceReportForm'
 import type { ImageMetadata } from 'astro'
-const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/**/*.{webp,png,svg,jpg}')
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'../../assets/images/**/*.{webp,png,svg,jpg}'
+)
 
 const entry = (await getCollection('blog')).find((entry) => entry.slug === Astro.params.slug)
 if (!entry) return new Response(null, { status: 404, statusText: 'Not Found' })
@@ -162,7 +164,7 @@ const nextBlog = blogEntries[index + 1]
 				<Content />
 			</div>
 			<section class="xl:flex hidden self-start sticky top-5 flex-col gap-5">
-				<PerformanceReportForm client:load />
+				<!-- <PerformanceReportForm client:load /> -->
 				<span class="self-end uppercase font-bold tracking-wide text-sm text-neutral-600"
 					>Share This Post on</span
 				>
@@ -170,20 +172,20 @@ const nextBlog = blogEntries[index + 1]
 					<a
 						href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
 						target="_blank"
-						class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
+						class="flex items-center gap-3 rounded-lg bg-black px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-gray-800 focus:bg-gray-800"
 					>
-						<span class="i-mdi-twitter text-2xl"></span>
+						<span class="i-ph:x-logo-fill text-2xl"></span>
 					</a>
 					<a
 						href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
-						class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800"
+						class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
 						target="_blank"
 					>
 						<span class="i-mdi-linkedin text-2xl"></span>
 					</a>
 					<a
 						href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
-						class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800"
+						class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-700 focus:bg-red-700"
 						target="_blank"
 					>
 						<span class="i-fa6-brands:reddit-alien text-2xl"></span>
@@ -219,27 +221,27 @@ const nextBlog = blogEntries[index + 1]
 			<a
 				href={`https://twitter.com/intent/tweet?text=${frontmatter.title}&url=${canonicalURL}&via=RaqueebuddinA`}
 				target="_blank"
-				class="flex items-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
+				class="flex items-center gap-3 rounded-lg bg-black px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-gray-800 focus:bg-gray-800"
 			>
-				<span class="i-mdi-twitter text-2xl"></span>
-				Tweet</a
-			>
+				<span class="i-ph:x-logo-fill text-2xl"></span>
+				Post on X
+			</a>
 			<a
 				href={`https://www.linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
-				class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-800 focus:bg-blue-800"
+				class="flex items-center gap-3 rounded-lg bg-blue-900 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-blue-700 focus:bg-blue-700"
 				target="_blank"
 			>
 				<span class="i-mdi-linkedin text-2xl"></span>
-				Share on LinkedIN</a
-			>
+				Share on LinkedIN
+			</a>
 			<a
 				href={`http://www.reddit.com/submit?url=${canonicalURL}&title=${frontmatter.title}`}
-				class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-800 focus:bg-red-800"
+				class="flex items-center gap-3 rounded-lg bg-red-600 px-5 py-3 font-bold uppercase tracking-wide text-gray-100 transition-colors hover:bg-red-700 focus:bg-red-700"
 				target="_blank"
 			>
 				<span class="i-fa6-brands:reddit-alien text-2xl"></span>
-				Post on Reddit</a
-			>
+				Post on Reddit
+			</a>
 		</section>
 		<section class="flex flex-wrap justify-between gap-5">
 			{
@@ -247,7 +249,7 @@ const nextBlog = blogEntries[index + 1]
 					<a href={`/blog/${prevBlog.slug}`} rel="prev">
 						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
 							<span class="i-mdi-chevron-left text-lg" />
-							<span class="text-sm font-bold uppercase md:text-base">{prevBlog.data.title}</span>
+							<span class="text-sm font-bold md:text-base max-w-30ch">{prevBlog.data.title}</span>
 							<Image
 								src={images[`../../assets/images/blog/${prevBlog.slug}.png`]!()}
 								class="md:w-25 lg:w-30 w-20 rounded"
@@ -268,7 +270,7 @@ const nextBlog = blogEntries[index + 1]
 								class="md:w-25 lg:w-30 w-20 rounded"
 								alt={nextBlog.data.title}
 							/>
-							<span class="text-sm font-bold uppercase md:text-base">{nextBlog.data.title}</span>
+							<span class="text-sm font-bold max-w-30ch md:text-base">{nextBlog.data.title}</span>
 							<span class="i-mdi-chevron-right text-lg" />
 						</article>
 					</a>
@@ -277,19 +279,19 @@ const nextBlog = blogEntries[index + 1]
 				)
 			}
 		</section>
-		<article class="px-10 py-8 rounded-5 bg-orange-600 flex flex-col gap-5 max-w-4xl">
-			<div class="max-w-2xl text-white flex flex-col gap-3">
-				<p class="text-3xl font-bold">
-					Looking for a dev to help build an MVP for your tech startup? <br /><br />Reach out to me.
-				</p>
-			</div>
-			<a
-				href="/#contact"
-				target="_blank"
-				class="self-end bg-white shadow-inset px-5 py-3 rounded uppercase font-bold tracking-wide text-orange-600 hover:bg-neutral-100 transition-colors"
-				>Contact</a
-			>
-		</article>
+		<!-- <article class="px-10 py-8 rounded-5 bg-orange-600 flex flex-col gap-5 max-w-4xl"> -->
+		<!-- 	<div class="max-w-2xl text-white flex flex-col gap-3"> -->
+		<!-- 		<p class="text-3xl font-bold"> -->
+		<!-- 			Looking for a dev to help build an MVP for your tech startup? <br /><br />Reach out to me. -->
+		<!-- 		</p> -->
+		<!-- 	</div> -->
+		<!-- 	<a -->
+		<!-- 		href="/#contact" -->
+		<!-- 		target="_blank" -->
+		<!-- 		class="self-end bg-white shadow-inset px-5 py-3 rounded uppercase font-bold tracking-wide text-orange-600 hover:bg-neutral-100 transition-colors" -->
+		<!-- 		>Contact</a -->
+		<!-- 	> -->
+		<!-- </article> -->
 		<Comments slug={entry.slug} client:only="solid" />
 		<button
 			id="gototop"
@@ -401,7 +403,7 @@ const nextBlog = blogEntries[index + 1]
 				font-size: var(--body-text);
 				line-height: var(--font-lineheight-2);
 				list-style-type: disc;
-				margin-inline-start: 1.5ch;
+				margin-inline-start: 3ch;
 				display: flex;
 				flex-direction: column;
 				gap: 0.5rem;

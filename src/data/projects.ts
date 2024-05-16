@@ -99,25 +99,25 @@ export default [
 		points: [],
 		url: 'https://justtimetrack.vercel.app/',
 		repo_url: 'https://github.com/vanillacode314/vanillatimetracker'
-	},
-	{
-		name: 'RemoteGamepad',
-		description:
-			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the client',
-		image: 'remotegamepad.webp',
-		points: [],
-		tech: ['svelte', 'sveltekit', 'capacitorjs', 'websockets'],
-		url: 'https://github.com/vanillacode314/remotegamepad/releases',
-		repo_url: 'https://github.com/vanillacode314/remotegamepad'
-	},
-	{
-		name: 'RemoteGamepad\nServer',
-		description:
-			'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the server',
-		image: 'remotegamepad.webp',
-		points: [],
-		tech: ['rust', 'enigo', 'clap-rs', 'websockets'],
-		url: 'https://github.com/vanillacode314/remotegamepad-server/releases',
-		repo_url: 'https://github.com/vanillacode314/remotegamepad-server'
 	}
+	// {
+	// 	name: 'RemoteGamepad',
+	// 	description:
+	// 		'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the client',
+	// 	image: 'remotegamepad.webp',
+	// 	points: [],
+	// 	tech: ['svelte', 'sveltekit', 'capacitorjs', 'websockets'],
+	// 	url: 'https://github.com/vanillacode314/remotegamepad/releases',
+	// 	repo_url: 'https://github.com/vanillacode314/remotegamepad'
+	// },
+	// {
+	// 	name: 'RemoteGamepad\nServer',
+	// 	description:
+	// 		'A Free and Open source application that turns your mobile device into a remote gamepad for your computer. This is the server',
+	// 	image: 'remotegamepad.webp',
+	// 	points: [],
+	// 	tech: ['rust', 'enigo', 'clap-rs', 'websockets'],
+	// 	url: 'https://github.com/vanillacode314/remotegamepad-server/releases',
+	// 	repo_url: 'https://github.com/vanillacode314/remotegamepad-server'
+	// }
 ] satisfies Project[]

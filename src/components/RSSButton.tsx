@@ -7,7 +7,7 @@ export const RSSButton: VoidComponent<{ class?: string }> = (props) => {
 			href="/blog/rss.xml"
 			target="_blank"
 			class={clsx(
-				'flex items-center gap-1 px-3 py-1 bg-orange-700 rounded text-white text-sm font-bold tracking-wide',
+				'flex items-center gap-1 px-3 py-1 bg-orange-700 rounded text-white text-sm font-bold tracking-wide hover:bg-orange-500 focus:bg-orange-500 transition-colors',
 				props.class
 			)}
 		>

@@ -14,12 +14,12 @@ const route = Astro.url.pathname
 const isActive = (href: string) => href === route
 
 const links: Link[] = [
+	// {
+	// 	label: 'about',
+	// 	href: '/#about'
+	// },
 	{
-		label: 'about',
-		href: '/#about'
-	},
-	{
-		label: 'portfolio',
+		label: 'home',
 		href: '/'
 	},
 	{
@@ -30,27 +30,16 @@ const links: Link[] = [
 ]
 ---
 
-<a
-	href="#performance-report"
-	class="block justify-center bg-orange-600 py-2 px-4 text-center text-sm font-bold uppercase tracking-wide text-white md:text-base"
->
-	Click Here to get a
-	<span
-		class="mx-2 inline-block rounded-full bg-white px-3 text-orange-600 outline-none transition hover:bg-orange-700 hover:text-gray-100 focus:bg-orange-700 focus:text-gray-100"
-	>
-		free
-	</span>
-	report on how to make your website faster
-</a>
+<!-- <a --><!-- 	href="#performance-report" --><!-- 	class="block justify-center bg-orange-600 py-2 px-4 text-center text-sm font-bold uppercase tracking-wide text-white md:text-base" --><!-- > --><!-- 	Click Here to get a --><!-- 	<span --><!-- 		class="mx-2 inline-block rounded-full bg-white px-3 text-orange-600 outline-none transition hover:bg-orange-700 hover:text-gray-100 focus:bg-orange-700 focus:text-gray-100" --><!-- 	> --><!-- 		free --><!-- 	</span> --><!-- 	report on how to make your website faster --><!-- </a> -->
 <Container class="nav top-0 z-20 p-5 backdrop-blur md:p-8">
 	<nav class="flex items-center gap-5">
 		<a href="/" class="text-lg leading-tight flex items-center gap-3">
-			<Image
-				src={profileImage}
-				alt="profile"
-				loading="eager"
-				class="object-cover w-10 h-10 rounded-full aspect-square"
-			/>
+			<!-- <Image -->
+			<!-- 	src={profileImage} -->
+			<!-- 	alt="profile" -->
+			<!-- 	loading="eager" -->
+			<!-- 	class="object-cover w-10 h-10 rounded-full aspect-square" -->
+			<!-- /> -->
 			<span>
 				raqueebuddin <span class="font-bold">aziz</span>
 			</span>
@@ -61,7 +50,7 @@ const links: Link[] = [
 			{
 				links.map(({ showOnMobile, href, label }) => (
 					<li class={clsx(!showOnMobile && 'hidden md:contents')}>
-						<a {href} class={`${isActive(href) && 'font-bold underline'} text-lg hover:underline`}>
+						<a {href} class={`${isActive(href) && 'font-bold'} text-lg hover:underline`}>
 							{label}
 						</a>
 					</li>

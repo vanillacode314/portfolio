@@ -19,7 +19,7 @@ const blogEntries = (await getCollection('blog'))
 	.filter((entry) => {
 		return entry.data.seo.keywords.some((tag) => tags.length === 0 || tags.includes(tag))
 	})
-	.slice(0, 5)
+	.slice(0, 3)
 ---
 
 <div class="flex flex-col gap-1">

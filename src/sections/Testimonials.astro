@@ -1,7 +1,7 @@
 ---
+import testimonials from '@/data/testimonials'
 import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
-import testimonials from '@/data/testimonials'
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**/*.webp')
 ---
@@ -13,7 +13,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 	<section
 		aria-label="testimonials"
 		id="testimonials"
-		class="text-gray-900 grid md:grid-cols-2 gap-5 lg:gap-10 items-start"
+		class="text-gray-900 grid md:grid-cols-2 gap-5 lg:gap-10"
 	>
 		{
 			testimonials.map(({ title, content, author }) => (
