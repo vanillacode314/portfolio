@@ -248,7 +248,7 @@ const nextBlog = blogEntries[index + 1]
 				prevBlog ? (
 					<a href={`/blog/${prevBlog.slug}`} rel="prev">
 						<article class="flex items-center gap-5 rounded-lg bg-gray-100/50 p-3 shadow backdrop-blur">
-							<span class="i-mdi-chevron-left text-lg" />
+							<span class="i-mdi-chevron-left text-lg shrink-0" />
 							<span class="text-sm font-bold md:text-base max-w-30ch">{prevBlog.data.title}</span>
 							<Image
 								src={images[`../../assets/images/blog/${prevBlog.slug}.png`]!()}
@@ -271,7 +271,7 @@ const nextBlog = blogEntries[index + 1]
 								alt={nextBlog.data.title}
 							/>
 							<span class="text-sm font-bold max-w-30ch md:text-base">{nextBlog.data.title}</span>
-							<span class="i-mdi-chevron-right text-lg" />
+							<span class="i-mdi-chevron-right text-lg shrink-0" />
 						</article>
 					</a>
 				) : (
