@@ -11,7 +11,7 @@ import { createResource, createSignal, For, Show } from 'solid-js'
 import { createStore } from 'solid-js/store'
 import z from 'zod'
 
-const BASE_URL = 'https://api.raqueebuddinaziz.com'
+const BASE_URL = 'https://api.raqueeb.com'
 
 export default function Comments(props: { slug: string }) {
 	const formSchema = z.object({
