@@ -47,7 +47,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		}
 		<slot />
 		<Footer />
-		<Consent client:load cookie={Astro.request.headers.get('cookie') ?? ''} />
+		<Consent client:only="solid" cookie="" />
 		<style is:global>
 			* {
 				/* helps with preventing unintended font boosting */

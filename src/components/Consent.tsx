@@ -16,7 +16,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		storageOptions: {
 			path: '/',
 			secure: true,
-			sameSite: 'lax',
+			sameSite: 'Lax',
 			expires: new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000)
 		},
 		name: 'did_consent'
@@ -26,7 +26,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		storageOptions: {
 			path: '/',
 			secure: true,
-			sameSite: 'lax',
+			sameSite: 'Lax',
 			expires: new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000)
 		},
 		name: 'chose_consent'

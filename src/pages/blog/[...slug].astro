@@ -9,10 +9,19 @@ import { Seo } from 'astro-seo-meta'
 import { Schema } from 'astro-seo-schema'
 import { getCollection } from 'astro:content'
 import PerformanceReportForm from '@/components/PerformanceReportForm'
-import type { ImageMetadata } from 'astro'
+import type { GetStaticPaths, ImageMetadata } from 'astro'
 const images = import.meta.glob<{ default: ImageMetadata }>(
 	'../../assets/images/**/*.{webp,png,svg,jpg}'
 )
+
+export const getStaticPaths = (async () => {
+	const blogEntries = await getCollection('blog')
+	return blogEntries.map((entry) => ({
+		params: {
+			slug: entry.slug
+		}
+	}))
+}) satisfies GetStaticPaths
 
 const entry = (await getCollection('blog')).find((entry) => entry.slug === Astro.params.slug)
 if (!entry) return new Response(null, { status: 404, statusText: 'Not Found' })
