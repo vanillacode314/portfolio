@@ -21,6 +21,10 @@ const {
 	updated,
 	loading = 'lazy'
 } = Astro.props as Props
+const updatedAt = new Date(updated || created)
+const year = updatedAt.getFullYear().toString()
+const month = (updatedAt.getMonth() + 1).toString().padStart(2, '0')
+const day = updatedAt.getDate().toString().padStart(2, '0')
 
 const A = fullHover ? 'a' : 'div'
 
@@ -31,7 +35,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 )
 ---
 
-<A href={`/blog/${slug}`} class="contents">
+<A href={`/blog/${year}/${month}/${day}/${slug}`} class="contents">
 	<article
 		class="flex flex-col border-2 border-gray-300 rounded-10 text-gray-900 overflow-hidden transition-transform"
 		style="box-shadow: #d1d5db 0px 5px"

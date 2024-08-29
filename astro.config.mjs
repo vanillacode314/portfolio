@@ -20,11 +20,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const directoryPath = path.join(__dirname, 'src', 'content', 'blog')
 const files = fs.readdirSync(directoryPath)
-const siteUrl = 'https://raqueeb.com'
-const blogUrls = files.map((file) => {
-	const fileName = file.split('.')[0]
-	return `${siteUrl}/blog/${fileName}/`
-})
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,7 +27,7 @@ export default defineConfig({
 	integrations: [
 		Unocss(),
 		solidJs(),
-		sitemap({ customPages: blogUrls, changefreq: 'daily' }),
+		sitemap({ changefreq: 'daily' }),
 		// partytown({
 		// 	config: {
 		// 		forward: ['dataLayer.push']
