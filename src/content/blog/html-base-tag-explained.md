@@ -28,7 +28,7 @@ Setting the `href` attribute of the `base` tag will set the base URL for every a
 <a href="/test">Test</a>
 
 <!-- This will not goto https://google.com/test -->
-<a href="https://raqueebuddinaziz.com/test">Test</a>
+<a href="https://raqueeb.com/test">Test</a>
 
 <!-- This will not goto https://google.com/test#hash -->
 <a href="/test#hash">Test</a>
@@ -46,7 +46,7 @@ If you set the `target` attribute of a `base` tag to `_blank` every link by defa
 <!-- All these links will open in new tab -->
 <a href="test">Test</a>
 <a href="/test">Test</a>
-<a href="https://raqueebuddinaziz.com/test">Test</a>
+<a href="https://raqueeb.com/test">Test</a>
 <a href="/test#hash">Test</a>
 ```
 

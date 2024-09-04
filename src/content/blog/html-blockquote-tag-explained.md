@@ -38,7 +38,7 @@ This will help search engines in indexing your content and linking citations dir
 
 ```html
 <figure>
-	<blockquote cite="https://raqueebuddinaziz.com/blog/html-blockquote-tag-explained">
+	<blockquote cite="https://raqueeb.com/blog/html-blockquote-tag-explained">
 		This blog is awesome, Gotta leave an awesome comment
 	</blockquote>
 </figure>
@@ -46,7 +46,7 @@ This will help search engines in indexing your content and linking citations dir
 
 <div class="p-5 rounded-xl border border-black">
 	<figure>
-	<blockquote cite="https://raqueebuddinaziz.com/blog/html-blockquote-tag-explained">
+	<blockquote cite="https://raqueeb.com/blog/html-blockquote-tag-explained">
 			This blog is awesome, Gotta leave an awesome comment</blockquote>
 	</figure>
 </div>

@@ -66,7 +66,7 @@ export default [
 	// 		'Uses websockets for instant gameplay',
 	// 		'Custom optimized communication protocol for minimum bandwidth usage and fast gameplay'
 	// 	],
-	// 	url: 'https://raqueebuddinaziz.com/games/tictactoe',
+	// 	url: 'https://raqueeb.com/games/tictactoe',
 	// 	repo_url: 'https://github.com/vanillacode314/portfolio/blob/main/src/components/TicTacToe.tsx'
 	// },
 	// {

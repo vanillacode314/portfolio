@@ -41,11 +41,11 @@ There are three ways to link to pages under the same website.
 What comes between the anchor tags will be shown to the user.
 Absolute URLs must start with `/`. `/` refers to the homepage of the site you are on.
 
-This will link to the about page in the same website for example if you are browsing https://raqueebuddinaziz.com and click a link with `href="/about"` it will take you to https://raqueebuddinaziz.com/about. There is no about page on my site though so the link will fail if you actually click on it.
+This will link to the about page in the same website for example if you are browsing https://raqueeb.com and click a link with `href="/about"` it will take you to https://raqueeb.com/about. There is no about page on my site though so the link will fail if you actually click on it.
 
 But if you clicked a link with the same `href` on https://google.com it will take you to https://google.com/about.
 
-One thing to note with absolute links is that they always link to the same page no matter which page the anchor tag exists. For e.g. even if you were on https://raqueebuddinaziz.com/blog and clicked the about link it will still take you to https://raqueebuddinaziz.com/about and not https://raqueebuddinaziz/blog/about.
+One thing to note with absolute links is that they always link to the same page no matter which page the anchor tag exists. For e.g. even if you were on https://raqueeb.com/blog and clicked the about link it will still take you to https://raqueeb.com/about and not https://raqueebuddinaziz/blog/about.
 
 ### Relative Links
 
@@ -57,9 +57,9 @@ One thing to note with absolute links is that they always link to the same page 
 
 Links that don't start with `/` are relative links. There are two syntaxes for relative links either you can just write a link that doesn't start with `/` or write one that starts with `./`. The `.` represents the current URL.
 
-If you click a relative link it will take you to a page relative to the current URL you are on. For e.g. clicking the about link on https://raqueebuddinaziz/blog will take you to https://raqueebuddinaziz.com/blog/about.
+If you click a relative link it will take you to a page relative to the current URL you are on. For e.g. clicking the about link on https://raqueebuddinaziz/blog will take you to https://raqueeb.com/blog/about.
 
-But if you click the link on https://raqueebuddinaziz then it will take you to https://raqueebuddinaziz.com/about.
+But if you click the link on https://raqueebuddinaziz then it will take you to https://raqueeb.com/about.
 
 ### Hash Links
 
@@ -166,7 +166,7 @@ MDN has a list of [commonly used mime types](https://developer.mozilla.org/en-US
 ## Tracking Links
 
 ```html
-<a href="/" ping="https://raqueebuddinaziz.com">Link with tracking</a>
+<a href="/" ping="https://raqueeb.com">Link with tracking</a>
 ```
 
 There is a `ping` attribute that takes a space separated list of URLs to send a `POST` request to with the body `PING` whenever the link is clicked.
@@ -179,7 +179,7 @@ I have never seen the `ping` attribute used in the wild but it exists so I menti
 
 By default if you link to a URL the server that handles that URL will be told via a header named `Referrer` the URL where you put the anchor tag with the link.
 
-For e.g. if I link to google.com from this site, the servers for google.com will be told that they were linked from https://raqueebuddinaziz.com/blog/html-anchor-tag-explained
+For e.g. if I link to google.com from this site, the servers for google.com will be told that they were linked from https://raqueeb.com/blog/html-anchor-tag-explained
 
 Usually it's fine to provide this info to the server that handles the URL, but sometimes you might want to opt out of this behavior when your URL contains sensitive information or you are supposed to be in a private context.
 
@@ -189,7 +189,7 @@ It can have various values:
 
 - `no-referrer`: This is a complete opt out and would result in not sending the Referrer attribute at all.
 - `no-referrer-when-downgrade`: This will only send the referrer header if the resulting link is a `https` link and not an `http` link
-- `origin`: This leaves the path of the URL you are only sends the domain name to the servers. For example if you were to click a link on this page with `referrerpolicy=origin` the servers will only be sent `raqueebuddinaziz.com` i.e. `/blog/html-anchor-tag-explained` will not be sent.
+- `origin`: This leaves the path of the URL you are only sends the domain name to the servers. For example if you were to click a link on this page with `referrerpolicy=origin` the servers will only be sent `raqueeb.com` i.e. `/blog/html-anchor-tag-explained` will not be sent.
 - `same-origin`: This will only send the `Referrer` header if the link is on the same domain as the current page.
 - `strict-origin`: same as `origin` but only send if the protocols (the `http` or `https` part) are the same as the current page.
 - `strict-origin-when-cross-origin`: This is the default value. It will send the full URL in the header but only if the protocol parts are same as current page.
