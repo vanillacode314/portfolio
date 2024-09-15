@@ -13,7 +13,6 @@ import type { GetStaticPaths, ImageMetadata } from 'astro'
 const images = import.meta.glob<{ default: ImageMetadata }>(
 	'../../../../../assets/images/**/*.{webp,png,svg,jpg}'
 )
-console.log(images)
 
 export const getStaticPaths = (async () => {
 	const blogEntries = await getCollection('blog')
@@ -373,6 +372,7 @@ const nextBlog = blogEntries[index + 1]
 
 			.astro-code {
 				font-variant-ligatures: none;
+				width: clamp(0px, 100%, 100%);
 				/* custom scrollbar */
 				&::-webkit-scrollbar-track {
 					border-radius: 10px;
@@ -394,7 +394,6 @@ const nextBlog = blogEntries[index + 1]
 				* {
 					@apply font-mono;
 				}
-				width: clamp(0px, 100%, 100%);
 				@apply my-5 block rounded-xl p-5 font-mono;
 			}
 
