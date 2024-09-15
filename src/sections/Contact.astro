@@ -91,6 +91,7 @@
 			})
 				.then(() => alert('Form successfully submitted'))
 				.catch(() => alert('Sorry! There was a problem submitting your form'))
+			umami.track('Contact Form')
 			window.gtag('event', 'generate_lead', {
 				event_category: 'Lead Generation',
 				event_label: `Contact Form (${BRANCH})`

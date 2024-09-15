@@ -33,6 +33,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 						<span class="grow" />
 						<div class="flex flex-wrap gap-5 mt-3 justify-end">
 							<a
+								data-umami-event="View Project"
+								data-umami-event-name={name}
+								data-umami-event-url={url}
 								href={url}
 								target="_blank"
 								class="text-xs text-gray-600 hover:text-gray-500 hover:underline uppercase font-semibold inline-flex gap-1 items-center"
@@ -48,6 +51,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	</section>
 	<a
 		href="https://github.com/vanillacode314"
+		data-umami-event="View All Projects"
 		target="_blank"
 		class="mx-auto mt-10 text-gray-600 hover:underline font-bold uppercase tracking-wide border px-5 py-3 border-gray-300 rounded-10"
 	>

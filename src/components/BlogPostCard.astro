@@ -35,7 +35,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 )
 ---
 
-<A href={`/blog/${year}/${month}/${day}/${slug}`} class="contents">
+<A
+	href={`/blog/${year}/${month}/${day}/${slug}`}
+	class="contents"
+	data-umami-event={fullHover ? 'View Post' : undefined}
+	data-umami-event-slug={slug}
+	data-umami-event-url={`/blog/${year}/${month}/${day}/${slug}`}
+>
 	<article
 		class="flex flex-col border-2 border-gray-300 rounded-10 text-gray-900 overflow-hidden transition-transform"
 		style="box-shadow: #d1d5db 0px 5px"
@@ -82,6 +88,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 			<span class="grow"></span>
 			<a
 				href={`/blog/${slug}`}
+				data-umami-event={!fullHover ? 'View Post' : undefined}
+				data-umami-event-slug={slug}
+				data-umami-event-url={`/blog/${year}/${month}/${day}/${slug}`}
 				class="flex flex-wrap gap-5 focus:border-orange-600 focus:text-orange-600 hover:border-orange-600 hover:text-orange-600 border-b self-start border-transparent"
 			>
 				<span class="i-ic-sharp-menu-book text-xl"></span>
