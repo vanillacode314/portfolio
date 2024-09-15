@@ -22,17 +22,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script
-			is:inline
-			defer
-			data-domain="raqueeb.com"
-			src="https://plausible.raqueeb.com/js/script.js"></script>
-		<script
-			is:inline
-			defer
-			src="https://umami.raqueeb.com/script.js"
-			data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"></script>
-		<slot name="header" />
+		{
+			import.meta.env.PROD && (
+				<>
+					<script
+						is:inline
+						defer
+						data-domain="raqueeb.com"
+						src="https://plausible.raqueeb.com/js/script.js"
+					/>
+					<script
+						is:inline
+						defer
+						src="https://umami.raqueeb.com/script.js"
+						data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"
+					/>
+					<slot name="header" />
+				</>
+			)
+		}
 	</head>
 	<body>
 		<span data-branch={process.env.BRANCH} class="hidden branch"></span>
