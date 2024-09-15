@@ -40,7 +40,6 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		setDidChoose(true)
 		setDidConsent(true)
 		loadPixel()
-		loadPlausible()
 		loadAnalytics()
 	}
 
@@ -78,13 +77,6 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		document.head.appendChild(gaScript)
 	}
 
-	async function loadPlausible() {
-		const plausibleScript = document.createElement('script')
-		plausibleScript.src = 'https://plausible.raqueeb.com/js/script.js'
-		plausibleScript.defer = true
-		plausibleScript.dataset.domain = 'raqueeb.com'
-		document.head.appendChild(plausibleScript)
-	}
 
 	async function loadAdsense() {
 		;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = didConsent()
@@ -117,7 +109,6 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	onMount(() => {
 		// loadAdsense()
 		loadAnalytics()
-		loadPlausible()
 		loadPixel()
 	})
 
