@@ -1,70 +1,16 @@
 ---
+import Bare from './Bare.astro'
 import { Background } from '@/components/Background'
-import Consent from '@/components/Consent'
 import Nav from '@/components/Nav.astro'
-import Footer from '@/sections/Footer.astro'
 import '@unocss/reset/tailwind.css'
-import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
 	title?: string
 }
-
-const { title = 'Helping businesses ship web apps as fast as possible - Raqueebuddin Aziz' } =
-	Astro.props
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<slot name="head" />
-		<link rel="canonical" href={canonicalURL} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<ViewTransitions fallback="animate" />
-	</head>
-	<body>
-		<span data-branch={process.env.BRANCH} class="hidden branch"></span>
-		<noscript
-			><img
-				height="1"
-				width="1"
-				style="display:none"
-				src="https://www.facebook.com/tr?id=988774449217223&ev=PageView&noscript=1"
-			/></noscript
-		>
-		{
-			/\/blog\/\w+/.test(canonicalURL.pathname) && (
-				<a
-					href="#content"
-					class="pointer-events-none fixed top-0 z-30 rounded-br-lg border-b-2 border-r-2 border-orange-600 bg-neutral-100 px-5 py-2 text-orange-600 opacity-0 focus:opacity-100"
-				>
-					Skip to content
-				</a>
-			)
-		}
-		<Background client:idle />
-		<Nav />
-		<slot />
-		<Footer />
-		<Consent client:only="solid" cookie="" />
-		<style is:global>
-			* {
-				/* helps with preventing unintended font boosting */
-				max-height: 99999999999999999px;
-			}
-			body,
-			html {
-				scroll-behavior: smooth;
-				@apply max-h-full font-sans;
-			}
-			section {
-				@apply scroll-m-60;
-			}
-		</style>
-	</body>
-</html>
+<Bare {...Astro.props}>
+	<Background client:idle />
+	<Nav />
+	<slot />
+</Bare>
