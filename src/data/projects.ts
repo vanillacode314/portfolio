@@ -45,7 +45,7 @@ export default [
 			'Auto formats to print invoices in a concise form.',
 			'Uses Service Workers and WebManifest to be fully installable as an application and provide offline functionality.'
 		],
-		url: 'https://justinvoice.netlify.app/app',
+		url: 'https://justinvoice.netlify.app/app?utm_source=card&utm_medium=landing_page&utm_campaign=landing_page',
 		repo_url: ''
 	},
 	{
@@ -97,7 +97,7 @@ export default [
 		image: 'justtimetrack.webp',
 		tech: ['solidjs', 'solidstart', 'tailwindcss', 'daisyui', 'zod', 'typescript'],
 		points: [],
-		url: 'https://justtimetrack.vercel.app/',
+		url: 'https://justtimetrack.vercel.app?utm_source=card&utm_medium=landing_page&utm_campaign=landing_page',
 		repo_url: 'https://github.com/vanillacode314/vanillatimetracker'
 	}
 	// {
