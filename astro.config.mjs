@@ -58,5 +58,13 @@ export default defineConfig({
 		]
 	},
 	output: 'hybrid',
-	adapter: netlify()
+	adapter: netlify({ imageCDN: false, cacheOnDemandPages: true }),
+	image: {
+		service: {
+			entrypoint: 'astro/assets/services/sharp',
+			config: {
+				limitInputPixels: false
+			}
+		}
+	}
 })
