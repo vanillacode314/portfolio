@@ -45,7 +45,7 @@ This will link to the about page in the same website for example if you are brow
 
 But if you clicked a link with the same `href` on https://google.com it will take you to https://google.com/about.
 
-One thing to note with absolute links is that they always link to the same page no matter which page the anchor tag exists. For e.g. even if you were on https://raqueeb.com/blog and clicked the about link it will still take you to https://raqueeb.com/about and not https://raqueebuddinaziz/blog/about.
+One thing to note with absolute links is that they always link to the same page no matter which page the anchor tag exists. For e.g. even if you were on https://raqueeb.com/blog and clicked the about link it will still take you to https://raqueeb.com/about and not https://raqueeb.com/blog/about.
 
 ### Relative Links
 
@@ -57,9 +57,9 @@ One thing to note with absolute links is that they always link to the same page 
 
 Links that don't start with `/` are relative links. There are two syntaxes for relative links either you can just write a link that doesn't start with `/` or write one that starts with `./`. The `.` represents the current URL.
 
-If you click a relative link it will take you to a page relative to the current URL you are on. For e.g. clicking the about link on https://raqueebuddinaziz/blog will take you to https://raqueeb.com/blog/about.
+If you click a relative link it will take you to a page relative to the current URL you are on. For e.g. clicking the about link on https://raqueeb.com/blog will take you to https://raqueeb.com/blog/about.
 
-But if you click the link on https://raqueebuddinaziz then it will take you to https://raqueeb.com/about.
+But if you click the link on https://raqueeb.com then it will take you to https://raqueeb.com/about.
 
 ### Hash Links
 
