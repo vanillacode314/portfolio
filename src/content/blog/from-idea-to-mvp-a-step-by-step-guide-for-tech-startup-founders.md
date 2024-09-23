@@ -9,7 +9,7 @@ author: raqueebuddinaziz
 created: 'Jan 31, 2024'
 ---
 
-I highly recommend reading [Why your tech startup needs an MVP](/blog/why-your-tech-startup-needs-a-mvp) before diving into this article.
+I highly recommend reading [Why your tech startup needs an MVP](/blog/2024/01/16/why-your-tech-startup-needs-a-mvp) before diving into this article.
 
 ## Prerequisites
 
@@ -144,7 +144,7 @@ It is fine to use code snippets from the MVP codebase.
 
 There it is start to finish, how to go from idea to MVP for your tech startup.
 
-I highly recommend reading [Common Mistakes to Avoid When Building an MVP for Your Tech Startup](/blog/common-mistakes-to-avoid-when-building-an-mvp),
+I highly recommend reading [Common Mistakes to Avoid When Building an MVP for Your Tech Startup](/blog/2024/01/24/common-mistakes-to-avoid-when-building-an-mvp-for-your-tech-startup),
 before you dive into the development stage of building an MVP.
 
 _Leave a comment down below if you have any questions or tips for new tech startup founders_

@@ -19,7 +19,7 @@ created: 'Sep 23, 2022'
 
 import Video from '../../components/Video.astro'
 
-A guide on how to implement custom pull to refresh for svelte apps. This guide assumes you are familiar with svelte stores. If not feel free to check first half of this article explaining [svelte stores](/blog/svelte-custom-stores-demystified#what-are-stores-anyway).
+A guide on how to implement custom pull to refresh for svelte apps. This guide assumes you are familiar with svelte stores. If not feel free to check first half of this article explaining [svelte stores](/blog/2022/09/13/svelte-custom-stores-demystified).
 
 I'll be using [sveltekit](https://kit.svelte.dev) to build this example for convenience but all of this generally applies to svelte.
 
@@ -232,8 +232,8 @@ Then we create two svelte `spring` stores (basically stores that don't immediate
 
 ```javascript
 /* src/mountHooks.js */
-import { writable } from 'svelte/store'
 import { spring } from 'svelte/motion'
+import { writable } from 'svelte/store'
 
 export function onRefresh({
 	scrollAreaId = 'scroll-area',
@@ -355,9 +355,9 @@ We have two choices here we can call `onMount` inside our function or return a f
 
 ```javascript
 /* src/mountHooks.js */
-import { writable } from 'svelte/store'
-import { spring } from 'svelte/motion'
 import { onMount } from 'svelte'
+import { spring } from 'svelte/motion'
+import { writable } from 'svelte/store'
 
 export function onRefresh({
 	scrollAreaId = 'scroll-area',

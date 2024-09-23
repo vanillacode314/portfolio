@@ -11,7 +11,7 @@ created: 'Jan 24, 2024'
 
 Let's look into some of the common mistakes that startups make when building an MVP.
 
-I highly recommend reading [Why your tech startup needs an MVP](/blog/why-your-tech-startup-needs-a-mvp) before diving into this article.
+I highly recommend reading [Why your tech startup needs an MVP](/blog/2024/01/16/why-your-tech-startup-needs-a-mvp) before diving into this article.
 
 ## Spending a fortune on the MVP
 

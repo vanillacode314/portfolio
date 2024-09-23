@@ -16,7 +16,7 @@ you can also use it to set the default behavior for links to be opened in a new 
 
 Setting the `href` attribute of the `base` tag will set the base URL for every anchor on the page including relative URLs, hash URLs, absolute URLs that start with a `/`.
 
-(To learn more about different types of URLs check out this blog post on [anchor tags](/blog/html-anchor-tag-explained/#linking-internal-pages))
+(To learn more about different types of URLs check out this blog post on [anchor tags](/blog/2023/06/11/html-anchor-tag-explained/#linking-internal-pages))
 
 ```html
 <base href="https://google.com" />

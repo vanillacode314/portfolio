@@ -140,8 +140,8 @@ Try clicking the red and blue squares and see the alert pop-up.
 
 ## Parity with anchor tag
 
-The area tag has all the attributes that the [`a`](/blog/html-anchor-tag-explained) tag has.
-For example you can use the [`download`](/blog/html-anchor-tag-explained#download-links) attribute just as you would with the `a` tag.
+The area tag has all the attributes that the [`a`](/blog/2023/06/11/html-anchor-tag-explained) tag has.
+For example you can use the [`download`](/blog/2023/06/11/html-anchor-tag-explained/#download-links) attribute just as you would with the `a` tag.
 
 ```html
 <map name="my-map">
