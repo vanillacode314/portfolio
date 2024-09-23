@@ -87,7 +87,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 			<p class="mt-3">{description}</p>
 			<span class="grow"></span>
 			<a
-				href={`/blog/${slug}`}
+				href={`/blog/${year}/${month}/${day}/${slug}`}
 				data-umami-event={!fullHover ? 'View Post' : undefined}
 				data-umami-event-slug={slug}
 				data-umami-event-url={`/blog/${year}/${month}/${day}/${slug}`}
