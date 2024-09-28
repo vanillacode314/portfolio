@@ -32,7 +32,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 				/>
 			)
 		}
-		<slot name="header" />
 	</head>
 	<body>
 		<span data-branch={process.env.BRANCH} class="hidden branch"></span>
