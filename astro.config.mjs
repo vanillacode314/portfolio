@@ -27,7 +27,18 @@ export default defineConfig({
 	integrations: [
 		Unocss(),
 		solidJs(),
-		sitemap({ changefreq: 'daily' }),
+		sitemap({
+			filter: (url) => {
+				const $url = new URL(url)
+				if (
+					$url.pathname.startsWith('/blog') &&
+					!$url.pathname.match(new RegExp(String.raw`^/blog/[0-9]{4}/[0-9]{2}/[0-9]{2}/`))
+				)
+					return false
+				return true
+			},
+			changefreq: 'daily'
+		}),
 		// partytown({
 		// 	config: {
 		// 		forward: ['dataLayer.push']
