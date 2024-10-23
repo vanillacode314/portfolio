@@ -16,14 +16,19 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 		class="text-gray-900 grid md:grid-cols-2 gap-5 lg:gap-10"
 	>
 		{
-			testimonials.map(({ title, content, author }) => (
+			testimonials.map(({ linkedin_url, title, content, author }) => (
 				<article
 					class="rounded-10 p-10 text-gray-900 border-2 border-orange-700"
 					style="box-shadow: #c2410c 0px 5px"
 				>
 					<figure class="flex flex-col gap-8">
 						<div class="flex gap-5 justify-between items-center">
-							<div class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden">
+							<a
+								href={linkedin_url}
+								target="_blank"
+								class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden"
+							>
+								<span class="sr-only">{author}</span>
 								<Image
 									src={images[
 										`../assets/images/profiles/${author.toLowerCase().replace(/ /g, '-')}.webp`
@@ -31,7 +36,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 									alt={`avatar for ${author}`}
 									class="w-full h-full object-cover"
 								/>
-							</div>
+							</a>
 							<span class="i-fa-quote-right text-6xl text-gray-400" />
 						</div>
 						<div class="flex gap-3">
@@ -42,9 +47,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 								))}
 						</div>
 						<blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
-						<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end">
-							- {author}, {title}
-						</figcaption>
+						<a href={linkedin_url} target="_blank">
+							<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600">
+								- {author}, {title}
+							</figcaption>
+						</a>
 					</figure>
 				</article>
 			))

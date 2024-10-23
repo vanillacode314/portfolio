@@ -2,6 +2,7 @@ export interface Testimonial {
 	content: string
 	author: string
 	title: string
+	linkedin_url: string
 }
 
 export default [
@@ -9,7 +10,8 @@ export default [
 		content:
 			'Raqueebuddin was a pleasure to work with. I had a very complex project on a topic he was not very familiar with and he took the time to not only learn my industry but provide thoughtful recommendations along the way. Anyone looking for an honest, diligent and hardworking developer should look no further than Raqueebuddin. I will absolutely be using him for my future dev projects.',
 		author: 'Jeff Carpenter',
-		title: 'Owner of BlueMonkeyGaming'
+		title: 'Owner of BlueMonkeyGaming',
+		linkedin_url: 'https://www.linkedin.com/in/carpenterjeff/'
 	},
 	/* { */
 	/*   content: */
@@ -26,8 +28,9 @@ export default [
 		content:
 			"Raqueebuddin was very responsive and clearly very knowledgeable about a myriad of different web technologies. He is a great problem solver, good at organizing code and debugging, as well as creating user interfaces. He's also a very down to earth person to talk to and he's always reasonable.",
 		author: 'Justin Golden',
-		title: 'Fullstack Software Engineer'
-	}
+		title: 'Fullstack Software Engineer',
+		linkedin_url: 'https://www.linkedin.com/in/justingolden21/'
+	},
 	/* { */
 	/*   content: */
 	/*     "I have been looking for a great developer for a while now, and I was very happy to find Aziz. He did a good job for me, and met deadlines on a consistent basis. He requires very little oversight, as everything is typically done 100% correct the first time. I absolutely recommend Aziz as a developer", */
@@ -38,5 +41,12 @@ export default [
 	// 		"I've been coming back to work with Aziz for a couple months now and he has always been able to get the job done to my complete satisfaction. Smart, polite, and enthusiastic about his field. Would recommend!",
 	// 	author: 'Jakub Donovan',
 	// 	title: 'Frontend Developer'
-	// }
+	// },
+	{
+		content:
+			'Raqueeb worked with us developing a prototype web app. He was extremely responsive, shipped a great product with very nice design, and had fast turnaround times. I would recommend him to anybody in a similar situation.',
+		author: 'Nick Dominato',
+		title: 'CEO at AutoBolt',
+		linkedin_url: 'https://www.linkedin.com/in/nick-dominato-073422188/'
+	}
 ] satisfies Testimonial[]
