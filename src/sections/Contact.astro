@@ -84,6 +84,7 @@
 		function onSubmit(event: SubmitEvent) {
 			event.preventDefault()
 			const formData = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
+			if (formData['bot-field'] !== '') return
 			fetch(form.action, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
