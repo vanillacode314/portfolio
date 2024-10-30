@@ -34,7 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			)
 		}
 	</head>
-	<body>
+	<body class="grid grid-rows-[1fr_auto] grid-cols-1">
 		<span data-branch={process.env.BRANCH} class="hidden branch"></span>
 		<noscript
 			><img
@@ -65,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			body,
 			html {
 				scroll-behavior: smooth;
-				@apply max-h-full font-sans;
+				@apply h-full font-sans;
 			}
 			section {
 				@apply scroll-m-60;
