@@ -1,5 +1,6 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
+import netlify from '@astrojs/netlify'
 import partytown from '@astrojs/partytown'
 import sitemap from '@astrojs/sitemap'
 import solidJs from '@astrojs/solid-js'
@@ -13,9 +14,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
 import Unocss from 'unocss/astro'
 
-import netlify from '@astrojs/netlify'
 import { fileURLToPath } from 'url'
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const directoryPath = path.join(__dirname, 'src', 'content', 'blog')
@@ -39,11 +38,21 @@ export default defineConfig({
 			},
 			changefreq: 'daily'
 		}),
-		// partytown({
-		// 	config: {
-		// 		forward: ['dataLayer.push']
-		// 	}
-		// }),
+		partytown({
+			config: {
+				resolveUrl: function (url) {
+					if (url.hostname === 'connect.facebook.net') {
+						var proxyUrl = new URL(proxyUrl)
+						proxyUrl.hostname = 'raqueeb.com'
+						proxyUrl.protocol = 'https:'
+						proxyUrl.pathname = '/meta-pixel-proxy' + url.pathname
+						return proxyUrl
+					}
+					return url
+				},
+				forward: ['dataLayer.push', 'fbq']
+			}
+		}),
 		robots(),
 		compressor(),
 		mdx()
@@ -69,7 +78,10 @@ export default defineConfig({
 		]
 	},
 	output: 'hybrid',
-	adapter: netlify({ imageCDN: false, cacheOnDemandPages: true }),
+	adapter: netlify({
+		imageCDN: false,
+		cacheOnDemandPages: true
+	}),
 	image: {
 		service: {
 			entrypoint: 'astro/assets/services/sharp',
@@ -79,3 +91,4 @@ export default defineConfig({
 		}
 	}
 })
+

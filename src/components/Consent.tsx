@@ -74,9 +74,9 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		})
 		const gaScript = document.createElement('script')
 		gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y'
+		gaScript.type = 'text/partytown'
 		document.head.appendChild(gaScript)
 	}
-
 
 	async function loadAdsense() {
 		;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = didConsent()
@@ -99,6 +99,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 			t = b.createElement(e)
 			t.async = !0
 			t.src = v
+			t.type = 'text/partytown'
 			s = b.getElementsByTagName(e)[0]
 			s.parentNode.insertBefore(t, s)
 		})(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
