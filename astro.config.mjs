@@ -40,12 +40,19 @@ export default defineConfig({
 		}),
 		partytown({
 			config: {
+				debug: true,
 				resolveUrl: function (url) {
 					if (url.hostname === 'connect.facebook.net') {
 						var proxyUrl = new URL(proxyUrl)
 						proxyUrl.hostname = 'raqueeb.com'
 						proxyUrl.protocol = 'https:'
 						proxyUrl.pathname = '/meta-pixel-proxy' + url.pathname
+						return proxyUrl
+					} else if (url.hostname === 'umami.raqueeb.com') {
+						var proxyUrl = new URL(proxyUrl)
+						proxyUrl.hostname = 'raqueeb.com'
+						proxyUrl.protocol = 'https:'
+						proxyUrl.pathname = '/umami-proxy' + url.pathname
 						return proxyUrl
 					}
 					return url
@@ -91,4 +98,3 @@ export default defineConfig({
 		}
 	}
 })
-
