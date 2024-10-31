@@ -49,33 +49,40 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 	}
 
 	async function loadAnalytics() {
-		window.dataLayer = window.dataLayer || []
-		window.gtag = function gtag() {
-			window.dataLayer.push(arguments)
-		}
-		gtag('consent', 'default', {
-			ad_storage: 'denied',
-			ad_user_data: 'denied',
-			ad_personalization: 'denied',
-			analytics_storage: 'denied'
-		})
-		if (didConsent())
-			gtag('consent', 'update', {
-				ad_storage: 'granted',
-				ad_user_data: 'granted',
-				ad_personalization: 'granted',
-				analytics_storage: 'granted'
-			})
-
-		gtag('js', new Date())
-		gtag('config', 'G-197W0VNG3Y', {
-			cookie_domain: window.location.hostname,
-			cookie_flags: 'SameSite=None;Secure'
-		})
 		const gaScript = document.createElement('script')
-		gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y'
 		gaScript.type = 'text/partytown'
+		gaScript.innerHTML = `
+      window.dataLayer = window.dataLayer || []
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments)
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      })
+      if (didConsent())
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        })
+
+      gtag('js', new Date())
+      gtag('config', 'G-197W0VNG3Y', {
+        cookie_domain: window.location.hostname,
+        cookie_flags: 'SameSite=None;Secure'
+      })
+      const gaScript = document.createElement('script')
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-197W0VNG3Y'
+      gaScript.type = 'text/partytown'
+      document.head.appendChild(gaScript)
+      window.dispatchEvent(new CustomEvent('ptupdate'))
+    `
 		document.head.appendChild(gaScript)
+		window.dispatchEvent(new CustomEvent('ptupdate'))
 	}
 
 	async function loadAdsense() {
@@ -86,25 +93,32 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 
 	async function loadPixel() {
 		if (!didConsent()) return
-		;(function (f, b, e, v, n, t, s) {
-			if (f.fbq) return
-			n = f.fbq = function fbq() {
-				n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-			}
-			if (!f._fbq) f._fbq = n
-			n.push = n
-			n.loaded = !0
-			n.version = '2.0'
-			n.queue = []
-			t = b.createElement(e)
-			t.async = !0
-			t.src = v
-			t.type = 'text/partytown'
-			s = b.getElementsByTagName(e)[0]
-			s.parentNode.insertBefore(t, s)
-		})(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
-		fbq('init', '988774449217223')
-		fbq('track', 'PageView')
+		const fbScript = document.createElement('script')
+		fbScript.type = 'text/partytown'
+		fbScript.innerHTML = `;(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function fbq() {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.type = 'text/partytown'
+        t.async = !0
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+        window.dispatchEvent(new CustomEvent('ptupdate'))
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+      fbq('init', '988774449217223')
+      fbq('track', 'PageView')
+    `
+
+		document.head.appendChild(fbScript)
+		window.dispatchEvent(new CustomEvent('ptupdate'))
 	}
 
 	onMount(() => {
