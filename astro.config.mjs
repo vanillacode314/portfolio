@@ -41,12 +41,10 @@ export default defineConfig({
 		partytown({
 			config: {
 				debug: true,
-				resolveUrl: function (url) {
+				resolveUrl: function (url, location) {
 					if (url.hostname === 'connect.facebook.net') {
-						const proxyUrl = new URL(url)
-						proxyUrl.hostname = 'raqueeb.com'
-						proxyUrl.protocol = 'https:'
-						proxyUrl.pathname = '/meta-pixel-proxy' + url.pathname
+						const proxyUrl = new URL(location.origin + '/meta-pixel-proxy')
+						proxyUrl.searchParams.set('url', url.href)
 						return proxyUrl
 					} else if (url.hostname === 'umami.raqueeb.com') {
 						const proxyUrl = new URL(url)
