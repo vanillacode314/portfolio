@@ -47,11 +47,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 								))}
 						</div>
 						<blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
-						<a href={linkedin_url} target="_blank">
-							<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600">
+						<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600">
+							<a href={linkedin_url} target="_blank">
 								- {author}, {title}
-							</figcaption>
-						</a>
+							</a>
+						</figcaption>
 					</figure>
 				</article>
 			))
