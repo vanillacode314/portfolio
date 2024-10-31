@@ -40,7 +40,7 @@ export default defineConfig({
 		}),
 		partytown({
 			config: {
-				debug: true,
+				//debug: true,
 				resolveUrl: function (url, location) {
 					if (url.hostname === 'connect.facebook.net') {
 						const proxyUrl = new URL(location.origin + '/meta-pixel-proxy')
