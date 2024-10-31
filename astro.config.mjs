@@ -43,13 +43,13 @@ export default defineConfig({
 				debug: true,
 				resolveUrl: function (url) {
 					if (url.hostname === 'connect.facebook.net') {
-						var proxyUrl = new URL(proxyUrl)
+						const proxyUrl = new URL(url)
 						proxyUrl.hostname = 'raqueeb.com'
 						proxyUrl.protocol = 'https:'
 						proxyUrl.pathname = '/meta-pixel-proxy' + url.pathname
 						return proxyUrl
 					} else if (url.hostname === 'umami.raqueeb.com') {
-						var proxyUrl = new URL(proxyUrl)
+						const proxyUrl = new URL(url)
 						proxyUrl.hostname = 'raqueeb.com'
 						proxyUrl.protocol = 'https:'
 						proxyUrl.pathname = '/umami-proxy' + url.pathname

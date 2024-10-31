@@ -50,7 +50,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 
 	async function loadAnalytics() {
 		window.dataLayer = window.dataLayer || []
-		window.gtag = function () {
+		window.gtag = function gtag() {
 			window.dataLayer.push(arguments)
 		}
 		gtag('consent', 'default', {
@@ -88,7 +88,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		if (!didConsent()) return
 		;(function (f, b, e, v, n, t, s) {
 			if (f.fbq) return
-			n = f.fbq = function () {
+			n = f.fbq = function fbq() {
 				n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
 			}
 			if (!f._fbq) f._fbq = n
