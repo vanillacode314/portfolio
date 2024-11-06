@@ -55,7 +55,7 @@ export default defineConfig({
 					}
 					return url
 				},
-				forward: ['dataLayer.push', 'fbq']
+				forward: ['dataLayer.push', 'fbq', 'umami.track']
 				//logCalls: true,
 				//logGetters: true,
 				//logSetters: true,

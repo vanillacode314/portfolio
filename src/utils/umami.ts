@@ -14,7 +14,7 @@ function trackScroll(
 		const scrollPos = window.scrollY - el.offsetTop
 		if (scrollPos > thresholdPixels) {
 			window.removeEventListener('scroll', onScroll)
-			umami.track('Scrolled Past By', { ...data, threshold: thresholdPixels })
+			window.umami.track('Scrolled Past By', { ...data, threshold: thresholdPixels })
 		}
 	}
 	window.addEventListener('scroll', onScroll)
