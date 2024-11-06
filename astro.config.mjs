@@ -56,6 +56,14 @@ export default defineConfig({
 					return url
 				},
 				forward: ['dataLayer.push', 'fbq']
+				//logCalls: true,
+				//logGetters: true,
+				//logSetters: true,
+				//logImageRequests: true,
+				//logMainAccess: true,
+				//logSendBeaconRequests: true,
+				//logStackTraces: false,
+				//logScriptExecution: true
 			}
 		}),
 		robots(),

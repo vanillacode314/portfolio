@@ -6,5 +6,10 @@ export const GET: APIRoute = async ({ url }) => {
 	const url2 = url.searchParams.get('url')
 	if (!url2) return new Response('url is required', { status: 400 })
 	const response = await fetch(url2)
-	return new Response(response.body, { status: 200 })
+	const contentType = response.headers.get('content-type')
+	const buffer = Buffer.from(await response.arrayBuffer())
+	return new Response(buffer, {
+		status: response.status,
+		headers: { 'Content-Type': contentType ?? 'application/octet-stream' }
+	})
 }
