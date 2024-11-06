@@ -58,3 +58,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 		<span>View all projects</span>
 	</a>
 </div>
+<script>
+	import { trackScroll } from '@/utils/umami'
+	trackScroll('projects', { section: 'Projects' })
+</script>

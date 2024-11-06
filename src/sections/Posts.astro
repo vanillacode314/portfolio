@@ -57,3 +57,7 @@ const blogEntries = (await getCollection('blog'))
 		<span>View all posts</span>
 	</a>
 </div>
+<script>
+	import { trackScroll } from '@/utils/umami'
+	trackScroll('latest-blog-posts', { section: 'Latest Blog Posts' })
+</script>
