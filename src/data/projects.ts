@@ -28,6 +28,26 @@ export default [
 	// 	repo_url: 'https://github.com/vanillacode314/redditlattice'
 	// },
 	{
+		name: 'RKanban',
+		description:
+			'An open-source, privacy friendly, and beautiful project management software. Suitable for Freelancers, Small Business & Professionals',
+		points: [],
+		image: 'rkanban.webp',
+		tech: [
+			'solidjs',
+			'solidstart',
+			'tailwindcss',
+			'shadcn/ui',
+			'workbox',
+			'service-workers',
+			'zod',
+			'typescript',
+			'pragmatic-drag-n-drop'
+		],
+		url: 'https://site.kanban.raqueeb.com?utm_source=card&utm_medium=landing_page&utm_campaign=landing_page',
+		repo_url: 'https://github.com/vanillacode314/rkkanban'
+	},
+	{
 		name: 'JustInvoice',
 		description: 'An intuitive invoice manager that works completely in the browser and offline',
 		image: 'justinvoice.webp',
@@ -49,6 +69,15 @@ export default [
 		repo_url: ''
 	},
 	{
+		name: 'JustTimeTrack',
+		description: 'A Free and Open source Time Tracker.',
+		image: 'justtimetrack.webp',
+		tech: ['solidjs', 'solidstart', 'tailwindcss', 'daisyui', 'zod', 'typescript'],
+		points: [],
+		url: 'https://justtimetrack.vercel.app?utm_source=card&utm_medium=landing_page&utm_campaign=landing_page',
+		repo_url: 'https://github.com/vanillacode314/vanillatimetracker'
+	},
+	{
 		name: 'MTGPackSimulator',
 		description: 'Simulate draft booster packs for Magic The Gathering',
 		image: 'mtgpacksim.webp',
@@ -56,7 +85,7 @@ export default [
 		repo_url: '',
 		tech: ['svelte', 'sveltekit', 'tailwindcss', 'daisyui', 'supabase'],
 		url: 'https://mtg-pack.pages.dev/sets'
-	},
+	}
 	// {
 	// 	name: 'TicTacToe Client',
 	// 	description: 'A free and opensource online TicTacToe game. This is the client.',
@@ -91,15 +120,6 @@ export default [
 	/*   url: "https://justlearn.netlify.app", */
 	/*   repo_url: "https://github.com/vanillacode314/justlearn", */
 	/* }, */
-	{
-		name: 'JustTimeTrack',
-		description: 'A Free and Open source Time Tracker.',
-		image: 'justtimetrack.webp',
-		tech: ['solidjs', 'solidstart', 'tailwindcss', 'daisyui', 'zod', 'typescript'],
-		points: [],
-		url: 'https://justtimetrack.vercel.app?utm_source=card&utm_medium=landing_page&utm_campaign=landing_page',
-		repo_url: 'https://github.com/vanillacode314/vanillatimetracker'
-	}
 	// {
 	// 	name: 'RemoteGamepad',
 	// 	description:
