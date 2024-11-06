@@ -31,6 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 					src="https://umami.raqueeb.com/script.js"
 					type="text/partytown"
 					data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"
+					data-tag={'umami-branch-' + process.env.BRANCH}
 				/>
 			)
 		}
