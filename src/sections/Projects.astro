@@ -33,7 +33,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 						<span class="grow" />
 						<div class="flex flex-wrap gap-5 mt-3 justify-end">
 							<a
-								data-umami-event="View Project"
+								data-umami-event="view-project"
 								data-umami-event-name={name}
 								data-umami-event-url={url}
 								href={url}
@@ -51,7 +51,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	</section>
 	<a
 		href="https://github.com/vanillacode314"
-		data-umami-event="View All Projects"
+		data-umami-event="view-all-projects"
 		target="_blank"
 		class="mx-auto mt-10 text-gray-600 hover:underline font-bold uppercase tracking-wide border px-5 py-3 border-gray-300 rounded-10"
 	>
@@ -60,5 +60,5 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 </div>
 <script>
 	import { trackScroll } from '@/utils/umami'
-	trackScroll('projects', { section: 'Projects' })
+	trackScroll('projects')
 </script>

@@ -1,6 +1,6 @@
 function trackScroll(
 	id: string,
-	data: Record<string, string>,
+	data: Record<string, string> = {},
 	{ thresholdPixels = 100 }: Partial<{ thresholdPixels: number }> = {}
 ) {
 	const el = document.getElementById(id)
@@ -14,7 +14,7 @@ function trackScroll(
 		const scrollPos = window.scrollY - el.offsetTop
 		if (scrollPos > thresholdPixels) {
 			window.removeEventListener('scroll', onScroll)
-			window.umami.track('Scrolled Past By', { ...data, threshold: thresholdPixels })
+			window.umami.track(`scrolled-past-${id}`, { ...data, threshold: thresholdPixels })
 		}
 	}
 	window.addEventListener('scroll', onScroll)

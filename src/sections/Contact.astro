@@ -97,7 +97,7 @@
 					alert('Form successfully submitted')
 				})
 				.catch(() => alert('Sorry! There was a problem submitting your form'))
-			umami.track('Contact Form')
+			umami.track('contact-form-submit')
 			window.gtag('event', 'generate_lead', {
 				event_category: 'Lead Generation',
 				event_label: `Contact Form (${BRANCH})`
@@ -116,5 +116,5 @@
 </div>
 <script>
 	import { trackScroll } from '@/utils/umami'
-	trackScroll('contact', { section: 'Contact' })
+	trackScroll('contact')
 </script>

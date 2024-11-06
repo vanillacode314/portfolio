@@ -27,7 +27,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 								href={linkedin_url}
 								target="_blank"
 								class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden"
-								data-umami-event="Goto Testimonial Author"
+								data-umami-event="goto-testimonial-author"
 								data-umami-event-url={linkedin_url}
 								data-umami-event-location="image"
 								data-umami-event-name={author}
@@ -55,7 +55,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 							<a
 								href={linkedin_url}
 								target="_blank"
-								data-umami-event="Goto Testimonial Author"
+								data-umami-event="goto-testimonial-author"
 								data-umami-event-url={linkedin_url}
 								data-umami-event-location="byline"
 								data-umami-event-name={author}
@@ -72,5 +72,5 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 
 <script>
 	import { trackScroll } from '@/utils/umami'
-	trackScroll('testimonials', { section: 'Testimonials' })
+	trackScroll('testimonials')
 </script>
