@@ -27,6 +27,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 								href={linkedin_url}
 								target="_blank"
 								class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden"
+								data-umami-event="Goto Testimonial Author"
+								data-umami-event-url={linkedin_url}
+								data-umami-event-location="image"
+								data-umami-event-name={author}
 							>
 								<span class="sr-only">{author}</span>
 								<Image
@@ -48,7 +52,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 						</div>
 						<blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
 						<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600">
-							<a href={linkedin_url} target="_blank">
+							<a
+								href={linkedin_url}
+								target="_blank"
+								data-umami-event="Goto Testimonial Author"
+								data-umami-event-url={linkedin_url}
+								data-umami-event-location="byline"
+								data-umami-event-name={author}
+							>
 								- {author}, {title}
 							</a>
 						</figcaption>
