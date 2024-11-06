@@ -53,7 +53,7 @@ export default function Comments(props: { slug: string }) {
 
 	async function onSubmit(e: SubmitEvent) {
 		e.preventDefault()
-		window.umami.track('Comment', { slug: props.slug })
+		window.umami.track('comment', { slug: props.slug })
 
 		if (!validateComment()) {
 			alert('Your comment cannot contain html tags')
