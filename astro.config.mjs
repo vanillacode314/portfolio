@@ -1,6 +1,7 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import netlify from '@astrojs/netlify'
+import node from '@astrojs/node'
 import partytown from '@astrojs/partytown'
 import sitemap from '@astrojs/sitemap'
 import solidJs from '@astrojs/solid-js'
@@ -13,7 +14,6 @@ import path from 'path'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
 import Unocss from 'unocss/astro'
-
 import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -91,9 +91,8 @@ export default defineConfig({
 		]
 	},
 	output: 'hybrid',
-	adapter: netlify({
-		imageCDN: false,
-		cacheOnDemandPages: true
+	adapter: node({
+		mode: 'middleware'
 	}),
 	image: {
 		service: {
@@ -104,3 +103,4 @@ export default defineConfig({
 		}
 	}
 })
+
