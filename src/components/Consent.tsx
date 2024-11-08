@@ -40,7 +40,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 		setDidChoose(true)
 		setDidConsent(true)
 		loadPixel()
-		loadAnalytics()
+		//loadAnalytics()
 	}
 
 	async function onReject() {
@@ -122,7 +122,7 @@ export const CookieConsent: VoidComponent<{ cookie: string }> = (props) => {
 
 	onMount(() => {
 		// loadAdsense()
-		loadAnalytics()
+		//loadAnalytics()
 		loadPixel()
 	})
 
