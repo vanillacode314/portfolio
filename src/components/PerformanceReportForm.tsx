@@ -5,26 +5,27 @@ export const PerformanceReportForm: Component<{ class?: string }> = (props) => {
 	async function onSubmit(event: SubmitEvent) {
 		event.preventDefault()
 
-		const BRANCH = (document.querySelector('.branch') as HTMLElement)?.dataset.branch ?? 'unknown'
+		//const BRANCH = (document.querySelector('.branch') as HTMLElement)?.dataset.branch ?? 'unknown'
 		const form = event.target as HTMLFormElement
-		const formData = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
+		const formData = new FormData(form)
 
 		fetch(form.action, {
 			method: form.method,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: new URLSearchParams(formData).toString(),
-			redirect: 'manual'
+			headers: { Accept: 'application/json' },
+			body: formData
 		})
-			.then(() => alert('Form successfully submitted'))
+			.then((response) => {
+				if (response.ok) {
+					alert('Form successfully submitted')
+					form.reset()
+				} else {
+					alert('Sorry! There was a problem submitting your form')
+				}
+			})
 			.catch(() => alert('Sorry! There was a problem submitting your form'))
-
-		window.gtag('event', 'generate_lead', {
-			event_category: 'Lead Generation',
-			event_label: `Performance Form (${BRANCH})`
-		})
-
-		fbq('track', 'SubmitApplication')
+		//fbq('track', 'SubmitApplication')
 	}
+
 	return (
 		<form
 			onSubmit={onSubmit}
@@ -35,12 +36,14 @@ export const PerformanceReportForm: Component<{ class?: string }> = (props) => {
 			style="box-shadow: #ea580c 0px 5px"
 			name="report"
 			method="post"
-			data-netlify="true"
-			data-netlify-honeypot="bot-field"
-			action="/"
+			action="https://formspree.io/f/xnnqvzyk"
 		>
-			<input type="hidden" name="bot-field" />
-			<input type="hidden" name="form-name" value="report" />
+			<p class="hidden">
+				<label>
+					Don’t fill this out if you’re human: <input name="_gotcha" />
+				</label>
+			</p>
+			{/* <input type="hidden" name="form-name" value="report" /> */}
 			<h2 class="mx-auto mb-5 text-center text-lg font-semibold uppercase text-gray-700 md:text-xl">
 				<span class="rounded-full bg-orange-600 px-3 font-black text-gray-100">free</span>&nbsp;
 				report on how to make your website faster

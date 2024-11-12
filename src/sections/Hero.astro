@@ -56,24 +56,16 @@ import heroImage from '@/assets/images/monitor.svg'
 	</a>
 </section>
 
-<script>
-	import { submitFormWithoutListener } from '@/utils'
-	const forms = document.querySelectorAll("form[name='report']") as NodeListOf<HTMLFormElement>
-	function onSubmit(e: SubmitEvent) {
-		e.preventDefault()
-		const timer = setTimeout(
-			() => submitFormWithoutListener(e.target as HTMLFormElement, onSubmit),
-			1000
-		)
-		window.gtag('event', 'generate_lead', {
-			event_category: 'Lead Generation',
-			event_label: 'Report Form Submission (A)',
-			event_callback: function () {
-				clearTimeout(timer)
-				submitFormWithoutListener(e.target as HTMLFormElement, onSubmit)
-			}
-		})
-		fbq('track', 'Contact')
-	}
-	forms.forEach((form) => form.addEventListener('submit', onSubmit))
-</script>
+<!-- <script> -->
+<!-- 	import { submitFormWithoutListener } from '@/utils' -->
+<!-- 	const forms = document.querySelectorAll("form[name='report']") as NodeListOf<HTMLFormElement> -->
+<!-- 	function onSubmit(e: SubmitEvent) { -->
+<!-- 		e.preventDefault() -->
+<!-- 		const timer = setTimeout( -->
+<!-- 			() => submitFormWithoutListener(e.target as HTMLFormElement, onSubmit), -->
+<!-- 			1000 -->
+<!-- 		) -->
+<!-- 		//fbq('track', 'Contact') -->
+<!-- 	} -->
+<!-- 	forms.forEach((form) => form.addEventListener('submit', onSubmit)) -->
+<!-- </script> -->
