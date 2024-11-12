@@ -8,8 +8,9 @@ export const GET: APIRoute = async ({ url }) => {
 	const response = await fetch(url2)
 	const contentType = response.headers.get('content-type')
 	const buffer = Buffer.from(await response.arrayBuffer())
+	const headers = Object.fromEntries(response.headers.entries())
 	return new Response(buffer, {
 		status: response.status,
-		headers: { 'Content-Type': contentType ?? 'application/octet-stream' }
+		headers: { ...headers, 'Content-Type': contentType ?? 'application/octet-stream' }
 	})
 }
