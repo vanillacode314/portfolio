@@ -10,6 +10,8 @@ FROM base AS prod-deps
 RUN --mount=type=cache,id=s/f1887b48-fdc5-404f-947d-d5e1677482fc-pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
 FROM base AS build
+ARG META_CONVERSIONS_API_ACCESS_TOKEN
+ARG META_PIXEL_ID
 RUN --mount=type=cache,id=s/f1887b48-fdc5-404f-947d-d5e1677482fc-pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
