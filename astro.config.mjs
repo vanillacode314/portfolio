@@ -43,7 +43,7 @@ export default defineConfig({
 				//debug: true,
 				resolveUrl: function (url, location) {
 					if (url.hostname === 'connect.facebook.net') {
-						const proxyUrl = new URL(location.origin + '/meta-pixel-proxy')
+						const proxyUrl = new URL(location.origin + '/partytown-proxy')
 						proxyUrl.searchParams.set('url', url.href)
 						return proxyUrl
 					} else if (url.hostname === 'umami.raqueeb.com') {
@@ -103,4 +103,3 @@ export default defineConfig({
 		}
 	}
 })
-
