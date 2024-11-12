@@ -4,7 +4,9 @@
 
 :8080 {
 	root * /var/www
-	file_server
+	file_server {
+		precompressed zstd br gzip
+	}
 
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
@@ -29,7 +31,7 @@
 		reverse_proxy https://umami.raqueeb.com {
 			header_up Host {upstream_hostport}
 		}
-    header Access-Control-Allow-Origin "*"
+		header Access-Control-Allow-Origin "*"
 	}
 
 	handle_errors {
