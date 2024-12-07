@@ -19,13 +19,13 @@ export default [
                     <li>We discuss all the requirements of your project.</li>
                     <li>Figure out the base features necessary for the MVP.</li>
                     <li>We get back to you with a quote.</li>
-                    <li>Once a contract is in effect we deliver the first version under 3days.</li>
+                    <li>Once a contract is in effect, we deliver the first version under 3days.</li>
                     <li>If you want to continue building the app after the first version, we charge a weekly rate.</li>
                   </ol>`
 	},
 	{
 		summary: 'Do you provide ongoing support after the project is done?',
-		description: `<p>Yes, After the first version is built, you are free to choose either a maintenance only option or a full development option.</p> <p>The maintenance only option is at a rate of 100USD/month and the full development option is at a rate of 500USD/week or 1000USD/week or 1500USD/week depending on how much work you need done.</p>`
+		description: `<p>Yes, After the first version is built, you are free to choose either a maintenance only option or a full development option.</p> <p>The maintenance only option is at a rate of 100USD/month and the full development option is at a rate of 500USD, 1000USD or 1500USD per week depending on how much work you need done.</p>`
 	},
 	{
 		summary: 'What is included in the maintenance only option?',
