@@ -65,6 +65,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 				/* helps with preventing unintended font boosting */
 				max-height: 99999999999999999px;
 			}
+			:root {
+				interpolate-size: allow-keywords;
+			}
 			body,
 			html {
 				scroll-behavior: smooth;

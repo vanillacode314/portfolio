@@ -1,6 +1,12 @@
 import presetWebFonts from '@unocss/preset-web-fonts'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
-import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'unocss'
+import {
+	defineConfig,
+	presetIcons,
+	presetTypography,
+	presetUno,
+	transformerDirectives
+} from 'unocss'
 
 export default defineConfig({
 	content: { filesystem: ['src/**/*.{astro,md,mdx,svelte,[tj]sx}'] },
@@ -29,7 +35,8 @@ export default defineConfig({
 				display: 'inline-block',
 				'vertical-align': 'middle'
 			}
-		})
+		}),
+		presetTypography()
 	],
 	safelist: ['i-mdi-link-variant']
 })

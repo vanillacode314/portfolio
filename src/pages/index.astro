@@ -9,6 +9,7 @@ import Contact from '@/sections/Contact.astro'
 import { Schema } from 'astro-seo-schema'
 import { Seo } from 'astro-seo-meta'
 import Posts from '@/sections/Posts.astro'
+import FAQ from '@/sections/FAQ.astro'
 export const prerender = true
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
@@ -69,6 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			<Projects />
 			<Posts />
 			<Contact />
+			<FAQ />
 		</main>
 	</Container>
 </Layout>
