@@ -77,5 +77,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 				@apply scroll-m-60;
 			}
 		</style>
+		<script>
+			const inputs = document.querySelectorAll(
+				'input[inputmode="numeric"]'
+			) as NodeListOf<HTMLInputElement>
+			for (const input of inputs) {
+				input.addEventListener('input', () => {
+					if (!input.validity.patternMismatch) return
+
+					const start = input.selectionStart
+					input.value = input.value.replace(/[^0-9]/g, '')
+					if (start !== null) {
+						input.selectionStart = start
+						input.selectionEnd = start - 1
+					}
+				})
+			}
+		</script>
 	</body>
 </html>
