@@ -136,8 +136,56 @@
 			</button>
 		</form>
 	</section>
+
+	<dialog
+		id="success-dialog"
+		class="backdrop:backdrop-brightness-50 p-5 bg-neutral-100 rounded-5 max-w-sm border-2 border-orange-600"
+		style="box-shadow: #d97706 0px 5px"
+	>
+		<form method="dialog" class="flex flex-col gap-3">
+			<h3 class="text-2xl font-bold">Thanks for reaching out!</h3>
+			<p>
+				You will get a reply under 24hrs. In case you don't receive a reply, please check your spam
+				folder.
+			</p>
+			<p>If you want you can book a free 30-minute call to discuss your project.</p>
+			<div class="flex gap-3 flex-wrap items-center justify-end mt-5">
+				<a
+					data-close-dialog
+					target="_blank"
+					class="bg-orange-600 text-white font-bold px-5 py-3 hover:bg-orange-700 focus:outline-none focus:bg-orange-700 rounded-lg transition-colors"
+					data-umami-event="book-a-call"
+					data-umami-event-location="success-dialog"
+					href="https://tidycal.com/raqueebuddin.aziz.314/30-minute-meeting">Book a call</a
+				>
+				<button
+					data-close-dialog
+					class="border-2 border-transparent text-gray-600 font-bold px-5 py-3 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:border-gray-700 hover:border-gray-700 rounded-lg transition-colors"
+					type="submit">Close</button
+				>
+			</div>
+		</form>
+	</dialog>
+
+	<script>
+		const dialog = document.querySelector('dialog#success-dialog') as HTMLDialogElement
+		dialog.addEventListener('click', (event) => {
+			if (event.currentTarget !== event.target) return
+			dialog.close()
+		})
+
+		const closeButtons = dialog.querySelectorAll('[data-close-dialog]')
+		closeButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				dialog.close()
+			})
+		})
+	</script>
+
 	<script>
 		// const BRANCH = (document.querySelector('.branch') as HTMLElement)?.dataset.branch ?? 'unknown'
+		const successDialog = document.querySelector('dialog#success-dialog') as HTMLDialogElement
+
 		const form = document.querySelector("form[name='contact']") as HTMLFormElement
 		const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement
 		function onSubmit(event: SubmitEvent) {
@@ -166,7 +214,7 @@
 						const searchParams = new URLSearchParams(window.location.search)
 						searchParams.set('email', formData.get('email') as string)
 						fetch('/thanks?' + searchParams.toString())
-						alert('Form successfully submitted')
+						successDialog.showModal()
 						form.reset()
 					} else {
 						alert('Sorry! There was a problem submitting your form')
