@@ -67,7 +67,9 @@ But if you click the link on https://raqueeb.com then it will take you to https:
 <!-- Relative Hash Link -->
 <a href="#linking-external-pages">Linking External Pages</a>
 <!-- Absolute Hash Link -->
-<a href="/blog/2023/06/11/html-anchor-tag-explained/#linking-external-pages">Linking External Pages</a>
+<a href="/blog/2023/06/11/html-anchor-tag-explained/#linking-external-pages"
+	>Linking External Pages</a
+>
 
 <div id="#linking-external-pages">Hi</div>
 ```
