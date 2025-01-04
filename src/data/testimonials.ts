@@ -7,6 +7,12 @@ export interface Testimonial {
 
 export default [
 	{
+		content: `Working with Raqueeb has been an absolute pleasure. He is an ethical and highly professional developer who not only understood the project's requirements but also enhanced them with his expertise. One of the standout aspects of collaborating with him is his ability to ask insightful questions, which helped me gain greater clarity on my own project goals. His coding skills are exceptional—clear, concise, and efficient. I look forward to continuing to work with him for a long time. Thank you, Raqueeb, for your outstanding work!`,
+		author: 'Naveen K Gowda',
+		title: 'MD',
+		linkedin_url: 'https://www.linkedin.com/in/naveen-gowda-25135316b'
+	},
+	{
 		content:
 			'Raqueebuddin was a pleasure to work with. I had a very complex project on a topic he was not very familiar with and he took the time to not only learn my industry but provide thoughtful recommendations along the way. Anyone looking for an honest, diligent and hardworking developer should look no further than Raqueebuddin. I will absolutely be using him for my future dev projects.',
 		author: 'Jeff Carpenter',
