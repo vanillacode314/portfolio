@@ -93,7 +93,7 @@ export default defineConfig({
 	},
 	output: 'hybrid',
 	adapter: node({
-		mode: 'middleware'
+		mode: 'standalone'
 	}),
 	image: {
 		service: {
