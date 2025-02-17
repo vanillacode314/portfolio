@@ -68,8 +68,8 @@ export default defineConfig({
 			}
 		}),
 		robots(),
-		mdx()
-		//compressor()
+		mdx(),
+		compressor()
 	],
 	markdown: {
 		shikiConfig: {
@@ -93,7 +93,7 @@ export default defineConfig({
 	},
 	output: 'hybrid',
 	adapter: node({
-		mode: 'standalone'
+		mode: 'middleware'
 	}),
 	image: {
 		service: {
