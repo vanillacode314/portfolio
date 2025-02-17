@@ -68,8 +68,8 @@ export default defineConfig({
 			}
 		}),
 		robots(),
-		mdx(),
-		compressor()
+		mdx()
+		//compressor()
 	],
 	markdown: {
 		shikiConfig: {
