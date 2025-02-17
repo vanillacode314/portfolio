@@ -48,7 +48,7 @@ export default defineConfig({
 						return proxyUrl
 					} else if (url.hostname === 'umami.raqueeb.com') {
 						const proxyUrl = new URL(url)
-						proxyUrl.hostname = location.hostname
+						proxyUrl.hostname = 'authentic-strength-production.up.railway.app'
 						proxyUrl.port = location.port
 						proxyUrl.protocol = location.protocol
 						proxyUrl.pathname = '/umami-proxy' + url.pathname
