@@ -19,6 +19,13 @@ export default [
 		title: 'Owner of BlueMonkeyGaming',
 		linkedin_url: 'https://www.linkedin.com/in/carpenterjeff/'
 	},
+	{
+		content:
+			"Raqueeb has been phenomenal to work with. He is lightning-fast in responding to questions and always keeps you updated on progress. I really appreciate his thoughtful pushback on ideas to ensure you're creating something truly valuable, rather than just going through the motions or spending money without purpose.",
+		author: 'Matthew Marshall',
+		title: 'Financial Analyst',
+		linkedin_url: 'https://www.linkedin.com/in/matthew-marshall-31267a184/'
+	},
 	/* { */
 	/*   content: */
 	/*     "Working with Raqueebuddin has been a pleasure.  He's extremely knowledgeable in what he does and knows how to ask the right questions to help ensure your project is successful. He was patient in working through revisions and promptly made any changes I requested. He also took the time to make sure we were both clear going into the project as to exactly what we would be creating and what the scope was to prevent any confusion as to what the deliverables were. I would highly recommend Raqueebuddin to anyone looking for a full stack developer. He and I will be partnering on multiple project in the future", */
