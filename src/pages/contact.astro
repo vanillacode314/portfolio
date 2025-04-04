@@ -1,22 +1,14 @@
 ---
 import Container from '@/components/Container.astro'
-import CTABanner from '@/components/CTABanner.astro'
-import Projects from '@/sections/Projects.astro'
-import Hero from '@/sections/Hero.astro'
-import Testimonials from '@/sections/Testimonials.astro'
 import Layout from '../layouts/Layout.astro'
-import Services from '@/sections/Services.astro'
 import Contact from '@/sections/Contact.astro'
-import Why from '@/sections/Why.astro'
 import { Schema } from 'astro-seo-schema'
 import { Seo } from 'astro-seo-meta'
-import Posts from '@/sections/Posts.astro'
-import FAQ from '@/sections/FAQ.astro'
 export const prerender = true
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
-<Layout>
+<Layout title="Contact - Raqueebuddin Aziz">
 	<Fragment slot="head">
 		<Schema
 			item={{
@@ -38,8 +30,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			}}
 		/>
 		<Seo
-			title="Helping businesses ship web apps as fast as possible - Raqueebuddin Aziz"
-			description="Helping businesses ship web apps as fast as possible"
+			title="Contact - Raqueebuddin Aziz"
+			description="I help solar energy companies save money by building automation tools"
 			keywords={[
 				'professional web developer',
 				'web developer',
@@ -66,15 +58,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 	</Fragment>
 	<Container class="bg-transparent p-5 md:p-10">
 		<main class="flex flex-col gap-20">
-			<Hero />
-			<Testimonials />
-			<Why />
-			<Services />
-			<!-- <Projects /> -->
-			<!-- <Posts /> -->
-			<FAQ />
-			<CTABanner />
-			<!-- <Contact /> -->
+			<Contact />
 		</main>
 	</Container>
 </Layout>
