@@ -11,20 +11,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 	<section
 		aria-label="testimonials"
 		id="testimonials"
-		class="text-gray-900 grid md:grid-cols-2 gap-5 lg:gap-10"
+		class="text-gray-900 grid md:grid-cols-2 gap-x-5 gap-y-10"
 	>
 		{
 			testimonials.map(({ linkedin_url, title, content, author }) => (
 				<article
-					class="rounded-10 p-10 text-gray-900 border-2 border-orange-700"
+					class="rounded-10 p-10 text-gray-900 border-2 border-orange-700 mt-12"
 					style="box-shadow: #c2410c 0px 5px"
 				>
-					<figure class="flex flex-col gap-8">
+					<figure class="flex flex-col gap-8 h-full">
 						<div class="flex gap-5 justify-between items-center">
 							<a
 								href={linkedin_url}
 								target="_blank"
-								class="w-20 h-20 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden"
+								class="size-24 lg:size-30 rounded-full grid place-content-center bg-gray-100 shadow overflow-hidden -mt-22 lg:-mt-24"
 								data-umami-event="goto-testimonial-author"
 								data-umami-event-url={linkedin_url}
 								data-umami-event-location="image"
@@ -39,17 +39,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/**
 									class="w-full h-full object-cover"
 								/>
 							</a>
-							<span class="i-fa-quote-right text-6xl text-gray-200" />
+            <!-- <span class="i-fa-quote-right text-6xl text-gray-200" /> -->
 						</div>
-						<div class="flex gap-3">
-							{Array(5)
-								.fill(null)
-								.map(() => (
-									<span class="text-yellow-400 text-2xl i-clarity:star-solid" />
-								))}
-						</div>
+            <!-- Stars -->
+						<!-- <div class="flex gap-3"> -->
+						<!-- 	{Array(5) -->
+						<!-- 		.fill(null) -->
+						<!-- 		.map(() => ( -->
+						<!-- 			<span class="text-yellow-400 text-2xl i-clarity:star-solid" /> -->
+						<!-- 		))} -->
+						<!-- </div> -->
 						<blockquote class="grow">&ldquo;{content}&rdquo;</blockquote>
-						<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600">
+						<figcaption class="font-bold text-sm text-gray-700 font-medium flex justify-end hover:text-orange-600 focus:text-orange-600 text-right">
 							<a
 								href={linkedin_url}
 								target="_blank"
