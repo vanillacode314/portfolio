@@ -1,6 +1,5 @@
 ---
 import Bare from './Bare.astro'
-import { Background } from '@/components/Background'
 import Nav from '@/components/Nav.astro'
 import '@unocss/reset/tailwind.css'
 
@@ -10,7 +9,6 @@ export interface Props {
 ---
 
 <Bare {...Astro.props}>
-	<Background client:idle />
 	<slot name="head" slot="head" />
 	<div class="grid grid-cols-1 grid-rows-[auto_1fr]">
 		<Nav />
