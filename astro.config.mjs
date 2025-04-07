@@ -92,9 +92,7 @@ export default defineConfig({
 		]
 	},
 	output: 'hybrid',
-	adapter: node({
-		mode: 'standalone'
-	}),
+	adapter: node({ mode: 'middleware' }),
 	image: {
 		service: {
 			entrypoint: 'astro/assets/services/sharp',

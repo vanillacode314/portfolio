@@ -12,10 +12,19 @@ FROM base AS build
 ARG META_CONVERSIONS_API_ACCESS_TOKEN
 ARG META_PIXEL_ID
 RUN --mount=type=cache,id=s/f1887b48-fdc5-404f-947d-d5e1677482fc-/root/.cache/bun,target=/root/.cache/bun bun install --frozen-lockfile
-RUN npm run build
+RUN bun run build
 
 
-FROM base
-COPY --from=build /app/dist /app/dist
-COPY --from=build /app/node_modules /app/node_modules
-ENTRYPOINT ["node", "/app/dist/server/entry.mjs"]
+FROM caddy:alpine
+RUN --mount=type=cache,id=s/f1887b48-fdc5-404f-947d-d5e1677482fc-apk,target=/var/cache/apk apk add --update nodejs supervisor
+
+COPY ./caddy/Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/dist/client /var/www
+
+COPY --from=build /app/dist/server /app/dist/server
+COPY --from=prod-deps /app/node_modules /app/node_modules
+COPY ./server.mjs /app/server.mjs
+
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisord.conf
+ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
