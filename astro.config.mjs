@@ -46,13 +46,13 @@ export default defineConfig({
 						const proxyUrl = new URL(location.origin + '/partytown-proxy')
 						proxyUrl.searchParams.set('url', url.href)
 						return proxyUrl
-					} else if (url.hostname === 'umami.raqueeb.com') {
-						const proxyUrl = new URL(url)
-						proxyUrl.hostname = 'authentic-strength-production.up.railway.app'
-						proxyUrl.port = location.port
-						proxyUrl.protocol = location.protocol
-						proxyUrl.pathname = '/umami-proxy' + url.pathname
-						return proxyUrl
+						// } else if (url.hostname === 'umami.raqueeb.com') {
+						// 	const proxyUrl = new URL(url)
+						// 	proxyUrl.hostname = 'authentic-strength-production.up.railway.app'
+						// 	proxyUrl.port = location.port
+						// 	proxyUrl.protocol = location.protocol
+						// 	proxyUrl.pathname = '/umami-proxy' + url.pathname
+						// 	return proxyUrl
 					}
 					return url
 				},
