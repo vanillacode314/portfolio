@@ -18,4 +18,4 @@ RUN npm run build
 FROM base
 COPY --from=build /app/dist /app/dist
 COPY --from=build /app/node_modules /app/node_modules
-ENTRYPOINT ["node", "./run-server.mjs"]
+ENTRYPOINT ["node", "/app/dist/server/entry.mjs"]
