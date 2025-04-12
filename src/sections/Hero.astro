@@ -1,19 +1,19 @@
 ---
 // import BlinkingEye from '@/components/BlinkingEye.astro'
 import { Image } from 'astro:assets'
-import heroImage from '@/assets/images/monitor.svg'
+import heroImage from '@/assets/images/profile.webp'
 ---
 
 <section
 	aria-label="hero"
 	id="hero"
-	class="rounded-10 grid gap-5 bg-orange-600 p-10 text-gray-100 shadow-2xl xl:grid-cols-2 xl:gap-10"
+	class="rounded-10 grid gap-5 bg-orange-600 p-10 text-gray-100 shadow-2xl lg:grid-cols-2 lg:gap-10"
 >
 	<!-- Headline -->
 	<div class="flex flex-col gap-5">
 		<!-- <h2 class="text-xl font-semibold text-gray-100 md:text-2xl">Web App <wbr />Developer</h2> -->
 		<h1
-			class="align-center max-w-2xl text-3xl font-extrabold leading-snug md:text-6xl md:leading-tight"
+			class="align-center max-w-2xl text-3xl sm:text-4xl font-extrabold leading-tight sm:leading-tight lg:leading-tight lg:text-5xl"
 		>
 			I help solar energy companies <span
 				class="bg-white text-orange-600 px-4 rounded-full whitespace-nowrap">save money</span
@@ -43,8 +43,8 @@ import heroImage from '@/assets/images/monitor.svg'
 	<Image
 		src={heroImage}
 		draggable="false"
-		class="my-auto hidden xl:block w-[90%] mx-auto select-none"
-		alt="monitor"
+		class="my-auto mx-auto select-none aspect-square object-cover rounded-full border-4 w-64 md:w-86 max-w-full max-lg:row-start-1"
+		alt="profile"
 		loading="eager"
 	/>
 
