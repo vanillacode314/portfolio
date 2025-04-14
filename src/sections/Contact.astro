@@ -192,13 +192,13 @@
 			event.preventDefault()
 			const formData = new FormData(form)
 
-			const budget = Number(formData.get('estimated-budget-usd'))
-			if (budget < 500) {
-				alert(
-					'Your budget is below the minimum budget requirements. Please consider raising your budget to at least 500USD.'
-				)
-				return
-			}
+			// const budget = Number(formData.get('estimated-budget-usd'))
+			// if (budget < 500) {
+			// 	alert(
+			// 		'Your budget is below the minimum budget requirements. Please consider raising your budget to at least 500USD.'
+			// 	)
+			// 	return
+			// }
 
 			submitButton.disabled = true
 			submitButton.textContent = 'Sending Please Wait...'
