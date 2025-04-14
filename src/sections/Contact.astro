@@ -190,6 +190,7 @@
 		const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement
 		function onSubmit(event: SubmitEvent) {
 			event.preventDefault()
+			umami.track('try-contact-form-submit')
 			const formData = new FormData(form)
 
 			// const budget = Number(formData.get('estimated-budget-usd'))
