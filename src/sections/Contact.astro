@@ -226,7 +226,10 @@
 					submitButton.disabled = false
 					submitButton.textContent = 'Send Message'
 				})
-			umami.track('contact-form-submit')
+			umami.track('contact-form-submit', {
+				name: String(formData.get('name')),
+				email: String(formData.get('email'))
+			})
 			fbq('track', 'Contact')
 		}
 		form.addEventListener('submit', onSubmit)
