@@ -184,6 +184,7 @@
 	</script>
 
 	<script>
+		import blocklist from '@/data/contact-blocklist'
 		// const BRANCH = (document.querySelector('.branch') as HTMLElement)?.dataset.branch ?? 'unknown'
 		const successDialog = document.querySelector('dialog#success-dialog') as HTMLDialogElement
 
@@ -191,10 +192,14 @@
 		const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement
 		function onSubmit(event: SubmitEvent) {
 			event.preventDefault()
-			umami.track('try-contact-form-submit')
 			const formData = new FormData(form)
 			const name = String(formData.get('name'))
 			const email = String(formData.get('email'))
+			umami.track('try-contact-form-submit', { name, email })
+			if (blocklist.has(email)) {
+				alert("Sorry! You can't submit this form. You are in our blocklist.")
+				return
+			}
 
 			// const budget = Number(formData.get('estimated-budget-usd'))
 			// if (budget < 500) {
