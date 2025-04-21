@@ -124,6 +124,7 @@
 						'rounded-lg w-full min-w-0 px-5 py-3 border-2 border-[--color] focus:outline-none min-h-xs',
 						'[--color:theme(colors.gray.300)] hover:[--color:theme(colors.orange.600)] focus:[--color:theme(colors.orange.600)]'
 					]}
+					minlength="20"
 					style="box-shadow: var(--color) 0px 2px"
 					required></textarea>
 			</div>
@@ -192,6 +193,8 @@
 			event.preventDefault()
 			umami.track('try-contact-form-submit')
 			const formData = new FormData(form)
+			const name = String(formData.get('name'))
+			const email = String(formData.get('email'))
 
 			// const budget = Number(formData.get('estimated-budget-usd'))
 			// if (budget < 500) {
@@ -204,7 +207,6 @@
 			submitButton.disabled = true
 			submitButton.textContent = 'Sending Please Wait...'
 
-			// if (formData['bot-field'] !== '') return
 			fetch(form.action, {
 				method: form.method,
 				headers: { Accept: 'application/json' },
@@ -212,9 +214,12 @@
 			})
 				.then(async (response) => {
 					if (response.ok) {
+						umami.track('contact-form-submit', { name, email })
+						fbq('track', 'Contact')
 						const searchParams = new URLSearchParams(window.location.search)
-						searchParams.set('email', formData.get('email') as string)
+						searchParams.set('email', email)
 						fetch('/thanks?' + searchParams.toString())
+
 						successDialog.showModal()
 						form.reset()
 					} else {
@@ -226,17 +231,8 @@
 					submitButton.disabled = false
 					submitButton.textContent = 'Send Message'
 				})
-			umami.track('contact-form-submit', {
-				name: String(formData.get('name')),
-				email: String(formData.get('email'))
-			})
-			fbq('track', 'Contact')
 		}
 		form.addEventListener('submit', onSubmit)
-
-		// document.getElementById('book-a-call')?.addEventListener('click', function () {
-		// 	fbq('track', 'Contact')
-		// })
 	</script>
 </div>
 <script>
