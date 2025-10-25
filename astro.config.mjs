@@ -1,4 +1,5 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+
 import mdx from '@astrojs/mdx'
 import netlify from '@astrojs/netlify'
 import node from '@astrojs/node'
@@ -15,6 +16,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeToc from 'rehype-toc'
 import Unocss from 'unocss/astro'
 import { fileURLToPath } from 'url'
+import { compression } from 'vite-plugin-compression2'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const directoryPath = path.join(__dirname, 'src', 'content', 'blog')
@@ -68,8 +70,7 @@ export default defineConfig({
 			}
 		}),
 		robots(),
-		mdx(),
-		compressor()
+		mdx()
 	],
 	markdown: {
 		shikiConfig: {
@@ -89,6 +90,14 @@ export default defineConfig({
 					}
 				}
 			]
+		]
+	},
+	vite: {
+		plugins: [
+			compression({
+				algorithms: ['gzip', 'brotli', 'zstd'],
+				include: /\.(html|xml|css|json|js|mjs|svg|png|yaml|yml|toml|wasm|woff2|woff|ttf)$/
+			})
 		]
 	},
 	output: 'hybrid',
