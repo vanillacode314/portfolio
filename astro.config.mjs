@@ -96,7 +96,7 @@ export default defineConfig({
 		plugins: [
 			compression({
 				algorithms: ['gzip', 'brotli', 'zstd'],
-				include: /\.(html|xml|css|json|js|mjs|svg|png|yaml|yml|toml|wasm|woff2|woff|ttf)$/
+				include: /\.(html|xml|css|json|js|mjs|svg|yaml|yml|toml|wasm|woff2|woff|ttf)$/
 			})
 		]
 	},
