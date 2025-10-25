@@ -1,4 +1,4 @@
-FROM node:20-slim AS base
+FROM node:24-slim AS base
 ENV BUN_INSTALL_CACHE_DIR=/root/.cache/bun
 RUN npm i -g bun
 COPY . /app
