@@ -14,9 +14,9 @@
 	}
 
 	header /_astro* Cache-Control "max-age=31536000, immutable"
+	header /assets/fonts/* Cache-Control "max-age=31536000, immutable"
 
-	header /assets* Cache-Control "max-age=604800, stale-while-revalidate=86400"
-
+	header /assets* ?Cache-Control "max-age=604800, stale-while-revalidate=86400"
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 		?Cache-Control "max-age=300, private"
