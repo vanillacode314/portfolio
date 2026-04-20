@@ -1,4 +1,7 @@
-<article class="rounded-10 grid gap-5 bg-orange-600 p-10 text-gray-100 shadow-2xl xl:gap-10">
+<article
+	class="rounded-10 grid gap-5 bg-orange-600 p-10 text-gray-100 shadow-2xl xl:gap-10"
+	id="cta-banner"
+>
 	<h2
 		class="align-center text-4xl font-extrabold leading-snug md:text-6xl md:leading-tight text-center text-balance"
 	>
@@ -21,3 +24,8 @@
 		</a>
 	</div>
 </article>
+
+<script>
+	import { trackScroll } from '@/utils/umami'
+	trackScroll('cta-banner')
+</script>
