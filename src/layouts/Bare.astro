@@ -24,15 +24,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 		<title>{title}</title>
 		{
 			import.meta.env.PROD && (
-				<script
-					is:inline
-					defer
-					src="https://umami.raqueeb.com/script.js"
-					type="text/partytown"
-					data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"
-					data-tag={'umami-branch-' + process.env.BRANCH}
-					data-domains="raqueeb.com"
-				/>
+				<>
+					<script
+						is:inline
+						defer
+						src="https://umami.raqueeb.com/script.js"
+						type="text/partytown"
+						data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"
+						data-tag={'umami-branch-' + process.env.BRANCH}
+						data-domains="raqueeb.com"
+					/>
+					<script
+						is:inline
+						defer
+						src="https://umami.raqueeb.com/recorder.js"
+						data-type-later="text/partytown"
+						data-website-id="8fe7224c-ce0f-40c9-a73e-b127d8283ccd"
+						data-tag={'umami-branch-' + process.env.BRANCH}
+						data-domains="raqueeb.com"
+					/>
+				</>
 			)
 		}
 	</head>
